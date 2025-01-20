@@ -430,7 +430,7 @@
         const charts = {};
         const lossesDict = {};
         const lossesSorted = (function () {
-            const url = `https://raw.githubusercontent.com/lod-db/orc-losses-tst/refs/heads/main/data/${locale}.json`;
+            const url = `https://raw.githubusercontent.com/lod-db/orc-losses/refs/heads/main/data/${locale}.json`;
             const jsonReq = new XMLHttpRequest();
             jsonReq.open('GET', url, false); // Intentional blocking request
             jsonReq.send(null);
