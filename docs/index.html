@@ -448,7 +448,7 @@
             let date = new Date(lossesSorted[0].date);
             const dateToday = new Date(lossesSorted[lossesSorted.length - 1].date);
             const dateRange = [];
-            while (date < dateToday) {
+            while (date <= dateToday) {
                 const dateKey = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
                 dateRange.push(dateKey);
 
