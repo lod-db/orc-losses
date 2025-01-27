@@ -445,8 +445,9 @@
             return lossesSorted;
         })();
         const dateRange = (function () {
-            let date = new Date(lossesSorted[0].date);
-            const dateToday = new Date(lossesSorted[lossesSorted.length - 1].date);
+            // Date constructor w/o time sets underlying date in UTC. Adding time keeps it local
+            let date = new Date(lossesSorted[0].date + 'T00:00:00');
+            const dateToday = new Date(lossesSorted[lossesSorted.length - 1].date + 'T00:00:00');
             const dateRange = [];
             while (date <= dateToday) {
                 const dateKey = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
