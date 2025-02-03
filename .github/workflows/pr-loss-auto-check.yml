@@ -1,0 +1,52 @@
+name: Losses Pull Request Review
+
+on:
+  pull_request:
+    paths:
+      - 'data/**'
+
+jobs:
+  verify-files:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Save Script
+      run: >
+        echo '
+          const losses = require("./data/en-US.json");
+          const current = losses[0];
+          const prev = losses[1];
+          const personnelDiff = current.personnel - prev.personnel;
+          const artilleryDiff = current.artillery - prev.artillery;
+          const fixedWingAircraftDiff = current.fixedWingAircraft - prev.fixedWingAircraft;
+          const rotoryWingAircraftDiff = current.rotoryWingAircraft - prev.rotoryWingAircraft;
+          const tanksDiff = current.tanks - prev.tanks;
+          const afvsDiff = current.afvs - prev.afvs;
+          const rocketSystemsDiff = current.rocketSystems - prev.rocketSystems;
+          const airDefenseDiff = current.airDefense - prev.airDefense;
+          const shipDiff = current.ships - prev.ships;
+          const submarinesDiff = current.submarines - prev.submarines;
+          const unarmoredVehiclesDiff = current.unarmoredVehicles - prev.unarmoredVehicles;
+          const specialEquipmentDiff = current.specialEquipment - prev.specialEquipment;
+          const uavsDiff = current.uavs - prev.uavs;
+          const missilesDiff = current.missiles - prev.missiles;
+
+          if (personnelDiff < 0 || personnelDiff > 5000) throw new Error("personnelDiff is outside of allowed range.");
+          else if (artilleryDiff < 0 || artilleryDiff > 250) throw new Error("artilleryDiff is outside of allowed range.");
+          else if (fixedWingAircraftDiff < 0 || fixedWingAircraftDiff > 250) throw new Error("fixedWingAircraftDiff is outside of allowed range.");
+          else if (rotoryWingAircraftDiff < 0 || rotoryWingAircraftDiff > 250) throw new Error("rotoryWingAircraftDiff is outside of allowed range.");
+          else if (tanksDiff < 0 || tanksDiff > 250) throw new Error("tanksDiff is outside of allowed range.");
+          else if (afvsDiff < 0 || afvsDiff > 250) throw new Error("afvsDiff is outside of allowed range.");
+          else if (rocketSystemsDiff < 0 || rocketSystemsDiff > 250) throw new Error("rocketSystemsDiff is outside of allowed range.");
+          else if (airDefenseDiff < 0 || airDefenseDiff > 250) throw new Error("airDefenseDiff is outside of allowed range.");
+          else if (shipDiff < 0 || shipDiff > 50) throw new Error("shipDiff is outside of allowed range.");
+          else if (submarinesDiff < 0 || submarinesDiff > 50) throw new Error("submarinesDiff is outside of allowed range.");
+          else if (unarmoredVehiclesDiff < 0 || unarmoredVehiclesDiff > 250) throw new Error("unarmoredVehiclesDiff is outside of allowed range.");
+          else if (specialEquipmentDiff < 0 || specialEquipmentDiff > 250) throw new Error("specialEquipmentDiff is outside of allowed range.");
+          else if (uavsDiff < 0 || uavsDiff > 1000) throw new Error("uavsDiff is outside of allowed range.");
+          else if (missilesDiff < 0 || missilesDiff > 1000) throw new Error("missilesDiff is outside of allowed range.");
+        ' > index.js
+
+    - name: Run Script
+      run: node ./index.js
