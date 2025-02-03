@@ -1,4 +1,4 @@
-{% assign lang = site.data.translations | find_exp:"item", "item.slug == page.lang" %}
+{% assign lang = site.data.translations | find_exp:"item", "item.slug == page.lang" | first %}
 {% for t in site.data.translations %}
     <h1>yes</h1>
     {{ t.slug }} | {{ page.lang }} | {{ lang | jsonify }}
