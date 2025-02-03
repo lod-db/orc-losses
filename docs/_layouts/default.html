@@ -1,4 +1,5 @@
-{% assign lang = site.data.translations[page.langSlug] %}
+{% assign lang = site.data.translations | find_exp:"item",
+"item.slug == page.lang" %}
 <html lang="{{ lang.slug }}">
 <head>
     <meta charset="utf-8">
@@ -119,7 +120,7 @@
     <main class="container" aria-live="polite">
 
         <section class="my-3">
-           <p>{{ lang.preamble_text }}</p>
+           <p>{{ lang.preamble_paragraph }}</p>
            {{ content }}
 
         </section>
