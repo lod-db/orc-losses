@@ -1,5 +1,4 @@
-{% assign lang = site.data.translations | find_exp:"item",
-"item.slug == page.lang" %}
+{% assign lang = site.data.translations | find_exp:"item", "item.slug == page.lang" %}
 <html lang="{{ lang.slug }}">
 <head>
     <meta charset="utf-8">
