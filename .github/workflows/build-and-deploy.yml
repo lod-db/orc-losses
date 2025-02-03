@@ -28,13 +28,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Copy Data
+        run: cp -r ./data ./docs/_data
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ./docs
-          destination: ./docs/_site
+          source: docs
+          destination: _site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
