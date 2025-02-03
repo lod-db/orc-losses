@@ -1,9 +1,12 @@
-{% assign lang = site.data.translations | find_exp:"item", "item.slug == page.lang" | first %}
-{% for t2 in site.data.translations | find_exp:"item", "item.slug == page.lang" %}
-    <h1>other</h1>
-    {{ site.data | jsonify }}
-{% endfor %}
-<html lang="{{ lang.slug }}">
+{% assign lang = site.data.translations | find_exp:"item", "item.slug == page.lang" | first %}<html lang="{{ lang.slug }}">
+{{ site.data | jsonify }}
+<hr />
+{{ site.data.data | jsonify }}
+<hr />
+{{ site.data.data[lang] | first | jsonify }}
+{% assign losses = site.data.data[lang] | first | jsonify | first %}
+<hr />
+{{ losses | jsonify }}
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
