@@ -1,5 +1,5 @@
-<html lang="en">
-
+{% assign lang = site.data.translations[page.langSlug] %}
+<html lang="{{ lang.slug }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -116,8 +116,13 @@
         </nav>
     </header>
 
-    {{ content }}
     <main class="container" aria-live="polite">
+
+        <section class="my-3">
+           <p>{{ lang.preamble_text }}</p>
+           {{ content }}
+
+        </section>
         <section id="losses-container" class="my-3">
             <div class="row">
                 <div class="col">
@@ -231,7 +236,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         // Set Globals
-        const locale = 'en-US';
+        const locale = '{{ lang.slug }}';
         const charts = {};
         const lossesDict = {};
         const lossesSorted = (function () {
@@ -493,7 +498,7 @@
             ];
             const lineChartOptions = {
                 title: {
-                    text: 'Russian Losses in Ukraine',
+                    //text: 'Russian Losses in Ukraine',
                     subtext: `2022 - ${new Date(lossesSorted[lossesSorted.length - 1].date).getFullYear()}`,
                     left: 'center',
                 },
