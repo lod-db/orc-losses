@@ -1,7 +1,13 @@
-{% assign lang = site.data.translations | find_exp:"item", "item.slug == page.lang" %}
+{% assign lang = site.data.translations %}
 {% for t in site.data.translations %}
     <h1>yes</h1>
     {{ t.slug }} | {{ page.lang }}
+{% endfor %}
+<hr />
+
+{% for t2 in site.data.translations | find_exp:"item", "item.slug == page.lang" %}
+    <h1>other</h1>
+    {{ t2.slug }} | {{ page.lang }}
 {% endfor %}
 <html lang="{{ lang.slug }}">
 <head>
