@@ -8,8 +8,11 @@
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#0056B9" />
     <meta name="description" content="{{ lang.description }}" />
-    <meta name="keywords" content="Ukraine war losses, Russian military losses, Ukraine conflict data, war casualties, Ukraine war statistics" />
+    <meta name="keywords" content="{{ lange.keywords }}" />
     <meta name="revised" content="{{ recent.date }}" />
+    <link rel="alternate" hreflang="en-us" href="https://www.ukrainewarlosses.com" />
+    <link rel="alternate" hreflang="en-gb" href="https://www.ukrainewarlosses.com/uk" />
+    <link rel="alternate" hreflang="fr" href="https://www.ukrainewarlosses.com/fr" />
 
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -95,7 +98,7 @@
                                         English (US)
                                     </a>
                                 </li>
-                                <!-- <li role="presentation">
+                                <li role="presentation">
                                     <a role="menuitem" href="/uk" class="dropdown-item">
                                         <iconify-icon icon="circle-flags:uk" role="presentation"></iconify-icon>
                                         English (UK)
@@ -107,7 +110,7 @@
                                         French
                                     </a>
                                 </li>
-                                <li role="presentation">
+                                <!-- <li role="presentation">
                                     <a role="menuitem" href="/de" class="dropdown-item">
                                         <iconify-icon icon="circle-flags:de" role="presentation"></iconify-icon>
                                         German
@@ -134,16 +137,16 @@
     </header>
 
     <main class="container" aria-live="polite">
-
         <section class="my-3">
            <p>{{ lang.preamble-paragraph }}</p>
+
            {{ content }}
 
         </section>
         <section id="losses-container" class="my-3">
             <div class="row">
                 <div class="col">
-                    Loading...
+                    
                 </div>
             </div>
         </section>
@@ -151,6 +154,7 @@
         <section id="charts-container" class="my-3">
             <div class="chart-container">
                 <div id="line-chart" style="width: 100%; height: 100%;">
+                    Loading...
                 </div>
             </div>
         </section>
@@ -470,43 +474,43 @@
 
             const lineChart = echarts.init(document.getElementById('line-chart'), theme);
             markArea.data = [
-                [
-                    {
-                        name: 'Battle of Kyiv',
-                        // This started 2022-02-25 but data starts 2022-02-27
-                        xAxis: '2022-02-27',
-                    },
-                    {
-                        xAxis: '2022-04-02',
-                    },
-                ],
-                [
-                    {
-                        name: 'Battle of Bakhmut',
-                        xAxis: '2022-06-03',
-                    },
-                    {
-                        xAxis: '2023-05-20',
-                    },
-                ],
-                [
-                    {
-                        name: 'Kharkiv Counteroffensive',
-                        xAxis: '2022-09-06',
-                    },
-                    {
-                        xAxis: '2022-10-01',
-                    },
-                ],
-                [
-                    {
-                        name: 'Kharkiv Counteroffensive',
-                        xAxis: '2022-09-06',
-                    },
-                    {
-                        xAxis: '2022-10-01',
-                    },
-                ],
+                // [
+                //     {
+                //         name: 'Battle of Kyiv',
+                //         // This started 2022-02-25 but data starts 2022-02-27
+                //         xAxis: '2022-02-27',
+                //     },
+                //     {
+                //         xAxis: '2022-04-02',
+                //     },
+                // ],
+                // [
+                //     {
+                //         name: 'Battle of Bakhmut',
+                //         xAxis: '2022-06-03',
+                //     },
+                //     {
+                //         xAxis: '2023-05-20',
+                //     },
+                // ],
+                // [
+                //     {
+                //         name: 'Kharkiv Counteroffensive',
+                //         xAxis: '2022-09-06',
+                //     },
+                //     {
+                //         xAxis: '2022-10-01',
+                //     },
+                // ],
+                // [
+                //     {
+                //         name: 'Kharkiv Counteroffensive',
+                //         xAxis: '2022-09-06',
+                //     },
+                //     {
+                //         xAxis: '2022-10-01',
+                //     },
+                // ],
             ];
             const lineChartOptions = {
                 title: {
