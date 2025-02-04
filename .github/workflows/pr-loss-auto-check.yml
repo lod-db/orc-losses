@@ -2,8 +2,6 @@ name: Losses Pull Request Review
 
 on:
   pull_request:
-    paths:
-      - 'data/**'
 
 jobs:
   verify-files:

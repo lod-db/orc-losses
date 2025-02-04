@@ -1,17 +1,36 @@
-{% assign lang = site.data.translations | find_exp:"item",
-"item.slug == page.lang" %}
-<html lang="{{ lang.slug }}">
+{% assign lang = site.data.translations | where_exp:"item", "item.slug == page.lang" | first %}<html lang="{{ lang.slug }}">
+{% assign losses = site.data.data.en-US %}
+{% assign recent = losses | first %}
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ lang.title }}</title>
+    <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#0056B9" />
+    <meta name="description" content="{{ lang.description }}" />
+    <meta name="keywords" content="{{ lange.keywords }}" />
+    <meta name="revised" content="{{ recent.date }}" />
+    <link rel="alternate" hreflang="en-us" href="https://www.ukrainewarlosses.com" />
+    <link rel="alternate" hreflang="en-gb" href="https://www.ukrainewarlosses.com/uk" />
+    <link rel="alternate" hreflang="fr" href="https://www.ukrainewarlosses.com/fr" />
 
-    <title>{{ page.title }}</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+    <link rel="apple-touch-icon" type="image/png" sizes="167x167" href="/favicon-167x167.png">
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/favicon-180x180.png">
+
+    <meta name="twitter:card" content="summary" />
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ lang.title }}" />
+    <meta property="og:description" content="{{ lang.description }}" />
+    <meta property="og:url" content="https://www.ukrainewarlosses.com{{ page.url }}" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" rel="stylesheet"
         crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link href="css/site.css" rel="stylesheet">
+    <link href="/css/site.css" rel="stylesheet">
 </head>
 
 <body>
@@ -31,31 +50,31 @@
                 <div id="primary-navigation-menu" class="collapse navbar-collapse">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-text d-none d-lg-inline-block">
-                            Russian Losses in Ukraine
+                            {{ lang.page-title }}
                         </li>
                     </ul>
                     <ul class="navbar-nav d-flex">
                         <li class="nav-item dropdown">
                             <a id="theme-menu-toggle" class="nav-link dropdown-toggle text-white" href="#" role="button"
-                                aria-haspopup="true" aria-controls="theme-menu" aria-label="Theme"
+                                aria-haspopup="true" aria-controls="theme-menu" aria-label="{{ lang.theme-label }}"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 <iconify-icon class="me-1 align-middle"
                                     icon="material-symbols:light-mode"></iconify-icon>
-                                Theme
+                                {{ lang.theme-label }}
                             </a>
                             <ul id="theme-menu" class="dropdown-menu" role="menu" aria-labelledby="theme-menu-toggle">
                                 <li role="menuitem" onclick="togglePageTheme('light')">
                                     <span class="dropdown-item">
                                         <iconify-icon icon="material-symbols:light-mode"
                                             role="presentation"></iconify-icon>
-                                        Light
+                                        {{ lang.theme-light-label }}
                                     </span>
                                 </li>
                                 <li role="menuitem" onclick="togglePageTheme('dark')">
                                     <span class="dropdown-item">
                                         <iconify-icon icon="material-symbols:dark-mode"
                                             role="presentation"></iconify-icon>
-                                        Dark
+                                        {{ lang.theme-dark-label }}
                                     </span>
                                 </li>
                             </ul>
@@ -66,20 +85,20 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a id="language-menu-toggle" class="nav-link dropdown-toggle text-white" href="#"
-                                role="button" aria-haspopup="true" aria-controls="language-menu" aria-label="Language"
+                                role="button" aria-haspopup="true" aria-controls="language-menu" aria-label="{{ lang.language-label }}"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 <iconify-icon class="me-1 align-middle" icon="circle-flags:us"></iconify-icon>
-                                Language
+                                {{ lang.language-label }}
                             </a>
                             <ul id="language-menu" class="dropdown-menu" role="menu"
                                 aria-labelledby="language-menu-toggle">
                                 <li role="presentation">
-                                    <a role="menuitem" href="/us" class="dropdown-item">
+                                    <a role="menuitem" href="/" class="dropdown-item">
                                         <iconify-icon icon="circle-flags:us" role="presentation"></iconify-icon>
                                         English (US)
                                     </a>
                                 </li>
-                                <!-- <li role="presentation">
+                                <li role="presentation">
                                     <a role="menuitem" href="/uk" class="dropdown-item">
                                         <iconify-icon icon="circle-flags:uk" role="presentation"></iconify-icon>
                                         English (UK)
@@ -88,10 +107,10 @@
                                 <li role="presentation">
                                     <a role="menuitem" href="/fr" class="dropdown-item">
                                         <iconify-icon icon="circle-flags:fr" role="presentation"></iconify-icon>
-                                        French
+                                        Français
                                     </a>
                                 </li>
-                                <li role="presentation">
+                                <!-- <li role="presentation">
                                     <a role="menuitem" href="/de" class="dropdown-item">
                                         <iconify-icon icon="circle-flags:de" role="presentation"></iconify-icon>
                                         German
@@ -118,16 +137,16 @@
     </header>
 
     <main class="container" aria-live="polite">
-
         <section class="my-3">
-           <p>{{ lang.preamble_paragraph }}</p>
+           <p>{{ lang.preamble-paragraph }}</p>
+
            {{ content }}
 
         </section>
         <section id="losses-container" class="my-3">
             <div class="row">
                 <div class="col">
-                    Loading...
+                    
                 </div>
             </div>
         </section>
@@ -135,6 +154,7 @@
         <section id="charts-container" class="my-3">
             <div class="chart-container">
                 <div id="line-chart" style="width: 100%; height: 100%;">
+                    Loading...
                 </div>
             </div>
         </section>
@@ -241,12 +261,7 @@
         const charts = {};
         const lossesDict = {};
         const lossesSorted = (function () {
-            const url = `https://raw.githubusercontent.com/lod-db/orc-losses/refs/heads/main/data/${locale}.json`;
-            const jsonReq = new XMLHttpRequest();
-            jsonReq.open('GET', url, false); // Intentional blocking request
-            jsonReq.send(null);
-
-            const json = JSON.parse(jsonReq.responseText);
+            const json = {{ losses | jsonify }}
             const lossesSorted = json.toSorted((a, b) => a.date.localeCompare(b.date, 'en'));
 
             for (const loss of lossesSorted) {
@@ -459,43 +474,43 @@
 
             const lineChart = echarts.init(document.getElementById('line-chart'), theme);
             markArea.data = [
-                [
-                    {
-                        name: 'Battle of Kyiv',
-                        // This started 2022-02-25 but data starts 2022-02-27
-                        xAxis: '2022-02-27',
-                    },
-                    {
-                        xAxis: '2022-04-02',
-                    },
-                ],
-                [
-                    {
-                        name: 'Battle of Bakhmut',
-                        xAxis: '2022-06-03',
-                    },
-                    {
-                        xAxis: '2023-05-20',
-                    },
-                ],
-                [
-                    {
-                        name: 'Kharkiv Counteroffensive',
-                        xAxis: '2022-09-06',
-                    },
-                    {
-                        xAxis: '2022-10-01',
-                    },
-                ],
-                [
-                    {
-                        name: 'Kharkiv Counteroffensive',
-                        xAxis: '2022-09-06',
-                    },
-                    {
-                        xAxis: '2022-10-01',
-                    },
-                ],
+                // [
+                //     {
+                //         name: 'Battle of Kyiv',
+                //         // This started 2022-02-25 but data starts 2022-02-27
+                //         xAxis: '2022-02-27',
+                //     },
+                //     {
+                //         xAxis: '2022-04-02',
+                //     },
+                // ],
+                // [
+                //     {
+                //         name: 'Battle of Bakhmut',
+                //         xAxis: '2022-06-03',
+                //     },
+                //     {
+                //         xAxis: '2023-05-20',
+                //     },
+                // ],
+                // [
+                //     {
+                //         name: 'Kharkiv Counteroffensive',
+                //         xAxis: '2022-09-06',
+                //     },
+                //     {
+                //         xAxis: '2022-10-01',
+                //     },
+                // ],
+                // [
+                //     {
+                //         name: 'Kharkiv Counteroffensive',
+                //         xAxis: '2022-09-06',
+                //     },
+                //     {
+                //         xAxis: '2022-10-01',
+                //     },
+                // ],
             ];
             const lineChartOptions = {
                 title: {
