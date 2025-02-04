@@ -10,7 +10,7 @@
   language-label: Language
   preamble-paragraph: Since Russia launched its full-scale invasion in 2022, military and equipment losses have been a key measure of the war’s progression. This site compiles figures from the Ukrainian Ministry of Defense, recognizing that all sources may carry biases while striving to provide a transparent view of the conflict.
 
-- name: English (GB)
+- name: English (UK)
   slug: en-GB
   title: Russian Losses in Ukraine – Casualties and Equipment Losses
   description: The latest Russian casualties and equipment losses since the start of the 2022 full-scale invasion.
@@ -22,7 +22,7 @@
   language-label: Language
   preamble-paragraph: Since Russia launched its full-scale invasion in 2022, military and equipment losses have been a key measure of the war’s progression. This site compiles figures from the Ukrainian Ministry of Defence, recognising that all sources may carry biases while striving to provide a transparent view of the conflict.
 
-- name: French
+- name: Français
   slug: fr-FR
   title: Pertes russes en Ukraine – Pertes humaines et matérielles
   description: Les dernières pertes humaines et matérielles russes depuis le début de l’invasion à grande échelle en 2022.

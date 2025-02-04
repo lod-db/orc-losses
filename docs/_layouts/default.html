@@ -1,4 +1,4 @@
-{% assign lang = site.data.translations | where:"item", "item.slug == page.lang" | first %}<html lang="{{ lang.slug }}">
+{% assign lang = site.data.translations | where_exp:"item", "item.slug == page.lang" | first %}<html lang="{{ lang.slug }}">
 {% assign losses = site.data.data.en-US %}
 {% assign recent = losses | first %}
 <head>
@@ -107,7 +107,7 @@
                                 <li role="presentation">
                                     <a role="menuitem" href="/fr" class="dropdown-item">
                                         <iconify-icon icon="circle-flags:fr" role="presentation"></iconify-icon>
-                                        French
+                                        Français
                                     </a>
                                 </li>
                                 <!-- <li role="presentation">
