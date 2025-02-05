@@ -9,6 +9,25 @@
   theme-dark-label: Dark
   language-label: Language
   preamble-paragraph: Since Russia launched its full-scale invasion in 2022, military and equipment losses have been a key measure of the war’s progression. This site compiles figures from the Ukrainian Ministry of Defense, recognizing that all sources may carry biases while striving to provide a transparent view of the conflict.
+  lost-since-label: lost since
+  no-data-on-date-label: No data available on this date
+  personnel-label: Personnel
+  artillery-label: Artillery
+  jets-label: Planes
+  helicopters-label: Helicopters
+  tanks-label: Tanks
+  afvs-label: Armored Fighting Vehicles
+  mlrs-label: Rocket Systems
+  aa-label: Anti-Air Systems
+  ships-label: Ships
+  submarines-label: Submarines
+  vehicles-label: Unarmored Vehicles
+  special-label: Special Equipment
+  uavs-label: Unmanned Aerial Vehicles
+  missiles-label: Missiles
+  view-on-github-label: View on
+  tos-label: Terms of Use
+  attributions-label: Attribution
 
 - name: English (UK)
   slug: en-GB
@@ -21,6 +40,25 @@
   theme-dark-label: Dark
   language-label: Language
   preamble-paragraph: Since Russia launched its full-scale invasion in 2022, military and equipment losses have been a key measure of the war’s progression. This site compiles figures from the Ukrainian Ministry of Defence, recognising that all sources may carry biases while striving to provide a transparent view of the conflict.
+  lost-since-label: Lost since
+  no-data-on-date-label: No data available on this date
+  personnel-label: Personnel
+  artillery-label: Artillery
+  jets-label: Aeroplanes
+  helicopters-label: Helicopters
+  tanks-label: Tanks
+  afvs-label: Armoured Fighting Vehicles
+  mlrs-label: Rocket Systems
+  aa-label: Anti-Air Systems
+  ships-label: Ships
+  submarines-label: Submarines
+  vehicles-label: Unarmoured Vehicles
+  special-label: Special Equipment
+  uavs-label: Unmanned Aerial Vehicles
+  missiles-label: Missiles
+  view-on-github-label: View on
+  tos-label: Terms of Use
+  attributions-label: Attribution
 
 - name: Français
   slug: fr-FR
@@ -33,3 +71,22 @@
   theme-dark-label: Sombre
   language-label: Langue
   preamble-paragraph: Depuis le lancement de son invasion à grande échelle en 2022, la Russie a subi des pertes militaires et matérielles significatives, devenues une mesure clé de la progression de la guerre. Ce site compile les chiffres fournis par le ministère ukrainien de la Défense, tout en reconnaissant que toutes les sources peuvent comporter des biais, dans un souci de transparence.
+  lost-since-label: Perdu depuis
+  no-data-on-date-label: Aucune donnée disponible à cette date
+  personnel-label: Personnel
+  artillery-label: Artillerie
+  jets-label: Avions
+  helicopters-label: Hélicoptères
+  tanks-label: Chars
+  afvs-label: Véhicules blindés de combat
+  mlrs-label: Systèmes de roquettes
+  aa-label: Systèmes anti-aériens
+  ships-label: Navires
+  submarines-label: Sous-marins
+  vehicles-label: Véhicules non blindés
+  special-label: Équipement spécial
+  uavs-label: Véhicules aériens sans pilote
+  missiles-label: Missiles
+  view-on-github-label: Voir sur
+  tos-label: Conditions d'utilisation
+  attributions-label: Attribution

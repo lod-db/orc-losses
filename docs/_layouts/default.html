@@ -175,16 +175,16 @@
             <div>
                 <p class="m-0">
                     <iconify-icon icon="mdi:github" class="me-1 align-middle fs-4"></iconify-icon>
-                    <span class="d-inline-block pt-1">View on</span>
+                    <span class="d-inline-block pt-1">{{ lang.view-on-github-label }}</span>
                     <a class="btn btn-link px-0" href="https://www.github.com/lod-db/orc-losses"
                         title="Orc Losses on GitHub" target="_blank" rel="noopener noreferrer nofollow">GitHub</a>
                 </p>
             </div>
             <div>
-                <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#modal-tos">Terms of
-                    Use</button>
                 <button type="button" class="btn btn-link" data-bs-toggle="modal"
-                    data-bs-target="#modal-attribution">Attribution</button>
+                    data-bs-target="#modal-tos">{{ lang.tos-label }}</button>
+                <button type="button" class="btn btn-link" data-bs-toggle="modal"
+                    data-bs-target="#modal-attribution">{{ lang.attributions-label }}</button>
             </div>
         </div>
     </footer>
@@ -194,7 +194,7 @@
         <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 id="modal-tos-title" class="modal-title fs-5">Terms of Use</h1>
+                    <h1 id="modal-tos-title" class="modal-title fs-5">{{ lang.tos-label }}</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -212,7 +212,7 @@
         <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 id="modal-attribution-title" class="modal-title fs-5">Attribution</h1>
+                    <h1 id="modal-attribution-title" class="modal-title fs-5">{{ lang.attributions-label }}</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -305,20 +305,20 @@
             const containerEle = document.getElementById('losses-container');
             const rowEle = containerEle.getElementsByClassName('row')[0];
             const lossCategories = [
-                { id: 'personnel', key: 'personnel', name: 'Personnel', icon: 'helmet' },
-                { id: 'artillery', key: 'artillery', name: 'Artillery', icon: 'artillery' },
-                { id: 'jets', key: 'fixedWingAircraft', name: 'Planes', icon: 'jet' },
-                { id: 'helicopters', key: 'rotoryWingAircraft', name: 'Helicopters', icon: 'helicopter' },
-                { id: 'tanks', key: 'tanks', name: 'Tanks', icon: 'tank' },
-                { id: 'afvs', key: 'afvs', name: 'Armored Fighting Vehicles', icon: 'afv' },
-                { id: 'mlrs', key: 'rocketSystems', name: 'Rocket Systems', icon: 'mlrs' },
-                { id: 'aa', key: 'airDefense', name: 'Anti-Air Systems', icon: 'radar' },
-                { id: 'ships', key: 'ships', name: 'Ships', icon: 'ship' },
-                { id: 'submarines', key: 'submarines', name: 'Submarines', icon: 'submarine' },
-                { id: 'vehicles', key: 'unarmoredVehicles', name: 'Unarmored Vehicles', icon: 'vehicle' },
-                { id: 'special', key: 'specialEquipment', name: 'Special Equipment', icon: 'bulldozer' },
-                { id: 'uavs', key: 'uavs', name: 'Unmanned Aerial Vehicles', icon: 'uav' },
-                { id: 'missiles', key: 'missiles', name: 'Missiles', icon: 'missile' },
+                { id: 'personnel', key: 'personnel', name: '{{ lang.personnel-label }}', icon: 'helmet' },
+                { id: 'artillery', key: 'artillery', name: '{{ lang.artillery-label }}', icon: 'artillery' },
+                { id: 'jets', key: 'fixedWingAircraft', name: '{{ lang.jets-label }}', icon: 'jet' },
+                { id: 'helicopters', key: 'rotoryWingAircraft', name: '{{ lang.helicopters-label }}', icon: 'helicopter' },
+                { id: 'tanks', key: 'tanks', name: '{{ lang.tanks-label }}', icon: 'tank' },
+                { id: 'afvs', key: 'afvs', name: '{{ lang.afvs-label }}', icon: 'afv' },
+                { id: 'mlrs', key: 'rocketSystems', name: '{{ lang.mlrs-label }}', icon: 'mlrs' },
+                { id: 'aa', key: 'airDefense', name: '{{ lang.aa-label }}', icon: 'radar' },
+                { id: 'ships', key: 'ships', name: '{{ lang.ships-label }}', icon: 'ship' },
+                { id: 'submarines', key: 'submarines', name: '{{ lang.submarines-label }}', icon: 'submarine' },
+                { id: 'vehicles', key: 'unarmoredVehicles', name: '{{ lang.vehicles-label }}', icon: 'vehicle' },
+                { id: 'special', key: 'specialEquipment', name: '{{ lang.special-label }}', icon: 'bulldozer' },
+                { id: 'uavs', key: 'uavs', name: '{{ lang.uavs-label }}', icon: 'uav' },
+                { id: 'missiles', key: 'missiles', name: '{{ lang.missiles-label }}', icon: 'missile' },
             ];
             const colEles = lossCategories.map(c => {
                 const currVal = current ? current[c.key] : null;
@@ -374,8 +374,8 @@
                 descriptionEle.id = `losses-${c.id}-description`;
                 descriptionEle.className = 'visually-hidden';
                 descriptionEle.innerText = !isNull(currVal)
-                    ? `${c.id === 'personnel' ? '~' : ''}${currVal} ${c.name} lost since 2022.`
-                    : 'No data available on this date';
+                    ? `${c.id === 'personnel' ? '~' : ''}${currVal} ${c.name} {{ lang.lost-since-label }} 2022.`
+                    : '{{ lang.no-data-on-date-label }}';
                 containerEle.appendChild(descriptionEle);
 
                 return rootEle;
@@ -404,59 +404,59 @@
             function createLineSeries(data) {
                 const dataPoints = [
                     {
-                        name: 'Personnel',
+                        name: '{{ lang.personnel-label }}',
                         data: data.map(d => d?.personnel),
                     },
                     {
-                        name: 'Tanks',
+                        name: '{{ lang.tanks-label }}',
                         data: data.map(d => d?.tanks),
                     },
                     {
-                        name: 'Armored Fighting Vehicles',
+                        name: '{{ lang.afvs-label }}',
                         data: data.map(d => d?.afvs),
                     },
                     {
-                        name: 'Artillery',
+                        name: '{{ lang.artillery-label }}',
                         data: data.map(d => d?.artillery),
                     },
                     {
-                        name: 'Anti Air Systems',
+                        name: '{{ lang.aa-label }}',
                         data: data.map(d => d?.airDefense),
                     },
                     {
-                        name: 'Rocket Systems',
+                        name: '{{ lang.mlrs-label }}',
                         data: data.map(d => d?.rocketSystems),
                     },
                     {
-                        name: 'Unarmored Vehicles',
+                        name: '{{ lang.vehicles-label }}',
                         data: data.map(d => d?.unarmoredVehicles),
                     },
                     {
-                        name: 'Planes / Jets',
+                        name: '{{ lang.jets-label }}',
                         data: data.map(d => d?.fixedWingAircraft),
                     },
                     {
-                        name: 'Helicopters',
+                        name: '{{ lang.helicopters-label }}',
                         data: data.map(d => d?.rotoryWingAircraft),
                     },
                     {
-                        name: 'Unmanned Aerial Vehicles',
+                        name: '{{ lang.uavs-label }}',
                         data: data.map(d => d?.uavs),
                     },
                     {
-                        name: 'Ships',
+                        name: '{{ lang.ships-label }}',
                         data: data.map(d => d?.ships),
                     },
                     {
-                        name: 'Submarines',
+                        name: '{{ lang.submarines-label }}',
                         data: data.map(d => d?.submarines),
                     },
                     {
-                        name: 'Special Equipment',
+                        name: '{{ lang.special-label }}',
                         data: data.map(d => d?.specialEquipment),
                     },
                     {
-                        name: 'Missles',
+                        name: '{{ lang.missiles-label }}',
                         data: data.map(d => d?.missiles),
                     },
                 ];
