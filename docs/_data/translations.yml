@@ -9,6 +9,25 @@
   theme-dark-label: Dark
   language-label: Language
   preamble-paragraph: Since Russia launched its full-scale invasion in 2022, military and equipment losses have been a key measure of the war’s progression. This site compiles figures from the Ukrainian Ministry of Defense, recognizing that all sources may carry biases while striving to provide a transparent view of the conflict.
+  lost-since-label: lost since
+  no-data-on-date-label: No data available on this date
+  personnel-label: Personnel
+  artillery-label: Artillery
+  jets-label: Planes
+  helicopters-label: Helicopters
+  tanks-label: Tanks
+  afvs-label: Armored Fighting Vehicles
+  mlrs-label: Rocket Systems
+  aa-label: Anti-Air Systems
+  ships-label: Ships
+  submarines-label: Submarines
+  vehicles-label: Unarmored Vehicles
+  special-label: Special Equipment
+  uavs-label: Unmanned Aerial Vehicles
+  missiles-label: Missiles
+  view-on-github-label: View on
+  tos-label: Terms of Use
+  attributions-label: Attribution
 
 - name: English (UK)
   slug: en-GB
@@ -21,6 +40,25 @@
   theme-dark-label: Dark
   language-label: Language
   preamble-paragraph: Since Russia launched its full-scale invasion in 2022, military and equipment losses have been a key measure of the war’s progression. This site compiles figures from the Ukrainian Ministry of Defence, recognising that all sources may carry biases while striving to provide a transparent view of the conflict.
+  lost-since-label: Lost since
+  no-data-on-date-label: No data available on this date
+  personnel-label: Personnel
+  artillery-label: Artillery
+  jets-label: Aeroplanes
+  helicopters-label: Helicopters
+  tanks-label: Tanks
+  afvs-label: Armoured Fighting Vehicles
+  mlrs-label: Rocket Systems
+  aa-label: Anti-Air Systems
+  ships-label: Ships
+  submarines-label: Submarines
+  vehicles-label: Unarmoured Vehicles
+  special-label: Special Equipment
+  uavs-label: Unmanned Aerial Vehicles
+  missiles-label: Missiles
+  view-on-github-label: View on
+  tos-label: Terms of Use
+  attributions-label: Attribution
 
 - name: Français
   slug: fr-FR
@@ -33,3 +71,115 @@
   theme-dark-label: Sombre
   language-label: Langue
   preamble-paragraph: Depuis le lancement de son invasion à grande échelle en 2022, la Russie a subi des pertes militaires et matérielles significatives, devenues une mesure clé de la progression de la guerre. Ce site compile les chiffres fournis par le ministère ukrainien de la Défense, tout en reconnaissant que toutes les sources peuvent comporter des biais, dans un souci de transparence.
+  lost-since-label: Perdu depuis
+  no-data-on-date-label: Aucune donnée disponible à cette date
+  personnel-label: Personnel
+  artillery-label: Artillerie
+  jets-label: Avions
+  helicopters-label: Hélicoptères
+  tanks-label: Chars
+  afvs-label: Véhicules blindés de combat
+  mlrs-label: Systèmes de roquettes
+  aa-label: Systèmes anti-aériens
+  ships-label: Navires
+  submarines-label: Sous-marins
+  vehicles-label: Véhicules non blindés
+  special-label: Équipement spécial
+  uavs-label: Véhicules aériens sans pilote
+  missiles-label: Missiles
+  view-on-github-label: Voir sur
+  tos-label: Conditions d'utilisation
+  attributions-label: Attribution
+
+- name: Deutsch
+  slug: de-DE
+  title: Russische Verluste in der Ukraine – Verluste an Personal und Ausrüstung
+  description: Die neuesten russischen Verluste an Personal und Ausrüstung seit Beginn der umfassenden Invasion im Jahr 2022.
+  keywords: Ukraine Kriegsverluste, Russische Militärverluste, Ukraine Konfliktdaten, Kriegstote, Ukraine Kriegsstatistiken
+  page-title: Russische Verluste in der Ukraine
+  theme-label: Thema
+  theme-light-label: Hell
+  theme-dark-label: Dunkel
+  language-label: Sprache
+  preamble-paragraph: Seit Russland 2022 seine umfassende Invasion gestartet hat, sind militärische und materielle Verluste ein zentraler Indikator für den Verlauf des Krieges. Diese Website sammelt Zahlen des ukrainischen Verteidigungsministeriums und erkennt an, dass alle Quellen voreingenommen sein können, während sie eine transparente Sicht auf den Konflikt anstrebt.
+  lost-since-label: verloren seit
+  no-data-on-date-label: Keine Daten für dieses Datum verfügbar
+  personnel-label: Personal
+  artillery-label: Artillerie
+  jets-label: Flugzeuge
+  helicopters-label: Hubschrauber
+  tanks-label: Panzer
+  afvs-label: Gepanzerte Kampffahrzeuge
+  mlrs-label: Raketenwerfersysteme
+  aa-label: Luftabwehrsysteme
+  ships-label: Schiffe
+  submarines-label: U-Boote
+  vehicles-label: Ungepanzerte Fahrzeuge
+  special-label: Spezielle Ausrüstung
+  uavs-label: Unbemannte Luftfahrzeuge
+  missiles-label: Raketen
+  view-on-github-label: Ansehen auf
+  tos-label: Nutzungsbedingungen
+  attributions-label: Quellenangaben
+
+- name: Українська
+  slug: uk-UA
+  title: Втрати Росії в Україні – Втрати особового складу та техніки
+  description: Останні дані про втрати особового складу та техніки Росії з початку повномасштабного вторгнення у 2022 році.
+  keywords: Втрати у війні в Україні, Втрати російської армії, Дані про конфлікт в Україні, Військові втрати, Статистика війни в Україні
+  page-title: Втрати Росії в Україні
+  theme-label: Тема
+  theme-light-label: Світла
+  theme-dark-label: Темна
+  language-label: Мова
+  preamble-paragraph: З моменту повномасштабного вторгнення Росії у 2022 році втрати у військовій силі та техніці стали ключовим показником перебігу війни. Цей сайт збирає дані Міністерства оборони України, визнаючи можливу упередженість усіх джерел, та прагне забезпечити прозорий огляд конфлікту.
+  lost-since-label: втрачено з
+  no-data-on-date-label: Дані за цю дату відсутні
+  personnel-label: Особовий склад
+  artillery-label: Артилерія
+  jets-label: Літаки
+  helicopters-label: Гелікоптери
+  tanks-label: Танки
+  afvs-label: Броньовані бойові машини
+  mlrs-label: Реактивні системи залпового вогню
+  aa-label: Протиповітряна оборона
+  ships-label: Кораблі
+  submarines-label: Підводні човни
+  vehicles-label: Неброньовані машини
+  special-label: Спеціальне обладнання
+  uavs-label: Безпілотні літальні апарати
+  missiles-label: Ракети
+  view-on-github-label: Переглянути на
+  tos-label: Умови використання
+  attributions-label: Джерела інформації
+
+- name: Русский
+  slug: ru-RU
+  title: Потери России в Украине – Потери личного состава и техники
+  description: Последние данные о потерях личного состава и техники России с начала полномасштабного вторжения в 2022 году.
+  keywords: Потери в войне в Украине, Потери российской армии, Данные о конфликте в Украине, Военные потери, Статистика войны в Украине
+  page-title: Потери России в Украине
+  theme-label: Тема
+  theme-light-label: Светлая
+  theme-dark-label: Тёмная
+  language-label: Язык
+  preamble-paragraph: С момента полномасштабного вторжения России в 2022 году потери в живой силе и технике стали ключевым показателем хода войны. Этот сайт собирает данные Министерства обороны Украины, признавая возможную предвзятость всех источников, и стремится предоставить прозрачный обзор конфликта.
+  lost-since-label: потеряно с
+  no-data-on-date-label: Нет данных на эту дату
+  personnel-label: Личный состав
+  artillery-label: Артиллерия
+  jets-label: Самолёты
+  helicopters-label: Вертолёты
+  tanks-label: Танки
+  afvs-label: Бронированные боевые машины
+  mlrs-label: Реактивные системы залпового огня
+  aa-label: Противовоздушная оборона
+  ships-label: Корабли
+  submarines-label: Подводные лодки
+  vehicles-label: Небронированные машины
+  special-label: Специальное оборудование
+  uavs-label: Беспилотные летательные аппараты
+  missiles-label: Ракеты
+  view-on-github-label: Смотреть на
+  tos-label: Условия использования
+  attributions-label: Источники
