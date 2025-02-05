@@ -100,7 +100,19 @@
                             <a id="language-menu-toggle" class="nav-link dropdown-toggle text-white" href="#"
                                 role="button" aria-haspopup="true" aria-controls="language-menu" aria-label="{{ lang.language-label }}"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                <iconify-icon class="me-1 align-middle" icon="circle-flags:us"></iconify-icon>
+                                {% if lang.slug == "en-GB" %}
+                                    <iconify-icon icon="circle-flags:uk" role="presentation"></iconify-icon>
+                                {% elsif lang.slug == "fr-FR" %}
+                                    <iconify-icon icon="circle-flags:fr" role="presentation"></iconify-icon>
+                                {% elsif lang.slug == "de-DE" %}
+                                    <iconify-icon icon="circle-flags:de" role="presentation"></iconify-icon>
+                                {% elsif lang.slug == "uk-UA" %}
+                                    <iconify-icon icon="circle-flags:ua" role="presentation"></iconify-icon>
+                                {% elsif lang.slug == "ru-RU" %}
+                                    <iconify-icon icon="circle-flags:ru" role="presentation"></iconify-icon>
+                                {% else %}
+                                    <iconify-icon class="me-1 align-middle" icon="circle-flags:us"></iconify-icon>
+                                {% endif %}
                                 {{ lang.language-label }}
                             </a>
                             <ul id="language-menu" class="dropdown-menu" role="menu"
