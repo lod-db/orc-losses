@@ -12,7 +12,7 @@ jobs:
     - name: Save Script
       run: >
         echo '
-          const losses = require("./data/en-US.json");
+          const losses = require("./russian-losses.json");
           const current = losses[0];
           const prev = losses[1];
           const personnelDiff = current.personnel - prev.personnel;

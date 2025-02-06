@@ -1,5 +1,5 @@
 {% assign lang = site.data.translations | where_exp:"item", "item.slug == page.lang" | first %}<html lang="{{ lang.slug }}">
-{% assign losses = site.data.data.en-US %}
+{% assign losses = site.data.russian-losses %}
 {% assign recent = losses | first %}
 <head>
     <meta charset="utf-8">
