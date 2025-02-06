@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Copy Data
-        run: cp -r ./data ./docs/_data
+        run: cp ./russian-losses.json ./docs/_data/russian-losses.json
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
