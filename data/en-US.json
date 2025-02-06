@@ -1,7 +1,25 @@
 [
   {
+    "date": "2025-02-06",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-240-okupantiv-83-bpla-ta-46-artsistem",
+    "personnel": 845310,
+    "tanks": 9965,
+    "afvs": 20737,
+    "artillery": 22753,
+    "airDefense": 1055,
+    "rocketSystems": 1271,
+    "unarmoredVehicles": 36211,
+    "fixedWingAircraft": 369,
+    "rotoryWingAircraft": 331,
+    "uavs": 24185,
+    "ships": 28,
+    "submarines": 1,
+    "specialEquipment": 3737,
+    "missiles": 3054
+  },
+  {
     "date": "2025-02-05",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-140-okupantiv-99-bpla-ta-52-artsistemi",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-140-okupantiv-99-bpla-ta-52-artsistemi",
     "personnel": 844070,
     "tanks": 9947,
     "afvs": 20721,
@@ -19,7 +37,7 @@
   },
   {
     "date": "2025-02-04",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-270-okupantiv-92-bpla-ta-66-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-270-okupantiv-92-bpla-ta-66-artsistem",
     "personnel": 842930,
     "tanks": 9938,
     "afvs": 20709,
@@ -37,7 +55,7 @@
   },
   {
     "date": "2025-02-03",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-300-okupantiv-118-bpla-ta-51-artsistema",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-300-okupantiv-118-bpla-ta-51-artsistema",
     "personnel": 841660,
     "tanks": 9920,
     "afvs": 20685,
@@ -55,7 +73,7 @@
   },
   {
     "date": "2025-02-02",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-320-okupantiv-99-bpla-ta-45-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-320-okupantiv-99-bpla-ta-45-artsistem",
     "personnel": 840360,
     "tanks": 9908,
     "afvs": 20667,
@@ -73,7 +91,7 @@
   },
   {
     "date": "2025-02-01",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-430-okupantiv-121-bpla-ta-48-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-430-okupantiv-121-bpla-ta-48-artsistem",
     "personnel": 839040,
     "tanks": 9902,
     "afvs": 20653,
@@ -91,7 +109,7 @@
   },
   {
     "date": "2025-01-31",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-670-okupantiv-63-bpla-ta-17-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-670-okupantiv-63-bpla-ta-17-artsistem",
     "personnel": 837610,
     "tanks": 9893,
     "afvs": 20631,
@@ -109,7 +127,7 @@
   },
   {
     "date": "2025-01-30",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-270-okupantiv-54-bpla-ta-17-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-270-okupantiv-54-bpla-ta-17-artsistem",
     "personnel": 835940,
     "tanks": 9890,
     "afvs": 20614,
@@ -127,7 +145,7 @@
   },
   {
     "date": "2025-01-29",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-670-okupantiv-57-bpla-ta-29-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-670-okupantiv-57-bpla-ta-29-artsistem",
     "personnel": 834670,
     "tanks": 9886,
     "afvs": 20597,
@@ -145,7 +163,7 @@
   },
   {
     "date": "2025-01-28",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-380-okupantiv-72-bpla-ta-27-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-380-okupantiv-72-bpla-ta-27-artsistem",
     "personnel": 833000,
     "tanks": 9876,
     "afvs": 20573,
@@ -163,7 +181,7 @@
   },
   {
     "date": "2025-01-27",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-430-okupantiv-74-bpla-ta-16-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-430-okupantiv-74-bpla-ta-16-artsistem",
     "personnel": 831620,
     "tanks": 9871,
     "afvs": 20561,
@@ -181,7 +199,7 @@
   },
   {
     "date": "2025-01-26",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-720-okupantiv-40-bpla-ta-14-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-720-okupantiv-40-bpla-ta-14-artsistem",
     "personnel": 830190,
     "tanks": 9868,
     "afvs": 20549,
@@ -199,7 +217,7 @@
   },
   {
     "date": "2025-01-25",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-650-okupantiv-51-bpla-ta-14-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-650-okupantiv-51-bpla-ta-14-artsistem",
     "personnel": 828470,
     "tanks": 9859,
     "afvs": 20545,
@@ -217,7 +235,7 @@
   },
   {
     "date": "2025-01-24",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-500-okupantiv-51-bpla-ta-39-artsistemi",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-500-okupantiv-51-bpla-ta-39-artsistemi",
     "personnel": 826820,
     "tanks": 9852,
     "afvs": 20508,
@@ -235,7 +253,7 @@
   },
   {
     "date": "2025-01-23",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-340-okupantiv-72-bpla-ta-62-artsistemi",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-340-okupantiv-72-bpla-ta-62-artsistemi",
     "personnel": 825320,
     "tanks": 9850,
     "afvs": 20497,
@@ -253,7 +271,7 @@
   },
   {
     "date": "2025-01-22",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-950-okupantiv-141-bpla-ta-60-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-950-okupantiv-141-bpla-ta-60-artsistem",
     "personnel": 823980,
     "tanks": 9844,
     "afvs": 20485,
@@ -271,7 +289,7 @@
   },
   {
     "date": "2025-01-21",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-600-okupantiv-130-bpla-ta-60-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-600-okupantiv-130-bpla-ta-60-artsistem",
     "personnel": 822030,
     "tanks": 9833,
     "afvs": 20477,
@@ -289,7 +307,7 @@
   },
   {
     "date": "2025-01-20",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-690-okupantiv-153-bpla-ta-19-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-690-okupantiv-153-bpla-ta-19-artsistem",
     "personnel": 820430,
     "tanks": 9821,
     "afvs": 2054,
@@ -307,7 +325,7 @@
   },
   {
     "date": "2025-01-19",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-580-okupantiv-36-bpla-ta-15-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-580-okupantiv-36-bpla-ta-15-artsistem",
     "personnel": 818740,
     "tanks": 9811,
     "afvs": 20412,
@@ -325,7 +343,7 @@
   },
   {
     "date": "2025-01-18",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-340-okupantiv-13-bpla-ta-21-artsistema",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-340-okupantiv-13-bpla-ta-21-artsistema",
     "personnel": 817160,
     "tanks": 9803,
     "afvs": 20394,
@@ -343,7 +361,7 @@
   },
   {
     "date": "2025-01-17",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-670-okupantiv-63-bpla-ta-4-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-670-okupantiv-63-bpla-ta-4-artsistem",
     "personnel": 815820,
     "tanks": 9803,
     "afvs": 20381,
@@ -361,7 +379,7 @@
   },
   {
     "date": "2025-01-16",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-480-okupantiv-120-bpla-ta-40-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-480-okupantiv-120-bpla-ta-40-artsistem",
     "personnel": 814150,
     "tanks": 9791,
     "afvs": 20368,
@@ -379,7 +397,7 @@
   },
   {
     "date": "2025-01-15",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-580-okupantiv-107-bpla-ta-52-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-580-okupantiv-107-bpla-ta-52-artsistem",
     "personnel": 812670,
     "tanks": 9780,
     "afvs": 20348,
@@ -397,7 +415,7 @@
   },
   {
     "date": "2025-01-14",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-330-okupantiv-72-bpla-ta-47-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-330-okupantiv-72-bpla-ta-47-artsistem",
     "personnel": 811090,
     "tanks": 9767,
     "afvs": 20326,
@@ -415,7 +433,7 @@
   },
   {
     "date": "2025-01-13",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-510-okupantiv-183-bpla-ta-37-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-510-okupantiv-183-bpla-ta-37-artsistem",
     "personnel": 809760,
     "tanks": 9764,
     "afvs": 20315,
@@ -433,7 +451,7 @@
   },
   {
     "date": "2025-01-12",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-750-okupantiv-63-bpla-ta-22-artsistemi",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-750-okupantiv-63-bpla-ta-22-artsistemi",
     "personnel": 808250,
     "tanks": 9756,
     "afvs": 20289,
@@ -451,7 +469,7 @@
   },
   {
     "date": "2025-01-11",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-570-okupantiv-74-bpla-ta-28-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-570-okupantiv-74-bpla-ta-28-artsistem",
     "personnel": 806500,
     "tanks": 9751,
     "afvs": 20271,
@@ -469,7 +487,7 @@
   },
   {
     "date": "2025-01-10",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-830-okupantiv-71-bpla-ta-24-artsistemi",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-830-okupantiv-71-bpla-ta-24-artsistemi",
     "personnel": 804930,
     "tanks": 9741,
     "afvs": 20253,
@@ -487,7 +505,7 @@
   },
   {
     "date": "2025-01-09",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-430-okupantiv-86-bpla-ta-36-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-430-okupantiv-86-bpla-ta-36-artsistem",
     "personnel": 803100,
     "tanks": 9731,
     "afvs": 20221,
@@ -505,7 +523,7 @@
   },
   {
     "date": "2025-01-08",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-660-okupantiv-19-bpla-ta-19-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-660-okupantiv-19-bpla-ta-19-artsistem",
     "personnel": 801670,
     "tanks": 9714,
     "afvs": 20205,
@@ -523,7 +541,7 @@
   },
   {
     "date": "2025-01-07",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-970-okupantiv-83-bpla-ta-45-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-970-okupantiv-83-bpla-ta-45-artsistem",
     "personnel": 800010,
     "tanks": 9710,
     "afvs": 20189,
@@ -541,7 +559,7 @@
   },
   {
     "date": "2025-01-06",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-510-okupantiv-107-bpla-ta-23-artsistemi-1",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-510-okupantiv-107-bpla-ta-23-artsistemi-1",
     "personnel": 798040,
     "tanks": 9700,
     "afvs": 20164,
@@ -559,7 +577,7 @@
   },
   {
     "date": "2025-01-05",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-550-okupantiv-178-bpla-ta-62-artsistemi",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-550-okupantiv-178-bpla-ta-62-artsistemi",
     "personnel": 796490,
     "tanks": 9686,
     "afvs": 20119,
@@ -577,7 +595,7 @@
   },
   {
     "date": "2025-01-04",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-510-okupantiv-107-bpla-ta-23-artsistemi",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-510-okupantiv-107-bpla-ta-23-artsistemi",
     "personnel": 794760,
     "tanks": 9679,
     "afvs": 20093,
@@ -595,7 +613,7 @@
   },
   {
     "date": "2025-01-03",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-370-okupantiv-69-bpla-ta-20-artsistem-1",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-370-okupantiv-69-bpla-ta-20-artsistem-1",
     "personnel": 793250,
     "tanks": 9677,
     "afvs": 20070,
@@ -613,7 +631,7 @@
   },
   {
     "date": "2025-01-02",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-370-okupantiv-69-bpla-ta-20-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-370-okupantiv-69-bpla-ta-20-artsistem",
     "personnel": 792170,
     "tanks": 9676,
     "afvs": 20056,
@@ -631,7 +649,7 @@
   },
   {
     "date": "2025-01-01",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-250-okupantiv-50-bpla-ta-4-artsistemi",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-250-okupantiv-50-bpla-ta-4-artsistemi",
     "personnel": 790800,
     "tanks": 9672,
     "afvs": 20043,
@@ -649,7 +667,7 @@
   },
   {
     "date": "2024-12-31",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-610-okupantiv-12-bpla-ta-34-artsistemi",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-610-okupantiv-12-bpla-ta-34-artsistemi",
     "personnel": 789550,
     "tanks": 9668,
     "afvs": 20030,
@@ -667,7 +685,7 @@
   },
   {
     "date": "2024-12-30",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-2-010-okupantiv-31-bpla-ta-44-artsistemi",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-2-010-okupantiv-31-bpla-ta-44-artsistemi",
     "personnel": 787940,
     "tanks": 9663,
     "afvs": 20003,
@@ -685,7 +703,7 @@
   },
   {
     "date": "2024-12-29",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-730-okupantiv-25-bpla-ta-42-artsistemi",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-730-okupantiv-25-bpla-ta-42-artsistemi",
     "personnel": 785930,
     "tanks": 9656,
     "afvs": 19981,
@@ -703,7 +721,7 @@
   },
   {
     "date": "2024-12-28",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-690-okupantiv-14-bpla-ta-29-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-690-okupantiv-14-bpla-ta-29-artsistem",
     "personnel": 784200,
     "tanks": 9651,
     "afvs": 19970,
@@ -721,7 +739,7 @@
   },
   {
     "date": "2024-12-27",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-540-okupantiv-63-bpla-ta-24-artsistem-1",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-540-okupantiv-63-bpla-ta-24-artsistem-1",
     "personnel": 782510,
     "tanks": 9644,
     "afvs": 19951,
@@ -739,7 +757,7 @@
   },
   {
     "date": "2024-12-26",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-540-okupantiv-63-bpla-ta-24-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-540-okupantiv-63-bpla-ta-24-artsistem",
     "personnel": 780860,
     "tanks": 9630,
     "afvs": 19933,
@@ -757,7 +775,7 @@
   },
   {
     "date": "2024-12-25",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-600-okupantiv-74-bpla-ta-10-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-600-okupantiv-74-bpla-ta-10-artsistem",
     "personnel": 779320,
     "tanks": 9628,
     "afvs": 19923,
@@ -775,7 +793,7 @@
   },
   {
     "date": "2024-12-24",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-630-okupantiv-44-bpla-ta-10-artsistem-1",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-630-okupantiv-44-bpla-ta-10-artsistem-1",
     "personnel": 777720,
     "tanks": 9624,
     "afvs": 19915,
@@ -793,7 +811,7 @@
   },
   {
     "date": "2024-12-23",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-990-okupantiv-55-bpla-ta-29-artsistemi",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-990-okupantiv-55-bpla-ta-29-artsistemi",
     "personnel": 776090,
     "tanks": 9615,
     "afvs": 19885,
@@ -811,7 +829,7 @@
   },
   {
     "date": "2024-12-22",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-860-okupantiv-85-bpla-ta-32-artsistemi",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-860-okupantiv-85-bpla-ta-32-artsistemi",
     "personnel": 774100,
     "tanks": 9609,
     "afvs": 19870,
@@ -829,7 +847,7 @@
   },
   {
     "date": "2024-12-21",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-2-200-okupantiv-79-bpla-ta-42-artsistemi-1",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-2-200-okupantiv-79-bpla-ta-42-artsistemi-1",
     "personnel": 772280,
     "tanks": 9594,
     "afvs": 19841,
@@ -847,7 +865,7 @@
   },
   {
     "date": "2024-12-20",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-2-200-okupantiv-79-bpla-ta-42-artsistemi",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-2-200-okupantiv-79-bpla-ta-42-artsistemi",
     "personnel": 770420,
     "tanks": 9584,
     "afvs": 19823,
@@ -865,7 +883,7 @@
   },
   {
     "date": "2024-12-19",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-530-okupantiv-51-bpla-ta-14-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-530-okupantiv-51-bpla-ta-14-artsistem",
     "personnel": 768220,
     "tanks": 9576,
     "afvs": 19799,
@@ -883,7 +901,7 @@
   },
   {
     "date": "2024-12-18",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-600-okupantiv-34-bpla-ta-8-artsistemi-1",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-600-okupantiv-34-bpla-ta-8-artsistemi-1",
     "personnel": 766690,
     "tanks": 9571,
     "afvs": 19772,
@@ -901,7 +919,7 @@
   },
   {
     "date": "2024-12-17",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-600-okupantiv-34-bpla-ta-8-artsistemi",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-600-okupantiv-34-bpla-ta-8-artsistemi",
     "personnel": 765110,
     "tanks": 9567,
     "afvs": 19751,
@@ -919,7 +937,7 @@
   },
   {
     "date": "2024-12-16",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-070-okupantiv-16-bpla-ta-23-artsistemi",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-070-okupantiv-16-bpla-ta-23-artsistemi",
     "personnel": 763510,
     "tanks": 9563,
     "afvs": 19736,
@@ -937,7 +955,7 @@
   },
   {
     "date": "2024-12-15",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-280-okupantiv-127-bpla-ta-26-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-280-okupantiv-127-bpla-ta-26-artsistem",
     "personnel": 762440,
     "tanks": 9551,
     "afvs": 19707,
@@ -955,7 +973,7 @@
   },
   {
     "date": "2024-12-14",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-040-okupantiv-2-tanki-ta-24-artsistemi",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-040-okupantiv-2-tanki-ta-24-artsistemi",
     "personnel": 761160,
     "tanks": 9539,
     "afvs": 19675,
@@ -973,7 +991,7 @@
   },
   {
     "date": "2024-12-13",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-390-okupantiv-5-tankiv-ta-6-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-390-okupantiv-5-tankiv-ta-6-artsistem",
     "personnel": 760120,
     "tanks": 9537,
     "afvs": 19675,
@@ -991,7 +1009,7 @@
   },
   {
     "date": "2024-12-12",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-390-okupantiv-6-tankiv-ta-5-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-390-okupantiv-6-tankiv-ta-5-artsistem",
     "personnel": 758730,
     "tanks": 9532,
     "afvs": 19644,
@@ -1009,7 +1027,7 @@
   },
   {
     "date": "2024-12-11",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-400-okupantiv-4-bpla-ta-3-artsistemi",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-400-okupantiv-4-bpla-ta-3-artsistemi",
     "personnel": 757340,
     "tanks": 9526,
     "afvs": 19616,
@@ -1027,7 +1045,7 @@
   },
   {
     "date": "2024-12-10",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-350-okupantiv-14-bpla-ta-3-artsistemi",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-350-okupantiv-14-bpla-ta-3-artsistemi",
     "personnel": 755940,
     "tanks": 9524,
     "afvs": 19596,
@@ -1045,7 +1063,7 @@
   },
   {
     "date": "2024-12-09",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-220-okupantiv-22-bpla-ta-3-artsistemi",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-220-okupantiv-22-bpla-ta-3-artsistemi",
     "personnel": 754590,
     "tanks": 9519,
     "afvs": 19589,
@@ -1063,7 +1081,7 @@
   },
   {
     "date": "2024-12-08",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-300-okupantiv-19-bpla-ta-12-artsistem-1",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-300-okupantiv-19-bpla-ta-12-artsistem-1",
     "personnel": 753370,
     "tanks": 9519,
     "afvs": 19571,
@@ -1081,7 +1099,7 @@
   },
   {
     "date": "2024-12-07",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-300-okupantiv-19-bpla-ta-12-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-300-okupantiv-19-bpla-ta-12-artsistem",
     "personnel": 751910,
     "tanks": 9514,
     "afvs": 19535,
@@ -1099,7 +1117,7 @@
   },
   {
     "date": "2024-12-06",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-660-okupantiv-46-bpla-ta-20-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-660-okupantiv-46-bpla-ta-20-artsistem",
     "personnel": 750610,
     "tanks": 9514,
     "afvs": 19518,
@@ -1117,7 +1135,7 @@
   },
   {
     "date": "2024-12-05",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-580-okupantiv-31-bpla-ta-21-artsistema",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-580-okupantiv-31-bpla-ta-21-artsistema",
     "personnel": 748950,
     "tanks": 9506,
     "afvs": 19472,
@@ -1135,7 +1153,7 @@
   },
   {
     "date": "2024-12-04",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-670-okupantiv-29-bpla-ta-26-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-670-okupantiv-29-bpla-ta-26-artsistem",
     "personnel": 747370,
     "tanks": 9493,
     "afvs": 19450,
@@ -1153,7 +1171,7 @@
   },
   {
     "date": "2024-12-03",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-780-okupantiv-31-bpla-ta-23-artsistemi",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-780-okupantiv-31-bpla-ta-23-artsistemi",
     "personnel": 745700,
     "tanks": 9486,
     "afvs": 19419,
@@ -1171,7 +1189,7 @@
   },
   {
     "date": "2024-12-02",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-790-okupantiv-83-bpla-ta-30-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-790-okupantiv-83-bpla-ta-30-artsistem",
     "personnel": 743920,
     "tanks": 9478,
     "afvs": 19397,
@@ -1189,7 +1207,7 @@
   },
   {
     "date": "2024-12-01",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-730-okupantiv-11-bpla-ta-14-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-730-okupantiv-11-bpla-ta-14-artsistem",
     "personnel": 742130,
     "tanks": 9469,
     "afvs": 19369,
@@ -1207,7 +1225,7 @@
   },
   {
     "date": "2024-11-30",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-740-okupantiv-42-bpla-ta-23-artsistemi",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-740-okupantiv-42-bpla-ta-23-artsistemi",
     "personnel": 740400,
     "tanks": 9463,
     "afvs": 19355,
@@ -1225,7 +1243,7 @@
   },
   {
     "date": "2024-11-29",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-2-030-okupantiv-89-bpla-ta-34-artsistemi",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-2-030-okupantiv-89-bpla-ta-34-artsistemi",
     "personnel": 738660,
     "tanks": 9458,
     "afvs": 19339,
@@ -1243,7 +1261,7 @@
   },
   {
     "date": "2024-11-28",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-220-okupantiv-45-bpla-ta-22-artsistemi",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-220-okupantiv-45-bpla-ta-22-artsistemi",
     "personnel": 736630,
     "tanks": 9450,
     "afvs": 19306,
@@ -1261,7 +1279,7 @@
   },
   {
     "date": "2024-11-27",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-580-okupantiv-64-bpla-ta-24-artsistemi",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-580-okupantiv-64-bpla-ta-24-artsistemi",
     "personnel": 735410,
     "tanks": 9449,
     "afvs": 19304,
@@ -1279,7 +1297,7 @@
   },
   {
     "date": "2024-11-26",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-480-okupantiv-72-bpla-ta-19-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-480-okupantiv-72-bpla-ta-19-artsistem",
     "personnel": 733830,
     "tanks": 9435,
     "afvs": 19256,
@@ -1297,7 +1315,7 @@
   },
   {
     "date": "2024-11-25",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-610-okupantiv-114-bpla-ta-22-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-610-okupantiv-114-bpla-ta-22-artsistem",
     "personnel": 732350,
     "tanks": 9429,
     "afvs": 19236,
@@ -1315,7 +1333,7 @@
   },
   {
     "date": "2024-11-24",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-020-okupantiv-1-bpla-ta-5-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-020-okupantiv-1-bpla-ta-5-artsistem",
     "personnel": 730740,
     "tanks": 9423,
     "afvs": 19209,
@@ -1333,7 +1351,7 @@
   },
   {
     "date": "2024-11-23",
-    "sourceUri": "https://www.mil.gov.ua/news/agalni-bojovi-vtrati-rosiyan-za-dobu-1-420-okupantiv-105-bpla-ta-24-artsistemi",
+    "sourceUri": "https://mod.gov.ua/news/agalni-bojovi-vtrati-rosiyan-za-dobu-1-420-okupantiv-105-bpla-ta-24-artsistemi",
     "personnel": 729720,
     "tanks": 9419,
     "afvs": 19192,
@@ -1351,7 +1369,7 @@
   },
   {
     "date": "2024-11-22",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-050-okupantiv-1-bpla-ta-5-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-050-okupantiv-1-bpla-ta-5-artsistem",
     "personnel": 728300,
     "tanks": 9399,
     "afvs": 19156,
@@ -1369,7 +1387,7 @@
   },
   {
     "date": "2024-11-21",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-510-okupantiv-57-bpla-ta-50-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-510-okupantiv-57-bpla-ta-50-artsistem",
     "personnel": 727250,
     "tanks": 9398,
     "afvs": 19143,
@@ -1387,7 +1405,7 @@
   },
   {
     "date": "2024-11-20",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-690-okupantiv-91-bpla-ta-49-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-690-okupantiv-91-bpla-ta-49-artsistem",
     "personnel": 725740,
     "tanks": 9390,
     "afvs": 19119,
@@ -1405,7 +1423,7 @@
   },
   {
     "date": "2024-11-19",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-610-okupantiv-38-bpla-ta-46-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-610-okupantiv-38-bpla-ta-46-artsistem",
     "personnel": 724050,
     "tanks": 9382,
     "afvs": 19092,
@@ -1423,7 +1441,7 @@
   },
   {
     "date": "2024-11-18",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-560-okupantiv-99-bpla-ta-30-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-560-okupantiv-99-bpla-ta-30-artsistem",
     "personnel": 722440,
     "tanks": 9365,
     "afvs": 19059,
@@ -1441,7 +1459,7 @@
   },
   {
     "date": "2024-11-17",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-640-okupantiv-60-bpla-ta-36-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-640-okupantiv-60-bpla-ta-36-artsistem",
     "personnel": 720880,
     "tanks": 9350,
     "afvs": 19021,
@@ -1459,7 +1477,7 @@
   },
   {
     "date": "2024-11-16",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-650-okupantiv-28-bpla-ta-28-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-650-okupantiv-28-bpla-ta-28-artsistem",
     "personnel": 719240,
     "tanks": 9330,
     "afvs": 18994,
@@ -1477,7 +1495,7 @@
   },
   {
     "date": "2024-11-15",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-520-okupantiv-34-bpla-ta-20-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-520-okupantiv-34-bpla-ta-20-artsistem",
     "personnel": 717590,
     "tanks": 9330,
     "afvs": 18968,
@@ -1495,7 +1513,7 @@
   },
   {
     "date": "2024-11-14",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-690-okupantiv-54-bpla-ta-64-artsistemi",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-690-okupantiv-54-bpla-ta-64-artsistemi",
     "personnel": 716070,
     "tanks": 9319,
     "afvs": 18947,
@@ -1513,7 +1531,7 @@
   },
   {
     "date": "2024-11-13",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-770-okupantiv-61-bpla-ta-56-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-770-okupantiv-61-bpla-ta-56-artsistem",
     "personnel": 714380,
     "tanks": 9300,
     "afvs": 18896,
@@ -1531,7 +1549,7 @@
   },
   {
     "date": "2024-11-12",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-950-okupantiv-61-bpla-ta-38-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-950-okupantiv-61-bpla-ta-38-artsistem",
     "personnel": 712610,
     "tanks": 9276,
     "afvs": 18847,
@@ -1549,7 +1567,7 @@
   },
   {
     "date": "2024-11-11",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-770-okupantiv-47-bpla-ta-34-artsistemi",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-770-okupantiv-47-bpla-ta-34-artsistemi",
     "personnel": 710660,
     "tanks": 9253,
     "afvs": 18766,
@@ -1567,7 +1585,7 @@
   },
   {
     "date": "2024-11-10",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-350-okupantiv-44-bpla-ta-31-artsistema",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-350-okupantiv-44-bpla-ta-31-artsistema",
     "personnel": 708890,
     "tanks": 9249,
     "afvs": 18726,
@@ -1585,7 +1603,7 @@
   },
   {
     "date": "2024-11-09",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-660-okupantiv-49-bpla-ta-23-artsistemi",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-660-okupantiv-49-bpla-ta-23-artsistemi",
     "personnel": 707540,
     "tanks": 9238,
     "afvs": 18697,
@@ -1603,7 +1621,7 @@
   },
   {
     "date": "2024-11-08",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-580-okupantiv-118-bpla-ta-32-artsistemi",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-580-okupantiv-118-bpla-ta-32-artsistemi",
     "personnel": 705880,
     "tanks": 9233,
     "afvs": 18661,
@@ -1621,7 +1639,7 @@
   },
   {
     "date": "2024-11-07",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-400-okupantiv-42-bpla-24-artsistemi",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-400-okupantiv-42-bpla-24-artsistemi",
     "personnel": 704300,
     "tanks": 9224,
     "afvs": 18612,
@@ -1639,7 +1657,7 @@
   },
   {
     "date": "2024-11-06",
-    "sourceUri": "https://www.mil.gov.ua/news/1-250-okupantiv-11-bbm-20-artsistem-zagalni-bojovi-vtrati-rosiyan-za-dobu",
+    "sourceUri": "https://mod.gov.ua/news/1-250-okupantiv-11-bbm-20-artsistem-zagalni-bojovi-vtrati-rosiyan-za-dobu",
     "personnel": 702900,
     "tanks": 9214,
     "afvs": 18592,
@@ -1657,7 +1675,7 @@
   },
   {
     "date": "2024-11-05",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-260-osib-29-bpla-ta-29-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-260-osib-29-bpla-ta-29-artsistem",
     "personnel": 701650,
     "tanks": 9208,
     "afvs": 18581,
@@ -1675,7 +1693,7 @@
   },
   {
     "date": "2024-11-04",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-300-osib-93-bpla-ta-35-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-300-osib-93-bpla-ta-35-artsistem",
     "personnel": 700390,
     "tanks": 9193,
     "afvs": 18538,
@@ -1693,7 +1711,7 @@
   },
   {
     "date": "2024-11-03",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-270-osib-28-bpla-ta-37-artsistem-1",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-270-osib-28-bpla-ta-37-artsistem-1",
     "personnel": 697680,
     "tanks": 9170,
     "afvs": 18487,
@@ -1711,7 +1729,7 @@
   },
   {
     "date": "2024-11-02",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-270-osib-28-bpla-ta-37-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-270-osib-28-bpla-ta-37-artsistem",
     "personnel": 697680,
     "tanks": 9170,
     "afvs": 18487,
@@ -1729,7 +1747,7 @@
   },
   {
     "date": "2024-11-01",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-460-osib-25-bpla-ta-26-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-460-osib-25-bpla-ta-26-artsistem",
     "personnel": 696410,
     "tanks": 9162,
     "afvs": 18470,
@@ -1747,7 +1765,7 @@
   },
   {
     "date": "2024-10-31",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-310-osib-84-bpla-ta-58-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-310-osib-84-bpla-ta-58-artsistem",
     "personnel": 694950,
     "tanks": 9156,
     "afvs": 18450,
@@ -1765,7 +1783,7 @@
   },
   {
     "date": "2024-10-30",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-560-osib-40-bpla-ta-38-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-560-osib-40-bpla-ta-38-artsistem",
     "personnel": 693640,
     "tanks": 9137,
     "afvs": 18433,
@@ -1783,7 +1801,7 @@
   },
   {
     "date": "2024-10-29",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-360-osib-72-bpla-ta-45-artsistema",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-360-osib-72-bpla-ta-45-artsistema",
     "personnel": 692080,
     "tanks": 9129,
     "afvs": 18404,
@@ -1801,7 +1819,7 @@
   },
   {
     "date": "2024-10-28",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-680-osib-68-bpla-ta-51-artsistema",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-680-osib-68-bpla-ta-51-artsistema",
     "personnel": 690720,
     "tanks": 9120,
     "afvs": 18395,
@@ -1819,7 +1837,7 @@
   },
   {
     "date": "2024-10-27",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-440-osib-73-bpla-ta-39-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-440-osib-73-bpla-ta-39-artsistem",
     "personnel": 689040,
     "tanks": 9113,
     "afvs": 18355,
@@ -1837,7 +1855,7 @@
   },
   {
     "date": "2024-10-26",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-690-osib-56-bpla-ta-29-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-690-osib-56-bpla-ta-29-artsistem",
     "personnel": 687600,
     "tanks": 9109,
     "afvs": 18332,
@@ -1855,7 +1873,7 @@
   },
   {
     "date": "2024-10-25",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-630-osib-73-bpla-ta-34-artsistemi",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-630-osib-73-bpla-ta-34-artsistemi",
     "personnel": 685910,
     "tanks": 9097,
     "afvs": 18287,
@@ -1873,7 +1891,7 @@
   },
   {
     "date": "2024-10-24",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-240-osib-108-bpla-ta-45-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-240-osib-108-bpla-ta-45-artsistem",
     "personnel": 684280,
     "tanks": 9090,
     "afvs": 18254,
@@ -1891,7 +1909,7 @@
   },
   {
     "date": "2024-10-23",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-460-osib-85-bpla-ta-51-artsistema",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-460-osib-85-bpla-ta-51-artsistema",
     "personnel": 683040,
     "tanks": 9088,
     "afvs": 18229,
@@ -1909,7 +1927,7 @@
   },
   {
     "date": "2024-10-22",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-350-osib-71-bpla-ta-34-artsistemi",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-350-osib-71-bpla-ta-34-artsistemi",
     "personnel": 681580,
     "tanks": 9079,
     "afvs": 18199,
@@ -1927,7 +1945,7 @@
   },
   {
     "date": "2024-10-21",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-710-osib-46-bpla-ta-24-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-710-osib-46-bpla-ta-24-artsistem",
     "personnel": 680230,
     "tanks": 9071,
     "afvs": 18175,
@@ -1945,7 +1963,7 @@
   },
   {
     "date": "2024-10-20",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-340-osib-57-bpla-ta-17-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-340-osib-57-bpla-ta-17-artsistem",
     "personnel": 678520,
     "tanks": 9047,
     "afvs": 18111,
@@ -1963,7 +1981,7 @@
   },
   {
     "date": "2024-10-19",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-380-osib-78-bpla-ta-15-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-380-osib-78-bpla-ta-15-artsistem",
     "personnel": 677180,
     "tanks": 9035,
     "afvs": 18072,
@@ -1981,7 +1999,7 @@
   },
   {
     "date": "2024-10-18",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-530-osib-48-bpla-ta-23-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-530-osib-48-bpla-ta-23-artsistem",
     "personnel": 675800,
     "tanks": 9027,
     "afvs": 18053,
@@ -1999,7 +2017,7 @@
   },
   {
     "date": "2024-10-17",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-420-osib-54-bpla-ta-51-artsistema",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-420-osib-54-bpla-ta-51-artsistema",
     "personnel": 674270,
     "tanks": 9014,
     "afvs": 18002,
@@ -2017,7 +2035,7 @@
   },
   {
     "date": "2024-10-16",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-450-osib-31-bpla-ta-29-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-450-osib-31-bpla-ta-29-artsistem",
     "personnel": 672850,
     "tanks": 8997,
     "afvs": 17969,
@@ -2035,7 +2053,7 @@
   },
   {
     "date": "2024-10-15",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1210-osib-10-bpla-ta-9-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1210-osib-10-bpla-ta-9-artsistem",
     "personnel": 671400,
     "tanks": 8988,
     "afvs": 17939,
@@ -2053,7 +2071,7 @@
   },
   {
     "date": "2024-10-14",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1260-osib-17-bpla-ta-11-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1260-osib-17-bpla-ta-11-artsistem",
     "personnel": 670190,
     "tanks": 8975,
     "afvs": 17895,
@@ -2071,7 +2089,7 @@
   },
   {
     "date": "2024-10-13",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1300-osib-45-bpla-ta-29-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1300-osib-45-bpla-ta-29-artsistem",
     "personnel": 668930,
     "tanks": 8971,
     "afvs": 17876,
@@ -2089,7 +2107,7 @@
   },
   {
     "date": "2024-10-12",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1290-osib-110-bpla-ta-59-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1290-osib-110-bpla-ta-59-artsistem",
     "personnel": 667630,
     "tanks": 8962,
     "afvs": 17827,
@@ -2107,7 +2125,7 @@
   },
   {
     "date": "2024-10-11",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1140-osib-70-bpla-ta-59-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1140-osib-70-bpla-ta-59-artsistem",
     "personnel": 666340,
     "tanks": 8953,
     "afvs": 17800,
@@ -2125,7 +2143,7 @@
   },
   {
     "date": "2024-10-10",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1080-osib-49-bpla-ta-41-artsistema",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1080-osib-49-bpla-ta-41-artsistema",
     "personnel": 665200,
     "tanks": 8945,
     "afvs": 17765,
@@ -2143,7 +2161,7 @@
   },
   {
     "date": "2024-10-09",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1150-osib-31-bpla-ta-19-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1150-osib-31-bpla-ta-19-artsistem",
     "personnel": 664120,
     "tanks": 8944,
     "afvs": 17751,
@@ -2161,7 +2179,7 @@
   },
   {
     "date": "2024-10-08",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1340-osib-43-bpla-ta-47-artsistem",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1340-osib-43-bpla-ta-47-artsistem",
     "personnel": 662970,
     "tanks": 8940,
     "afvs": 17740,
@@ -2179,7 +2197,7 @@
   },
   {
     "date": "2024-10-07",
-    "sourceUri": "https://www.mil.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1160-osib-7-rszv-ta-14-tankiv",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1160-osib-7-rszv-ta-14-tankiv",
     "personnel": 660470,
     "tanks": 8933,
     "afvs": 17710,
