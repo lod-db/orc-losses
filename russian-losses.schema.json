@@ -1,5 +1,5 @@
 {
-  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Russian Losses in Ukraine",
   "description": "A dataset tracking Russian military losses in Ukraine since the 2022 full-scale invasion.",
   "type": "array",
