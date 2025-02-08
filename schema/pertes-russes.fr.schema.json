@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Pertes russes en Ukraine",
+  "description": "Un ensemble de données suivant les pertes militaires russes en Ukraine depuis l'invasion à grande échelle de 2022.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "date": {
+        "type": "string",
+        "description": "La date du rapport.",
+        "format": "date"
+      },
+      "sourceUri": {
+        "type": "string",
+        "description": "L'URL de la page Web du Ministère de la Défense de l'Ukraine où les pertes ont été initialement signalées."
+      },
+      "personnel": {
+        "type": "integer",
+        "description": "Pertes humaines, tués ou blessés. Le Ministère de la Défense de l'Ukraine déclare que ce nombre est une approximation."
+      },
+      "tanks": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Chars de combat. https://fr.wikipedia.org/wiki/Char_de_combat"
+      },
+      "afvs": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Véhicules de combat blindés excluant les chars, les systèmes anti-aériens, l'artillerie autopropulsée et les lance-roquettes multiples. https://fr.wikipedia.org/wiki/V%C3%A9hicule_de_combat_d%27infanterie"
+      },
+      "artillery": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Canons, obusiers et mortiers. https://fr.wikipedia.org/wiki/Artillerie"
+      },
+      "airDefense": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Armes anti-aériennes (AA) et systèmes de missiles. https://fr.wikipedia.org/wiki/D%C3%A9fense_antia%C3%A9rienne"
+      },
+      "rocketSystems": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Systèmes de lance-roquettes multiples (LRM/MLRS). https://fr.wikipedia.org/wiki/Lance-roquettes_multiple"
+      },
+      "unarmoredVehicles": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Véhicules non blindés ou légèrement blindés, tels que les camions-citernes ou les véhicules logistiques. https://fr.wikipedia.org/wiki/V%C3%A9hicule_utilitaire"
+      },
+      "fixedWingAircraft": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Avions de chasse et avions militaires. https://fr.wikipedia.org/wiki/Avion_militaire"
+      },
+      "rotaryWingAircraft": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Hélicoptères et autres aéronefs à rotor. https://fr.wikipedia.org/wiki/H%C3%A9licopt%C3%A8re"
+      },
+      "uavs": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Véhicules aériens sans pilote (UAV/UAS), généralement des drones à longue portée et à voilure fixe. https://fr.wikipedia.org/wiki/Drone"
+      },
+      "ships": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Navires de guerre. https://fr.wikipedia.org/wiki/Navire_de_guerre"
+      },
+      "submarines": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Sous-marins militaires. https://fr.wikipedia.org/wiki/Sous-marin"
+      },
+      "specialEquipment": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Radars spéciaux, équipements de construction, véhicules lance-flammes et autres équipements divers ou spécialisés."
+      },
+      "missiles": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Missiles balistiques et missiles de croisière à longue portée. https://fr.wikipedia.org/wiki/Missile"
+      }
+    },
+    "required": [
+      "date",
+      "sourceUri",
+      "personnel",
+      "tanks",
+      "afvs",
+      "artillery",
+      "airDefense",
+      "rocketSystems",
+      "unarmoredVehicles",
+      "fixedWingAircraft",
+      "rotaryWingAircraft",
+      "uavs",
+      "ships",
+      "submarines",
+      "specialEquipment",
+      "missiles"
+    ],
+    "additionalProperties": false
+  }
+}

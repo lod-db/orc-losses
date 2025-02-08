@@ -20,56 +20,95 @@
         "description": "Human casualties killed or wounded. The Ministry of Defence of Ukraine has declared this number an approximation."
       },
       "tanks": {
-        "type": ["integer", "null"],
+        "type": [
+          "integer",
+          "null"
+        ],
         "description": "Combat tanks. https://en.wikipedia.org/wiki/Tank"
       },
       "afvs": {
-        "type": ["integer", "null"],
+        "type": [
+          "integer",
+          "null"
+        ],
         "description": "Armored fighting vehicles excluding tanks, anti-air systems, self-propelled artillery, and rocket launch systems. https://en.wikipedia.org/wiki/Armoured_fighting_vehicle"
       },
       "artillery": {
-        "type": ["integer", "null"],
+        "type": [
+          "integer",
+          "null"
+        ],
         "description": "Cannons, howitzers, and mortars. https://en.wikipedia.org/wiki/Artillery"
       },
       "airDefense": {
-        "type": ["integer", "null"],
+        "type": [
+          "integer",
+          "null"
+        ],
         "description": "Anti-aircraft (AA) guns and rocket systems. https://en.wikipedia.org/wiki/Anti-aircraft_warfare"
       },
       "rocketSystems": {
-        "type": ["integer", "null"],
+        "type": [
+          "integer",
+          "null"
+        ],
         "description": "Multiple launch rocket systems (MRL/MLRS). https://en.wikipedia.org/wiki/Multiple_rocket_launcher"
       },
       "unarmoredVehicles": {
-        "type": ["integer", "null"],
-        "description": "Unarmored or lightly armored, soft-skinned vehicles, such as fuel tankers or logistics vehicles. https://en.wikipedia.org/wiki/Soft-skinned_vehicle"
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Unarmored or lightly armored, soft-skinned vehicles, such fuel tankers, logistics vehicles or motorcycles. https://en.wikipedia.org/wiki/Soft-skinned_vehicle"
       },
       "fixedWingAircraft": {
-        "type": ["integer", "null"],
+        "type": [
+          "integer",
+          "null"
+        ],
         "description": "Fighter jets and military planes. https://en.wikipedia.org/wiki/Fixed-wing_aircraft"
       },
       "rotoryWingAircraft": {
-        "type": ["integer", "null"],
+        "type": [
+          "integer",
+          "null"
+        ],
         "description": "Helicopters or other rotorcraft. https://en.wikipedia.org/wiki/Rotorcraft"
       },
       "uavs": {
-        "type": ["integer", "null"],
+        "type": [
+          "integer",
+          "null"
+        ],
         "description": "Unmanned aerial vehicles (UAVs/UAS), typically long-range, fixed-wing drones. https://en.wikipedia.org/wiki/Unmanned_aerial_vehicle"
       },
       "ships": {
-        "type": ["integer", "null"],
+        "type": [
+          "integer",
+          "null"
+        ],
         "description": "Naval ships. https://en.wikipedia.org/wiki/Naval_ship"
       },
       "submarines": {
-        "type": ["integer", "null"],
+        "type": [
+          "integer",
+          "null"
+        ],
         "description": "Naval submarines. https://en.wikipedia.org/wiki/Submarine"
       },
       "specialEquipment": {
-        "type": ["integer", "null"],
-        "description": "Special radars, construction equipment, flamethrower vehicles, and other miscellaneous or specialized vehicles."
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Special radars, construction equipment, flamethrower vehicles, and other miscellaneous or specialized equipment."
       },
       "missiles": {
-        "type": ["integer", "null"],
-        "description": "Long range missiles ballistic and cruise missiles. https://en.wikipedia.org/wiki/Missile"
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Long-range missiles ballistic and cruise missiles. https://en.wikipedia.org/wiki/Missile"
       }
     },
     "required": [

@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Потери России в Украине",
+  "description": "Набор данных, отслеживающий военные потери России в Украине с момента полномасштабного вторжения в 2022 году.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "date": {
+        "type": "string",
+        "description": "Дата отчета.",
+        "format": "date"
+      },
+      "sourceUri": {
+        "type": "string",
+        "description": "URI страницы Министерства обороны Украины, где первоначально были опубликованы данные о потерях."
+      },
+      "personnel": {
+        "type": "integer",
+        "description": "Человеческие потери, убитые или раненые. Министерство обороны Украины объявило эту цифру ориентировочной."
+      },
+      "tanks": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Боевые танки. https://ru.wikipedia.org/wiki/Танк"
+      },
+      "afvs": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Бронированные боевые машины (БМП), за исключением танков, зенитных систем, самоходной артиллерии и ракетных установок. https://ru.wikipedia.org/wiki/%D0%91%D0%BE%D0%B5%D0%B2%D0%B0%D1%8F_%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D0%B0_%D0%BF%D0%B5%D1%85%D0%BE%D1%82%D1%8B"
+      },
+      "artillery": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Пушки, гаубицы и минометы. https://ru.wikipedia.org/wiki/Артиллерия"
+      },
+      "airDefense": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Зенитные орудия и ракетные системы. https://ru.wikipedia.org/wiki/%D0%9F%D1%80%D0%BE%D1%82%D0%B8%D0%B2%D0%BE%D0%B2%D0%BE%D0%B7%D0%B4%D1%83%D1%88%D0%BD%D0%B0%D1%8F_%D0%BE%D0%B1%D0%BE%D1%80%D0%BE%D0%BD%D0%B0"
+      },
+      "rocketSystems": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Многозарядные реактивные системы (РСЗО). https://ru.wikipedia.org/wiki/Реактивная_система_залпового_огня"
+      },
+      "unarmoredVehicles": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Не бронированные или слабо бронированные, мягкокожие машины, такие как топливозаправщики, транспортные средства или мотоциклы. https://ru.wikipedia.org/wiki/%D0%A2%D0%BE%D0%BF%D0%BB%D0%B8%D0%B2%D0%BE%D0%B7%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D1%89%D0%B8%D0%BA"
+      },
+      "fixedWingAircraft": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Истребители и военные самолеты. https://ru.wikipedia.org/wiki/%D0%A1%D0%B0%D0%BC%D0%BE%D0%BB%D1%91%D1%82"
+      },
+      "rotoryWingAircraft": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Вертолеты и другие вертолетоподобные летательные аппараты. https://ru.wikipedia.org/wiki/Вертолет"
+      },
+      "uavs": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Беспилотные летательные аппараты (БПЛА), обычно дальнобойные, с жестким крылом. https://ru.wikipedia.org/wiki/Беспилотный_летательный_аппарат"
+      },
+      "ships": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Военные корабли. https://ru.wikipedia.org/wiki/Военный_корабль"
+      },
+      "submarines": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Военные подводные лодки. https://ru.wikipedia.org/wiki/Подводная_лодка"
+      },
+      "specialEquipment": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Специальные радары, строительная техника, огнеметные машины и другое специальное или специализированное оборудование."
+      },
+      "missiles": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Ракеты дальнего радиуса действия, баллистические и крылатые ракеты. https://ru.wikipedia.org/wiki/Ракета"
+      }
+    },
+    "required": [
+      "date",
+      "sourceUri",
+      "personnel",
+      "tanks",
+      "afvs",
+      "artillery",
+      "airDefense",
+      "rocketSystems",
+      "unarmoredVehicles",
+      "fixedWingAircraft",
+      "rotoryWingAircraft",
+      "uavs",
+      "ships",
+      "submarines",
+      "specialEquipment",
+      "missiles"
+    ],
+    "additionalProperties": false
+  }
+}

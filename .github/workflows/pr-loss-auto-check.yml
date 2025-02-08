@@ -23,4 +23,9 @@ jobs:
       run: node .github/workflows/pr-loss-auto-check/index.js
 
     - name: Run Schema Validation
-      run: ajv validate -s russian-losses.schema.json -d russian-losses.json --strict=false --spec=draft2020
+      run: >
+        ajv validate -s schema/russian-losses.en.schema.json -d russian-losses.json --strict=false --spec=draft2020
+        ajv validate -s schema/pertes-russes.fr.schema.json -d russian-losses.json --strict=false --spec=draft2020
+        ajv validate -s schema/russische-verluste.de.schema.json -d russian-losses.json --strict=false --spec=draft2020
+        ajv validate -s schema/втрати-росії.uk.schema.json -d russian-losses.json --strict=false --spec=draft2020
+        ajv validate -s schema/потери-россии.ru.schema.json -d russian-losses.json --strict=false --spec=draft2020
