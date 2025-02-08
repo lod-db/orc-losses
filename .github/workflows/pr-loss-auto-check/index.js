@@ -1,4 +1,6 @@
-const losses = require("./russian-losses.json");
+const args = process.argv.slice(2);
+
+const losses = require(args[0]);
 const current = losses[0];
 const prev = losses[1];
 
