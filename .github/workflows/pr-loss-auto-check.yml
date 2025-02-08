@@ -4,12 +4,12 @@ on:
   pull_request:
 
 jobs:
-  verify-files:
+  verify-json:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
 
-    - name: Save Script
+    - name: Prepare Value Validation
       run: >
         echo '
           const losses = require("./russian-losses.json");
@@ -46,5 +46,11 @@ jobs:
           else if (missilesDiff < 0 || missilesDiff > 1000) throw new Error("missilesDiff is outside of allowed range.");
         ' > index.js
 
-    - name: Run Script
+    - name: Run Value Validation
       run: node ./index.js
+
+    - name: Prepare Schema Validation
+      run: npm install -g ajv-cli
+
+    - name: Run Schema Validation
+      run: ajv validate -s russian-losses.schema.json -d russian-losses.json --strict=false
