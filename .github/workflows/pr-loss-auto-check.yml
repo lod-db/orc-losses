@@ -53,4 +53,4 @@ jobs:
       run: npm install -g ajv-cli
 
     - name: Run Schema Validation
-      run: ajv validate -c --spec=draft2019 -s russian-losses.schema.json -d russian-losses.json --strict=false
+      run: ajv validate -s russian-losses.schema.json -d russian-losses.json --strict=false --spec=draft2019 
