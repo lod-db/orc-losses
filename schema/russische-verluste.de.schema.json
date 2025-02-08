@@ -68,7 +68,7 @@
         ],
         "description": "Kampfjets und Militärflugzeuge. https://de.wikipedia.org/wiki/Fl%C3%A4chenflugzeug"
       },
-      "rotoryWingAircraft": {
+      "rotaryWingAircraft": {
         "type": [
           "integer",
           "null"

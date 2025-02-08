@@ -68,16 +68,11 @@
         ],
         "description": "Fighter jets and military planes. https://en.wikipedia.org/wiki/Fixed-wing_aircraft"
       },
-<<<<<<< HEAD:schema/russian-losses.en.schema.json
-      "rotoryWingAircraft": {
+      "rotaryWingAircraft": {
         "type": [
           "integer",
           "null"
         ],
-=======
-      "rotaryWingAircraft": {
-        "type": ["integer", "null"],
->>>>>>> main:russian-losses.schema.json
         "description": "Helicopters or other rotorcraft. https://en.wikipedia.org/wiki/Rotorcraft"
       },
       "uavs": {
