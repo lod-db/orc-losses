@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Russische Verluste in der Ukraine",
+  "description": "Ein Datensatz, der die russischen militärischen Verluste in der Ukraine seit der großflächigen Invasion 2022 verfolgt.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "date": {
+        "type": "string",
+        "description": "Das Berichtsdatum.",
+        "format": "date"
+      },
+      "sourceUri": {
+        "type": "string",
+        "description": "Die URI der Webseite des ukrainischen Verteidigungsministeriums, auf der die Verluste ursprünglich gemeldet wurden."
+      },
+      "personnel": {
+        "type": "integer",
+        "description": "Menschliche Verluste (Tote oder Verwundete). Das ukrainische Verteidigungsministerium hat diese Zahl als Annäherung deklariert."
+      },
+      "tanks": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Kampfpanzer. https://de.wikipedia.org/wiki/Panzer"
+      },
+      "afvs": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Gepanzerte Kampffahrzeuge (ohne Panzer, Luftabwehrsysteme, selbstfahrende Artillerie und Raketenwerfersysteme). https://de.wikipedia.org/wiki/Sch%C3%BCtzenpanzer"
+      },
+      "artillery": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Kanonen, Haubitzen und Mörser. https://de.wikipedia.org/wiki/Artillerie"
+      },
+      "airDefense": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Flugabwehrkanonen und Raketenabwehrsysteme. https://de.wikipedia.org/wiki/Flugabwehr"
+      },
+      "rocketSystems": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Mehrfachraketenwerfer (MRL/MLRS). https://de.wikipedia.org/wiki/Mehrfachraketenwerfer"
+      },
+      "unarmoredVehicles": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Ungepanzerten oder leicht gepanzerten, weichhäutigen Fahrzeuge wie Tankwagen, Logistikfahrzeuge und Motorräder. https://de.wikipedia.org/wiki/Gesch%C3%BCtztes_Fahrzeug"
+      },
+      "fixedWingAircraft": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Kampfjets und Militärflugzeuge. https://de.wikipedia.org/wiki/Fl%C3%A4chenflugzeug"
+      },
+      "rotaryWingAircraft": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Hubschrauber oder andere Drehflügler. https://de.wikipedia.org/wiki/Hubschrauber"
+      },
+      "uavs": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Unbemannte Luftfahrzeuge (UAVs/UAS), typischerweise Langstreckendrohnen mit starren Flügeln. https://de.wikipedia.org/wiki/Unbemanntes_Luftfahrzeug"
+      },
+      "ships": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Kriegsschiffe. https://de.wikipedia.org/wiki/Kriegsschiff"
+      },
+      "submarines": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "U-Boote. https://de.wikipedia.org/wiki/U-Boot"
+      },
+      "specialEquipment": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Spezialradare, Baumaschinen, Flammenwerferfahrzeuge und andere spezielle oder spezialisierte Ausrüstung."
+      },
+      "missiles": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Langstreckenraketen, ballistische und Marschflugkörper. https://de.wikipedia.org/wiki/Marschflugk%C3%B6rper"
+      }
+    },
+    "required": [
+      "date",
+      "sourceUri",
+      "personnel",
+      "tanks",
+      "afvs",
+      "artillery",
+      "airDefense",
+      "rocketSystems",
+      "unarmoredVehicles",
+      "fixedWingAircraft",
+      "rotaryWingAircraft",
+      "uavs",
+      "ships",
+      "submarines",
+      "specialEquipment",
+      "missiles"
+    ],
+    "additionalProperties": false
+  }
+}

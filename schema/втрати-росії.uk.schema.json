@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Втрати Росії в Україні",
+  "description": "Набір даних про втрати російської армії в Україні з моменту повномасштабного вторгнення у 2022 році.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "date": {
+        "type": "string",
+        "description": "Дата звітування.",
+        "format": "date"
+      },
+      "sourceUri": {
+        "type": "string",
+        "description": "URI веб-сторінки Міністерства оборони України, де спочатку було опубліковано втрати."
+      },
+      "personnel": {
+        "type": "integer",
+        "description": "Людські втрати (вбиті або поранені). Міністерство оборони України зазначає, що ця цифра є приблизною."
+      },
+      "tanks": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Бойові танки. https://uk.wikipedia.org/wiki/%D0%A2%D0%B0%D0%BD%D0%BA"
+      },
+      "afvs": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Броньовані бойові машини (БМП), крім танків, систем ППО, самохідної артилерії та реактивних систем залпового вогню. https://uk.wikipedia.org/wiki/%D0%91%D0%BE%D0%B9%D0%BE%D0%B2%D0%B0_%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D0%B0_%D0%BF%D1%96%D1%85%D0%BE%D1%82%D0%B8"
+      },
+      "artillery": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Гармати, гаубиці та міномети. https://uk.wikipedia.org/wiki/%D0%90%D1%80%D1%82%D0%B8%D0%BB%D0%B5%D1%80%D1%96%D1%8F"
+      },
+      "airDefense": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Зенітні гармати та ракетні системи. https://uk.wikipedia.org/wiki/%D0%9F%D1%80%D0%BE%D1%82%D0%B8%D0%BF%D0%BE%D0%B2%D1%96%D1%82%D1%80%D1%8F%D0%BD%D0%B0_%D0%BE%D0%B1%D0%BE%D1%80%D0%BE%D0%BD%D0%B0"
+      },
+      "rocketSystems": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Реактивні системи залпового вогню (РСЗВ). https://uk.wikipedia.org/wiki/%D0%A0%D0%A1%D0%97%D0%92"
+      },
+      "unarmoredVehicles": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Неброньовані або легкоброньовані транспортні засоби, такі як паливозаправники, логістичні автомобілі та мотоцикли. https://uk.wikipedia.org/wiki/%D0%9F%D0%B0%D0%BB%D0%B8%D0%B2%D0%BE%D0%B7%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BD%D0%B8%D0%BA"
+      },
+      "fixedWingAircraft": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Винищувачі та військові літаки. https://uk.wikipedia.org/wiki/%D0%9B%D1%96%D1%82%D0%B0%D0%BA"
+      },
+      "rotaryWingAircraft": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Гелікоптери та інші гвинтокрилі літальні апарати. https://uk.wikipedia.org/wiki/%D0%93%D0%B5%D0%BB%D1%96%D0%BA%D0%BE%D0%BF%D1%82%D0%B5%D1%80"
+      },
+      "uavs": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Безпілотні літальні апарати (БПЛА), зазвичай далекого радіусу дії, з фіксованими крилами. https://uk.wikipedia.org/wiki/%D0%93%D0%BE%D1%80_(%D0%91%D0%9F%D0%9B%D0%90)"
+      },
+      "ships": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Військові кораблі. https://uk.wikipedia.org/wiki/%D0%92%D1%96%D0%B9%D1%81%D1%8C%D0%BA%D0%BE%D0%B2%D0%B8%D0%B9_%D0%BA%D0%BE%D1%80%D0%B0%D0%B1%D0%B5%D0%BB%D1%8C"
+      },
+      "submarines": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Підводні човни. https://uk.wikipedia.org/wiki/%D0%9F%D1%96%D0%B4%D0%B2%D0%BE%D0%B4%D0%BD%D0%B8%D0%B9_%D1%87%D0%BE%D0%B2%D0%B5%D0%BD"
+      },
+      "specialEquipment": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Спеціальні радари, будівельна техніка, вогнеметні машини та інше спеціалізоване обладнання."
+      },
+      "missiles": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Балістичні та крилаті ракети великої дальності. https://uk.wikipedia.org/wiki/%D0%A0%D0%B0%D0%BA%D0%B5%D1%82%D0%B0"
+      }
+    },
+    "required": [
+      "date",
+      "sourceUri",
+      "personnel",
+      "tanks",
+      "afvs",
+      "artillery",
+      "airDefense",
+      "rocketSystems",
+      "unarmoredVehicles",
+      "fixedWingAircraft",
+      "rotaryWingAircraft",
+      "uavs",
+      "ships",
+      "submarines",
+      "specialEquipment",
+      "missiles"
+    ],
+    "additionalProperties": false
+  }
+}
