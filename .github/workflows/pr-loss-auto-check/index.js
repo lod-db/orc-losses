@@ -8,7 +8,7 @@ const assert = (key, upper) => {
     const diffCount = currentCount - prevCount;
 
     console.log(`Validating '${key}' value of ${currentCount} - ${prevCount} (${diffCount} difference).`)
-    if (diff < 0 || diff > upper) {
+    if (diffCount < 0 || diffCount > upper) {
         throw new Error(`Difference of ${diffCount} for '${key}' falls outside of bounds 0,${upper}.`);
     }
 };
