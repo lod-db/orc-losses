@@ -20,7 +20,7 @@ jobs:
       run: npm install -g ajv-cli
 
     - name: Run Value Validation
-      run: node .github/workflows/pr-loss-auto-check/index.js ./russian-losses.json
+      run: node .github/workflows/pr-loss-auto-check/index.js
 
     - name: Run Schema Validation
       run: ajv validate -s russian-losses.schema.json -d russian-losses.json --strict=false --spec=draft2020
