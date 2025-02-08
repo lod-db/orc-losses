@@ -50,7 +50,7 @@ jobs:
       run: node ./index.js
 
     - name: Prepare Schema Validation
-      run: npm install -g ajv-cli
+      run: npm install -g ajv-cli ajv-formats
 
     - name: Run Schema Validation
-      run: ajv validate -s russian-losses.schema.json -d russian-losses.json --strict=false
+      run: ajv validate -c ajv-formats -m russian-losses.schema.json -d russian-losses.json --strict=false
