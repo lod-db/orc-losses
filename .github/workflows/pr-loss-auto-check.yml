@@ -22,10 +22,17 @@ jobs:
     - name: Run Value Validation
       run: node .github/workflows/pr-loss-auto-check/index.js
 
-    - name: Run Schema Validation
-      run: >
-        ajv validate -s schema/russian-losses.en.schema.json -d russian-losses.json --strict=false --spec=draft2020
-        ajv validate -s schema/pertes-russes.fr.schema.json -d russian-losses.json --strict=false --spec=draft2020
-        ajv validate -s schema/russische-verluste.de.schema.json -d russian-losses.json --strict=false --spec=draft2020
-        ajv validate -s schema/втрати-росії.uk.schema.json -d russian-losses.json --strict=false --spec=draft2020
-        ajv validate -s schema/потери-россии.ru.schema.json -d russian-losses.json --strict=false --spec=draft2020
+    - name: Run Schema Validation (en)
+      run: ajv validate -s schema/russian-losses.en.schema.json -d russian-losses.json --strict=false --spec=draft2020
+
+    - name: Run Schema Validation (fr)
+      run: ajv validate -s schema/pertes-russes.fr.schema.json -d russian-losses.json --strict=false --spec=draft2020
+
+    - name: Run Schema Validation (de)
+      run: ajv validate -s schema/russische-verluste.de.schema.json -d russian-losses.json --strict=false --spec=draft2020
+
+    - name: Run Schema Validation (uk)
+      run: ajv validate -s schema/втрати-росії.uk.schema.json -d russian-losses.json --strict=false --spec=draft2020
+
+    - name: Run Schema Validation (ru)
+      run: ajv validate -s schema/потери-россии.ru.schema.json -d russian-losses.json --strict=false --spec=draft2020
