@@ -2,7 +2,7 @@
 
 [English](#english) | [Français](#français) | [Deutsch](#deutsch) | [Українська](#українська) | [Русский](#русский)
 
-## English
+## 🇬🇧 English
 <details id="english" open>
 <summary>Russian Losses in Ukraine</summary>
 
@@ -27,7 +27,7 @@ orc-losses/
 
 ---
 
-### Français
+## 🇫🇷 Français
 <details id="français" open>
 <summary>Perte de l'armée russe en Ukraine</summary>
 
@@ -48,9 +48,11 @@ orc-losses/
 ├─ russian-losses.json (Jeu de données/instance JSON)
 ```
 
+</details>
+
 ---
 
-### Deutsch
+## 🇩🇪 Deutsch
 <details id="deutsch" open>
 <summary>Russische Verluste in der Ukraine</summary>
 
@@ -71,9 +73,11 @@ orc-losses/
 ├─ russian-losses.json (JSON-Datensatz/Instanz)
 ```
 
+</details>
+
 ---
 
-### Українська
+## 🇺🇦 Українська
 <details id="українська" open>
 <summary>Втрати Росії в Україні</summary>
 
@@ -94,9 +98,11 @@ orc-losses/
 ├─ russian-losses.json (JSON набір даних/екземпляр)
 ```
 
+</details>
+
 ---
 
-### Русский
+## 🇷🇺 Русский
 <details id="русский" open>
 <summary>Потери России в Украине</summary>
 
@@ -116,3 +122,5 @@ orc-losses/
 ├─ schema/ (Файлы JSON-схем)
 ├─ russian-losses.json (JSON набор данных/экземпляр)
 ```
+
+</details>
