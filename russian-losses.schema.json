@@ -47,7 +47,7 @@
         "type": ["integer", "null"],
         "description": "Fighter jets and military planes. https://en.wikipedia.org/wiki/Fixed-wing_aircraft"
       },
-      "rotoryWingAircraft": {
+      "rotaryWingAircraft": {
         "type": ["integer", "null"],
         "description": "Helicopters or other rotorcraft. https://en.wikipedia.org/wiki/Rotorcraft"
       },
@@ -83,7 +83,7 @@
       "rocketSystems",
       "unarmoredVehicles",
       "fixedWingAircraft",
-      "rotoryWingAircraft",
+      "rotaryWingAircraft",
       "uavs",
       "ships",
       "submarines",
