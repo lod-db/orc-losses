@@ -16,7 +16,7 @@ const assert = (key, upper) => {
 assert("personnel", 5000);
 assert("artillery", 1000);
 assert("fixedWingAircraft", 250);
-assert("rotoryWingAircraft", 250);
+assert("rotaryWingAircraft", 250);
 assert("tanks", 250);
 assert("afvs", 250);
 assert("rocketSystems", 250);
