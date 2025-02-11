@@ -34,7 +34,7 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F1BE3PCJV2"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
         gtag('config', 'G-F1BE3PCJV2');
@@ -98,20 +98,25 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a id="language-menu-toggle" class="nav-link dropdown-toggle text-white" href="#"
-                                role="button" aria-haspopup="true" aria-controls="language-menu" aria-label="{{ lang.language-label }}"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                                role="button" aria-haspopup="true" aria-controls="language-menu"
+                                aria-label="{{ lang.language-label }}" data-bs-toggle="dropdown" aria-expanded="false">
                                 {% if lang.slug == "en-GB" %}
-                                    <iconify-icon icon="circle-flags:uk" role="presentation"></iconify-icon>
+                                <iconify-icon class="me-1 align-middle" icon="circle-flags:uk"
+                                    role="presentation"></iconify-icon>
                                 {% elsif lang.slug == "fr-FR" %}
-                                    <iconify-icon icon="circle-flags:fr" role="presentation"></iconify-icon>
+                                <iconify-icon class="me-1 align-middle" icon="circle-flags:fr"
+                                    role="presentation"></iconify-icon>
                                 {% elsif lang.slug == "de-DE" %}
-                                    <iconify-icon icon="circle-flags:de" role="presentation"></iconify-icon>
+                                <iconify-icon class="me-1 align-middle" icon="circle-flags:de"
+                                    role="presentation"></iconify-icon>
                                 {% elsif lang.slug == "uk-UA" %}
-                                    <iconify-icon icon="circle-flags:ua" role="presentation"></iconify-icon>
+                                <iconify-icon class="me-1 align-middle" icon="circle-flags:ua"
+                                    role="presentation"></iconify-icon>
                                 {% elsif lang.slug == "ru-RU" %}
-                                    <iconify-icon icon="circle-flags:ru" role="presentation"></iconify-icon>
+                                <iconify-icon class="me-1 align-middle" icon="circle-flags:ru"
+                                    role="presentation"></iconify-icon>
                                 {% else %}
-                                    <iconify-icon class="me-1 align-middle" icon="circle-flags:us"></iconify-icon>
+                                <iconify-icon class="me-1 align-middle" icon="circle-flags:us"></iconify-icon>
                                 {% endif %}
                                 {{ lang.language-label }}
                             </a>
@@ -161,26 +166,55 @@
         </nav>
     </header>
 
-    <main class="container" aria-live="polite">
-        <section class="my-3">
-           <p>{{ lang.preamble-paragraph }}</p>
+    <main class="container pt-3" aria-live="polite">
+        <section class="mb-4">
+            <p>{{ lang.preamble-paragraph }}</p>
 
-           {{ content }}
-
+            {{ content }}
         </section>
-        <section id="losses-container" class="my-3">
-            <div class="row">
-                <div class="col">
-                    Loading...
+
+        <div class="row">
+            <div class="col-xl-9">
+                <section id="losses-container" class="mb-4">
+                    <div class="row">
+                        <div class="col">
+                            Loading...
+                        </div>
+                    </div>
+                </section>
+
+                <section id="charts-container" class="mb-4">
+                    <div class="chart-container">
+                        <div id="line-chart" class="line-chart"></div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-xl-3">
+                <div class="border border-1 rounded mb-4 p-3">
+                    <section id="open-source-disclaimer-container">
+                        <h4>
+                            <iconify-icon class="fs-3 align-middle" icon="arcticons:ukraine-tryzub"></iconify-icon>
+                            Open Data
+                        </h4>
+                        <p>
+                            The dataset is sourced from the
+                            <a href="https://mod.gov.ua" title="Ministry of Defense of Ukraine" target="_blank"
+                                rel="noopener noreferrer">Ministry of Defense of Ukraine</a>.
+                            and carries a likely bias.
+                            This dataset represents the most consistently reported figures on the war but should not be
+                            considered definitive.
+                        </p>
+                        <p>
+                            The dataset is publicly maintained on
+                            <a href="https://www.github.com/lod-db/orc-losses" title="Orc Losses on GitHub"
+                                target="_blank" rel="noopener noreferrer">GitHub</a>
+                            under open-source licenses.
+                            Users are encouraged to verify information independently and use it responsibly.
+                        </p>
+                    </section>
                 </div>
             </div>
-        </section>
-
-        <section id="charts-container" class="my-3">
-            <div class="chart-container">
-                <div id="line-chart" style="width: 100%; height: 100%;"></div>
-            </div>
-        </section>
+        </div>
     </main>
 
     <footer class="border-top border-1">
@@ -190,20 +224,19 @@
                     <iconify-icon icon="mdi:github" class="me-1 align-middle fs-4"></iconify-icon>
                     <span class="d-inline-block pt-1">{{ lang.view-on-github-label }}</span>
                     <a class="btn btn-link px-0" href="https://www.github.com/lod-db/orc-losses"
-                        title="Orc Losses on GitHub" target="_blank" rel="noopener noreferrer nofollow">GitHub</a>
+                        title="Orc Losses on GitHub" target="_blank" rel="noopener noreferrer">GitHub</a>
                 </p>
             </div>
             <div>
-                <button type="button" class="btn btn-link" data-bs-toggle="modal"
-                    data-bs-target="#modal-tos">{{ lang.tos-label }}</button>
-                <button type="button" class="btn btn-link" data-bs-toggle="modal"
-                    data-bs-target="#modal-attribution">{{ lang.attributions-label }}</button>
+                <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#modal-tos">{{
+                    lang.tos-label }}</button>
+                <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#modal-attribution">{{
+                    lang.attributions-label }}</button>
             </div>
         </div>
     </footer>
 
-    <div id="modal-tos" class="modal fade" tabindex="-1"
-        aria-labelledby="modal-tos-title" aria-hidden="true">
+    <div id="modal-tos" class="modal fade" tabindex="-1" aria-labelledby="modal-tos-title" aria-hidden="true">
         <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
@@ -220,8 +253,8 @@
         </div>
     </div>
 
-    <div id="modal-attribution" class="modal fade" tabindex="-1"
-        aria-labelledby="modal-attribution-title" aria-hidden="true">
+    <div id="modal-attribution" class="modal fade" tabindex="-1" aria-labelledby="modal-attribution-title"
+        aria-hidden="true">
         <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">

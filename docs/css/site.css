@@ -37,3 +37,36 @@ html[data-bs-theme="dark"] img.light {
 html[data-bs-theme="dark"] img.dark {
     display: inline-block;
 }
+
+.line-chart {
+    width: 100%;
+    min-height: 300px;
+}
+
+@media (min-width: 576px) {
+    .line-chart {
+        width: 100%;
+        height: 300px;
+    }
+}
+
+@media (min-width: 768px) {
+    .line-chart {
+        width: 100%;
+        height: 450px;
+    }
+}
+
+@media (min-width: 992px) {
+    .line-chart {
+        width: 100%;
+        height: 600px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .line-chart {
+        width: 100%;
+        height: 800px;
+    }
+}
