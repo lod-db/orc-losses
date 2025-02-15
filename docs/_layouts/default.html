@@ -189,6 +189,8 @@
                                     {{ category.key }}
                                     {{ current.tanks }}
                                     {{ current[category.key] }}
+                                    {{ current | inspect }}
+                                    {{ current | json }}
                                     {% assign diff = current[category.key] | minus: previous[category.key] %}
                                     <p class="text-center my-0" aria-describedby="losses-{{ category.id }}-description">
                                         {% if category.id == "personnel"  %}~{% endif %}<span class="localizable-number">{{ current[category.key] }}</span>
