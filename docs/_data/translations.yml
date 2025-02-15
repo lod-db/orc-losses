@@ -1,8 +1,8 @@
 - name: English (US)
   slug: en-US
   title: Russian Losses in Ukraine – Casualties and Equipment Losses
-  description: The latest Russian casualties and equipment losses since the start of the 2022 full-scale invasion.
-  keywords: Ukraine war losses, Russian military losses, Ukraine conflict data, war casualties, Ukraine war statistics
+  description: Track the latest Russian casualties and equipment losses in Russia’s war on Ukraine since the start of the 2022 full-scale invasion.
+  keywords: Ukraine war losses, Russian military losses, Ukraine conflict data, war casualties, Ukraine war statistics, Ukraine war tracker, Russian losses tracker
   page-title: Russian Losses in Ukraine
   theme-label: Theme
   theme-light-label: Light
@@ -38,8 +38,8 @@
 - name: English (UK)
   slug: en-GB
   title: Russian Losses in Ukraine – Casualties and Equipment Losses
-  description: The latest Russian casualties and equipment losses since the start of the 2022 full-scale invasion.
-  keywords: Ukraine war losses, Russian military losses, Ukraine conflict data, war casualties, Ukraine war statistics
+  description: Track the latest Russian casualties and equipment losses in Russia’s war on Ukraine since the start of the 2022 full-scale invasion.
+  keywords: Ukraine war losses, Russian military losses, Ukraine conflict data, war casualties, Ukraine war statistics, Ukraine war tracker, Russian losses tracker
   page-title: Russian Losses in Ukraine
   theme-label: Theme
   theme-light-label: Light
@@ -75,8 +75,8 @@
 - name: Français
   slug: fr-FR
   title: Pertes russes en Ukraine – Pertes humaines et matérielles
-  description: Les dernières pertes humaines et matérielles russes depuis le début de l’invasion à grande échelle en 2022.
-  keywords: pertes de guerre en Ukraine, pertes militaires russes, données sur le conflit en Ukraine, pertes humaines, statistiques de la guerre en Ukraine
+  description: Suivez les dernières pertes russes en personnel et en équipement dans la guerre de la Russie contre l'Ukraine depuis le début de l'invasion à grande échelle en 2022.
+  keywords: pertes de guerre en Ukraine, pertes militaires russes, données sur le conflit en Ukraine, pertes humaines, statistiques de la guerre en Ukraine, Suivi de la guerre en Ukraine, Suivi des pertes russes
   page-title: Pertes russes en Ukraine
   theme-label: Thème
   theme-light-label: Clair
@@ -112,8 +112,8 @@
 - name: Deutsch
   slug: de-DE
   title: Russische Verluste in der Ukraine – Verluste an Personal und Ausrüstung
-  description: Die neuesten russischen Verluste an Personal und Ausrüstung seit Beginn der umfassenden Invasion im Jahr 2022.
-  keywords: Ukraine Kriegsverluste, Russische Militärverluste, Ukraine Konfliktdaten, Kriegstote, Ukraine Kriegsstatistiken
+  description: Verfolgen Sie die neuesten russischen Verluste an Personal und Ausrüstung im Krieg Russlands gegen die Ukraine seit Beginn der groß angelegten Invasion im Jahr 2022.
+  keywords: Ukraine Kriegsverluste, Russische Militärverluste, Ukraine Konfliktdaten, Kriegstote, Ukraine Kriegsstatistiken, Ukraine-Krieg-Tracker, Russischer Verlust-Tracker
   page-title: Russische Verluste in der Ukraine
   theme-label: Thema
   theme-light-label: Hell
@@ -149,8 +149,8 @@
 - name: Українська
   slug: uk-UA
   title: Втрати Росії в Україні – Втрати особового складу та техніки
-  description: Останні дані про втрати особового складу та техніки Росії з початку повномасштабного вторгнення у 2022 році.
-  keywords: Втрати у війні в Україні, Втрати російської армії, Дані про конфлікт в Україні, Військові втрати, Статистика війни в Україні
+  description: Відстежуйте останні втрати Росії в живій силі та техніці у війні проти України з початку повномасштабного вторгнення у 2022 році.
+  keywords: Втрати у війні в Україні, Втрати російської армії, Дані про конфлікт в Україні, Військові втрати, Статистика війни в Україні, Відстеження війни в Україні, Відстеження втрат Росії
   page-title: Втрати Росії в Україні
   theme-label: Тема
   theme-light-label: Світла
@@ -186,8 +186,8 @@
 - name: Русский
   slug: ru-RU
   title: Потери России в Украине – Потери личного состава и техники
-  description: Последние данные о потерях личного состава и техники России с начала полномасштабного вторжения в 2022 году.
-  keywords: Потери в войне в Украине, Потери российской армии, Данные о конфликте в Украине, Военные потери, Статистика войны в Украине
+  description: Отслеживайте последние потери России в живой силе и технике в войне против Украины с начала полномасштабного вторжения в 2022 году.
+  keywords: Потери в войне в Украине, Потери российской армии, Данные о конфликте в Украине, Военные потери, Статистика войны в Украине, Трекер войны в Украине, Трекер потерь России
   page-title: Потери России в Украине
   theme-label: Тема
   theme-light-label: Светлая
