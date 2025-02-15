@@ -8,7 +8,7 @@
   theme-light-label: Light
   theme-dark-label: Dark
   language-label: Language
-  preamble-paragraph: Since Russia launched its full-scale invasion in 2022, military and equipment losses have been a key measure of the war’s progression. This site compiles figures from the Ukrainian Ministry of Defense, recognizing that all sources may carry biases while striving to provide a transparent view of the conflict.
+  preamble-paragraph: Since Russia launched its full-scale invasion in 2022, military and equipment losses have been a key measure of the war’s progression.
   lost-since-label: lost since
   no-data-on-date-label: No data available on this date
   personnel-label: Personnel
@@ -28,6 +28,12 @@
   view-on-github-label: View on
   tos-label: Terms of Use
   attributions-label: Attribution
+  ua-min-def: Ministry of Defense of Ukraine
+  os-open-data: Open Data
+  os-disclaimer-p1-1: The dataset is sourced from the
+  os-disclaimer-p1-2: and carries a likely bias. This dataset represents the most consistently reported figures on the war but should not be considered definitive.
+  os-disclaimer-p2-1: The dataset is publicly maintained on
+  os-disclaimer-p2-2: under open-source licenses. Users are encouraged to verify information independently and use it responsibly.
 
 - name: English (UK)
   slug: en-GB
@@ -39,7 +45,7 @@
   theme-light-label: Light
   theme-dark-label: Dark
   language-label: Language
-  preamble-paragraph: Since Russia launched its full-scale invasion in 2022, military and equipment losses have been a key measure of the war’s progression. This site compiles figures from the Ukrainian Ministry of Defence, recognising that all sources may carry biases while striving to provide a transparent view of the conflict.
+  preamble-paragraph: Since Russia launched its full-scale invasion in 2022, military and equipment losses have been a key measure of the war’s progression.
   lost-since-label: Lost since
   no-data-on-date-label: No data available on this date
   personnel-label: Personnel
@@ -59,6 +65,12 @@
   view-on-github-label: View on
   tos-label: Terms of Use
   attributions-label: Attribution
+  ua-min-def: Ministry of Defence of Ukraine
+  os-open-data: Open Data
+  os-disclaimer-p1-1: The dataset is sourced from the
+  os-disclaimer-p1-2: and carries a likely bias. This dataset represents the most consistently reported figures on the war but should not be considered definitive.
+  os-disclaimer-p2-1: The dataset is publicly maintained on
+  os-disclaimer-p2-2: under open-source licences. Users are encouraged to verify information independently and use it responsibly.
 
 - name: Français
   slug: fr-FR
@@ -70,7 +82,7 @@
   theme-light-label: Clair
   theme-dark-label: Sombre
   language-label: Langue
-  preamble-paragraph: Depuis le lancement de son invasion à grande échelle en 2022, la Russie a subi des pertes militaires et matérielles significatives, devenues une mesure clé de la progression de la guerre. Ce site compile les chiffres fournis par le ministère ukrainien de la Défense, tout en reconnaissant que toutes les sources peuvent comporter des biais, dans un souci de transparence.
+  preamble-paragraph: Depuis le lancement de son invasion à grande échelle en 2022, la Russie a subi des pertes militaires et matérielles significatives, devenues une mesure clé de la progression de la guerre.
   lost-since-label: Perdu depuis
   no-data-on-date-label: Aucune donnée disponible à cette date
   personnel-label: Personnel
@@ -90,6 +102,12 @@
   view-on-github-label: Voir sur
   tos-label: Conditions d'utilisation
   attributions-label: Attribution
+  ua-min-def: Ministère de la Défense de l'Ukraine
+  os-open-data: Données ouvertes
+  os-disclaimer-p1-1: L'ensemble de données provient du
+  os-disclaimer-p1-2: et peut contenir un biais. Cet ensemble de données représente les chiffres les plus régulièrement rapportés sur la guerre, mais ne doit pas être considéré comme définitif.
+  os-disclaimer-p2-1: L'ensemble de données est maintenu publiquement sur
+  os-disclaimer-p2-2: sous des licences open-source. Les utilisateurs sont encouragés à vérifier les informations de manière indépendante et à les utiliser de manière responsable.
 
 - name: Deutsch
   slug: de-DE
@@ -101,7 +119,7 @@
   theme-light-label: Hell
   theme-dark-label: Dunkel
   language-label: Sprache
-  preamble-paragraph: Seit Russland 2022 seine umfassende Invasion gestartet hat, sind militärische und materielle Verluste ein zentraler Indikator für den Verlauf des Krieges. Diese Website sammelt Zahlen des ukrainischen Verteidigungsministeriums und erkennt an, dass alle Quellen voreingenommen sein können, während sie eine transparente Sicht auf den Konflikt anstrebt.
+  preamble-paragraph: Seit Russland 2022 seine umfassende Invasion gestartet hat, sind militärische und materielle Verluste ein zentraler Indikator für den Verlauf des Krieges.
   lost-since-label: verloren seit
   no-data-on-date-label: Keine Daten für dieses Datum verfügbar
   personnel-label: Personal
@@ -121,6 +139,12 @@
   view-on-github-label: Ansehen auf
   tos-label: Nutzungsbedingungen
   attributions-label: Quellenangaben
+  ua-min-def: Verteidigungsministerium der Ukraine
+  os-open-data: Offene Daten
+  os-disclaimer-p1-1: Der Datensatz stammt vom
+  os-disclaimer-p1-2: und könnte eine gewisse Voreingenommenheit enthalten. Dieser Datensatz stellt die am beständigsten berichteten Zahlen zum Krieg dar, sollte jedoch nicht als endgültig betrachtet werden.
+  os-disclaimer-p2-1: Der Datensatz wird öffentlich auf
+  os-disclaimer-p2-2: unter Open-Source-Lizenzen verwaltet. Nutzer werden ermutigt, die Informationen unabhängig zu überprüfen und verantwortungsvoll zu nutzen.
 
 - name: Українська
   slug: uk-UA
@@ -132,7 +156,7 @@
   theme-light-label: Світла
   theme-dark-label: Темна
   language-label: Мова
-  preamble-paragraph: З моменту повномасштабного вторгнення Росії у 2022 році втрати у військовій силі та техніці стали ключовим показником перебігу війни. Цей сайт збирає дані Міністерства оборони України, визнаючи можливу упередженість усіх джерел, та прагне забезпечити прозорий огляд конфлікту.
+  preamble-paragraph: З моменту повномасштабного вторгнення Росії у 2022 році втрати у військовій силі та техніці стали ключовим показником перебігу війни.
   lost-since-label: втрачено з
   no-data-on-date-label: Дані за цю дату відсутні
   personnel-label: Особовий склад
@@ -152,6 +176,12 @@
   view-on-github-label: Переглянути на
   tos-label: Умови використання
   attributions-label: Джерела інформації
+  ua-min-def: Міністерства оборони України
+  os-open-data: Відкриті дані
+  os-disclaimer-p1-1: Набір даних отримано з
+  os-disclaimer-p1-2: і може містити певну упередженість. Цей набір даних представляє найбільш послідовно звітувані цифри щодо війни, але не повинен вважатися остаточним.
+  os-disclaimer-p2-1: Набір даних підтримується публічно на
+  os-disclaimer-p2-2: за відкритими ліцензіями. Користувачам рекомендується перевіряти інформацію самостійно та використовувати її відповідально.
 
 - name: Русский
   slug: ru-RU
@@ -163,7 +193,7 @@
   theme-light-label: Светлая
   theme-dark-label: Тёмная
   language-label: Язык
-  preamble-paragraph: С момента полномасштабного вторжения России в 2022 году потери в живой силе и технике стали ключевым показателем хода войны. Этот сайт собирает данные Министерства обороны Украины, признавая возможную предвзятость всех источников, и стремится предоставить прозрачный обзор конфликта.
+  preamble-paragraph: С момента полномасштабного вторжения России в 2022 году потери в живой силе и технике стали ключевым показателем хода войны.
   lost-since-label: потеряно с
   no-data-on-date-label: Нет данных на эту дату
   personnel-label: Личный состав
@@ -183,3 +213,9 @@
   view-on-github-label: Смотреть на
   tos-label: Условия использования
   attributions-label: Источники
+  ua-min-def: Министерства обороны Украины
+  os-open-data: Открытые данные
+  os-disclaimer-p1-1: Набор данных получен из
+  os-disclaimer-p1-2: и может содержать определённую предвзятость. Этот набор данных представляет собой наиболее последовательно публикуемые цифры о войне, но не должен считаться окончательным.
+  os-disclaimer-p2-1: Набор данных поддерживается публично на
+  os-disclaimer-p2-2: под лицензиями с открытым исходным кодом. Пользователям рекомендуется самостоятельно проверять информацию и использовать её ответственно.

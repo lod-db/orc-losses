@@ -1,6 +1,7 @@
 {% assign lang = site.data.translations | where_exp:"item", "item.slug == page.lang" | first %}<html lang="{{ lang.slug }}">
 {% assign losses = site.data.russian-losses %}
-{% assign recent = losses | first %}
+{% assign current = losses | slice: 0 | first %}
+{% assign previous = losses | slice: 1 | first %}
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,7 +9,7 @@
     <meta name="robots" content="index, follow">
     <meta name="description" content="{{ lang.description }}">
     <meta name="keywords" content="{{ lang.keywords }}">
-    <meta name="revised" content="{{ recent.date }}">
+    <meta name="revised" content="{{ current.date }}">
     <meta name="theme-color" content="#0056B9">
     <link rel="alternate" hreflang="en-us" href="https://www.ukrainewarlosses.com">
     <link rel="alternate" hreflang="en-gb" href="https://www.ukrainewarlosses.com/uk">
@@ -34,7 +35,7 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F1BE3PCJV2"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
         gtag('config', 'G-F1BE3PCJV2');
@@ -98,20 +99,25 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a id="language-menu-toggle" class="nav-link dropdown-toggle text-white" href="#"
-                                role="button" aria-haspopup="true" aria-controls="language-menu" aria-label="{{ lang.language-label }}"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                                role="button" aria-haspopup="true" aria-controls="language-menu"
+                                aria-label="{{ lang.language-label }}" data-bs-toggle="dropdown" aria-expanded="false">
                                 {% if lang.slug == "en-GB" %}
-                                    <iconify-icon icon="circle-flags:uk" role="presentation"></iconify-icon>
+                                <iconify-icon class="me-1 align-middle" icon="circle-flags:uk"
+                                    role="presentation"></iconify-icon>
                                 {% elsif lang.slug == "fr-FR" %}
-                                    <iconify-icon icon="circle-flags:fr" role="presentation"></iconify-icon>
+                                <iconify-icon class="me-1 align-middle" icon="circle-flags:fr"
+                                    role="presentation"></iconify-icon>
                                 {% elsif lang.slug == "de-DE" %}
-                                    <iconify-icon icon="circle-flags:de" role="presentation"></iconify-icon>
+                                <iconify-icon class="me-1 align-middle" icon="circle-flags:de"
+                                    role="presentation"></iconify-icon>
                                 {% elsif lang.slug == "uk-UA" %}
-                                    <iconify-icon icon="circle-flags:ua" role="presentation"></iconify-icon>
+                                <iconify-icon class="me-1 align-middle" icon="circle-flags:ua"
+                                    role="presentation"></iconify-icon>
                                 {% elsif lang.slug == "ru-RU" %}
-                                    <iconify-icon icon="circle-flags:ru" role="presentation"></iconify-icon>
+                                <iconify-icon class="me-1 align-middle" icon="circle-flags:ru"
+                                    role="presentation"></iconify-icon>
                                 {% else %}
-                                    <iconify-icon class="me-1 align-middle" icon="circle-flags:us"></iconify-icon>
+                                <iconify-icon class="me-1 align-middle" icon="circle-flags:us"></iconify-icon>
                                 {% endif %}
                                 {{ lang.language-label }}
                             </a>
@@ -161,26 +167,73 @@
         </nav>
     </header>
 
-    <main class="container" aria-live="polite">
-        <section class="my-3">
-           <p>{{ lang.preamble-paragraph }}</p>
+    <main class="container pt-3" aria-live="polite">
+        <section class="mb-4">
+            <p>{{ lang.preamble-paragraph }}</p>
 
-           {{ content }}
-
+            {{ content }}
         </section>
-        <section id="losses-container" class="my-3">
-            <div class="row">
-                <div class="col">
-                    Loading...
+
+        <div class="row">
+            <div class="col-xl-9">
+                <section id="losses-container" class="mb-4">
+                    <div class="row">
+                        {% for category in site.data.categories %}
+                            <div class="col-12 col-md-6 col-xxl-4 mb-3">
+                                <div class="d-flex flex-column justify-content-between p-3 h-100 border border-1">
+                                    <div class="d-flex justify-content-between">
+                                        <h3>{{ lang[category.label] }}</h3>
+                                        <img class="icon light mx-1" title="{{ lang[category.label] }}" src="icon/{{ category.icon }}.png" aria-hidden="true">
+                                        <img class="icon dark mx-1" title="{{ lang[category.label] }}" src="icon/{{ category.icon }}-white.png" aria-hidden="true">
+                                    </div>
+                                    {% assign diff = current[category.key] | minus: previous[category.key] %}
+                                    <p class="text-center my-0" aria-describedby="losses-{{ category.id }}-description">
+                                        {% if category.id == "personnel"  %}~{% endif %}<span class="localizable-number">{{ current[category.key] }}</span>
+                                        {% if diff > 0 %}
+                                            +(<span class="localizable-number">{{ diff }}</span>)
+                                        {% endif %}
+                                    </p>
+                                    <p id="losses-{{ category.id }}-description" class="visually-hidden">
+                                        {% if category.id == "personnel"  %}~{% endif %}<span class="localizable-number">{{ current[category.key] }}</span>
+                                        {{ lang[category.label]}} {{ lang.lost-since-label }} 2022.
+                                    </p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </section>
+
+                <section id="charts-container" class="mb-4">
+                    <div class="chart-container">
+                        <div id="line-chart" class="line-chart">
+                            Loading chart...
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-xl-3">
+                <div class="border border-1 rounded mb-4 p-3">
+                    <section id="open-source-disclaimer-container">
+                        <h4>
+                            <iconify-icon class="fs-3 align-middle" icon="arcticons:ukraine-tryzub"></iconify-icon>
+                            {{ lang.os-open-data }}
+                        </h4>
+                        <p>
+                            {{ lang.os-disclaimer-p1-1 }}
+                            <a href="https://mod.gov.ua" title="{{ lang.ua-min-def }}" target="_blank"
+                                rel="noopener noreferrer">{{ lang.ua-min-def }}</a>.
+                            {{ lang.os-disclaimer-p1-2 }}
+                        </p>
+                        <p>
+                            {{ lang.os-disclaimer-p2-1 }}
+                            <a href="https://www.github.com/lod-db/orc-losses" title="Orc Losses on GitHub"
+                                target="_blank" rel="noopener noreferrer">GitHub</a>
+                            {{ lang.os-disclaimer-p2-2 }}
+                        </p>
+                    </section>
                 </div>
             </div>
-        </section>
-
-        <section id="charts-container" class="my-3">
-            <div class="chart-container">
-                <div id="line-chart" style="width: 100%; height: 100%;"></div>
-            </div>
-        </section>
+        </div>
     </main>
 
     <footer class="border-top border-1">
@@ -190,20 +243,19 @@
                     <iconify-icon icon="mdi:github" class="me-1 align-middle fs-4"></iconify-icon>
                     <span class="d-inline-block pt-1">{{ lang.view-on-github-label }}</span>
                     <a class="btn btn-link px-0" href="https://www.github.com/lod-db/orc-losses"
-                        title="Orc Losses on GitHub" target="_blank" rel="noopener noreferrer nofollow">GitHub</a>
+                        title="Orc Losses on GitHub" target="_blank" rel="noopener noreferrer">GitHub</a>
                 </p>
             </div>
             <div>
-                <button type="button" class="btn btn-link" data-bs-toggle="modal"
-                    data-bs-target="#modal-tos">{{ lang.tos-label }}</button>
-                <button type="button" class="btn btn-link" data-bs-toggle="modal"
-                    data-bs-target="#modal-attribution">{{ lang.attributions-label }}</button>
+                <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#modal-tos">{{
+                    lang.tos-label }}</button>
+                <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#modal-attribution">{{
+                    lang.attributions-label }}</button>
             </div>
         </div>
     </footer>
 
-    <div id="modal-tos" class="modal fade" tabindex="-1"
-        aria-labelledby="modal-tos-title" aria-hidden="true">
+    <div id="modal-tos" class="modal fade" tabindex="-1" aria-labelledby="modal-tos-title" aria-hidden="true">
         <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
@@ -220,8 +272,8 @@
         </div>
     </div>
 
-    <div id="modal-attribution" class="modal fade" tabindex="-1"
-        aria-labelledby="modal-attribution-title" aria-hidden="true">
+    <div id="modal-attribution" class="modal fade" tabindex="-1" aria-labelledby="modal-attribution-title"
+        aria-hidden="true">
         <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
@@ -310,94 +362,16 @@
         const isNull = (val) => typeof val === 'undefined' || val === null;
     </script>
     <script>
-        // Create Losses Table
+        // Localize numbers, this is the recommend approach with Liquid
         (function () {
-            const current = lossesDict[dateRange[dateRange.length - 1]];
-            const previous = lossesDict[dateRange[dateRange.length - 2]];
+            const numberEles = document.getElementsByClassName("localizable-number");
+            Array.from(numberEles).forEach(e => {
+                const text = e.innerText;
+                const num = parseInt(text);
+                const localized = !isNaN(num) ? num.toLocaleString(locale) : '';
 
-            const containerEle = document.getElementById('losses-container');
-            const rowEle = containerEle.getElementsByClassName('row')[0];
-            const lossCategories = [
-                { id: 'personnel', key: 'personnel', name: '{{ lang.personnel-label }}', icon: 'helmet' },
-                { id: 'artillery', key: 'artillery', name: '{{ lang.artillery-label }}', icon: 'artillery' },
-                { id: 'jets', key: 'fixedWingAircraft', name: '{{ lang.jets-label }}', icon: 'jet' },
-                { id: 'helicopters', key: 'rotaryWingAircraft', name: '{{ lang.helicopters-label }}', icon: 'helicopter' },
-                { id: 'tanks', key: 'tanks', name: '{{ lang.tanks-label }}', icon: 'tank' },
-                { id: 'afvs', key: 'afvs', name: '{{ lang.afvs-label }}', icon: 'afv' },
-                { id: 'mlrs', key: 'rocketSystems', name: '{{ lang.mlrs-label }}', icon: 'mlrs' },
-                { id: 'aa', key: 'airDefense', name: '{{ lang.aa-label }}', icon: 'radar' },
-                { id: 'ships', key: 'ships', name: '{{ lang.ships-label }}', icon: 'ship' },
-                { id: 'submarines', key: 'submarines', name: '{{ lang.submarines-label }}', icon: 'submarine' },
-                { id: 'vehicles', key: 'unarmoredVehicles', name: '{{ lang.vehicles-label }}', icon: 'vehicle' },
-                { id: 'special', key: 'specialEquipment', name: '{{ lang.special-label }}', icon: 'bulldozer' },
-                { id: 'uavs', key: 'uavs', name: '{{ lang.uavs-label }}', icon: 'uav' },
-                { id: 'missiles', key: 'missiles', name: '{{ lang.missiles-label }}', icon: 'missile' },
-            ];
-            const colEles = lossCategories.map(c => {
-                const currVal = current ? current[c.key] : null;
-                const prevVal = previous ? previous[c.key] : null;
-                const diffVal = currVal && prevVal ? Math.max(currVal - prevVal, 0) : null;
-
-                const rootEle = document.createElement('div');
-                rootEle.className = 'col-12 col-md-6 col-lg-4 col-xxl-3 mb-3';
-
-                const containerEle = document.createElement('div');
-                containerEle.className = 'd-flex flex-column justify-content-between p-3 h-100 border border-1';
-                rootEle.appendChild(containerEle);
-
-                const headerGroupEle = document.createElement('div');
-                headerGroupEle.className = 'd-flex justify-content-between';
-                containerEle.appendChild(headerGroupEle);
-
-                const nameEle = document.createElement('h3');
-                nameEle.innerText = c.name;
-                headerGroupEle.appendChild(nameEle);
-
-                const imgLightEle = document.createElement('img');
-                imgLightEle.className = 'icon light mx-1';
-                imgLightEle.title = c.name;
-                imgLightEle.src = `icon/${c.icon}.png`
-                imgLightEle.ariaHidden = true;
-                headerGroupEle.appendChild(imgLightEle);
-
-                const imgDarkEle = document.createElement('img');
-                imgDarkEle.className = 'icon dark mx-1';
-                imgDarkEle.title = c.name;
-                imgDarkEle.src = `icon/${c.icon}-white.png`
-                imgDarkEle.ariaHidden = true;
-                headerGroupEle.appendChild(imgDarkEle);
-
-                const numberEle = document.createElement('p');
-                numberEle.className = 'text-center my-0';
-                numberEle.setAttribute('aria-describedby', `losses-${c.id}-description`);
-                numberEle.innerText = !isNull(currVal)
-                    ? `${c.id === 'personnel' ? '~' : ''}${currVal.toLocaleString(locale)}`
-                    : '—';
-                containerEle.appendChild(numberEle);
-
-                if (diffVal && diffVal > 0) {
-                    const diffEle = document.createElement('strong');
-                    diffEle.className = 'small';
-                    diffEle.innerText = `(+${diffVal.toLocaleString(locale)})`;
-                    numberEle.appendChild(document.createTextNode(' '));
-                    numberEle.appendChild(diffEle);
-                }
-
-                const descriptionEle = document.createElement('p');
-                descriptionEle.id = `losses-${c.id}-description`;
-                descriptionEle.className = 'visually-hidden';
-                descriptionEle.innerText = !isNull(currVal)
-                    ? `${c.id === 'personnel' ? '~' : ''}${currVal} ${c.name} {{ lang.lost-since-label }} 2022.`
-                    : '{{ lang.no-data-on-date-label }}';
-                containerEle.appendChild(descriptionEle);
-
-                return rootEle;
+                e.innerText = localized;
             });
-
-            rowEle.innerHTML = '';
-            for (let ele of colEles) {
-                rowEle.appendChild(ele);
-            }
         })();
     </script>
     <script>
