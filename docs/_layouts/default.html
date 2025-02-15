@@ -190,13 +190,13 @@
                                     </div>
                                     {% assign diff = current[category.key] | minus: previous[category.key] %}
                                     <p class="text-center my-0" aria-describedby="losses-{{ category.id }}-description">
-                                        3&nbsp;054 {% if category.id == 'personnel'  %}~{% endif %}{{ current[category.key] | number_with_delimiter: locale: lang.slug }}
+                                        {% if category.id == "personnel"  %}~{% endif %}<span class="localizable-number">{{ current[category.key] }}</span>
                                         {% if diff > 0 %}
-                                            +{{ diff | number_with_delimiter: locale: lang.slug }}
+                                            +(<span class="localizable-number">{{ diff }})</span>
                                         {% endif %}
                                     </p>
                                     <p id="losses-{{ category.id }}-description" class="visually-hidden">
-                                        {% if category.id == 'personnel'  %}~{% endif %}{{ diff | number_with_delimiter: locale: lang.slug }}
+                                        {% if category.id == "personnel"  %}~{% endif %}<span class="localizable-number">{{ diff }}</span>
                                         {{ lang[category.label]}} {{ lang.lost-since-label }} 2022.
                                     </p>
                                 </div>
@@ -364,95 +364,17 @@
         const isNull = (val) => typeof val === 'undefined' || val === null;
     </script>
     <script>
-        // Create Losses Table
+        // Localize numbers, this is the recommend approach with Liquid
         (function () {
-            const current = lossesDict[dateRange[dateRange.length - 1]];
-            const previous = lossesDict[dateRange[dateRange.length - 2]];
+            const numberEles = document.getElementsByClassName("localizable-number");
+            Array.from(numberEles).forEach(e => {
+                const text = e.innerText;
+                const num = parseInt(text);
+                const localized = num.toLocaleString(locale);
 
-            const containerEle = document.getElementById('losses-container');
-            const rowEle = containerEle.getElementsByClassName('row')[0];
-            const lossCategories = [
-                { id: 'personnel', key: 'personnel', name: '{{ lang.personnel-label }}', icon: 'helmet' },
-                { id: 'artillery', key: 'artillery', name: '{{ lang.artillery-label }}', icon: 'artillery' },
-                { id: 'jets', key: 'fixedWingAircraft', name: '{{ lang.jets-label }}', icon: 'jet' },
-                { id: 'helicopters', key: 'rotaryWingAircraft', name: '{{ lang.helicopters-label }}', icon: 'helicopter' },
-                { id: 'tanks', key: 'tanks', name: '{{ lang.tanks-label }}', icon: 'tank' },
-                { id: 'afvs', key: 'afvs', name: '{{ lang.afvs-label }}', icon: 'afv' },
-                { id: 'mlrs', key: 'rocketSystems', name: '{{ lang.mlrs-label }}', icon: 'mlrs' },
-                { id: 'aa', key: 'airDefense', name: '{{ lang.aa-label }}', icon: 'radar' },
-                { id: 'ships', key: 'ships', name: '{{ lang.ships-label }}', icon: 'ship' },
-                { id: 'submarines', key: 'submarines', name: '{{ lang.submarines-label }}', icon: 'submarine' },
-                { id: 'vehicles', key: 'unarmoredVehicles', name: '{{ lang.vehicles-label }}', icon: 'vehicle' },
-                { id: 'special', key: 'specialEquipment', name: '{{ lang.special-label }}', icon: 'bulldozer' },
-                { id: 'uavs', key: 'uavs', name: '{{ lang.uavs-label }}', icon: 'uav' },
-                { id: 'missiles', key: 'missiles', name: '{{ lang.missiles-label }}', icon: 'missile' },
-            ];
-            const colEles = lossCategories.map(c => {
-                const currVal = current ? current[c.key] : null;
-                const prevVal = previous ? previous[c.key] : null;
-                const diffVal = currVal && prevVal ? Math.max(currVal - prevVal, 0) : null;
-
-                const rootEle = document.createElement('div');
-                rootEle.className = 'col-12 col-md-6 col-xxl-4 mb-3';
-
-                const containerEle = document.createElement('div');
-                containerEle.className = 'd-flex flex-column justify-content-between p-3 h-100 border border-1';
-                rootEle.appendChild(containerEle);
-
-                const headerGroupEle = document.createElement('div');
-                headerGroupEle.className = 'd-flex justify-content-between';
-                containerEle.appendChild(headerGroupEle);
-
-                const nameEle = document.createElement('h3');
-                nameEle.innerText = c.name;
-                headerGroupEle.appendChild(nameEle);
-
-                const imgLightEle = document.createElement('img');
-                imgLightEle.className = 'icon light mx-1';
-                imgLightEle.title = c.name;
-                imgLightEle.src = `icon/${c.icon}.png`
-                imgLightEle.ariaHidden = true;
-                headerGroupEle.appendChild(imgLightEle);
-
-                const imgDarkEle = document.createElement('img');
-                imgDarkEle.className = 'icon dark mx-1';
-                imgDarkEle.title = c.name;
-                imgDarkEle.src = `icon/${c.icon}-white.png`
-                imgDarkEle.ariaHidden = true;
-                headerGroupEle.appendChild(imgDarkEle);
-
-                const numberEle = document.createElement('p');
-                numberEle.className = 'text-center my-0';
-                numberEle.setAttribute('aria-describedby', `losses-${c.id}-description`);
-                numberEle.innerText = !isNull(currVal)
-                    ? `${c.id === 'personnel' ? '~' : ''}${currVal.toLocaleString(locale)}`
-                    : '—';
-                containerEle.appendChild(numberEle);
-
-                if (diffVal && diffVal > 0) {
-                    const diffEle = document.createElement('strong');
-                    diffEle.className = 'small';
-                    diffEle.innerText = `(+${diffVal.toLocaleString(locale)})`;
-                    numberEle.appendChild(document.createTextNode(' '));
-                    numberEle.appendChild(diffEle);
-                }
-
-                const descriptionEle = document.createElement('p');
-                descriptionEle.id = `losses-${c.id}-description`;
-                descriptionEle.className = 'visually-hidden';
-                descriptionEle.innerText = !isNull(currVal)
-                    ? `${c.id === 'personnel' ? '~' : ''}${currVal} ${c.name} {{ lang.lost-since-label }} 2022.`
-                    : '{{ lang.no-data-on-date-label }}';
-                containerEle.appendChild(descriptionEle);
-
-                return rootEle;
+                e.innerText = localized;
             });
-
-            rowEle.innerHTML = '';
-            for (let ele of colEles) {
-                rowEle.appendChild(ele);
-            }
-        })//();
+        })();
     </script>
     <script>
         // Create Line Chart
