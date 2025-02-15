@@ -1,6 +1,7 @@
 {% assign lang = site.data.translations | where_exp:"item", "item.slug == page.lang" | first %}<html lang="{{ lang.slug }}">
 {% assign losses = site.data.russian-losses %}
-{% assign recent = losses | first %}
+{% assign current = losses | slice: 0 %}
+{% assign previous = losses | slice: 1 %}
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,7 +9,7 @@
     <meta name="robots" content="index, follow">
     <meta name="description" content="{{ lang.description }}">
     <meta name="keywords" content="{{ lang.keywords }}">
-    <meta name="revised" content="{{ recent.date }}">
+    <meta name="revised" content="{{ current.date }}">
     <meta name="theme-color" content="#0056B9">
     <link rel="alternate" hreflang="en-us" href="https://www.ukrainewarlosses.com">
     <link rel="alternate" hreflang="en-gb" href="https://www.ukrainewarlosses.com/uk">
@@ -177,15 +178,37 @@
             <div class="col-xl-9">
                 <section id="losses-container" class="mb-4">
                     <div class="row">
-                        <div class="col">
-                            Loading...
-                        </div>
+                        {% for category in site.data.categories %}
+                            <div class="col-12 col-md-6 col-xxl-4 mb-3">
+                                <div class="d-flex flex-column justify-content-between p-3 h-100 border border-1">
+                                    <div class="d-flex justify-content-between">
+                                        <h3>{{ lang[category.label] }}</h3>
+                                        <img class="icon light mx-1" title="{{ lang[category.label] }}" src="icon/{{ category.icon }}.png" aria-hidden="true">
+                                        <img class="icon dark mx-1" title="{{ lang[category.label] }}" src="icon/{{ category.icon }}-white.png" aria-hidden="true">
+                                    </div>
+                                    {% assign diff = current[category.key] | minus: previous[category.key] %}
+                                    <p class="text-center my-0" aria-describedby="losses-{{ category.id }}-description">
+                                        3&nbsp;054 {% if category.id == 'personnel'  %}~{% endif %}{{ current[category.key] | number_with_delimiter: locale: lang.slug }}
+                                        {% if diff > 0 %}
+                                            +{{ diff | number_with_delimiter: locale: lang.slug }}
+                                        {% endif %}
+                                    </p>
+                                    <p id="losses-{{ category.id }}-description" class="visually-hidden">
+                                        3054 Ракеты потеряно с 2022.
+                                        {% if category.id == 'personnel'  %}~{% endif %}{{ current[category.key] | number_with_delimiter: locale: lang.slug }}
+                                        {{ lang[category.label]}} {{ lang.lost-since-label }} 2022.
+                                    </p>
+                                </div>
+                            </div>
+                        {% endfor %}
                     </div>
                 </section>
 
                 <section id="charts-container" class="mb-4">
                     <div class="chart-container">
-                        <div id="line-chart" class="line-chart"></div>
+                        <div id="line-chart" class="line-chart">
+                            Loading chart...
+                        </div>
                     </div>
                 </section>
             </div>
@@ -369,7 +392,7 @@
                 const diffVal = currVal && prevVal ? Math.max(currVal - prevVal, 0) : null;
 
                 const rootEle = document.createElement('div');
-                rootEle.className = 'col-12 col-md-6 col-lg-4 col-xxl-3 mb-3';
+                rootEle.className = 'col-12 col-md-6 col-xxl-4 mb-3';
 
                 const containerEle = document.createElement('div');
                 containerEle.className = 'd-flex flex-column justify-content-between p-3 h-100 border border-1';
@@ -428,7 +451,7 @@
             for (let ele of colEles) {
                 rowEle.appendChild(ele);
             }
-        })();
+        })//();
     </script>
     <script>
         // Create Line Chart

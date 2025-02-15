@@ -1,0 +1,69 @@
+- id: personnel
+  key: personnel
+  label: personnel-label
+  icon: helmet
+
+- id: artillery
+  key: artillery
+  label: artillery-label
+  icon: artillery
+
+- id: jets
+  key: fixedWingAircraft
+  label: jets-label
+  icon: jet
+
+- id: helicopters
+  key: rotaryWingAircraft
+  label: helicopters-label
+  icon: helicopter
+
+- id: tanks
+  key: tanks
+  label: tanks-label
+  icon: tank
+
+- id: afvs
+  key: afvs
+  label: afvs-label
+  icon: afv
+
+- id: mlrs
+  key: rocketSystems
+  label: mlrs-label
+  icon: mlrs
+
+- id: aa
+  key: airDefense
+  label: aa-label
+  icon: radar
+
+- id: ships
+  key: ships
+  label: ships-label
+  icon: ship
+
+- id: submarines
+  key: submarines
+  label: submarines-label
+  icon: submarine
+
+- id: vehicles
+  key: unarmoredVehicles
+  label: vehicles-label
+  icon: vehicle
+
+- id: special
+  key: specialEquipment
+  label: special-label
+  icon: bulldozer
+
+- id: uavs
+  key: uavs
+  label: uavs-label
+  icon: uav
+
+- id: missiles
+  key: missiles
+  label: missiles-label
+  icon: missile

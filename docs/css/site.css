@@ -70,3 +70,8 @@ html[data-bs-theme="dark"] img.dark {
         height: 800px;
     }
 }
+
+h3 {
+    max-width: 85%;
+    word-wrap: break-word;
+}
