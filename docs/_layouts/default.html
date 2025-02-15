@@ -193,7 +193,7 @@
                                     <p class="text-center my-0" aria-describedby="losses-{{ category.id }}-description">
                                         {% if category.id == "personnel"  %}~{% endif %}<span class="localizable-number">{{ current[category.key] }}</span>
                                         {% if diff > 0 %}
-                                            +(<span class="localizable-number">{{ diff }}</span>)
+                                            <strong>+(<span class="localizable-number">{{ diff }}</span>)</strong>
                                         {% endif %}
                                     </p>
                                     <p id="losses-{{ category.id }}-description" class="visually-hidden">
