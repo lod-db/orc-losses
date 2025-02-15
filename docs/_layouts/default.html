@@ -1,4 +1,6 @@
-{% assign lang = site.data.translations | where_exp:"item", "item.slug == page.lang" | first %}<html lang="{{ lang.slug }}">
+<!DOCTYPE html>
+{% assign lang = site.data.translations | where_exp:"item", "item.slug == page.lang" | first %}
+<html lang="{{ lang.slug }}">
 {% assign losses = site.data.russian-losses %}
 {% assign current = losses | slice: 0 | first %}
 {% assign previous = losses | slice: 1 | first %}
