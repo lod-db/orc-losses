@@ -2,6 +2,8 @@
 {% assign losses = site.data.russian-losses %}
 {% assign current = losses | slice: 0 %}
 {% assign previous = losses | slice: 1 %}
+<div style="background-color: green">{{ current | json }} stuff</div>
+<div style="background-color: ping">{{ previous | json }} stuff</div>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -194,8 +196,7 @@
                                         {% endif %}
                                     </p>
                                     <p id="losses-{{ category.id }}-description" class="visually-hidden">
-                                        3054 Ракеты потеряно с 2022.
-                                        {% if category.id == 'personnel'  %}~{% endif %}{{ current[category.key] | number_with_delimiter: locale: lang.slug }}
+                                        {% if category.id == 'personnel'  %}~{% endif %}{{ diff | number_with_delimiter: locale: lang.slug }}
                                         {{ lang[category.label]}} {{ lang.lost-since-label }} 2022.
                                     </p>
                                 </div>
