@@ -1,7 +1,7 @@
 {% assign lang = site.data.translations | where_exp:"item", "item.slug == page.lang" | first %}<html lang="{{ lang.slug }}">
 {% assign losses = site.data.russian-losses %}
-{% assign current = losses | slice: 0 %}
-{% assign previous = losses | slice: 1 %}
+{% assign current = losses | slice: 0 | first %}
+{% assign previous = losses | slice: 1 | first %}
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -186,11 +186,6 @@
                                         <img class="icon light mx-1" title="{{ lang[category.label] }}" src="icon/{{ category.icon }}.png" aria-hidden="true">
                                         <img class="icon dark mx-1" title="{{ lang[category.label] }}" src="icon/{{ category.icon }}-white.png" aria-hidden="true">
                                     </div>
-                                    {{ category.key }}
-                                    {{ current.tanks }}
-                                    {{ current[category.key] }}
-                                    {{ current | inspect }}
-                                    {{ current | json }}
                                     {% assign diff = current[category.key] | minus: previous[category.key] %}
                                     <p class="text-center my-0" aria-describedby="losses-{{ category.id }}-description">
                                         {% if category.id == "personnel"  %}~{% endif %}<span class="localizable-number">{{ current[category.key] }}</span>
