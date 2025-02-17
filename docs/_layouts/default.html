@@ -105,22 +105,22 @@
                                 role="button" aria-haspopup="true" aria-controls="language-menu"
                                 aria-label="{{ lang.language-label }}" data-bs-toggle="dropdown" aria-expanded="false">
                                 {% if lang.slug == "en-GB" %}
-                                <iconify-icon class="me-1 align-middle" icon="circle-flags:uk"
-                                    role="presentation"></iconify-icon>
+                                    <iconify-icon class="me-1 align-middle" icon="circle-flags:uk"
+                                        role="presentation"></iconify-icon>
                                 {% elsif lang.slug == "fr-FR" %}
-                                <iconify-icon class="me-1 align-middle" icon="circle-flags:fr"
-                                    role="presentation"></iconify-icon>
+                                    <iconify-icon class="me-1 align-middle" icon="circle-flags:fr"
+                                        role="presentation"></iconify-icon>
                                 {% elsif lang.slug == "de-DE" %}
-                                <iconify-icon class="me-1 align-middle" icon="circle-flags:de"
-                                    role="presentation"></iconify-icon>
+                                    <iconify-icon class="me-1 align-middle" icon="circle-flags:de"
+                                        role="presentation"></iconify-icon>
                                 {% elsif lang.slug == "uk-UA" %}
-                                <iconify-icon class="me-1 align-middle" icon="circle-flags:ua"
-                                    role="presentation"></iconify-icon>
+                                    <iconify-icon class="me-1 align-middle" icon="circle-flags:ua"
+                                        role="presentation"></iconify-icon>
                                 {% elsif lang.slug == "ru-RU" %}
-                                <iconify-icon class="me-1 align-middle" icon="circle-flags:ru"
-                                    role="presentation"></iconify-icon>
+                                    <iconify-icon class="me-1 align-middle" icon="circle-flags:ru"
+                                        role="presentation"></iconify-icon>
                                 {% else %}
-                                <iconify-icon class="me-1 align-middle" icon="circle-flags:us"></iconify-icon>
+                                    <iconify-icon class="me-1 align-middle" icon="circle-flags:us"></iconify-icon>
                                 {% endif %}
                                 {{ lang.language-label }}
                             </a>
@@ -174,7 +174,16 @@
         <section class="mb-4">
             <article>
                 <p>
-                    {{ lang.preamble-paragraph }}
+                    {% assign equipment = current.artillery | plus: current.fixedWingAircraft | plus: current.rotaryWingAircraft
+                        | plus: current.tanks | plus: current.afvs | plus: current.rocketSystems | plus: current.airDefense
+                        | plus: current.ships | plus: current.submarines | plus: current.unarmoredVehicles
+                        | plus: current.specialEquipment | plus: current.uavs | plus: current.missles %}
+                    {{ lang.preamble-paragraph-1 }}
+                    <span class="localizable-number">{{ current.personnel }}</span>
+                    {{ lang.preamble-paragraph-2 }}
+                    <span class="localizable-number">{{ equipment }}</span>
+                    {{ lang.preamble-paragraph-3 }}
+                    <time datetime="{{ current.date }}"><span class="localizable-date">{{ current.date }}</span></time>.
                 </p>
             </article>
 
@@ -376,6 +385,16 @@
                 const text = e.innerText;
                 const num = parseInt(text);
                 const localized = !isNaN(num) ? num.toLocaleString(locale) : '';
+
+                e.innerText = localized;
+            });
+
+            const dateEles = document.getElementsByClassName("localizable-date");
+            Array.from(dateEles).forEach(e => {
+                const text = e.innerText;
+                // Date constructor w/o time sets underlying date in UTC. Adding time keeps it local
+                const date = new Date(`${text}T00:00:00`);
+                const localized = !isNaN(date) ? date.toLocaleDateString(locale) : '';
 
                 e.innerText = localized;
             });
