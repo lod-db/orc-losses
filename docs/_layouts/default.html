@@ -1,4 +1,6 @@
-{% assign lang = site.data.translations | where_exp:"item", "item.slug == page.lang" | first %}<html lang="{{ lang.slug }}">
+<!DOCTYPE html>
+{% assign lang = site.data.translations | where_exp:"item", "item.slug == page.lang" | first %}
+<html lang="{{ lang.slug }}">
 {% assign losses = site.data.russian-losses %}
 {% assign current = losses | slice: 0 | first %}
 {% assign previous = losses | slice: 1 | first %}
@@ -11,6 +13,7 @@
     <meta name="keywords" content="{{ lang.keywords }}">
     <meta name="revised" content="{{ current.date }}">
     <meta name="theme-color" content="#0056B9">
+    <meta http-equiv="Cache-Control" content="max-age=28800">
     <link rel="alternate" hreflang="en-us" href="https://www.ukrainewarlosses.com">
     <link rel="alternate" hreflang="en-gb" href="https://www.ukrainewarlosses.com/uk">
     <link rel="alternate" hreflang="fr" href="https://www.ukrainewarlosses.com/fr">
@@ -52,7 +55,8 @@
         <nav class="navbar navbar-expand-lg bg-ua-blue sticky-top text-white">
             <div class="container" aria-label="Main navigation">
                 <span class="navbar-brand p-0 me-0 me-lg-2 text-white" aria-label="Orc Losses">
-                    <iconify-icon icon="game-icons:orc-head" class="fs-3"></iconify-icon>
+                    <iconify-icon icon="game-icons:orc-head" class="fs-3 d-inline-block align-text-top"></iconify-icon>
+                    {{ lang.page-title }}
                 </span>
 
                 <button class="navbar-toggler p-2 text-white border-white" type="button" data-bs-toggle="collapse"
@@ -62,12 +66,7 @@
                 </button>
 
                 <div id="primary-navigation-menu" class="collapse navbar-collapse">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-text d-none d-lg-inline-block">
-                            {{ lang.page-title }}
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav d-flex">
+                    <ul class="navbar-nav d-flex ms-auto">
                         <li class="nav-item dropdown">
                             <a id="theme-menu-toggle" class="nav-link dropdown-toggle text-white" href="#" role="button"
                                 aria-haspopup="true" aria-controls="theme-menu" aria-label="{{ lang.theme-label }}"
@@ -102,59 +101,59 @@
                                 role="button" aria-haspopup="true" aria-controls="language-menu"
                                 aria-label="{{ lang.language-label }}" data-bs-toggle="dropdown" aria-expanded="false">
                                 {% if lang.slug == "en-GB" %}
-                                <iconify-icon class="me-1 align-middle" icon="circle-flags:uk"
-                                    role="presentation"></iconify-icon>
+                                    <iconify-icon class="me-1 align-middle" icon="circle-flags:uk"
+                                        role="presentation"></iconify-icon>
                                 {% elsif lang.slug == "fr-FR" %}
-                                <iconify-icon class="me-1 align-middle" icon="circle-flags:fr"
-                                    role="presentation"></iconify-icon>
+                                    <iconify-icon class="me-1 align-middle" icon="circle-flags:fr"
+                                        role="presentation"></iconify-icon>
                                 {% elsif lang.slug == "de-DE" %}
-                                <iconify-icon class="me-1 align-middle" icon="circle-flags:de"
-                                    role="presentation"></iconify-icon>
+                                    <iconify-icon class="me-1 align-middle" icon="circle-flags:de"
+                                        role="presentation"></iconify-icon>
                                 {% elsif lang.slug == "uk-UA" %}
-                                <iconify-icon class="me-1 align-middle" icon="circle-flags:ua"
-                                    role="presentation"></iconify-icon>
+                                    <iconify-icon class="me-1 align-middle" icon="circle-flags:ua"
+                                        role="presentation"></iconify-icon>
                                 {% elsif lang.slug == "ru-RU" %}
-                                <iconify-icon class="me-1 align-middle" icon="circle-flags:ru"
-                                    role="presentation"></iconify-icon>
+                                    <iconify-icon class="me-1 align-middle" icon="circle-flags:ru"
+                                        role="presentation"></iconify-icon>
                                 {% else %}
-                                <iconify-icon class="me-1 align-middle" icon="circle-flags:us"></iconify-icon>
+                                    <iconify-icon class="me-1 align-middle" icon="circle-flags:us"></iconify-icon>
                                 {% endif %}
                                 {{ lang.language-label }}
                             </a>
                             <ul id="language-menu" class="dropdown-menu" role="menu"
                                 aria-labelledby="language-menu-toggle">
                                 <li role="presentation">
-                                    <a role="menuitem" href="/" class="dropdown-item">
+                                    <a lang="en-US" role="menuitem" href="/" class="dropdown-item">
                                         <iconify-icon icon="circle-flags:us" role="presentation"></iconify-icon>
                                         English (US)
                                     </a>
                                 </li>
                                 <li role="presentation">
-                                    <a role="menuitem" href="/uk" class="dropdown-item">
+                                    <a lang="en-GB" role="menuitem" href="/uk" class="dropdown-item">
                                         <iconify-icon icon="circle-flags:uk" role="presentation"></iconify-icon>
                                         English (UK)
                                     </a>
                                 </li>
                                 <li role="presentation">
-                                    <a role="menuitem" href="/fr" class="dropdown-item">
+                                    <a lang="fr-FR" role="menuitem" href="/fr" class="dropdown-item">
                                         <iconify-icon icon="circle-flags:fr" role="presentation"></iconify-icon>
                                         Français
                                     </a>
                                 </li>
                                 <li role="presentation">
-                                    <a role="menuitem" href="/de" class="dropdown-item">
+                                    <a lang="de-DE" role="menuitem" href="/de" class="dropdown-item">
                                         <iconify-icon icon="circle-flags:de" role="presentation"></iconify-icon>
                                         Deutsch
                                     </a>
                                 </li>
                                 <li role="presentation">
-                                    <a role="menuitem" href="/ua" class="dropdown-item">
+                                    <a lang="uk-UA" role="menuitem" href="/ua" class="dropdown-item">
                                         <iconify-icon icon="circle-flags:ua" role="presentation"></iconify-icon>
                                         Українська
                                     </a>
                                 </li>
                                 <li role="presentation">
-                                    <a role="menuitem" href="/ru" class="dropdown-item">
+                                    <a lang="ru-RU" role="menuitem" href="/ru" class="dropdown-item">
                                         <iconify-icon icon="circle-flags:ru" role="presentation"></iconify-icon>
                                         Русский
                                     </a>
@@ -169,7 +168,20 @@
 
     <main class="container pt-3" aria-live="polite">
         <section class="mb-4">
-            <p>{{ lang.preamble-paragraph }}</p>
+            <article>
+                <p>
+                    {% assign equipment = current.artillery | plus: current.fixedWingAircraft | plus: current.rotaryWingAircraft
+                        | plus: current.tanks | plus: current.afvs | plus: current.rocketSystems | plus: current.airDefense
+                        | plus: current.ships | plus: current.submarines | plus: current.unarmoredVehicles
+                        | plus: current.specialEquipment | plus: current.uavs | plus: current.missles %}
+                    {{ lang.preamble-paragraph-1 }}
+                    <span class="localizable-number">{{ current.personnel }}</span>
+                    {{ lang.preamble-paragraph-2 }}
+                    <span class="localizable-number">{{ equipment }}</span>
+                    {{ lang.preamble-paragraph-3 }}
+                    <time datetime="{{ current.date }}"><span class="localizable-date">{{ current.date }}</span></time>.
+                </p>
+            </article>
 
             {{ content }}
         </section>
@@ -190,7 +202,7 @@
                                     <p class="text-center my-0" aria-describedby="losses-{{ category.id }}-description">
                                         {% if category.id == "personnel"  %}~{% endif %}<span class="localizable-number">{{ current[category.key] }}</span>
                                         {% if diff > 0 %}
-                                            +(<span class="localizable-number">{{ diff }}</span>)
+                                            <strong>+(<span class="localizable-number">{{ diff }}</span>)</strong>
                                         {% endif %}
                                     </p>
                                     <p id="losses-{{ category.id }}-description" class="visually-hidden">
@@ -227,7 +239,7 @@
                         <p>
                             {{ lang.os-disclaimer-p2-1 }}
                             <a href="https://www.github.com/lod-db/orc-losses" title="Orc Losses on GitHub"
-                                target="_blank" rel="noopener noreferrer">GitHub</a>
+                                target="_blank" rel="noopener">GitHub</a>
                             {{ lang.os-disclaimer-p2-2 }}
                         </p>
                     </section>
@@ -243,7 +255,7 @@
                     <iconify-icon icon="mdi:github" class="me-1 align-middle fs-4"></iconify-icon>
                     <span class="d-inline-block pt-1">{{ lang.view-on-github-label }}</span>
                     <a class="btn btn-link px-0" href="https://www.github.com/lod-db/orc-losses"
-                        title="Orc Losses on GitHub" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        title="Orc Losses on GitHub" target="_blank" rel="noopener">GitHub</a>
                 </p>
             </div>
             <div>
@@ -369,6 +381,16 @@
                 const text = e.innerText;
                 const num = parseInt(text);
                 const localized = !isNaN(num) ? num.toLocaleString(locale) : '';
+
+                e.innerText = localized;
+            });
+
+            const dateEles = document.getElementsByClassName("localizable-date");
+            Array.from(dateEles).forEach(e => {
+                const text = e.innerText;
+                // Date constructor w/o time sets underlying date in UTC. Adding time keeps it local
+                const date = new Date(`${text}T00:00:00`);
+                const localized = !isNaN(date) ? date.toLocaleDateString(locale) : '';
 
                 e.innerText = localized;
             });

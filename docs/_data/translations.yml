@@ -1,14 +1,16 @@
 - name: English (US)
   slug: en-US
   title: Russian Losses in Ukraine – Casualties and Equipment Losses
-  description: The latest Russian casualties and equipment losses since the start of the 2022 full-scale invasion.
-  keywords: Ukraine war losses, Russian military losses, Ukraine conflict data, war casualties, Ukraine war statistics
+  description: Track the latest Russian casualties and equipment losses in Russia’s war on Ukraine since the start of the 2022 full-scale invasion.
+  keywords: Ukraine war losses, Russian military losses, Ukraine conflict data, war casualties, Ukraine war statistics, Ukraine war tracker, Russian losses tracker
   page-title: Russian Losses in Ukraine
   theme-label: Theme
   theme-light-label: Light
   theme-dark-label: Dark
   language-label: Language
-  preamble-paragraph: Since Russia launched its full-scale invasion in 2022, military and equipment losses have been a key measure of the war’s progression.
+  preamble-paragraph-1: On February 24th 2022, Russia launched a full-scale invasion of Ukraine, sparking the largest conflict in Europe since World War II. Since the start of its war in Ukraine, Russia has suffered approximately
+  preamble-paragraph-2: casualties and lost over
+  preamble-paragraph-3: pieces of equipment as of
   lost-since-label: lost since
   no-data-on-date-label: No data available on this date
   personnel-label: Personnel
@@ -38,14 +40,16 @@
 - name: English (UK)
   slug: en-GB
   title: Russian Losses in Ukraine – Casualties and Equipment Losses
-  description: The latest Russian casualties and equipment losses since the start of the 2022 full-scale invasion.
-  keywords: Ukraine war losses, Russian military losses, Ukraine conflict data, war casualties, Ukraine war statistics
+  description: Track the latest Russian casualties and equipment losses in Russia’s war on Ukraine since the start of the 2022 full-scale invasion.
+  keywords: Ukraine war losses, Russian military losses, Ukraine conflict data, war casualties, Ukraine war statistics, Ukraine war tracker, Russian losses tracker
   page-title: Russian Losses in Ukraine
   theme-label: Theme
   theme-light-label: Light
   theme-dark-label: Dark
   language-label: Language
-  preamble-paragraph: Since Russia launched its full-scale invasion in 2022, military and equipment losses have been a key measure of the war’s progression.
+  preamble-paragraph-1: On 24th February 2022, Russia launched a full-scale invasion of Ukraine, sparking the largest conflict in Europe since the Second World War. Since the start of its war in Ukraine, Russia has suffered approximately
+  preamble-paragraph-2: casualties and lost over
+  preamble-paragraph-3: pieces of equipment as of
   lost-since-label: Lost since
   no-data-on-date-label: No data available on this date
   personnel-label: Personnel
@@ -75,14 +79,16 @@
 - name: Français
   slug: fr-FR
   title: Pertes russes en Ukraine – Pertes humaines et matérielles
-  description: Les dernières pertes humaines et matérielles russes depuis le début de l’invasion à grande échelle en 2022.
-  keywords: pertes de guerre en Ukraine, pertes militaires russes, données sur le conflit en Ukraine, pertes humaines, statistiques de la guerre en Ukraine
+  description: Suivez les dernières pertes russes en personnel et en équipement dans la guerre de la Russie contre l'Ukraine depuis le début de l'invasion à grande échelle en 2022.
+  keywords: pertes de guerre en Ukraine, pertes militaires russes, données sur le conflit en Ukraine, pertes humaines, statistiques de la guerre en Ukraine, Suivi de la guerre en Ukraine, Suivi des pertes russes
   page-title: Pertes russes en Ukraine
   theme-label: Thème
   theme-light-label: Clair
   theme-dark-label: Sombre
   language-label: Langue
-  preamble-paragraph: Depuis le lancement de son invasion à grande échelle en 2022, la Russie a subi des pertes militaires et matérielles significatives, devenues une mesure clé de la progression de la guerre.
+  preamble-paragraph-1: Le 24 février 2022, la Russie a lancé une invasion à grande échelle de l'Ukraine, déclenchant le plus grand conflit en Europe depuis la Seconde Guerre mondiale. Depuis le début de sa guerre en Ukraine, la Russie a subi environ
+  preamble-paragraph-2: pertes humaines et perdu plus de
+  preamble-paragraph-3: pièces d’équipement au
   lost-since-label: Perdu depuis
   no-data-on-date-label: Aucune donnée disponible à cette date
   personnel-label: Personnel
@@ -112,14 +118,16 @@
 - name: Deutsch
   slug: de-DE
   title: Russische Verluste in der Ukraine – Verluste an Personal und Ausrüstung
-  description: Die neuesten russischen Verluste an Personal und Ausrüstung seit Beginn der umfassenden Invasion im Jahr 2022.
-  keywords: Ukraine Kriegsverluste, Russische Militärverluste, Ukraine Konfliktdaten, Kriegstote, Ukraine Kriegsstatistiken
+  description: Verfolgen Sie die neuesten russischen Verluste an Personal und Ausrüstung im Krieg Russlands gegen die Ukraine seit Beginn der groß angelegten Invasion im Jahr 2022.
+  keywords: Ukraine Kriegsverluste, Russische Militärverluste, Ukraine Konfliktdaten, Kriegstote, Ukraine Kriegsstatistiken, Ukraine-Krieg-Tracker, Russischer Verlust-Tracker
   page-title: Russische Verluste in der Ukraine
   theme-label: Thema
   theme-light-label: Hell
   theme-dark-label: Dunkel
   language-label: Sprache
-  preamble-paragraph: Seit Russland 2022 seine umfassende Invasion gestartet hat, sind militärische und materielle Verluste ein zentraler Indikator für den Verlauf des Krieges.
+  preamble-paragraph-1: Am 24. Februar 2022 startete Russland eine groß angelegte Invasion der Ukraine und löste damit den größten Konflikt in Europa seit dem Zweiten Weltkrieg aus. Seit Beginn seines Krieges in der Ukraine hat Russland etwa
+  preamble-paragraph-2: Verluste erlitten und über
+  preamble-paragraph-3: Ausrüstungsgegenstände verloren, Stand
   lost-since-label: verloren seit
   no-data-on-date-label: Keine Daten für dieses Datum verfügbar
   personnel-label: Personal
@@ -149,14 +157,16 @@
 - name: Українська
   slug: uk-UA
   title: Втрати Росії в Україні – Втрати особового складу та техніки
-  description: Останні дані про втрати особового складу та техніки Росії з початку повномасштабного вторгнення у 2022 році.
-  keywords: Втрати у війні в Україні, Втрати російської армії, Дані про конфлікт в Україні, Військові втрати, Статистика війни в Україні
+  description: Відстежуйте останні втрати Росії в живій силі та техніці у війні проти України з початку повномасштабного вторгнення у 2022 році.
+  keywords: Втрати у війні в Україні, Втрати російської армії, Дані про конфлікт в Україні, Військові втрати, Статистика війни в Україні, Відстеження війни в Україні, Відстеження втрат Росії
   page-title: Втрати Росії в Україні
   theme-label: Тема
   theme-light-label: Світла
   theme-dark-label: Темна
   language-label: Мова
-  preamble-paragraph: З моменту повномасштабного вторгнення Росії у 2022 році втрати у військовій силі та техніці стали ключовим показником перебігу війни.
+  preamble-paragraph-1: 24 лютого 2022 року Росія розпочала повномасштабне вторгнення в Україну, спричинивши найбільший конфлікт у Європі з часів Другої світової війни. З початку своєї війни в Україні Росія зазнала приблизно
+  preamble-paragraph-2: втрат і втратила понад
+  preamble-paragraph-3: одиниць техніки станом на
   lost-since-label: втрачено з
   no-data-on-date-label: Дані за цю дату відсутні
   personnel-label: Особовий склад
@@ -186,14 +196,16 @@
 - name: Русский
   slug: ru-RU
   title: Потери России в Украине – Потери личного состава и техники
-  description: Последние данные о потерях личного состава и техники России с начала полномасштабного вторжения в 2022 году.
-  keywords: Потери в войне в Украине, Потери российской армии, Данные о конфликте в Украине, Военные потери, Статистика войны в Украине
+  description: Отслеживайте последние потери России в живой силе и технике в войне против Украины с начала полномасштабного вторжения в 2022 году.
+  keywords: Потери в войне в Украине, Потери российской армии, Данные о конфликте в Украине, Военные потери, Статистика войны в Украине, Трекер войны в Украине, Трекер потерь России
   page-title: Потери России в Украине
   theme-label: Тема
   theme-light-label: Светлая
   theme-dark-label: Тёмная
   language-label: Язык
-  preamble-paragraph: С момента полномасштабного вторжения России в 2022 году потери в живой силе и технике стали ключевым показателем хода войны.
+  preamble-paragraph-1: 24 февраля 2022 года Россия начала полномасштабное вторжение в Украину, спровоцировав крупнейший конфликт в Европе со времен Второй мировой войны. С начала своей войны в Украине Россия понесла примерно
+  preamble-paragraph-2: потерь и потеряла более
+  preamble-paragraph-3: единиц техники по состоянию на
   lost-since-label: потеряно с
   no-data-on-date-label: Нет данных на эту дату
   personnel-label: Личный состав
