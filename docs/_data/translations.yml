@@ -36,6 +36,19 @@
   os-disclaimer-p1-2: and carries a likely bias. This dataset represents the most consistently reported figures on the war but should not be considered definitive.
   os-disclaimer-p2-1: The dataset is publicly maintained on
   os-disclaimer-p2-2: under open-source licenses. Users are encouraged to verify information independently and use it responsibly.
+  add-resource-header: Additional Resources
+  add-resources-ua: Offical Website of Ukraine
+  add-resources-ua-text: The official website of Ukraine, providing verified information and updates about Russia's invasion of Ukraine. The site offers a comprehensive overview of the conflict, including news updates, personal stories, and detailed accounts of Russia's war crimes. It also features a collection of war-related images and resources for media professionals.
+  add-resources-uamod: Ministry of Defense of Ukraine
+  add-resources-uamod-text: The official website of the Ministry of Defence of Ukraine, providing official statements, military updates, and press releases on Ukraine’s defense efforts against Russia’s invasion. The site includes information on Ukraine’s armed forces, strategic developments, and government initiatives related to national security.
+  add-resources-deepstate: DeepStateMap
+  add-resources-deepstate-text: DeepStateMap is a live, interactive map providing real-time updates on the battlefield situation in Ukraine. It aggregates information from various sources, including official reports and user-submitted data, to track frontline changes, territorial control, and key events in the war. The map is a valuable tool for visualizing the ongoing conflict.
+  add-resources-oryx: Oryx
+  add-resources-oryx-text: Oryx is an independent open-source intelligence (OSINT) platform documenting equipment losses in the war. It relies on verified visual evidence to track destroyed, damaged, and captured military assets from both sides. The site is widely recognized for its meticulous and unbiased approach to documenting battlefield losses.
+  add-resources-oversight: Ukraine Oversight
+  add-resources-oversight-text: An official U.S. government website dedicated to tracking aid and assistance provided to Ukraine. It offers transparency on U.S. financial, military, and humanitarian support, detailing oversight efforts to ensure accountability in aid distribution. The site includes reports, audits, and data on how resources are being utilized.
+  add-resources-preston: Preston Stewart (YouTube)
+  add-resources-preston-text: Preston Stewart is a military analyst and content creator who provides in-depth analysis of military conflicts, with a focus on the war in Ukraine. Through his social media platforms and YouTube channel, he breaks down battlefield developments, strategy, and historical context in an accessible way. His content is based on open-source intelligence (OSINT) and military expertise, making him a valuable resource for those looking to understand the tactical and operational aspects of the conflict.
 
 - name: English (UK)
   slug: en-GB
@@ -75,6 +88,19 @@
   os-disclaimer-p1-2: and carries a likely bias. This dataset represents the most consistently reported figures on the war but should not be considered definitive.
   os-disclaimer-p2-1: The dataset is publicly maintained on
   os-disclaimer-p2-2: under open-source licences. Users are encouraged to verify information independently and use it responsibly.
+  add-resource-header: Additional Resources
+  add-resources-ua: Official Website of Ukraine
+  add-resources-ua-text: The official website of Ukraine, providing verified information and updates about Russia's invasion of Ukraine. The site offers a comprehensive overview of the conflict, including news updates, personal stories, and detailed accounts of Russia's war crimes. It also features a collection of war-related images and resources for media professionals.
+  add-resources-uamod: Ministry of Defence of Ukraine
+  add-resources-uamod-text: The official website of the Ministry of Defence of Ukraine, providing official statements, military updates, and press releases on Ukraine’s defence efforts against Russia’s invasion. The site includes information on Ukraine’s armed forces, strategic developments, and government initiatives related to national security.
+  add-resources-deepstate: DeepStateMap
+  add-resources-deepstate-text: DeepStateMap is a live, interactive map providing real-time updates on the battlefield situation in Ukraine. It aggregates information from various sources, including official reports and user-submitted data, to track frontline changes, territorial control, and key events in the war. The map is a valuable tool for visualising the ongoing conflict.
+  add-resources-oryx: Oryx
+  add-resources-oryx-text: Oryx is an independent open-source intelligence (OSINT) platform documenting equipment losses in the war. It relies on verified visual evidence to track destroyed, damaged, and captured military assets from both sides. The site is widely recognised for its meticulous and unbiased approach to documenting battlefield losses.
+  add-resources-oversight: Ukraine Oversight
+  add-resources-oversight-text: An official U.S. government website dedicated to tracking aid and assistance provided to Ukraine. It offers transparency on U.S. financial, military, and humanitarian support, detailing oversight efforts to ensure accountability in aid distribution. The site includes reports, audits, and data on how resources are being utilised.
+  add-resources-preston: Preston Stewart (YouTube)
+  add-resources-preston-text: Preston Stewart is a military analyst and content creator who provides in-depth analysis of military conflicts, with a focus on the war in Ukraine. Through his social media platforms and YouTube channel, he breaks down battlefield developments, strategy, and historical context in an accessible way. His content is based on open-source intelligence (OSINT) and military expertise, making him a valuable resource for those looking to understand the tactical and operational aspects of the conflict.
 
 - name: Français
   slug: fr-FR
@@ -114,6 +140,19 @@
   os-disclaimer-p1-2: et peut contenir un biais. Cet ensemble de données représente les chiffres les plus régulièrement rapportés sur la guerre, mais ne doit pas être considéré comme définitif.
   os-disclaimer-p2-1: L'ensemble de données est maintenu publiquement sur
   os-disclaimer-p2-2: sous des licences open-source. Les utilisateurs sont encouragés à vérifier les informations de manière indépendante et à les utiliser de manière responsable.
+  add-resource-header: Ressources supplémentaires
+  add-resources-ua: Site officiel de l'Ukraine
+  add-resources-ua-text: Le site officiel de l'Ukraine fournit des informations vérifiées et des mises à jour sur l'invasion de la Russie. Il propose un aperçu complet du conflit, y compris des actualités, des témoignages personnels et des comptes rendus détaillés des crimes de guerre russes. Il comprend également une collection d'images de guerre et des ressources pour les professionnels des médias.
+  add-resources-uamod: Ministère de la Défense de l'Ukraine
+  add-resources-uamod-text: Le site officiel du ministère de la Défense de l'Ukraine fournit des déclarations officielles, des mises à jour militaires et des communiqués de presse sur les efforts de défense contre l'invasion russe. Le site inclut des informations sur les forces armées ukrainiennes, les développements stratégiques et les initiatives gouvernementales liées à la sécurité nationale.
+  add-resources-deepstate: DeepStateMap
+  add-resources-deepstate-text: DeepStateMap est une carte interactive en temps réel fournissant des mises à jour sur la situation sur le champ de bataille en Ukraine. Elle agrège des informations de diverses sources, y compris des rapports officiels et des données soumises par les utilisateurs, pour suivre les changements de ligne de front, le contrôle territorial et les événements clés de la guerre. La carte est un outil précieux pour visualiser le conflit en cours.
+  add-resources-oryx: Oryx
+  add-resources-oryx-text: Oryx est une plateforme indépendante de renseignement en source ouverte (OSINT) qui documente les pertes en équipements pendant la guerre. Elle s’appuie sur des preuves visuelles vérifiées pour suivre les équipements militaires détruits, endommagés et capturés des deux côtés. Le site est largement reconnu pour son approche méticuleuse et impartiale de la documentation des pertes sur le champ de bataille.
+  add-resources-oversight: Ukraine Oversight
+  add-resources-oversight-text: Un site officiel du gouvernement américain dédié au suivi de l’aide et de l’assistance fournies à l’Ukraine. Il offre une transparence sur le soutien financier, militaire et humanitaire des États-Unis, détaillant les efforts de surveillance pour garantir la responsabilité dans la distribution de l’aide. Le site comprend des rapports, des audits et des données sur l’utilisation des ressources.
+  add-resources-preston: Preston Stewart (YouTube)
+  add-resources-preston-text: Preston Stewart est un analyste militaire et créateur de contenu qui fournit une analyse approfondie des conflits militaires, en mettant l’accent sur la guerre en Ukraine. À travers ses plateformes de médias sociaux et sa chaîne YouTube, il explique l’évolution du champ de bataille, la stratégie et le contexte historique de manière accessible. Son contenu repose sur des renseignements en source ouverte (OSINT) et une expertise militaire, en faisant une ressource précieuse pour ceux qui cherchent à comprendre les aspects tactiques et opérationnels du conflit.
 
 - name: Deutsch
   slug: de-DE
@@ -153,6 +192,19 @@
   os-disclaimer-p1-2: und könnte eine gewisse Voreingenommenheit enthalten. Dieser Datensatz stellt die am beständigsten berichteten Zahlen zum Krieg dar, sollte jedoch nicht als endgültig betrachtet werden.
   os-disclaimer-p2-1: Der Datensatz wird öffentlich auf
   os-disclaimer-p2-2: unter Open-Source-Lizenzen verwaltet. Nutzer werden ermutigt, die Informationen unabhängig zu überprüfen und verantwortungsvoll zu nutzen.
+  add-resource-header: Zusätzliche Ressourcen
+  add-resources-ua: Offizielle Website der Ukraine
+  add-resources-ua-text: Die offizielle Website der Ukraine bietet verifizierte Informationen und Updates über Russlands Invasion. Die Seite gibt einen umfassenden Überblick über den Konflikt, einschließlich Nachrichten, persönlicher Geschichten und detaillierter Berichte über russische Kriegsverbrechen. Zudem gibt es eine Sammlung von Kriegsbildern und Ressourcen für Medienfachleute.
+  add-resources-uamod: Verteidigungsministerium der Ukraine
+  add-resources-uamod-text: Die offizielle Website des Verteidigungsministeriums der Ukraine bietet offizielle Erklärungen, militärische Updates und Pressemitteilungen zu den Verteidigungsbemühungen gegen die russische Invasion. Die Seite enthält Informationen über die ukrainischen Streitkräfte, strategische Entwicklungen und staatliche Initiativen zur nationalen Sicherheit.
+  add-resources-deepstate: DeepStateMap
+  add-resources-deepstate-text: DeepStateMap ist eine interaktive Live-Karte, die Echtzeit-Updates zur Lage auf dem Schlachtfeld in der Ukraine liefert. Sie aggregiert Informationen aus verschiedenen Quellen, darunter offizielle Berichte und nutzergenerierte Daten, um Frontlinienverschiebungen, Gebietskontrolle und wichtige Ereignisse des Krieges zu verfolgen.
+  add-resources-oryx: Oryx
+  add-resources-oryx-text: Oryx ist eine unabhängige Open-Source-Intelligence (OSINT)-Plattform, die Verluste an militärischer Ausrüstung im Krieg dokumentiert. Sie stützt sich auf verifizierte visuelle Beweise, um zerstörte, beschädigte und erbeutete militärische Ausrüstung beider Seiten zu erfassen. Die Seite ist für ihre akribische und unvoreingenommene Berichterstattung bekannt.
+  add-resources-oversight: Ukraine Oversight
+  add-resources-oversight-text: Eine offizielle Website der US-Regierung zur Nachverfolgung der Hilfs- und Unterstützungsleistungen für die Ukraine. Sie bietet Transparenz über finanzielle, militärische und humanitäre Hilfe der USA und dokumentiert Kontrollmaßnahmen zur Sicherstellung der Rechenschaftspflicht bei der Verteilung der Unterstützung.
+  add-resources-preston: Preston Stewart (YouTube)
+  add-resources-preston-text: Preston Stewart ist ein Militäranalyst und Content Creator, der detaillierte Analysen militärischer Konflikte mit Schwerpunkt auf den Krieg in der Ukraine bietet. Über seine Social-Media-Plattformen und seinen YouTube-Kanal erklärt er die Entwicklungen auf dem Schlachtfeld, Strategien und historische Zusammenhänge auf verständliche Weise.
 
 - name: Українська
   slug: uk-UA
@@ -192,6 +244,19 @@
   os-disclaimer-p1-2: і може містити певну упередженість. Цей набір даних представляє найбільш послідовно звітувані цифри щодо війни, але не повинен вважатися остаточним.
   os-disclaimer-p2-1: Набір даних підтримується публічно на
   os-disclaimer-p2-2: за відкритими ліцензіями. Користувачам рекомендується перевіряти інформацію самостійно та використовувати її відповідально.
+  add-resource-header: Додаткові ресурси
+  add-resources-ua: Офіційний вебсайт України
+  add-resources-ua-text: Офіційний вебсайт України, який надає перевірену інформацію та оновлення щодо вторгнення Росії в Україну. Сайт пропонує всебічний огляд конфлікту, включаючи новини, особисті історії та детальні описи воєнних злочинів Росії. Також є колекція зображень війни та ресурси для медіапрофесіоналів.
+  add-resources-uamod: Міністерство оборони України
+  add-resources-uamod-text: Офіційний вебсайт Міністерства оборони України, що надає офіційні заяви, військові оновлення та прес-релізи про зусилля України у захисті від вторгнення Росії. Сайт містить інформацію про збройні сили України, стратегічні розробки та ініціативи уряду, пов'язані з національною безпекою.
+  add-resources-deepstate: DeepStateMap
+  add-resources-deepstate-text: DeepStateMap — це інтерактивна онлайн-мапа, яка надає оновлення в реальному часі щодо ситуації на полі бою в Україні. Вона агрегує інформацію з різних джерел, зокрема офіційних звітів і даних, поданих користувачами, щоб відстежувати зміни на фронті, контроль території та ключові події війни.
+  add-resources-oryx: Oryx
+  add-resources-oryx-text: Oryx — це незалежна платформа з відкритим вихідним кодом (OSINT), яка документує втрати техніки у війні. Вона спирається на перевірені візуальні докази для відстеження знищених, пошкоджених і захоплених військових засобів з обох сторін. Сайт відомий своєю скрупульозною та безсторонньою документацією втрат на полі бою.
+  add-resources-oversight: Ukraine Oversight
+  add-resources-oversight-text: Офіційний вебсайт уряду США, присвячений відстеженню допомоги та підтримки, наданої Україні. Сайт пропонує прозорість щодо фінансової, військової та гуманітарної підтримки США, розкриваючи зусилля щодо забезпечення підзвітності у розподілі допомоги.
+  add-resources-preston: Preston Stewart (YouTube)
+  add-resources-preston-text: Preston Stewart — військовий аналітик і контент-креатор, який надає глибокий аналіз військових конфліктів, зокрема війни в Україні. Через свої соціальні медіа-платформи та канал на YouTube він пояснює розвиток подій на полі бою, стратегію та історичний контекст доступним чином.
 
 - name: Русский
   slug: ru-RU
@@ -231,3 +296,16 @@
   os-disclaimer-p1-2: и может содержать определённую предвзятость. Этот набор данных представляет собой наиболее последовательно публикуемые цифры о войне, но не должен считаться окончательным.
   os-disclaimer-p2-1: Набор данных поддерживается публично на
   os-disclaimer-p2-2: под лицензиями с открытым исходным кодом. Пользователям рекомендуется самостоятельно проверять информацию и использовать её ответственно.
+  add-resource-header: Дополнительные ресурсы
+  add-resources-ua: Официальный сайт Украины
+  add-resources-ua-text: Официальный сайт Украины, предоставляющий проверенную информацию и обновления о вторжении России в Украину. Сайт предлагает всесторонний обзор конфликта, включая новости, личные истории и детальные отчеты о военных преступлениях России. Также на сайте собраны изображения войны и ресурсы для медиа-профессионалов.
+  add-resources-uamod: Министерство обороны Украины
+  add-resources-uamod-text: Официальный сайт Министерства обороны Украины, предоставляющий официальные заявления, военные обновления и пресс-релизы о действиях Украины по защите от российской агрессии. Сайт включает информацию о вооруженных силах Украины, стратегических разработках и государственных инициативах в области национальной безопасности.
+  add-resources-deepstate: DeepStateMap
+  add-resources-deepstate-text: DeepStateMap — это интерактивная карта, предоставляющая обновления в реальном времени о ситуации на поле боя в Украине. Карта агрегирует информацию из различных источников, включая официальные отчеты и данные, предоставленные пользователями, для отслеживания изменений на фронте, контроля территории и ключевых событий войны.
+  add-resources-oryx: Oryx
+  add-resources-oryx-text: Oryx — независимая платформа с открытым исходным кодом (OSINT), документирующая потери военной техники в ходе войны. Она опирается на проверенные визуальные доказательства для отслеживания уничтоженной, поврежденной и захваченной военной техники с обеих сторон. Сайт известен своей тщательной и беспристрастной документацией потерь на поле боя.
+  add-resources-oversight: Ukraine Oversight
+  add-resources-oversight-text: Официальный сайт правительства США, посвященный отслеживанию помощи и поддержки, оказанной Украине. Сайт предоставляет информацию о финансовой, военной и гуманитарной помощи США, подробно рассказывая о усилиях по обеспечению подотчетности в распределении помощи.
+  add-resources-preston: Preston Stewart (YouTube)
+  add-resources-preston-text: Preston Stewart — военный аналитик и создатель контента, который предоставляет глубокий анализ военных конфликтов, в частности, войны в Украине. Через свои платформы в социальных сетях и канал на YouTube он доступно объясняет развитие событий на поле боя, стратегию и исторический контекст.

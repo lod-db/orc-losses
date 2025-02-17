@@ -173,7 +173,7 @@
                     {% assign equipment = current.artillery | plus: current.fixedWingAircraft | plus: current.rotaryWingAircraft
                         | plus: current.tanks | plus: current.afvs | plus: current.rocketSystems | plus: current.airDefense
                         | plus: current.ships | plus: current.submarines | plus: current.unarmoredVehicles
-                        | plus: current.specialEquipment | plus: current.uavs | plus: current.missles %}
+                        | plus: current.specialEquipment | plus: current.uavs | plus: current.missiles %}
                     {{ lang.preamble-paragraph-1 }}
                     <span class="localizable-number">{{ current.personnel }}</span>
                     {{ lang.preamble-paragraph-2 }}
@@ -242,6 +242,79 @@
                                 target="_blank" rel="noopener">GitHub</a>
                             {{ lang.os-disclaimer-p2-2 }}
                         </p>
+                    </section>
+                </div>
+                <div class="border border-1 rounded mb-4 p-3">
+                    <section id="additional-resources-container" class="text-break">
+                        <h4>
+                            {{ lang.add-resource-header }}
+                        </h4>
+                        <details>
+                            <summary>
+                                <iconify-icon icon="emojione-v1:flag-for-ukraine" class="me-1 align-middle fs-4"></iconify-icon>
+                                {{ lang.add-resources-ua }}
+                            </summary>
+                            {{ lang.add-resources-ua-text }}
+
+                            <a href="https://war.ukraine.ua" title="{{ lang.add-resources-ua }}" target="_blank" class="d-block my-1" rel="noopener noreferrer">
+                                https://war.ukraine.ua
+                            </a>
+                        </details>
+                        <details>
+                            <summary>
+                                <iconify-icon icon="arcticons:ukraine-tryzub" class="me-1 align-middle fs-4"></iconify-icon>
+                                {{ lang.add-resources-uamod }}
+                            </summary>
+                            {{ lang.add-resources-uamod-text }}
+
+                            <a href="https://mod.gov.ua" title="{{ lang.add-resources-uamod }}" target="_blank" class="d-block my-1" rel="noopener noreferrer">
+                                https://mod.gov.ua
+                            </a>
+                        </details>
+                        <details>
+                            <summary>
+                                <iconify-icon icon="mingcute:chess-fill" class="me-1 align-middle fs-4"></iconify-icon>
+                                {{ lang.add-resources-deepstate }}
+                            </summary>
+                            {{ lang.add-resources-deepstate-text }}
+
+                            <a href="https://deepstatemap.live" title="{{ lang.add-resources-deepstate }}" target="_blank" class="d-block my-1" rel="noopener noreferrer">
+                                https://deepstatemap.live
+                            </a>
+                        </details>
+                        <details>
+                            <summary>
+                                <iconify-icon icon="proicons:open-source" class="me-1 align-middle fs-4"></iconify-icon>
+                                {{ lang.add-resources-oryx }}
+                            </summary>
+                            {{ lang.add-resources-oryx-text }}
+
+                            <a href="https://www.oryxspioenkop.com/2022/02/attack-on-europe-documenting-equipment.html" title="{{ lang.add-resources-oryx }}" target="_blank" class="d-block my-1" rel="noopener noreferrer">
+                                https://www.oryxspioenkop.com
+                            </a>
+                        </details>
+                        <details>
+                            <summary>
+                                <iconify-icon icon="emojione-v1:flag-for-united-states" class="me-1 align-middle fs-4"></iconify-icon>
+                                {{ lang.add-resources-oversight }}
+                            </summary>
+                            {{ lang.add-resources-oversight-text }}
+
+                            <a href="https://www.ukraineoversight.gov" title="{{ lang.add-resources-oversight }}" target="_blank" class="d-block my-1" rel="noopener noreferrer">
+                                https://www.ukraineoversight.gov
+                            </a>
+                        </details>
+                        <details>
+                            <summary>
+                                <iconify-icon icon="mdi:youtube" class="me-1 align-middle fs-4"></iconify-icon>
+                                {{ lang.add-resources-preston }}
+                            </summary>
+                            {{ lang.add-resources-preston-text }}
+
+                            <a href="https://www.youtube.com/@PrestonStewart" title="{{ lang.add-resources-preston }}" target="_blank" class="d-block my-1" rel="noopener noreferrer">
+                                https://www.youtube.com/@PrestonStewart
+                            </a>
+                        </details>
                     </section>
                 </div>
             </div>
