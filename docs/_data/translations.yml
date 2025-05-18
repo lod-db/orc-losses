@@ -156,6 +156,7 @@
 
 - name: Deutsch
   slug: de-DE
+  schema: russische-verluste.de.schema.json
   title: Russische Verluste in der Ukraine – Verluste an Personal und Ausrüstung
   description: Verfolgen Sie die neuesten russischen Verluste an Personal und Ausrüstung im Krieg Russlands gegen die Ukraine seit Beginn der groß angelegten Invasion im Jahr 2022.
   keywords: Ukraine Kriegsverluste, Russische Militärverluste, Ukraine Konfliktdaten, Kriegstote, Ukraine Kriegsstatistiken, Ukraine-Krieg-Tracker, Russischer Verlust-Tracker
