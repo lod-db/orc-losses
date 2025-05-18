@@ -30,7 +30,7 @@ jobs:
           mkdir -p ./docs/assets
           cp ./russian-losses.json ./docs/assets/russian-losses.json
           cp -r ./schema/ ./docs/assets/
-          ls -r ./docs/assets
+          ls -R ./docs/assets
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
