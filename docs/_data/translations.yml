@@ -1,5 +1,6 @@
 - name: English (US)
   slug: en-US
+  schema: russian-losses.en.schema.json
   title: Russian Losses in Ukraine – Casualties and Equipment Losses
   description: Track the latest Russian casualties and equipment losses in Russia’s war on Ukraine since the start of the 2022 full-scale invasion.
   keywords: Ukraine war losses, Russian military losses, Ukraine conflict data, war casualties, Ukraine war statistics, Ukraine war tracker, Russian losses tracker
@@ -52,6 +53,7 @@
 
 - name: English (UK)
   slug: en-GB
+  schema: russian-losses.en.schema.json
   title: Russian Losses in Ukraine – Casualties and Equipment Losses
   description: Track the latest Russian casualties and equipment losses in Russia’s war on Ukraine since the start of the 2022 full-scale invasion.
   keywords: Ukraine war losses, Russian military losses, Ukraine conflict data, war casualties, Ukraine war statistics, Ukraine war tracker, Russian losses tracker
