@@ -420,21 +420,23 @@
         const locale = '{{ lang.slug }}';
         const charts = {};
         const lossesDict = {};
-        const lossesSorted = (function () {
-            const json = {{ losses | jsonify }}
-            const lossesSorted = json.toSorted((a, b) => a.date.localeCompare(b.date, 'en'));
+        let lossesSorted = [];
+        let dateRange = [];
+        const isNull = (val) => typeof val === 'undefined' || val === null;
+        (async function () {
+            const response = await fetch('/assets/russian-losses.json');
+            const json = await response.json();
+            lossesSorted = json.toSorted((a, b) => a.date.localeCompare(b.date, 'en'));
 
             for (const loss of lossesSorted) {
                 lossesDict[loss.date] = loss;
             }
 
-            return lossesSorted;
-        })();
-        const dateRange = (function () {
+
             // Date constructor w/o time sets underlying date in UTC. Adding time keeps it local
             let date = new Date(lossesSorted[0].date + 'T00:00:00');
             const dateToday = new Date(lossesSorted[lossesSorted.length - 1].date + 'T00:00:00');
-            const dateRange = [];
+
             while (date <= dateToday) {
                 const dateKey = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
                 dateRange.push(dateKey);
@@ -442,9 +444,8 @@
                 date = new Date(date.getTime() + 86400000);
             };
 
-            return dateRange;
+            initLineChart();
         })();
-        const isNull = (val) => typeof val === 'undefined' || val === null;
     </script>
     <script>
         // Localize numbers, this is the recommend approach with Liquid
@@ -680,7 +681,6 @@
 
             charts['line'] = lineChart;
         };
-        initLineChart();
     </script>
 </body>
 
