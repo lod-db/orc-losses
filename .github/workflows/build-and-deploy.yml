@@ -1,4 +1,4 @@
-# Sample workflow for building and deploying a Jekyll site to GitHub Pages
+# Workflow for building and deploying a Jekyll site to GitHub Pages
 name: Build & Deploy Site
 
 on:
@@ -24,6 +24,9 @@ jobs:
 
       - name: Copy Data
         run: cp ./russian-losses.json ./docs/_data/russian-losses.json
+
+      - name: Copy Assets
+        run: cp ./russian-losses.json ./docs/assets/russian-losses.json && cp ./schemas/ ./docs/assets/
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
