@@ -104,6 +104,7 @@
 
 - name: Français
   slug: fr-FR
+  schema: pertes-russes.fr.schema.json
   title: Pertes russes en Ukraine – Pertes humaines et matérielles
   description: Suivez les dernières pertes russes en personnel et en équipement dans la guerre de la Russie contre l'Ukraine depuis le début de l'invasion à grande échelle en 2022.
   keywords: pertes de guerre en Ukraine, pertes militaires russes, données sur le conflit en Ukraine, pertes humaines, statistiques de la guerre en Ukraine, Suivi de la guerre en Ukraine, Suivi des pertes russes
