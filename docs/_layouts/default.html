@@ -61,11 +61,7 @@
       "url": "https://www.ukrainewarlosses.com/assets/russian-losses.json",
       "sameAs": "https://www.ukrainewarlosses.com",
       "inLanguage": "{{ lang.slug }}",
-      "keywords": [
-        {% for keyword in keywords %}
-          "{{ keyword }}",
-        {% endfor %}
-      ],
+      "keywords": ["{{ keywords | join: "\",\"" }}"],
       "license": "https://mit-license.org",
       "distribution": {
         "@type": "DataDownload",
@@ -86,7 +82,7 @@
         <nav class="navbar navbar-expand-lg bg-ua-blue sticky-top text-white">
             <div class="container" aria-label="Main navigation">
                 <span class="navbar-brand p-0 me-0 me-lg-2 text-white" aria-label="Orc Losses">
-                    <iconify-icon icon="game-icons:orc-head" class="m-1 fs-3 d-inline-block align-text-top"></iconify-icon>
+                    <iconify-icon icon="game-icons:orc-head" class="m-1 fs-3 d-inline-block align-bottom"></iconify-icon>
                     {{ lang.page-title }}
                 </span>
 
@@ -217,7 +213,7 @@
         </section>
 
         <div class="row">
-            <div class="col-xl-9 order-0">
+            <div class="col-12 col-xl-9 order-0">
                 <section id="losses-container" class="mb-4">
                     <div class="row">
                         {% for category in site.data.categories %}
@@ -225,8 +221,8 @@
                                 <div class="d-flex flex-column justify-content-between p-3 h-100 border border-1">
                                     <div class="d-flex justify-content-between">
                                         <h3>{{ lang[category.label] }}</h3>
-                                        <img class="icon light mx-1" title="{{ lang[category.label] }}" src="icon/{{ category.icon }}.png" aria-hidden="true">
-                                        <img class="icon dark mx-1" title="{{ lang[category.label] }}" src="icon/{{ category.icon }}-white.png" aria-hidden="true">
+                                        <img class="icon light mx-1" title="{{ lang[category.label] }}" alt="{{ lang[category.label] }} icon" src="icon/{{ category.icon }}.png" aria-hidden="true">
+                                        <img class="icon dark mx-1" title="{{ lang[category.label] }}" alt="{{ lang[category.label] }} icon" src="icon/{{ category.icon }}-white.png" aria-hidden="true">
                                     </div>
                                     {% assign diff = current[category.key] | minus: previous[category.key] %}
                                     <p class="text-center my-0" aria-describedby="losses-{{ category.id }}-description">
@@ -245,7 +241,7 @@
                     </div>
                 </section>
             </div>
-            <div class="col-xl-9 order-1 order-lg-2">
+            <div class="col-12 order-1 order-lg-2">
                 <section id="charts-container" class="mb-4">
                     <div class="chart-container">
                         <div id="line-chart" class="line-chart">
@@ -254,7 +250,7 @@
                     </div>
                 </section>
             </div>
-            <div class="col-xl-3 order-2 order-lg-1">
+            <div class="col-12 col-xl-3 order-2 order-lg-1">
                 <div class="border border-1 rounded mb-4 p-3">
                     <section id="open-source-disclaimer-container">
                         <h4>
