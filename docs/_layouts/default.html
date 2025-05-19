@@ -50,6 +50,35 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" rel="stylesheet"
         crossorigin="anonymous" referrerpolicy="no-referrer">
     <link href="/css/site.css" rel="stylesheet">
+
+    {% assign keywords = lang.keywords | split: ", " %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "{{ lang.title }}",
+      "description": "{{ lang.description }}",
+      "url": "https://www.ukrainewarlosses.com/assets/russian-losses.json",
+      "sameAs": "https://www.ukrainewarlosses.com",
+      "inLanguage": "{{ lang.slug }}",
+      "keywords": [
+        {% for keyword in keywords %}
+          "{{ keyword }}",
+        {% endfor %}
+      ],
+      "license": "https://mit-license.org",
+      "distribution": {
+        "@type": "DataDownload",
+        "encodingFormat": "application/json",
+        "contentUrl": "https://www.ukrainewarlosses.com/assets/russian-losses.json"
+      },
+      "schemaVersion": "https://www.ukrainewarlosses.com/assets/schema/{{ lang.schema }}",
+      "datePublished": "2022-02-24",
+      "dateModified": "{{ site.time | date: "%Y-%m-%d" }}",
+      "isAccessibleForFree": true
+    }
+    </script>
+
 </head>
 
 <body>
