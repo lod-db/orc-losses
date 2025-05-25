@@ -218,8 +218,8 @@
                     <div class="row">
                         {% assign startDate = "2022-02-24" | date: "%s" %}
                         {% assign endDate = "now" | date: "%s" %}
-                        {% assign lengthDate = endDate | minus: startDate | minus: 62201433600 %}
-                        {% assign lengthYears = lengthDate | date: "%Y" %}
+                        {% assign lengthDate = endDate | minus: startDate | minus: 62169876674 %}
+                        {% assign lengthYears = lengthDate | date: "%-Y" %}
                         {% assign lengthMonths = lengthDate | date: "%-m" %}
                         {% assign lengthDays = lengthDate | date: "%-d" %}
                         {% assign lengthTotalDays = endDate | minus: startDate | divided_by: 86400 | floor %}
@@ -234,7 +234,7 @@
                                     <img class="icon dark mx-1" title="{{ lang.length-of-war-text }}" alt="{{ lang.length-of-war-text }} icon" src="icon/calendar-white.png" aria-hidden="true">
                                 </div>
                                 <p class="text-center my-0" aria-describedby="losses-length-of-war-description">
-                                    {{ lengthYears }} {{ lang.days-subtitle-text }},
+                                    {{ lengthYears }} {{ lang.years-subtitle-text }},
                                     {{ lengthMonths }} {{ lang.months-subtitle-text }},
                                     {{ lengthDays }} {{ lang.days-subtitle-text }}
                                 </p>

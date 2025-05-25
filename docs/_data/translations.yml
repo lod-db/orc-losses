@@ -51,8 +51,8 @@
   add-resources-preston: Preston Stewart (YouTube)
   add-resources-preston-text: Preston Stewart is a military analyst and content creator who provides in-depth analysis of military conflicts, with a focus on the war in Ukraine. Through his social media platforms and YouTube channel, he breaks down battlefield developments, strategy, and historical context in an accessible way. His content is based on open-source intelligence (OSINT) and military expertise, making him a valuable resource for those looking to understand the tactical and operational aspects of the conflict.
   days-title-text: Days
-  days-subtitle-text: days
-  months-subtitle-text: months
+  days-subtitle-text: day(s)
+  months-subtitle-text: month(s)
   years-subtitle-text: years
   length-of-war-text: Length of the war
 
@@ -109,8 +109,8 @@
   add-resources-preston: Preston Stewart (YouTube)
   add-resources-preston-text: Preston Stewart is a military analyst and content creator who provides in-depth analysis of military conflicts, with a focus on the war in Ukraine. Through his social media platforms and YouTube channel, he breaks down battlefield developments, strategy, and historical context in an accessible way. His content is based on open-source intelligence (OSINT) and military expertise, making him a valuable resource for those looking to understand the tactical and operational aspects of the conflict.
   days-title-text: Days
-  days-subtitle-text: days
-  months-subtitle-text: months
+  days-subtitle-text: day(s)
+  months-subtitle-text: month(s)
   years-subtitle-text: years
   length-of-war-text: Length of the war
 
@@ -226,8 +226,8 @@
   add-resources-preston-text: Preston Stewart ist ein Militäranalyst und Content Creator, der detaillierte Analysen militärischer Konflikte mit Schwerpunkt auf den Krieg in der Ukraine bietet. Über seine Social-Media-Plattformen und seinen YouTube-Kanal erklärt er die Entwicklungen auf dem Schlachtfeld, Strategien und historische Zusammenhänge auf verständliche Weise.
   days-title-text: Tage
   days-subtitle-text: Tag
-  months-subtitle-text: Monate
-  years-subtitle-text: Jahre
+  months-subtitle-text: Monat(e)
+  years-subtitle-text: Jahr(e)
   length-of-war-text: Dauer des Krieges
 
 - name: Українська
@@ -284,7 +284,7 @@
   add-resources-preston-text: Preston Stewart — військовий аналітик і контент-креатор, який надає глибокий аналіз військових конфліктів, зокрема війни в Україні. Через свої соціальні медіа-платформи та канал на YouTube він пояснює розвиток подій на полі бою, стратегію та історичний контекст доступним чином.
   days-title-text: днів
   days-subtitle-text: день
-  months-subtitle-text: місяці
+  months-subtitle-text: місяць
   years-subtitle-text: роки
   length-of-war-text: Тривалість війни
 
@@ -342,6 +342,6 @@
   add-resources-preston-text: Preston Stewart — военный аналитик и создатель контента, который предоставляет глубокий анализ военных конфликтов, в частности, войны в Украине. Через свои платформы в социальных сетях и канал на YouTube он доступно объясняет развитие событий на поле боя, стратегию и исторический контекст.
   days-title-text: дней
   days-subtitle-text: день
-  months-subtitle-text: месяца
+  months-subtitle-text: месяц
   years-subtitle-text: года
   length-of-war-text: Длительность войны
