@@ -50,6 +50,11 @@
   add-resources-oversight-text: An official U.S. government website dedicated to tracking aid and assistance provided to Ukraine. It offers transparency on U.S. financial, military, and humanitarian support, detailing oversight efforts to ensure accountability in aid distribution. The site includes reports, audits, and data on how resources are being utilized.
   add-resources-preston: Preston Stewart (YouTube)
   add-resources-preston-text: Preston Stewart is a military analyst and content creator who provides in-depth analysis of military conflicts, with a focus on the war in Ukraine. Through his social media platforms and YouTube channel, he breaks down battlefield developments, strategy, and historical context in an accessible way. His content is based on open-source intelligence (OSINT) and military expertise, making him a valuable resource for those looking to understand the tactical and operational aspects of the conflict.
+  days-title-text: Days
+  days-subtitle-text: days
+  months-subtitle-text: months
+  years-subtitle-text: years
+  length-of-war-text: Length of the war
 
 - name: English (UK)
   slug: en-GB
@@ -103,6 +108,11 @@
   add-resources-oversight-text: An official U.S. government website dedicated to tracking aid and assistance provided to Ukraine. It offers transparency on U.S. financial, military, and humanitarian support, detailing oversight efforts to ensure accountability in aid distribution. The site includes reports, audits, and data on how resources are being utilised.
   add-resources-preston: Preston Stewart (YouTube)
   add-resources-preston-text: Preston Stewart is a military analyst and content creator who provides in-depth analysis of military conflicts, with a focus on the war in Ukraine. Through his social media platforms and YouTube channel, he breaks down battlefield developments, strategy, and historical context in an accessible way. His content is based on open-source intelligence (OSINT) and military expertise, making him a valuable resource for those looking to understand the tactical and operational aspects of the conflict.
+  days-title-text: Days
+  days-subtitle-text: days
+  months-subtitle-text: months
+  years-subtitle-text: years
+  length-of-war-text: Length of the war
 
 - name: Français
   slug: fr-FR
@@ -156,6 +166,11 @@
   add-resources-oversight-text: Un site officiel du gouvernement américain dédié au suivi de l’aide et de l’assistance fournies à l’Ukraine. Il offre une transparence sur le soutien financier, militaire et humanitaire des États-Unis, détaillant les efforts de surveillance pour garantir la responsabilité dans la distribution de l’aide. Le site comprend des rapports, des audits et des données sur l’utilisation des ressources.
   add-resources-preston: Preston Stewart (YouTube)
   add-resources-preston-text: Preston Stewart est un analyste militaire et créateur de contenu qui fournit une analyse approfondie des conflits militaires, en mettant l’accent sur la guerre en Ukraine. À travers ses plateformes de médias sociaux et sa chaîne YouTube, il explique l’évolution du champ de bataille, la stratégie et le contexte historique de manière accessible. Son contenu repose sur des renseignements en source ouverte (OSINT) et une expertise militaire, en faisant une ressource précieuse pour ceux qui cherchent à comprendre les aspects tactiques et opérationnels du conflit.
+  days-title-text: jours
+  days-subtitle-text: jour
+  months-subtitle-text: mois
+  years-subtitle-text: ans
+  length-of-war-text: Durée de la guerre
 
 - name: Deutsch
   slug: de-DE
@@ -209,6 +224,11 @@
   add-resources-oversight-text: Eine offizielle Website der US-Regierung zur Nachverfolgung der Hilfs- und Unterstützungsleistungen für die Ukraine. Sie bietet Transparenz über finanzielle, militärische und humanitäre Hilfe der USA und dokumentiert Kontrollmaßnahmen zur Sicherstellung der Rechenschaftspflicht bei der Verteilung der Unterstützung.
   add-resources-preston: Preston Stewart (YouTube)
   add-resources-preston-text: Preston Stewart ist ein Militäranalyst und Content Creator, der detaillierte Analysen militärischer Konflikte mit Schwerpunkt auf den Krieg in der Ukraine bietet. Über seine Social-Media-Plattformen und seinen YouTube-Kanal erklärt er die Entwicklungen auf dem Schlachtfeld, Strategien und historische Zusammenhänge auf verständliche Weise.
+  days-title-text: Tage
+  days-subtitle-text: Tag
+  months-subtitle-text: Monate
+  years-subtitle-text: Jahre
+  length-of-war-text: Dauer des Krieges
 
 - name: Українська
   slug: uk-UA
@@ -262,6 +282,11 @@
   add-resources-oversight-text: Офіційний вебсайт уряду США, присвячений відстеженню допомоги та підтримки, наданої Україні. Сайт пропонує прозорість щодо фінансової, військової та гуманітарної підтримки США, розкриваючи зусилля щодо забезпечення підзвітності у розподілі допомоги.
   add-resources-preston: Preston Stewart (YouTube)
   add-resources-preston-text: Preston Stewart — військовий аналітик і контент-креатор, який надає глибокий аналіз військових конфліктів, зокрема війни в Україні. Через свої соціальні медіа-платформи та канал на YouTube він пояснює розвиток подій на полі бою, стратегію та історичний контекст доступним чином.
+  days-title-text: днів
+  days-subtitle-text: день
+  months-subtitle-text: місяці
+  years-subtitle-text: роки
+  length-of-war-text: Тривалість війни
 
 - name: Русский
   slug: ru-RU
@@ -315,3 +340,8 @@
   add-resources-oversight-text: Официальный сайт правительства США, посвященный отслеживанию помощи и поддержки, оказанной Украине. Сайт предоставляет информацию о финансовой, военной и гуманитарной помощи США, подробно рассказывая о усилиях по обеспечению подотчетности в распределении помощи.
   add-resources-preston: Preston Stewart (YouTube)
   add-resources-preston-text: Preston Stewart — военный аналитик и создатель контента, который предоставляет глубокий анализ военных конфликтов, в частности, войны в Украине. Через свои платформы в социальных сетях и канал на YouTube он доступно объясняет развитие событий на поле боя, стратегию и исторический контекст.
+  days-title-text: дней
+  days-subtitle-text: день
+  months-subtitle-text: месяца
+  years-subtitle-text: года
+  length-of-war-text: Длительность войны
