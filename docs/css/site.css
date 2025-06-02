@@ -43,6 +43,11 @@ html[data-bs-theme="dark"] img.dark {
     min-height: 300px;
 }
 
+.heatmap-chart {
+    width: 100%;
+    min-height: 630px
+}
+
 @media (min-width: 576px) {
     .line-chart {
         width: 100%;

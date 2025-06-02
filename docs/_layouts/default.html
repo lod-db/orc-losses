@@ -272,7 +272,10 @@
                 <section id="charts-container" class="mb-4">
                     <div class="chart-container">
                         <div id="line-chart" class="line-chart">
-                            Loading chart...
+                            Loading line chart...
+                        </div>
+                        <div id="heatmap-chart" class="heatmap-chart mt-3">
+                            Loading heatmap...
                         </div>
                     </div>
                 </section>
@@ -446,6 +449,7 @@
             }
 
             try { initLineChart() } catch (err) { }
+            try { initHeatMap() } catch (err) { }
         }
 
         (function () {
@@ -466,8 +470,8 @@
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"
         referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"
-        integrity="sha512-k37wQcV4v2h6jgYf5IUz1MoSKPpDs630XGSmCaCCOXxy2awgAWKHGZWr9nMyGgk3IOxA1NxdkN8r1JHgkUtMoQ=="
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.6.0/echarts.min.js"
+        integrity="sha512-XSmbX3mhrD2ix5fXPTRQb2FwK22sRMVQTpBP2ac8hX7Dh/605hA2QDegVWiAvZPiXIxOV0CbkmUjGionDpbCmw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         // Set Globals
@@ -499,6 +503,7 @@
             };
 
             initLineChart();
+            initHeatMap();
         })();
     </script>
     <script>
@@ -527,8 +532,10 @@
     <script>
         // Create Line Chart
         function initLineChart() {
-            if (charts['line']) {
-                charts['line'].dispose();
+            const chartId = 'line';
+            const ele = document.getElementById('line-chart');
+            if (charts[chartId]) {
+                charts[chartId].dispose();
             }
 
             const markArea = {
@@ -538,7 +545,7 @@
                 data: [],
             };
 
-            function createLineSeries(data) {
+            function createSeries(data) {
                 const dataPoints = [
                     {
                         name: '{{ lang.personnel-label }}',
@@ -617,9 +624,9 @@
                 return items;
             }
 
-            const series = createLineSeries(dateRange.map((d) => lossesDict[d]));
+            const series = createSeries(dateRange.map((d) => lossesDict[d]));
 
-            const lineChart = echarts.init(document.getElementById('line-chart'), theme);
+            const chart = echarts.init(ele, theme);
             markArea.data = [
                 // [
                 //     {
@@ -659,7 +666,7 @@
                 //     },
                 // ],
             ];
-            const lineChartOptions = {
+            const options = {
                 title: {
                     //text: 'Russian Losses in Ukraine',
                     subtext: `2022 - ${new Date(lossesSorted[lossesSorted.length - 1].date).getFullYear()}`,
@@ -731,10 +738,128 @@
                 ],
             };
 
-            lineChartOptions && lineChart.setOption(lineChartOptions);
+            options && chart.setOption(options);
 
-            charts['line'] = lineChart;
+            charts[chartId] = chart;
         };
+    </script>
+    <script>
+        // Create Heat Map
+        function initHeatMap() {
+            const chartId = 'heatmap';
+            const ele = document.getElementById('heatmap-chart');
+            if (charts[chartId]) {
+                charts[chartId].dispose();
+            }
+
+            const years = function () {
+                const years = [];
+                const date = new Date();
+                let year = date.getFullYear();
+                while (year >= 2022) {
+                    years.push(year);
+                    year--;
+                }
+
+                return years;
+            }();
+
+            function createSeries(data) {
+                let prev;
+                let current;
+                const dataPoints = data.sort((a, b) => b[0].localeCompare(a[0])).map(([date, d]) => {
+                    if (d) {
+                        prev = current;
+                        current = d;
+                    }
+                    // After 2023-07-22 there was no reported data for months.
+                    // This skews the heatmap so we'll remove it.
+                    const results = d && prev && date !== '2023-07-22' ? [
+                        date,
+                        Math.max(((prev?.personnel ?? 0) - (d.personnel ?? 0)) * 1, 0)
+                        + Math.max(((prev?.tanks ?? 0) - (d.tanks ?? 0)) * 10, 0)
+                        + Math.max(((prev?.afvs ?? 0) - (d.afvs ?? 0)) * 5, 0)
+                        + Math.max(((prev?.artillery ?? 0) - (d.artillery ?? 0)) * 3, 0)
+                        + Math.max(((prev?.airDefense ?? 0) - (d.airDefense ?? 0)) * 25, 0)
+                        + Math.max(((prev?.rocketSystems ?? 0) - (d.rocketSystems ?? 0)) * 8, 0)
+                        + Math.max(((prev?.unarmoredVehicles ?? 0) - (d.unarmoredVehicles ?? 0)) * 1, 0)
+                        + Math.max(((prev?.fixedWingAircraft ?? 0) - (d.fixedWingAircraft ?? 0)) * 50, 0)
+                        + Math.max(((prev?.rotaryWingAircraft ?? 0) - (d.rotaryWingAircraft ?? 0)) * 25, 0)
+                        + Math.max(((prev?.uavs ?? 0) - (d.uavs ?? 0)) * 2, 0)
+                        + Math.max(((prev?.ships ?? 0) - (d.ships ?? 0)) * 100, 0)
+                        + Math.max(((prev?.submarines ?? 0) - (d.submarines ?? 0)) * 200, 0)
+                        + Math.max(((prev?.specialEquipment ?? 0) - (d.specialEquipment ?? 0)) * 3, 0)
+                        + Math.max(((prev?.missiles ?? 0) - (d.missiles ?? 0)) * 3, 0)
+                    ] : [date, null];
+
+                    return results;
+                });
+
+                const series = years.map((y, i) => ({
+                    type: 'heatmap',
+                    coordinateSystem: 'calendar',
+                    calendarIndex: i,
+                    year: y,
+                    data: dataPoints.filter(([date]) => date.startsWith(y.toString())),
+                    label: {
+                        show: window.innerWidth >= 992,
+                        formatter: params => params.value[0].substring(8),
+                        fontSize: 7,
+                    },
+                }));
+
+                return series;
+            }
+
+            const series = createSeries(dateRange.map((d) => ([d, lossesDict[d]])));
+
+            const chart = echarts.init(ele, theme);
+            const options = {
+                title: {},
+                darkMode: 'auto',
+                series,
+                tooltip: {
+                    show: false,
+                },
+                visualMap: {
+                    min: series.flatMap(s => s.data)
+                        .filter(d => d[1] != null)
+                        .sort((a, b) => a[1] - b[1])[0][1],
+                    max: series.flatMap(s => s.data)
+                        .filter(d => d[1] != null)
+                        .sort((a, b) => b[1] - a[1])[0][1],
+                    type: 'piecewise',
+                    orient: 'horizontal',
+                    left: 'center',
+                    top: 65,
+                    show: false,
+                },
+                calendar: series.map((s, i) => ({
+                    top: 40 + i * 150,
+                    right: 30,
+                    left: 70,
+                    cellSize: ['auto', 16],
+                    range: s.year.toString(),
+                    itemStyle: {
+                        borderWidth: 0.5,
+                    },
+                    yearLabel: {
+                        show: true,
+                        position: 'left',
+                    },
+                })),
+                toolbox: {
+                    show: true,
+                    feature: {
+                        saveAsImage: {},
+                    },
+                },
+            };
+
+            options && chart.setOption(options);
+
+            charts[chartId] = chart;
+        }
     </script>
 </body>
 
