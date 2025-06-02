@@ -802,8 +802,9 @@
                     year: y,
                     data: dataPoints.filter(([date]) => date.startsWith(y.toString())),
                     label: {
-                        show: false,
-                        position: 'top',
+                        show: window.innerWidth >= 992,
+                        formatter: params => params.value[0].substring(8),
+                        fontSize: 7,
                     },
                 }));
 
