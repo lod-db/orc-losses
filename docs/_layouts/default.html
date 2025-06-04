@@ -82,7 +82,8 @@
         <nav class="navbar navbar-expand-lg bg-ua-blue sticky-top text-white">
             <div class="container" aria-label="Main navigation">
                 <span class="navbar-brand p-0 me-0 me-lg-2 text-white" aria-label="Orc Losses">
-                    <iconify-icon icon="game-icons:orc-head" class="m-1 fs-3 d-inline-block align-bottom"></iconify-icon>
+                    <iconify-icon icon="game-icons:orc-head"
+                        class="m-1 fs-3 d-inline-block align-bottom"></iconify-icon>
                     {{ lang.page-title }}
                 </span>
 
@@ -230,8 +231,12 @@
                                         <span class="localizable-number">{{ lengthTotalDays }}</span>
                                         {{ lang.days-title-text }}
                                     </h3>
-                                    <img class="icon light mx-1" title="{{ lang.length-of-war-text }}" alt="{{ lang.length-of-war-text }} icon" src="icon/calendar.png" aria-hidden="true">
-                                    <img class="icon dark mx-1" title="{{ lang.length-of-war-text }}" alt="{{ lang.length-of-war-text }} icon" src="icon/calendar-white.png" aria-hidden="true">
+                                    <img class="icon light mx-1" title="{{ lang.length-of-war-text }}"
+                                        alt="{{ lang.length-of-war-text }} icon" src="icon/calendar.png"
+                                        aria-hidden="true">
+                                    <img class="icon dark mx-1" title="{{ lang.length-of-war-text }}"
+                                        alt="{{ lang.length-of-war-text }} icon" src="icon/calendar-white.png"
+                                        aria-hidden="true">
                                 </div>
                                 <p class="text-center my-0" aria-describedby="losses-length-of-war-description">
                                     {{ lengthYears }} {{ lang.years-subtitle-text }},
@@ -244,72 +249,82 @@
                             </div>
                         </div>
                         {% for category in site.data.categories %}
-                            <div class="col-12 col-md-6 col-xxl-4 mb-3">
-                                <div class="d-flex flex-column justify-content-between p-3 h-100 border border-1">
-                                    <div class="d-flex justify-content-between">
-                                        <h3>{{ lang[category.label] }}</h3>
-                                        <img class="icon light mx-1" title="{{ lang[category.label] }}" alt="{{ lang[category.label] }} icon" src="icon/{{ category.icon }}.png" aria-hidden="true">
-                                        <img class="icon dark mx-1" title="{{ lang[category.label] }}" alt="{{ lang[category.label] }} icon" src="icon/{{ category.icon }}-white.png" aria-hidden="true">
-                                    </div>
-                                    <div class="d-flex justify-content-between mt-2">
-                                        <button type="button" class="btn btn-outline-secondary ms-n2 px-2 pt-1 pb-0 border-0">
-                                            <iconify-icon icon="humbleicons:expand"></iconify-icon>
-                                        </button>
-                                        <div>
-                                            {% assign diff = current[category.key] | minus: previous[category.key] %}
-                                            <p class="text-center my-0" aria-describedby="losses-{{ category.id }}-description">
-                                                {% if category.id == "personnel"  %}~{% endif %}<span class="localizable-number">{{ current[category.key] }}</span>
-                                                {% if diff > 0 %}
-                                                    <strong>+(<span class="localizable-number">{{ diff }}</span>)</strong>
-                                                {% endif %}
-                                            </p>
-                                            <p id="losses-{{ category.id }}-description" class="visually-hidden">
-                                                {% if category.id == "personnel"  %}~{% endif %}<span class="localizable-number">{{ current[category.key] }}</span>
-                                                {{ lang[category.label]}} {{ lang.lost-since-label }} 2022.
-                                            </p>
-                                        </div>
-                                        <div class="empty-32"></div>
-                                    </div>
-                                    
+                        <div class="col-12 col-md-6 col-xxl-4 mb-3">
+                            <div class="d-flex flex-column justify-content-between p-3 h-100 border border-1">
+                                <div class="d-flex justify-content-between">
+                                    <h3>{{ lang[category.label] }}</h3>
+                                    <img class="icon light mx-1" title="{{ lang[category.label] }}"
+                                        alt="{{ lang[category.label] }} icon" src="icon/{{ category.icon }}.png"
+                                        aria-hidden="true">
+                                    <img class="icon dark mx-1" title="{{ lang[category.label] }}"
+                                        alt="{{ lang[category.label] }} icon" src="icon/{{ category.icon }}-white.png"
+                                        aria-hidden="true">
                                 </div>
-                                <div id="modal-{{ category.id }}"
-                                    class="modal fade" tabindex="-1"
-                                    data-key="{{ category.id }}" data-tab="line"
-                                    aria-labelledby="modal-{{ category.id }}-title"
-                                    aria-hidden="true">
-                                    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 id="modal-{{ category.id }}-title" class="modal-title fs-5">
-                                                    {{ lang[category.label] }}
-                                                </h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <div class="d-flex justify-content-between mt-2">
+                                    <button type="button"
+                                        class="btn btn-outline-secondary ms-n2 px-2 pt-1 pb-0 border-0">
+                                        <iconify-icon icon="humbleicons:expand"></iconify-icon>
+                                    </button>
+                                    <div>
+                                        {% assign diff = current[category.key] | minus: previous[category.key] %}
+                                        <p class="text-center my-0"
+                                            aria-describedby="losses-{{ category.id }}-description">
+                                            {% if category.id == "personnel" %}~{% endif %}<span
+                                                class="localizable-number">{{ current[category.key] }}</span>
+                                            {% if diff > 0 %}
+                                            <strong>+(<span class="localizable-number">{{ diff }}</span>)</strong>
+                                            {% endif %}
+                                        </p>
+                                        <p id="losses-{{ category.id }}-description" class="visually-hidden">
+                                            {% if category.id == "personnel" %}~{% endif %}<span
+                                                class="localizable-number">{{ current[category.key] }}</span>
+                                            {{ lang[category.label]}} {{ lang.lost-since-label }} 2022.
+                                        </p>
+                                    </div>
+                                    <div class="empty-32"></div>
+                                </div>
+
+                            </div>
+                            <div id="modal-{{ category.id }}" class="modal fade" tabindex="-1"
+                                data-key="{{ category.id }}" data-tab="line"
+                                aria-labelledby="modal-{{ category.id }}-title" aria-hidden="true">
+                                <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 id="modal-{{ category.id }}-title" class="modal-title fs-5">
+                                                {{ lang[category.label] }}
+                                            </h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            {% if category.id == "personnel" %}~{% endif %}<span
+                                                class="localizable-number">{{ current[category.key] }}</span>
+                                            {{ lang[category.label]}} {{ lang.lost-since-label }} 2022.
+                                            <ul class="nav nav-tabs mt-2">
+                                                <li class="nav-item" data-tab="line">
+                                                    <a class="nav-link active" aria-current="page" href="#">{{
+                                                        lang.line-chart }}</a>
+                                                </li>
+                                                <li class="nav-item" data-tab="heatmap">
+                                                    <a class="nav-link" href="#">{{ lang.heatmap-chart }}</a>
+                                                </li>
+                                            </ul>
+                                            <div id="line-chart-{{ category.id }}" class="line-chart">
+                                                Loading line chart...
                                             </div>
-                                            <div class="modal-body">
-                                                {% if category.id == "personnel"  %}~{% endif %}<span class="localizable-number">{{ current[category.key] }}</span>
-                                                {{ lang[category.label]}} {{ lang.lost-since-label }} 2022.
-                                                <ul class="nav nav-tabs mt-2">
-                                                    <li class="nav-item" data-tab="line">
-                                                        <a class="nav-link active" aria-current="page" href="#">{{ lang.line-chart }}</a>
-                                                    </li>
-                                                    <li class="nav-item" data-tab="heatmap">
-                                                        <a class="nav-link" href="#">{{ lang.heatmap-chart }}</a>
-                                                    </li>
-                                                </ul>
-                                                <div id="line-chart-{{ category.id }}" class="line-chart">
-                                                    Loading line chart...
-                                                </div>
-                                                <div id="heatmap-chart-{{ category.id }}" class="heatmap-chart d-none">
-                                                    Loading heatmap...
-                                                </div>
+                                            <div id="heatmap-chart-{{ category.id }}" class="heatmap-chart d-none">
+                                                Loading heatmap...
                                             </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary"
+                                                data-bs-dismiss="modal">Close</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         {% endfor %}
                     </div>
                 </section>
@@ -354,23 +369,27 @@
                         </h4>
                         <details>
                             <summary>
-                                <iconify-icon icon="emojione-v1:flag-for-ukraine" class="me-1 align-middle fs-4"></iconify-icon>
+                                <iconify-icon icon="emojione-v1:flag-for-ukraine"
+                                    class="me-1 align-middle fs-4"></iconify-icon>
                                 {{ lang.add-resources-ua }}
                             </summary>
                             {{ lang.add-resources-ua-text }}
 
-                            <a href="https://war.ukraine.ua" title="{{ lang.add-resources-ua }}" target="_blank" class="d-block my-1" rel="noopener noreferrer">
+                            <a href="https://war.ukraine.ua" title="{{ lang.add-resources-ua }}" target="_blank"
+                                class="d-block my-1" rel="noopener noreferrer">
                                 https://war.ukraine.ua
                             </a>
                         </details>
                         <details>
                             <summary>
-                                <iconify-icon icon="arcticons:ukraine-tryzub" class="me-1 align-middle fs-4"></iconify-icon>
+                                <iconify-icon icon="arcticons:ukraine-tryzub"
+                                    class="me-1 align-middle fs-4"></iconify-icon>
                                 {{ lang.add-resources-uamod }}
                             </summary>
                             {{ lang.add-resources-uamod-text }}
 
-                            <a href="https://mod.gov.ua" title="{{ lang.add-resources-uamod }}" target="_blank" class="d-block my-1" rel="noopener noreferrer">
+                            <a href="https://mod.gov.ua" title="{{ lang.add-resources-uamod }}" target="_blank"
+                                class="d-block my-1" rel="noopener noreferrer">
                                 https://mod.gov.ua
                             </a>
                         </details>
@@ -381,7 +400,8 @@
                             </summary>
                             {{ lang.add-resources-deepstate-text }}
 
-                            <a href="https://deepstatemap.live" title="{{ lang.add-resources-deepstate }}" target="_blank" class="d-block my-1" rel="noopener noreferrer">
+                            <a href="https://deepstatemap.live" title="{{ lang.add-resources-deepstate }}"
+                                target="_blank" class="d-block my-1" rel="noopener noreferrer">
                                 https://deepstatemap.live
                             </a>
                         </details>
@@ -392,18 +412,22 @@
                             </summary>
                             {{ lang.add-resources-oryx-text }}
 
-                            <a href="https://www.oryxspioenkop.com/2022/02/attack-on-europe-documenting-equipment.html" title="{{ lang.add-resources-oryx }}" target="_blank" class="d-block my-1" rel="noopener noreferrer">
+                            <a href="https://www.oryxspioenkop.com/2022/02/attack-on-europe-documenting-equipment.html"
+                                title="{{ lang.add-resources-oryx }}" target="_blank" class="d-block my-1"
+                                rel="noopener noreferrer">
                                 https://www.oryxspioenkop.com
                             </a>
                         </details>
                         <details>
                             <summary>
-                                <iconify-icon icon="emojione-v1:flag-for-united-states" class="me-1 align-middle fs-4"></iconify-icon>
+                                <iconify-icon icon="emojione-v1:flag-for-united-states"
+                                    class="me-1 align-middle fs-4"></iconify-icon>
                                 {{ lang.add-resources-oversight }}
                             </summary>
                             {{ lang.add-resources-oversight-text }}
 
-                            <a href="https://www.ukraineoversight.gov" title="{{ lang.add-resources-oversight }}" target="_blank" class="d-block my-1" rel="noopener noreferrer">
+                            <a href="https://www.ukraineoversight.gov" title="{{ lang.add-resources-oversight }}"
+                                target="_blank" class="d-block my-1" rel="noopener noreferrer">
                                 https://www.ukraineoversight.gov
                             </a>
                         </details>
@@ -414,7 +438,8 @@
                             </summary>
                             {{ lang.add-resources-preston-text }}
 
-                            <a href="https://www.youtube.com/@PrestonStewart" title="{{ lang.add-resources-preston }}" target="_blank" class="d-block my-1" rel="noopener noreferrer">
+                            <a href="https://www.youtube.com/@PrestonStewart" title="{{ lang.add-resources-preston }}"
+                                target="_blank" class="d-block my-1" rel="noopener noreferrer">
                                 https://www.youtube.com/@PrestonStewart
                             </a>
                         </details>
