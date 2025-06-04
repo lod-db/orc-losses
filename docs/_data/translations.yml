@@ -55,6 +55,8 @@
   months-subtitle-text: month(s)
   years-subtitle-text: years
   length-of-war-text: Length of the war
+  line-chart: Line Chart
+  heatmap-chart: Heat Map
 
 - name: English (UK)
   slug: en-GB
@@ -113,6 +115,8 @@
   months-subtitle-text: month(s)
   years-subtitle-text: years
   length-of-war-text: Length of the war
+  line-chart: Line Chart
+  heatmap-chart: Heat Map
 
 - name: Français
   slug: fr-FR
@@ -171,6 +175,8 @@
   months-subtitle-text: mois
   years-subtitle-text: ans
   length-of-war-text: Durée de la guerre
+  line-chart: Graphique en ligne
+  heatmap-chart: Carte thermique
 
 - name: Deutsch
   slug: de-DE
@@ -229,6 +235,8 @@
   months-subtitle-text: Monat(e)
   years-subtitle-text: Jahr(e)
   length-of-war-text: Dauer des Krieges
+  line-chart: Liniendiagramm
+  heatmap-chart: Wärmekarte
 
 - name: Українська
   slug: uk-UA
@@ -287,6 +295,8 @@
   months-subtitle-text: місяць
   years-subtitle-text: роки
   length-of-war-text: Тривалість війни
+  line-chart: Лінійна діаграма
+  heatmap-chart: Теплова карта
 
 - name: Русский
   slug: ru-RU
@@ -345,3 +355,5 @@
   months-subtitle-text: месяц
   years-subtitle-text: года
   length-of-war-text: Длительность войны
+  line-chart: Линейный график
+  heatmap-chart: Тепловая карта

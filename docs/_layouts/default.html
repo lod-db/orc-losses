@@ -82,7 +82,8 @@
         <nav class="navbar navbar-expand-lg bg-ua-blue sticky-top text-white">
             <div class="container" aria-label="Main navigation">
                 <span class="navbar-brand p-0 me-0 me-lg-2 text-white" aria-label="Orc Losses">
-                    <iconify-icon icon="game-icons:orc-head" class="m-1 fs-3 d-inline-block align-bottom"></iconify-icon>
+                    <iconify-icon icon="game-icons:orc-head"
+                        class="m-1 fs-3 d-inline-block align-bottom"></iconify-icon>
                     {{ lang.page-title }}
                 </span>
 
@@ -230,8 +231,12 @@
                                         <span class="localizable-number">{{ lengthTotalDays }}</span>
                                         {{ lang.days-title-text }}
                                     </h3>
-                                    <img class="icon light mx-1" title="{{ lang.length-of-war-text }}" alt="{{ lang.length-of-war-text }} icon" src="icon/calendar.png" aria-hidden="true">
-                                    <img class="icon dark mx-1" title="{{ lang.length-of-war-text }}" alt="{{ lang.length-of-war-text }} icon" src="icon/calendar-white.png" aria-hidden="true">
+                                    <img class="icon light mx-1" title="{{ lang.length-of-war-text }}"
+                                        alt="{{ lang.length-of-war-text }} icon" src="icon/calendar.png"
+                                        aria-hidden="true">
+                                    <img class="icon dark mx-1" title="{{ lang.length-of-war-text }}"
+                                        alt="{{ lang.length-of-war-text }} icon" src="icon/calendar-white.png"
+                                        aria-hidden="true">
                                 </div>
                                 <p class="text-center my-0" aria-describedby="losses-length-of-war-description">
                                     {{ lengthYears }} {{ lang.years-subtitle-text }},
@@ -244,26 +249,83 @@
                             </div>
                         </div>
                         {% for category in site.data.categories %}
-                            <div class="col-12 col-md-6 col-xxl-4 mb-3">
-                                <div class="d-flex flex-column justify-content-between p-3 h-100 border border-1">
-                                    <div class="d-flex justify-content-between">
-                                        <h3>{{ lang[category.label] }}</h3>
-                                        <img class="icon light mx-1" title="{{ lang[category.label] }}" alt="{{ lang[category.label] }} icon" src="icon/{{ category.icon }}.png" aria-hidden="true">
-                                        <img class="icon dark mx-1" title="{{ lang[category.label] }}" alt="{{ lang[category.label] }} icon" src="icon/{{ category.icon }}-white.png" aria-hidden="true">
-                                    </div>
-                                    {% assign diff = current[category.key] | minus: previous[category.key] %}
-                                    <p class="text-center my-0" aria-describedby="losses-{{ category.id }}-description">
-                                        {% if category.id == "personnel"  %}~{% endif %}<span class="localizable-number">{{ current[category.key] }}</span>
-                                        {% if diff > 0 %}
+                        <div class="col-12 col-md-6 col-xxl-4 mb-3">
+                            <div class="d-flex flex-column justify-content-between pt-3 px-3 pb-1 h-100 border border-1"
+                                data-bs-toggle="modal" data-bs-target="#modal-{{ category.id }}">
+                                <div class="d-flex justify-content-between">
+                                    <h3>{{ lang[category.label] }}</h3>
+                                    <img class="icon light mx-1" title="{{ lang[category.label] }}"
+                                        alt="{{ lang[category.label] }} icon" src="icon/{{ category.icon }}.png"
+                                        aria-hidden="true">
+                                    <img class="icon dark mx-1" title="{{ lang[category.label] }}"
+                                        alt="{{ lang[category.label] }} icon" src="icon/{{ category.icon }}-white.png"
+                                        aria-hidden="true">
+                                </div>
+                                <div class="d-flex justify-content-between mt-2">
+                                    <button type="button"
+                                        class="btn btn-outline-secondary ms-n2 px-2 pt-1 pb-0 border-0">
+                                        <iconify-icon icon="humbleicons:expand"></iconify-icon>
+                                    </button>
+                                    <div>
+                                        {% assign diff = current[category.key] | minus: previous[category.key] %}
+                                        <p class="text-center my-0"
+                                            aria-describedby="losses-{{ category.id }}-description">
+                                            {% if category.id == "personnel" %}~{% endif %}<span
+                                                class="localizable-number">{{ current[category.key] }}</span>
+                                            {% if diff > 0 %}
                                             <strong>+(<span class="localizable-number">{{ diff }}</span>)</strong>
-                                        {% endif %}
-                                    </p>
-                                    <p id="losses-{{ category.id }}-description" class="visually-hidden">
-                                        {% if category.id == "personnel"  %}~{% endif %}<span class="localizable-number">{{ current[category.key] }}</span>
-                                        {{ lang[category.label]}} {{ lang.lost-since-label }} 2022.
-                                    </p>
+                                            {% endif %}
+                                        </p>
+                                        <p id="losses-{{ category.id }}-description" class="visually-hidden">
+                                            {% if category.id == "personnel" %}~{% endif %}<span
+                                                class="localizable-number">{{ current[category.key] }}</span>
+                                            {{ lang[category.label]}} {{ lang.lost-since-label }} 2022.
+                                        </p>
+                                    </div>
+                                    <div class="empty-32"></div>
+                                </div>
+
+                            </div>
+                            <div id="modal-{{ category.id }}" class="modal fade" tabindex="-1"
+                                data-key="{{ category.key }}" data-tab="line"
+                                aria-labelledby="modal-{{ category.id }}-title" aria-hidden="true">
+                                <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 id="modal-{{ category.id }}-title" class="modal-title fs-5">
+                                                {{ lang[category.label] }}
+                                            </h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            {% if category.id == "personnel" %}~{% endif %}<span
+                                                class="localizable-number">{{ current[category.key] }}</span>
+                                            {{ lang[category.label]}} {{ lang.lost-since-label }} 2022.
+                                            <ul class="nav nav-tabs mt-2">
+                                                <li class="nav-item" data-tab="line">
+                                                    <a class="nav-link active" aria-current="page" href="#">{{
+                                                        lang.line-chart }}</a>
+                                                </li>
+                                                <li class="nav-item" data-tab="heatmap">
+                                                    <a class="nav-link" href="#">{{ lang.heatmap-chart }}</a>
+                                                </li>
+                                            </ul>
+                                            <div id="line-chart-{{ category.id }}" class="line-chart">
+                                                Loading line chart...
+                                            </div>
+                                            <div id="heatmap-chart-{{ category.id }}" class="heatmap-chart d-none">
+                                                Loading heatmap...
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary"
+                                                data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                        </div>
                         {% endfor %}
                     </div>
                 </section>
@@ -308,23 +370,27 @@
                         </h4>
                         <details>
                             <summary>
-                                <iconify-icon icon="emojione-v1:flag-for-ukraine" class="me-1 align-middle fs-4"></iconify-icon>
+                                <iconify-icon icon="emojione-v1:flag-for-ukraine"
+                                    class="me-1 align-middle fs-4"></iconify-icon>
                                 {{ lang.add-resources-ua }}
                             </summary>
                             {{ lang.add-resources-ua-text }}
 
-                            <a href="https://war.ukraine.ua" title="{{ lang.add-resources-ua }}" target="_blank" class="d-block my-1" rel="noopener noreferrer">
+                            <a href="https://war.ukraine.ua" title="{{ lang.add-resources-ua }}" target="_blank"
+                                class="d-block my-1" rel="noopener noreferrer">
                                 https://war.ukraine.ua
                             </a>
                         </details>
                         <details>
                             <summary>
-                                <iconify-icon icon="arcticons:ukraine-tryzub" class="me-1 align-middle fs-4"></iconify-icon>
+                                <iconify-icon icon="arcticons:ukraine-tryzub"
+                                    class="me-1 align-middle fs-4"></iconify-icon>
                                 {{ lang.add-resources-uamod }}
                             </summary>
                             {{ lang.add-resources-uamod-text }}
 
-                            <a href="https://mod.gov.ua" title="{{ lang.add-resources-uamod }}" target="_blank" class="d-block my-1" rel="noopener noreferrer">
+                            <a href="https://mod.gov.ua" title="{{ lang.add-resources-uamod }}" target="_blank"
+                                class="d-block my-1" rel="noopener noreferrer">
                                 https://mod.gov.ua
                             </a>
                         </details>
@@ -335,7 +401,8 @@
                             </summary>
                             {{ lang.add-resources-deepstate-text }}
 
-                            <a href="https://deepstatemap.live" title="{{ lang.add-resources-deepstate }}" target="_blank" class="d-block my-1" rel="noopener noreferrer">
+                            <a href="https://deepstatemap.live" title="{{ lang.add-resources-deepstate }}"
+                                target="_blank" class="d-block my-1" rel="noopener noreferrer">
                                 https://deepstatemap.live
                             </a>
                         </details>
@@ -346,18 +413,22 @@
                             </summary>
                             {{ lang.add-resources-oryx-text }}
 
-                            <a href="https://www.oryxspioenkop.com/2022/02/attack-on-europe-documenting-equipment.html" title="{{ lang.add-resources-oryx }}" target="_blank" class="d-block my-1" rel="noopener noreferrer">
+                            <a href="https://www.oryxspioenkop.com/2022/02/attack-on-europe-documenting-equipment.html"
+                                title="{{ lang.add-resources-oryx }}" target="_blank" class="d-block my-1"
+                                rel="noopener noreferrer">
                                 https://www.oryxspioenkop.com
                             </a>
                         </details>
                         <details>
                             <summary>
-                                <iconify-icon icon="emojione-v1:flag-for-united-states" class="me-1 align-middle fs-4"></iconify-icon>
+                                <iconify-icon icon="emojione-v1:flag-for-united-states"
+                                    class="me-1 align-middle fs-4"></iconify-icon>
                                 {{ lang.add-resources-oversight }}
                             </summary>
                             {{ lang.add-resources-oversight-text }}
 
-                            <a href="https://www.ukraineoversight.gov" title="{{ lang.add-resources-oversight }}" target="_blank" class="d-block my-1" rel="noopener noreferrer">
+                            <a href="https://www.ukraineoversight.gov" title="{{ lang.add-resources-oversight }}"
+                                target="_blank" class="d-block my-1" rel="noopener noreferrer">
                                 https://www.ukraineoversight.gov
                             </a>
                         </details>
@@ -368,7 +439,8 @@
                             </summary>
                             {{ lang.add-resources-preston-text }}
 
-                            <a href="https://www.youtube.com/@PrestonStewart" title="{{ lang.add-resources-preston }}" target="_blank" class="d-block my-1" rel="noopener noreferrer">
+                            <a href="https://www.youtube.com/@PrestonStewart" title="{{ lang.add-resources-preston }}"
+                                target="_blank" class="d-block my-1" rel="noopener noreferrer">
                                 https://www.youtube.com/@PrestonStewart
                             </a>
                         </details>
@@ -448,8 +520,8 @@
                 localStorage.setItem('theme', theme);
             }
 
-            try { initLineChart() } catch (err) { }
-            try { initHeatMap() } catch (err) { }
+            try { initLineCharts() } catch (err) { }
+            try { initHeatMaps() } catch (err) { }
         }
 
         (function () {
@@ -502,8 +574,8 @@
                 date = new Date(date.getTime() + 86400000);
             };
 
-            initLineChart();
-            initHeatMap();
+            initLineCharts();
+            initHeatMaps();
         })();
     </script>
     <script>
@@ -531,9 +603,24 @@
     </script>
     <script>
         // Create Line Chart
-        function initLineChart() {
-            const chartId = 'line';
-            const ele = document.getElementById('line-chart');
+        function initLineCharts() {
+            initLineChart('line', document.getElementById('line-chart'));
+            initLineChart('line-personnel', document.getElementById('line-chart-personnel'));
+            initLineChart('line-artillery', document.getElementById('line-chart-artillery'));
+            initLineChart('line-fixedWingAircraft', document.getElementById('line-chart-jets'));
+            initLineChart('line-rotaryWingAircraft', document.getElementById('line-chart-helicopters'));
+            initLineChart('line-tanks', document.getElementById('line-chart-tanks'));
+            initLineChart('line-afvs', document.getElementById('line-chart-afvs'));
+            initLineChart('line-rocketSystems', document.getElementById('line-chart-mlrs'));
+            initLineChart('line-airDefense', document.getElementById('line-chart-aa'));
+            initLineChart('line-ships', document.getElementById('line-chart-ships'));
+            initLineChart('line-submarines', document.getElementById('line-chart-submarines'));
+            initLineChart('line-unarmoredVehicles', document.getElementById('line-chart-vehicles'));
+            initLineChart('line-specialEquipment', document.getElementById('line-chart-special'));
+            initLineChart('line-uavs', document.getElementById('line-chart-uavs'));
+            initLineChart('line-missiles', document.getElementById('line-chart-missiles'));
+        }
+        function initLineChart(chartId, ele, dataPoint) {
             if (charts[chartId]) {
                 charts[chartId].dispose();
             }
@@ -548,62 +635,76 @@
             function createSeries(data) {
                 const dataPoints = [
                     {
+                        key: 'personnel',
                         name: '{{ lang.personnel-label }}',
                         data: data.map(d => d?.personnel),
                     },
                     {
+                        key: 'tanks',
                         name: '{{ lang.tanks-label }}',
                         data: data.map(d => d?.tanks),
                     },
                     {
+                        key: 'afvs',
                         name: '{{ lang.afvs-label }}',
                         data: data.map(d => d?.afvs),
                     },
                     {
+                        key: 'artillery',
                         name: '{{ lang.artillery-label }}',
                         data: data.map(d => d?.artillery),
                     },
                     {
+                        key: 'airDefense',
                         name: '{{ lang.aa-label }}',
                         data: data.map(d => d?.airDefense),
                     },
                     {
+                        key: 'rocketSystems',
                         name: '{{ lang.mlrs-label }}',
                         data: data.map(d => d?.rocketSystems),
                     },
                     {
+                        key: 'unarmoredVehicles',
                         name: '{{ lang.vehicles-label }}',
                         data: data.map(d => d?.unarmoredVehicles),
                     },
                     {
+                        key: 'fixedWingAircraft',
                         name: '{{ lang.jets-label }}',
                         data: data.map(d => d?.fixedWingAircraft),
                     },
                     {
+                        key: 'rotaryWingAircraft',
                         name: '{{ lang.helicopters-label }}',
                         data: data.map(d => d?.rotaryWingAircraft),
                     },
                     {
+                        key: 'uavs',
                         name: '{{ lang.uavs-label }}',
                         data: data.map(d => d?.uavs),
                     },
                     {
+                        key: 'ships',
                         name: '{{ lang.ships-label }}',
                         data: data.map(d => d?.ships),
                     },
                     {
+                        key: 'submarines',
                         name: '{{ lang.submarines-label }}',
                         data: data.map(d => d?.submarines),
                     },
                     {
+                        key: 'specialEquipment',
                         name: '{{ lang.special-label }}',
                         data: data.map(d => d?.specialEquipment),
                     },
                     {
+                        key: 'missiles',
                         name: '{{ lang.missiles-label }}',
                         data: data.map(d => d?.missiles),
                     },
-                ];
+                ].filter(d => !dataPoint || d.key === dataPoint);
                 const items = dataPoints.map((d, i) => ({
                     type: 'line',
                     name: d.name,
@@ -745,9 +846,24 @@
     </script>
     <script>
         // Create Heat Map
-        function initHeatMap() {
-            const chartId = 'heatmap';
-            const ele = document.getElementById('heatmap-chart');
+        function initHeatMaps() {
+            initHeatMap('heatmap', document.getElementById('heatmap-chart'));
+            initHeatMap('heatmap-personnel', document.getElementById('heatmap-chart-personnel'));
+            initHeatMap('heatmap-artillery', document.getElementById('heatmap-chart-artillery'));
+            initHeatMap('heatmap-fixedWingAircraft', document.getElementById('heatmap-chart-jets'));
+            initHeatMap('heatmap-rotaryWingAircraft', document.getElementById('heatmap-chart-helicopters'));
+            initHeatMap('heatmap-tanks', document.getElementById('heatmap-chart-tanks'));
+            initHeatMap('heatmap-afvs', document.getElementById('heatmap-chart-afvs'));
+            initHeatMap('heatmap-rocketSystems', document.getElementById('heatmap-chart-mlrs'));
+            initHeatMap('heatmap-airDefense', document.getElementById('heatmap-chart-aa'));
+            initHeatMap('heatmap-ships', document.getElementById('heatmap-chart-ships'));
+            initHeatMap('heatmap-submarines', document.getElementById('heatmap-chart-submarines'));
+            initHeatMap('heatmap-unarmoredVehicles', document.getElementById('heatmap-chart-vehicles'));
+            initHeatMap('heatmap-specialEquipment', document.getElementById('heatmap-chart-special'));
+            initHeatMap('heatmap-uavs', document.getElementById('heatmap-chart-uavs'));
+            initHeatMap('heatmap-missiles', document.getElementById('heatmap-chart-missiles'));
+        }
+        function initHeatMap(chartId, ele, dataPoint) {
             if (charts[chartId]) {
                 charts[chartId].dispose();
             }
@@ -772,24 +888,28 @@
                         prev = current;
                         current = d;
                     }
+                    const getValue = (key, modifier) =>
+                        !dataPoint || dataPoint === key
+                            ? Math.max((((prev ?? {})[key] ?? 0) - (d[key] ?? 0)) * modifier, 0)
+                            : 0;
                     // After 2023-07-22 there was no reported data for months.
                     // This skews the heatmap so we'll remove it.
                     const results = d && prev && date !== '2023-07-22' ? [
                         date,
-                        Math.max(((prev?.personnel ?? 0) - (d.personnel ?? 0)) * 1, 0)
-                        + Math.max(((prev?.tanks ?? 0) - (d.tanks ?? 0)) * 10, 0)
-                        + Math.max(((prev?.afvs ?? 0) - (d.afvs ?? 0)) * 5, 0)
-                        + Math.max(((prev?.artillery ?? 0) - (d.artillery ?? 0)) * 3, 0)
-                        + Math.max(((prev?.airDefense ?? 0) - (d.airDefense ?? 0)) * 25, 0)
-                        + Math.max(((prev?.rocketSystems ?? 0) - (d.rocketSystems ?? 0)) * 8, 0)
-                        + Math.max(((prev?.unarmoredVehicles ?? 0) - (d.unarmoredVehicles ?? 0)) * 1, 0)
-                        + Math.max(((prev?.fixedWingAircraft ?? 0) - (d.fixedWingAircraft ?? 0)) * 50, 0)
-                        + Math.max(((prev?.rotaryWingAircraft ?? 0) - (d.rotaryWingAircraft ?? 0)) * 25, 0)
-                        + Math.max(((prev?.uavs ?? 0) - (d.uavs ?? 0)) * 2, 0)
-                        + Math.max(((prev?.ships ?? 0) - (d.ships ?? 0)) * 100, 0)
-                        + Math.max(((prev?.submarines ?? 0) - (d.submarines ?? 0)) * 200, 0)
-                        + Math.max(((prev?.specialEquipment ?? 0) - (d.specialEquipment ?? 0)) * 3, 0)
-                        + Math.max(((prev?.missiles ?? 0) - (d.missiles ?? 0)) * 3, 0)
+                        getValue('personnel', 1)
+                        + getValue('tanks', 10)
+                        + getValue('afvs', 5)
+                        + getValue('artillery', 3)
+                        + getValue('airDefense', 25)
+                        + getValue('rocketSystems', 8)
+                        + getValue('unarmoredVehicles', 1)
+                        + getValue('fixedWingAircraft', 50)
+                        + getValue('rotaryWingAircraft', 25)
+                        + getValue('uavs', 2)
+                        + getValue('ships', 100)
+                        + getValue('submarines', 200)
+                        + getValue('specialEquipment', 3)
+                        + getValue('missiles', 3)
                     ] : [date, null];
 
                     return results;
@@ -860,6 +980,56 @@
 
             charts[chartId] = chart;
         }
+    </script>
+    <script>
+        // Modal events
+        (function () {
+            const modals = document.getElementsByClassName('modal');
+            for (const modal of modals) {
+                const dataKey = modal.getAttribute('data-key');
+                const tab = modal.getAttribute('data-tab');
+                const chartEle = modal.querySelector('.line-chart');
+                modal.addEventListener('shown.bs.modal', (e) => {
+                    initLineChart(`${tab}-${dataKey}`, chartEle, dataKey);
+                });
+
+                const navLinks = modal.querySelectorAll('.nav-link');
+                const charts = modal.querySelectorAll('[class*="chart"]');
+                for (const navLink of navLinks) {
+                    navLink.addEventListener('click', (e) => {
+                        e.preventDefault();
+
+                        const tab = e.target.parentElement.getAttribute('data-tab');
+                        const chartEle = modal.querySelector(`.${tab}-chart`);
+
+                        modal.setAttribute('data-tab', tab);
+                        for (const link of navLinks) {
+                            link.classList.remove('active');
+                            link.removeAttribute('aria-current');
+                        }
+                        for (const chart of charts) {
+                            chart.classList.add('d-none');
+                        }
+
+                        navLink.classList.add('active');
+                        navLink.setAttribute('aria-current', 'page');
+                        chartEle.classList.remove('d-none');
+
+                        const chartId = `${tab}-${dataKey}`;
+                        switch (tab) {
+                            case 'line':
+                                initLineChart(chartId, chartEle, dataKey);
+                                break;
+                            case 'heatmap':
+                                initHeatMap(chartId, chartEle, dataKey);
+                                break;
+                            default:
+                                break;
+                        }
+                    });
+                }
+            }
+        })()
     </script>
 </body>
 
