@@ -80,3 +80,11 @@ h3 {
     max-width: 85%;
     word-wrap: break-word;
 }
+
+.ms-n2 {
+    margin-left: -0.5rem !important;
+}
+
+.empty-32 {
+    width: 32px !important;
+}
