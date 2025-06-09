@@ -1,5 +1,8 @@
 # Orc Losses
 
+![Updated Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Flod-db%2Forc-losses%2Frefs%2Fheads%2Fmain%2Frussian-losses.json&query=%24%5B%3A1%5D.date&logo=googlecalendar&logoColor=green&label=Updated&color=green&cacheSeconds=3600)
+
+
 [English](#english) | [Français](#français) | [Deutsch](#deutsch) | [Українська](#українська) | [Русский](#русский)
 
 ## 🇬🇧 English
