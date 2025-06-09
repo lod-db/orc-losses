@@ -28,7 +28,7 @@
     <link rel="apple-touch-icon" type="image/png" sizes="167x167" href="/favicon-167x167.png">
     <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/favicon-180x180.png">
 
-    <link rel="preload" href="/assets/russian-losses.json" as="fetch" />
+    <link rel="preload" href="/assets/russian-losses.json" as="fetch" type="application/json" crossorigin />
 
     <meta name="twitter:card" content="summary">
     <meta property="og:type" content="website">
@@ -250,7 +250,7 @@
                         </div>
                         {% for category in site.data.categories %}
                         <div class="col-12 col-md-6 col-xxl-4 mb-3">
-                            <div class="d-flex flex-column justify-content-between pt-3 px-3 pb-1 h-100 border border-1"
+                            <div class="d-flex flex-column justify-content-between pt-3 px-3 pb-1 h-100 border border-1 interactive-card"
                                 data-bs-toggle="modal" data-bs-target="#modal-{{ category.id }}">
                                 <div class="d-flex justify-content-between">
                                     <h3>{{ lang[category.label] }}</h3>
@@ -310,12 +310,18 @@
                                                 <li class="nav-item" data-tab="heatmap">
                                                     <a class="nav-link" href="#">{{ lang.heatmap-chart }}</a>
                                                 </li>
+                                                <li class="nav-item" data-tab="bar">
+                                                    <a class="nav-link" href="#">{{ lang.bar-chart }}</a>
+                                                </li>
                                             </ul>
                                             <div id="line-chart-{{ category.id }}" class="line-chart">
                                                 Loading line chart...
                                             </div>
                                             <div id="heatmap-chart-{{ category.id }}" class="heatmap-chart d-none">
                                                 Loading heatmap...
+                                            </div>
+                                            <div id="bar-chart-{{ category.id }}" class="bar-chart d-none">
+                                                Loading bar graph...
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -338,6 +344,9 @@
                         </div>
                         <div id="heatmap-chart" class="heatmap-chart mt-3">
                             Loading heatmap...
+                        </div>
+                        <div id="bar-chart" class="bar-chart mt-3">
+                            Loading bar graph...
                         </div>
                     </div>
                 </section>
@@ -520,8 +529,7 @@
                 localStorage.setItem('theme', theme);
             }
 
-            try { initLineCharts() } catch (err) { }
-            try { initHeatMaps() } catch (err) { }
+            try { initCharts(); } catch { }
         }
 
         (function () {
@@ -553,30 +561,11 @@
         let lossesSorted = [];
         let dateRange = [];
         const isNull = (val) => typeof val === 'undefined' || val === null;
-        (async function () {
-            const response = await fetch('/assets/russian-losses.json');
-            const json = await response.json();
-            lossesSorted = json.toSorted((a, b) => a.date.localeCompare(b.date, 'en'));
-
-            for (const loss of lossesSorted) {
-                lossesDict[loss.date] = loss;
-            }
-
-
-            // Date constructor w/o time sets underlying date in UTC. Adding time keeps it local
-            let date = new Date(lossesSorted[0].date + 'T00:00:00');
-            const dateToday = new Date(lossesSorted[lossesSorted.length - 1].date + 'T00:00:00');
-
-            while (date <= dateToday) {
-                const dateKey = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
-                dateRange.push(dateKey);
-
-                date = new Date(date.getTime() + 86400000);
-            };
-
-            initLineCharts();
-            initHeatMaps();
-        })();
+        function initCharts() {
+            try { initLineCharts(); } catch { }
+            try { initHeatMaps(); } catch { }
+            try { initBarGraphs(); } catch { }
+        }
     </script>
     <script>
         // Localize numbers, this is the recommend approach with Liquid
@@ -605,20 +594,20 @@
         // Create Line Chart
         function initLineCharts() {
             initLineChart('line', document.getElementById('line-chart'));
-            initLineChart('line-personnel', document.getElementById('line-chart-personnel'));
-            initLineChart('line-artillery', document.getElementById('line-chart-artillery'));
-            initLineChart('line-fixedWingAircraft', document.getElementById('line-chart-jets'));
-            initLineChart('line-rotaryWingAircraft', document.getElementById('line-chart-helicopters'));
-            initLineChart('line-tanks', document.getElementById('line-chart-tanks'));
-            initLineChart('line-afvs', document.getElementById('line-chart-afvs'));
-            initLineChart('line-rocketSystems', document.getElementById('line-chart-mlrs'));
-            initLineChart('line-airDefense', document.getElementById('line-chart-aa'));
-            initLineChart('line-ships', document.getElementById('line-chart-ships'));
-            initLineChart('line-submarines', document.getElementById('line-chart-submarines'));
-            initLineChart('line-unarmoredVehicles', document.getElementById('line-chart-vehicles'));
-            initLineChart('line-specialEquipment', document.getElementById('line-chart-special'));
-            initLineChart('line-uavs', document.getElementById('line-chart-uavs'));
-            initLineChart('line-missiles', document.getElementById('line-chart-missiles'));
+            // initLineChart('line-personnel', document.getElementById('line-chart-personnel'));
+            // initLineChart('line-artillery', document.getElementById('line-chart-artillery'));
+            // initLineChart('line-fixedWingAircraft', document.getElementById('line-chart-jets'));
+            // initLineChart('line-rotaryWingAircraft', document.getElementById('line-chart-helicopters'));
+            // initLineChart('line-tanks', document.getElementById('line-chart-tanks'));
+            // initLineChart('line-afvs', document.getElementById('line-chart-afvs'));
+            // initLineChart('line-rocketSystems', document.getElementById('line-chart-mlrs'));
+            // initLineChart('line-airDefense', document.getElementById('line-chart-aa'));
+            // initLineChart('line-ships', document.getElementById('line-chart-ships'));
+            // initLineChart('line-submarines', document.getElementById('line-chart-submarines'));
+            // initLineChart('line-unarmoredVehicles', document.getElementById('line-chart-vehicles'));
+            // initLineChart('line-specialEquipment', document.getElementById('line-chart-special'));
+            // initLineChart('line-uavs', document.getElementById('line-chart-uavs'));
+            // initLineChart('line-missiles', document.getElementById('line-chart-missiles'));
         }
         function initLineChart(chartId, ele, dataPoint) {
             if (charts[chartId]) {
@@ -769,8 +758,8 @@
             ];
             const options = {
                 title: {
-                    //text: 'Russian Losses in Ukraine',
-                    subtext: `2022 - ${new Date(lossesSorted[lossesSorted.length - 1].date).getFullYear()}`,
+                    text: '{{ lang.line-title }}',
+                    subtext: `2022 - ${lossesSorted[lossesSorted.length - 1].dt.getFullYear()}`,
                     left: 'center',
                 },
                 darkMode: 'auto',
@@ -848,20 +837,20 @@
         // Create Heat Map
         function initHeatMaps() {
             initHeatMap('heatmap', document.getElementById('heatmap-chart'));
-            initHeatMap('heatmap-personnel', document.getElementById('heatmap-chart-personnel'));
-            initHeatMap('heatmap-artillery', document.getElementById('heatmap-chart-artillery'));
-            initHeatMap('heatmap-fixedWingAircraft', document.getElementById('heatmap-chart-jets'));
-            initHeatMap('heatmap-rotaryWingAircraft', document.getElementById('heatmap-chart-helicopters'));
-            initHeatMap('heatmap-tanks', document.getElementById('heatmap-chart-tanks'));
-            initHeatMap('heatmap-afvs', document.getElementById('heatmap-chart-afvs'));
-            initHeatMap('heatmap-rocketSystems', document.getElementById('heatmap-chart-mlrs'));
-            initHeatMap('heatmap-airDefense', document.getElementById('heatmap-chart-aa'));
-            initHeatMap('heatmap-ships', document.getElementById('heatmap-chart-ships'));
-            initHeatMap('heatmap-submarines', document.getElementById('heatmap-chart-submarines'));
-            initHeatMap('heatmap-unarmoredVehicles', document.getElementById('heatmap-chart-vehicles'));
-            initHeatMap('heatmap-specialEquipment', document.getElementById('heatmap-chart-special'));
-            initHeatMap('heatmap-uavs', document.getElementById('heatmap-chart-uavs'));
-            initHeatMap('heatmap-missiles', document.getElementById('heatmap-chart-missiles'));
+            // initHeatMap('heatmap-personnel', document.getElementById('heatmap-chart-personnel'));
+            // initHeatMap('heatmap-artillery', document.getElementById('heatmap-chart-artillery'));
+            // initHeatMap('heatmap-fixedWingAircraft', document.getElementById('heatmap-chart-jets'));
+            // initHeatMap('heatmap-rotaryWingAircraft', document.getElementById('heatmap-chart-helicopters'));
+            // initHeatMap('heatmap-tanks', document.getElementById('heatmap-chart-tanks'));
+            // initHeatMap('heatmap-afvs', document.getElementById('heatmap-chart-afvs'));
+            // initHeatMap('heatmap-rocketSystems', document.getElementById('heatmap-chart-mlrs'));
+            // initHeatMap('heatmap-airDefense', document.getElementById('heatmap-chart-aa'));
+            // initHeatMap('heatmap-ships', document.getElementById('heatmap-chart-ships'));
+            // initHeatMap('heatmap-submarines', document.getElementById('heatmap-chart-submarines'));
+            // initHeatMap('heatmap-unarmoredVehicles', document.getElementById('heatmap-chart-vehicles'));
+            // initHeatMap('heatmap-specialEquipment', document.getElementById('heatmap-chart-special'));
+            // initHeatMap('heatmap-uavs', document.getElementById('heatmap-chart-uavs'));
+            // initHeatMap('heatmap-missiles', document.getElementById('heatmap-chart-missiles'));
         }
         function initHeatMap(chartId, ele, dataPoint) {
             if (charts[chartId]) {
@@ -881,20 +870,14 @@
             }();
 
             function createSeries(data) {
-                let prev;
-                let current;
-                const dataPoints = data.sort((a, b) => b[0].localeCompare(a[0])).map(([date, d]) => {
-                    if (d) {
-                        prev = current;
-                        current = d;
-                    }
-                    const getValue = (key, modifier) =>
-                        !dataPoint || dataPoint === key
-                            ? Math.max((((prev ?? {})[key] ?? 0) - (d[key] ?? 0)) * modifier, 0)
-                            : 0;
-                    // After 2023-07-22 there was no reported data for months.
-                    // This skews the heatmap so we'll remove it.
-                    const results = d && prev && date !== '2023-07-22' ? [
+                const dataPoints = data.sort((a, b) => a[0].localeCompare(b[0])).map(([date, d]) => {
+                    const getValue = (key, modifier) => {
+                        const val = d ? d[key + '-diff'] : null;
+                        const result = val && (!dataPoint || dataPoint === key) ? val * modifier : null;
+
+                        return result;
+                    };
+                    const results = [
                         date,
                         getValue('personnel', 1)
                         + getValue('tanks', 10)
@@ -910,9 +893,10 @@
                         + getValue('submarines', 200)
                         + getValue('specialEquipment', 3)
                         + getValue('missiles', 3)
-                    ] : [date, null];
+                    ];
 
-                    return results;
+                    // null + null = 0, but no day will ever have a 0, so null it out if it is 0
+                    return results[1] ? results : [date, null];
                 });
 
                 const series = years.map((y, i) => ({
@@ -935,7 +919,10 @@
 
             const chart = echarts.init(ele, theme);
             const options = {
-                title: {},
+                title: {
+                    text: '{{ lang.heatmap-title }}',
+                    left: 'center',
+                },
                 darkMode: 'auto',
                 series,
                 tooltip: {
@@ -955,7 +942,7 @@
                     show: false,
                 },
                 calendar: series.map((s, i) => ({
-                    top: 40 + i * 150,
+                    top: 70 + i * 150,
                     right: 30,
                     left: 70,
                     cellSize: ['auto', 16],
@@ -980,6 +967,265 @@
 
             charts[chartId] = chart;
         }
+    </script>
+    <script>
+        // Create Bar Graph
+        function initBarGraphs() {
+            initBarGraph('bar', document.getElementById('bar-chart'));
+            // initBarGraph('bar-personnel', document.getElementById('bar-chart-personnel'));
+            // initBarGraph('bar-artillery', document.getElementById('bar-chart-artillery'));
+            // initBarGraph('bar-fixedWingAircraft', document.getElementById('bar-chart-jets'));
+            // initBarGraph('bar-rotaryWingAircraft', document.getElementById('bar-chart-helicopters'));
+            // initBarGraph('bar-tanks', document.getElementById('bar-chart-tanks'));
+            // initBarGraph('bar-afvs', document.getElementById('bar-chart-afvs'));
+            // initBarGraph('bar-rocketSystems', document.getElementById('bar-chart-mlrs'));
+            // initBarGraph('bar-airDefense', document.getElementById('bar-chart-aa'));
+            // initBarGraph('bar-ships', document.getElementById('bar-chart-ships'));
+            // initBarGraph('bar-submarines', document.getElementById('bar-chart-submarines'));
+            // initBarGraph('bar-unarmoredVehicles', document.getElementById('bar-chart-vehicles'));
+            // initBarGraph('bar-specialEquipment', document.getElementById('bar-chart-special'));
+            // initBarGraph('bar-uavs', document.getElementById('bar-chart-uavs'));
+            // initBarGraph('bar-missiles', document.getElementById('heatmap-chart-missiles'));
+        }
+        function initBarGraph(chartId, ele, dataPoint) {
+            if (charts[chartId]) {
+                charts[chartId].dispose();
+            }
+
+            function createSeries(data) {
+                let prev;
+                let current;
+                const dates = data.sort((a, b) => a[0].localeCompare(b[0], 'en')).map(([date, d]) => {
+                    const getValue = (key, modifier) =>
+                        d && (!dataPoint || dataPoint === key)
+                            ? d[key + '-diff'] ?? 0
+                            : null;
+                    const results = {
+                        date,
+                        personnel: getValue('personnel'),
+                        tanks: getValue('tanks'),
+                        afvs: getValue('afvs'),
+                        artillery: getValue('artillery'),
+                        airDefense: getValue('airDefense'),
+                        rocketSystems: getValue('rocketSystems'),
+                        unarmoredVehicles: getValue('unarmoredVehicles'),
+                        fixedWingAircraft: getValue('fixedWingAircraft'),
+                        rotaryWingAircraft: getValue('rotaryWingAircraft'),
+                        uavs: getValue('uavs'),
+                        ships: getValue('ships'),
+                        submarines: getValue('submarines'),
+                        specialEquipment: getValue('specialEquipment'),
+                        missiles: getValue('missiles'),
+                    };
+
+                    return results;
+                });
+
+                const base = {
+                    type: 'bar',
+                    stack: 'Losses',
+                    emphasis: {
+                        focus: 'series'
+                    },
+                };
+                const series = [
+                    {
+                        ...base,
+                        key: 'personnel',
+                        name: '{{ lang.personnel-label }}',
+                        data: dates.map(d => d?.personnel),
+                    },
+                    {
+                        ...base,
+                        key: 'tanks',
+                        name: '{{ lang.tanks-label }}',
+                        data: dates.map(d => d?.tanks),
+                    },
+                    {
+                        ...base,
+                        key: 'afvs',
+                        name: '{{ lang.afvs-label }}',
+                        data: dates.map(d => d?.afvs),
+                    },
+                    {
+                        ...base,
+                        key: 'artillery',
+                        name: '{{ lang.artillery-label }}',
+                        data: dates.map(d => d?.artillery),
+                    },
+                    {
+                        ...base,
+                        key: 'airDefense',
+                        name: '{{ lang.aa-label }}',
+                        data: dates.map(d => d?.airDefense),
+                    },
+                    {
+                        ...base,
+                        key: 'rocketSystems',
+                        name: '{{ lang.mlrs-label }}',
+                        data: dates.map(d => d?.rocketSystems),
+                    },
+                    {
+                        ...base,
+                        key: 'unarmoredVehicles',
+                        name: '{{ lang.vehicles-label }}',
+                        data: dates.map(d => d?.unarmoredVehicles),
+                    },
+                    {
+                        ...base,
+                        key: 'fixedWingAircraft',
+                        name: '{{ lang.jets-label }}',
+                        data: dates.map(d => d?.fixedWingAircraft),
+                    },
+                    {
+                        ...base,
+                        key: 'rotaryWingAircraft',
+                        name: '{{ lang.helicopters-label }}',
+                        data: dates.map(d => d?.rotaryWingAircraft),
+                    },
+                    {
+                        ...base,
+                        key: 'uavs',
+                        name: '{{ lang.uavs-label }}',
+                        data: dates.map(d => d?.uavs),
+                    },
+                    {
+                        ...base,
+                        key: 'ships',
+                        name: '{{ lang.ships-label }}',
+                        data: dates.map(d => d?.ships),
+                    },
+                    {
+                        ...base,
+                        key: 'submarines',
+                        name: '{{ lang.submarines-label }}',
+                        data: dates.map(d => d?.submarines),
+                    },
+                    {
+                        ...base,
+                        key: 'specialEquipment',
+                        name: '{{ lang.special-label }}',
+                        data: dates.map(d => d?.specialEquipment),
+                    },
+                    {
+                        ...base,
+                        key: 'missiles',
+                        name: '{{ lang.missiles-label }}',
+                        data: dates.map(d => d?.missiles),
+                    },
+                ].filter(d => !dataPoint || d.key === dataPoint);
+
+                return series;
+            }
+
+            const series = createSeries(dateRange.map((d) => ([d, lossesDict[d]])));
+
+            const chart = echarts.init(ele, theme);
+            const options = {
+                title: {
+                    text: '{{ lang.bar-title }}',
+                    subtext: `2022 - ${lossesSorted[lossesSorted.length - 1].dt.getFullYear()}`,
+                    left: 'center',
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
+                    },
+                },
+                legend: {
+                    show: false,
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: [
+                    {
+                        type: 'category',
+                        data: dateRange,
+                    }
+                ],
+                yAxis: [
+                    {
+                        type: 'value'
+                    }
+                ],
+                darkMode: 'auto',
+                series,
+                toolbox: {
+                    show: true,
+                    feature: {
+                        dataZoom: {
+                            yAxisIndex: 'none',
+                        },
+                        dataView: {
+                            readOnly: true,
+                        },
+                        restore: {},
+                        saveAsImage: {},
+                    },
+                },
+                dataZoom: [
+                    {
+                        type: 'inside',
+                        xAxisIndex: [0],
+                        start: 0,
+                        end: 100,
+                    },
+                    {
+                        type: 'slider',
+                        yAxisIndex: [0],
+                        start: 0,
+                        end: 100,
+                    },
+                ],
+            };
+
+            options && chart.setOption(options);
+
+            charts[chartId] = chart;
+        }
+    </script>
+    <script>
+        // Load loss data
+        (async function () {
+            const response = await fetch('/assets/russian-losses.json');
+            const json = await response.json();
+            lossesSorted = json.toSorted((a, b) => a.date.localeCompare(b.date, 'en'));
+
+            // Append dates and differences to each loss
+            let prev;
+            for (const loss of lossesSorted) {
+                // Date constructor w/o time sets underlying date in UTC. Adding time keeps it local
+                loss.dt = new Date(loss.date + 'T00:00:00');
+                for (const key of Object.keys(loss)) {
+                    if (key !== 'date' && key !== 'sourceUrl') {
+                        // If we don't have a previous loss, do not calculate the difference
+                        loss[key + '-diff'] = prev && prev.dt.getTime() === loss.dt.getTime() - 86400000
+                            ? Math.max((loss[key] ?? 0) - (prev[key] ?? 0), 0)
+                            : null;
+                    }
+                }
+                lossesDict[loss.date] = loss;
+                prev = loss;
+            }
+
+            // Date constructor w/o time sets underlying date in UTC. Adding time keeps it local
+            let date = new Date(lossesSorted[0].date + 'T00:00:00');
+            const dateToday = new Date(lossesSorted[lossesSorted.length - 1].date + 'T00:00:00');
+
+            while (date <= dateToday) {
+                const dateKey = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
+                dateRange.push(dateKey);
+
+                date = new Date(date.getTime() + 86400000);
+            };
+
+            initCharts();
+        })();
     </script>
     <script>
         // Modal events
@@ -1022,6 +1268,9 @@
                                 break;
                             case 'heatmap':
                                 initHeatMap(chartId, chartEle, dataKey);
+                                break;
+                            case 'bar':
+                                initBarGraph(chartId, chartEle, dataKey);
                                 break;
                             default:
                                 break;
