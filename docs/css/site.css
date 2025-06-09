@@ -105,5 +105,10 @@ h3 {
 }
 
 .interactive-card:hover {
+    box-shadow: 0 0 4px 4px rgba(190, 190, 190, .4);
+}
+
+html[data-bs-theme="dark"] interactive-card:hover {
     box-shadow: 0 0 4px 4px rgba(255, 255, 255, .4);
 }
+
