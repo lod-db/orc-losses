@@ -5,6 +5,9 @@
   description: Track the latest Russian casualties and equipment losses in Russia’s war on Ukraine since the start of the 2022 full-scale invasion.
   keywords: Ukraine war losses, Russian military losses, Ukraine conflict data, war casualties, Ukraine war statistics, Ukraine war tracker, Russian losses tracker
   page-title: Russian Losses in Ukraine
+  line-title: Total Losses
+  heatmap-title: Heat Map
+  bar-title: Daily Losses
   theme-label: Theme
   theme-light-label: Light
   theme-dark-label: Dark
@@ -57,6 +60,7 @@
   length-of-war-text: Length of the war
   line-chart: Line Chart
   heatmap-chart: Heat Map
+  bar-chart: Bar Graph
 
 - name: English (UK)
   slug: en-GB
@@ -65,6 +69,9 @@
   description: Track the latest Russian casualties and equipment losses in Russia’s war on Ukraine since the start of the 2022 full-scale invasion.
   keywords: Ukraine war losses, Russian military losses, Ukraine conflict data, war casualties, Ukraine war statistics, Ukraine war tracker, Russian losses tracker
   page-title: Russian Losses in Ukraine
+  line-title: Total Losses
+  heatmap-title: Heat Map
+  bar-title: Daily Losses
   theme-label: Theme
   theme-light-label: Light
   theme-dark-label: Dark
@@ -117,6 +124,7 @@
   length-of-war-text: Length of the war
   line-chart: Line Chart
   heatmap-chart: Heat Map
+  bar-chart: Bar Graph
 
 - name: Français
   slug: fr-FR
@@ -125,6 +133,9 @@
   description: Suivez les dernières pertes russes en personnel et en équipement dans la guerre de la Russie contre l'Ukraine depuis le début de l'invasion à grande échelle en 2022.
   keywords: pertes de guerre en Ukraine, pertes militaires russes, données sur le conflit en Ukraine, pertes humaines, statistiques de la guerre en Ukraine, Suivi de la guerre en Ukraine, Suivi des pertes russes
   page-title: Pertes russes en Ukraine
+  line-title: Pertes totales
+  heatmap-title: Carte thermique
+  bar-title: Pertes quotidiennes
   theme-label: Thème
   theme-light-label: Clair
   theme-dark-label: Sombre
@@ -177,6 +188,7 @@
   length-of-war-text: Durée de la guerre
   line-chart: Graphique en ligne
   heatmap-chart: Carte thermique
+  bar-chart: Diagramme en barres
 
 - name: Deutsch
   slug: de-DE
@@ -185,6 +197,9 @@
   description: Verfolgen Sie die neuesten russischen Verluste an Personal und Ausrüstung im Krieg Russlands gegen die Ukraine seit Beginn der groß angelegten Invasion im Jahr 2022.
   keywords: Ukraine Kriegsverluste, Russische Militärverluste, Ukraine Konfliktdaten, Kriegstote, Ukraine Kriegsstatistiken, Ukraine-Krieg-Tracker, Russischer Verlust-Tracker
   page-title: Russische Verluste in der Ukraine
+  line-title: Gesamtverluste
+  heatmap-title: Wärmekarte
+  bar-title: Tägliche Verluste
   theme-label: Thema
   theme-light-label: Hell
   theme-dark-label: Dunkel
@@ -237,6 +252,7 @@
   length-of-war-text: Dauer des Krieges
   line-chart: Liniendiagramm
   heatmap-chart: Wärmekarte
+  bar-chart: Balkendiagramm
 
 - name: Українська
   slug: uk-UA
@@ -245,6 +261,9 @@
   description: Відстежуйте останні втрати Росії в живій силі та техніці у війні проти України з початку повномасштабного вторгнення у 2022 році.
   keywords: Втрати у війні в Україні, Втрати російської армії, Дані про конфлікт в Україні, Військові втрати, Статистика війни в Україні, Відстеження війни в Україні, Відстеження втрат Росії
   page-title: Втрати Росії в Україні
+  line-title: Загальні втрати
+  heatmap-title: Теплова карта
+  bar-title: Щоденні втрати
   theme-label: Тема
   theme-light-label: Світла
   theme-dark-label: Темна
@@ -297,6 +316,7 @@
   length-of-war-text: Тривалість війни
   line-chart: Лінійна діаграма
   heatmap-chart: Теплова карта
+  bar-chart: Стовпчаста діаграма
 
 - name: Русский
   slug: ru-RU
@@ -305,6 +325,9 @@
   description: Отслеживайте последние потери России в живой силе и технике в войне против Украины с начала полномасштабного вторжения в 2022 году.
   keywords: Потери в войне в Украине, Потери российской армии, Данные о конфликте в Украине, Военные потери, Статистика войны в Украине, Трекер войны в Украине, Трекер потерь России
   page-title: Потери России в Украине
+  line-title: Общие потери
+  heatmap-title: Тепловая карта
+  bar-title: Ежедневные потери
   theme-label: Тема
   theme-light-label: Светлая
   theme-dark-label: Тёмная
@@ -357,3 +380,4 @@
   length-of-war-text: Длительность войны
   line-chart: Линейный график
   heatmap-chart: Тепловая карта
+  bar-chart: Столбчатая диаграмма
