@@ -1,5 +1,23 @@
 [
   {
+    "date": "2025-07-25",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-980-osib-196-bpla-ta-31-artsistema",
+    "personnel": 1047250,
+    "tanks": 11049,
+    "afvs": 23052,
+    "artillery": 30777,
+    "airDefense": 1201,
+    "rocketSystems": 1446,
+    "unarmoredVehicles": 56213,
+    "fixedWingAircraft": 421,
+    "rotaryWingAircraft": 340,
+    "uavs": 47834,
+    "ships": 28,
+    "submarines": 1,
+    "specialEquipment": 3935,
+    "missiles": 3535
+  },
+  {
     "date": "2025-07-24",
     "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-050-osib-86-bpla-ta-24-artsistemi",
     "personnel": 1046270,
