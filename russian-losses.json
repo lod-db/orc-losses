@@ -1,5 +1,23 @@
 [
   {
+    "date": "2025-08-08",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-040-okupantiv-238-bpla-ta-52-artsistemi",
+    "personnel": 1061350,
+    "tanks": 11083,
+    "afvs": 23102,
+    "artillery": 31232,
+    "airDefense": 1203,
+    "rocketSystems": 1456,
+    "unarmoredVehicles": 57731,
+    "fixedWingAircraft": 421,
+    "rotaryWingAircraft": 340,
+    "uavs": 50168,
+    "ships": 28,
+    "submarines": 1,
+    "specialEquipment": 3936,
+    "missiles": 3555
+  },
+  {
     "date": "2025-08-07",
     "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-040-okupantiv-163-bpla-ta-47-artsistem",
     "personnel": 1060310,
