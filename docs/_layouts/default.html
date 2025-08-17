@@ -184,37 +184,37 @@
                             <ul id="language-menu" class="dropdown-menu" role="menu"
                                 aria-labelledby="language-menu-toggle">
                                 <li role="presentation">
-                                    <a lang="en-US" role="menuitem" href="https://www.ukrainewarlosses.com" class="dropdown-item">
+                                    <a lang="en-US" role="menuitem" href="https://www.ukrainewarlosses.com" class="dropdown-item" onclick="gtag('event','language',{language:'en-US'})">
                                         <iconify-icon icon="circle-flags:us" role="presentation"></iconify-icon>
                                         English (US)
                                     </a>
                                 </li>
                                 <li role="presentation">
-                                    <a lang="en-GB" role="menuitem" href="/uk" class="dropdown-item">
+                                    <a lang="en-GB" role="menuitem" href="/uk" class="dropdown-item" onclick="gtag('event','language',{language:'en-GB'})">
                                         <iconify-icon icon="circle-flags:uk" role="presentation"></iconify-icon>
                                         English (UK)
                                     </a>
                                 </li>
                                 <li role="presentation">
-                                    <a lang="fr-FR" role="menuitem" href="/fr" class="dropdown-item">
+                                    <a lang="fr-FR" role="menuitem" href="/fr" class="dropdown-item" onclick="gtag('event','language',{language:'fr-FR'})">
                                         <iconify-icon icon="circle-flags:fr" role="presentation"></iconify-icon>
                                         Français
                                     </a>
                                 </li>
                                 <li role="presentation">
-                                    <a lang="de-DE" role="menuitem" href="/de" class="dropdown-item">
+                                    <a lang="de-DE" role="menuitem" href="/de" class="dropdown-item" onclick="gtag('event','language',{language:'de-DE'})">
                                         <iconify-icon icon="circle-flags:de" role="presentation"></iconify-icon>
                                         Deutsch
                                     </a>
                                 </li>
                                 <li role="presentation">
-                                    <a lang="uk-UA" role="menuitem" href="/ua" class="dropdown-item">
+                                    <a lang="uk-UA" role="menuitem" href="/ua" class="dropdown-item" onclick="gtag('event','language',{language:'uk-UA'})">
                                         <iconify-icon icon="circle-flags:ua" role="presentation"></iconify-icon>
                                         Українська
                                     </a>
                                 </li>
                                 <li role="presentation">
-                                    <a lang="ru-RU" role="menuitem" href="/ru" class="dropdown-item">
+                                    <a lang="ru-RU" role="menuitem" href="/ru" class="dropdown-item" onclick="gtag('event','language',{language:'ru-RU'})">
                                         <iconify-icon icon="circle-flags:ru" role="presentation"></iconify-icon>
                                         Русский
                                     </a>
@@ -570,6 +570,10 @@
             const htmlEle = document.getElementsByTagName('html')[0];
             const toggleEle = document.getElementById('theme-menu-toggle');
             const iconEle = toggleEle.querySelector('iconify-icon');
+
+            if (save) {
+                gtag('event', 'theme', { theme: t });
+            }
 
             htmlEle.setAttribute('data-bs-theme', theme);
             iconEle.setAttribute('icon', `material-symbols:${theme}-mode`);
@@ -1300,7 +1304,10 @@
                 const tab = modal.getAttribute('data-tab');
                 const chartEle = modal.querySelector('.line-chart');
                 modal.addEventListener('shown.bs.modal', (e) => {
-                    initLineChart(`${tab}-${dataKey}`, chartEle, dataKey);
+                    if (dataKey && chartEle) {
+                        initLineChart(`${tab}-${dataKey}`, chartEle, dataKey);
+                        gtag('event', 'modal', { modal: dataKey });
+                    }
                 });
 
                 const navLinks = modal.querySelectorAll('.nav-link');
@@ -1338,6 +1345,10 @@
                                 break;
                             default:
                                 break;
+                        }
+
+                        if (dataKey) {
+                            gtag('event', 'tab', { modal: dataKey, tab });
                         }
                     });
                 }
