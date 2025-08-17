@@ -1,20 +1,20 @@
 <div class="d-flex flex-wrap gap-1">
-    <a class="btn btn-outline-secondary btn-sm p-1" href="https://twitter.com/intent/tweet?url={{ canonical_url | url_encode }}" target="_blank" rel="noopener" title="Share on X">
+    <a class="btn btn-outline-secondary btn-sm p-1" href="https://twitter.com/intent/tweet?url={{ canonical_url | url_encode }}" target="_blank" rel="noopener" title="Share on X" onclick="gtag('event','share',{method:'X'})">
         <iconify-icon icon="simple-icons:x" class="fs-6" aria-hidden="true"></iconify-icon>
     </a>
-    <a class="btn btn-outline-secondary btn-sm p-1" href="https://t.me/share/url?url={{ canonical_url | url_encode }}" target="_blank" rel="noopener" title="Share on Telegram">
+    <a class="btn btn-outline-secondary btn-sm p-1" href="https://t.me/share/url?url={{ canonical_url | url_encode }}" target="_blank" rel="noopener" title="Share on Telegram" onclick="gtag('event','share',{method:'Telegram'})">
         <iconify-icon icon="simple-icons:telegram" class="fs-6" aria-hidden="true"></iconify-icon>
     </a>
-    <a class="btn btn-outline-secondary btn-sm p-1" href="https://www.facebook.com/sharer/sharer.php?u={{ canonical_url | url_encode }}" target="_blank" rel="noopener" title="Share on Facebook">
+    <a class="btn btn-outline-secondary btn-sm p-1" href="https://www.facebook.com/sharer/sharer.php?u={{ canonical_url | url_encode }}" target="_blank" rel="noopener" title="Share on Facebook" onclick="gtag('event','share',{method:'Facebook'})">
         <iconify-icon icon="simple-icons:facebook" class="fs-6" aria-hidden="true"></iconify-icon>
     </a>
-    <a class="btn btn-outline-secondary btn-sm p-1" href="https://bsky.app/intent/compose?text={{ canonical_url | url_encode }}" target="_blank" rel="noopener" title="Share on BlueSky">
+    <a class="btn btn-outline-secondary btn-sm p-1" href="https://bsky.app/intent/compose?text={{ canonical_url | url_encode }}" target="_blank" rel="noopener" title="Share on BlueSky" onclick="gtag('event','share',{method:'BlueSky'})">
         <iconify-icon icon="simple-icons:bluesky" class="fs-6" aria-hidden="true"></iconify-icon>
     </a>
-    <a class="btn btn-outline-secondary btn-sm p-1" href="https://www.reddit.com/submit?url={{ canonical_url | url_encode }}" target="_blank" rel="noopener" title="Share on Reddit">
+    <a class="btn btn-outline-secondary btn-sm p-1" href="https://www.reddit.com/submit?url={{ canonical_url | url_encode }}" target="_blank" rel="noopener" title="Share on Reddit" onclick="gtag('event','share',{method:'Reddit'})">
         <iconify-icon icon="simple-icons:reddit" class="fs-6" aria-hidden="true"></iconify-icon>
     </a>
     <button type="button" class="btn btn-outline-secondary btn-sm p-1" onclick="sharePage()" title="Share">
-        <iconify-icon icon="iconoir:share-ios" class="fs-6" aria-hidden="true"></iconify-icon>
+        <iconify-icon icon="mdi:share-variant" class="fs-6" aria-hidden="true"></iconify-icon>
     </button>
 </div>

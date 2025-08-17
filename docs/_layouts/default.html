@@ -618,6 +618,7 @@
     </script>
     <script>
         function sharePage() {
+            gtag('event', 'share', { method: 'Generic' });
             const shareData = {
                 title: document.title,
                 url: '{{ canonical_url }}'
