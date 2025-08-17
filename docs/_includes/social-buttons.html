@@ -1,0 +1,20 @@
+<div class="d-flex gap-2">
+    <a class="btn btn-outline-secondary p-2" href="https://twitter.com/intent/tweet?url={{ canonical_url | url_encode }}" target="_blank" rel="noopener" aria-label="Share on X">
+        <iconify-icon icon="simple-icons:x" class="fs-5" aria-hidden="true"></iconify-icon>
+    </a>
+    <a class="btn btn-outline-secondary p-2" href="https://t.me/share/url?url={{ canonical_url | url_encode }}" target="_blank" rel="noopener" aria-label="Share on Telegram">
+        <iconify-icon icon="simple-icons:telegram" class="fs-5" aria-hidden="true"></iconify-icon>
+    </a>
+    <a class="btn btn-outline-secondary p-2" href="https://www.facebook.com/sharer/sharer.php?u={{ canonical_url | url_encode }}" target="_blank" rel="noopener" aria-label="Share on Facebook">
+        <iconify-icon icon="simple-icons:facebook" class="fs-5" aria-hidden="true"></iconify-icon>
+    </a>
+    <a class="btn btn-outline-secondary p-2" href="https://bsky.app/intent/compose?text={{ canonical_url | url_encode }}" target="_blank" rel="noopener" aria-label="Share on BlueSky">
+        <iconify-icon icon="simple-icons:bluesky" class="fs-5" aria-hidden="true"></iconify-icon>
+    </a>
+    <a class="btn btn-outline-secondary p-2" href="https://www.reddit.com/submit?url={{ canonical_url | url_encode }}" target="_blank" rel="noopener" aria-label="Share on Reddit">
+        <iconify-icon icon="simple-icons:reddit" class="fs-5" aria-hidden="true"></iconify-icon>
+    </a>
+    <button type="button" class="btn btn-outline-secondary p-2" onclick="sharePage()" aria-label="Share">
+        <iconify-icon icon="iconoir:share-ios" class="fs-5" aria-hidden="true"></iconify-icon>
+    </button>
+</div>

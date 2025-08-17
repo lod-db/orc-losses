@@ -228,7 +228,18 @@
     </header>
 
     <main class="container pt-3" aria-live="polite">
-        <h1 class="mb-4">{{ lang.page-title }}</h1>
+        <div class="mb-4">
+            <h1 class="mb-1">{{ lang.page-title }}</h1>
+            <div class="d-flex flex-wrap align-items-center gap-2">
+                <p class="text-body-secondary small mb-0">
+                    <iconify-icon icon="mdi:calendar" class="align-middle me-1" aria-hidden="true"></iconify-icon>
+                    <time datetime="2022-02-24"><span class="localizable-date">2022-02-24</span></time>
+                    –
+                    <time datetime="{{ site.time | date: '%Y-%m-%d' }}"><span class="localizable-date">{{ site.time | date: '%Y-%m-%d' }}</span></time>
+                </p>
+                {% include social-buttons.html %}
+            </div>
+        </div>
         <section class="mb-4">
             <article>
                 <p>
@@ -405,6 +416,7 @@
                                 target="_blank" rel="noopener">GitHub</a>
                             {{ lang.os-disclaimer-p2-2 }}
                         </p>
+                        {% include social-buttons.html %}
                     </section>
                 </div>
                 <div class="border border-1 rounded mb-4 p-3">
@@ -600,6 +612,20 @@
             try { initLineCharts(); } catch { }
             try { initHeatMaps(); } catch { }
             try { initBarGraphs(); } catch { }
+        }
+    </script>
+    <script>
+        function sharePage() {
+            const shareData = {
+                title: document.title,
+                url: '{{ canonical_url }}'
+            };
+            if (navigator.share) {
+                navigator.share(shareData).catch(() => { });
+            } else {
+                const url = encodeURIComponent('{{ canonical_url }}');
+                window.open(`https://www.addtoany.com/share#url=${url}`, '_blank');
+            }
         }
     </script>
     <script>
