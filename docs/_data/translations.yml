@@ -32,6 +32,7 @@
   uavs-label: Unmanned Aerial Vehicles
   missiles-label: Missiles
   view-on-github-label: View on
+  share-label: Share
   tos-label: Terms of Use
   attributions-label: Attribution
   ua-min-def: Ministry of Defense of Ukraine
@@ -96,6 +97,7 @@
   uavs-label: Unmanned Aerial Vehicles
   missiles-label: Missiles
   view-on-github-label: View on
+  share-label: Share
   tos-label: Terms of Use
   attributions-label: Attribution
   ua-min-def: Ministry of Defence of Ukraine
@@ -160,6 +162,7 @@
   uavs-label: Véhicules aériens sans pilote
   missiles-label: Missiles
   view-on-github-label: Voir sur
+  share-label: Partager
   tos-label: Conditions d'utilisation
   attributions-label: Attribution
   ua-min-def: Ministère de la Défense de l'Ukraine
@@ -224,6 +227,7 @@
   uavs-label: Unbemannte Luftfahrzeuge
   missiles-label: Raketen
   view-on-github-label: Ansehen auf
+  share-label: Teilen
   tos-label: Nutzungsbedingungen
   attributions-label: Quellenangaben
   ua-min-def: Verteidigungsministerium der Ukraine
@@ -288,6 +292,7 @@
   uavs-label: Безпілотні літальні апарати
   missiles-label: Ракети
   view-on-github-label: Переглянути на
+  share-label: Поширити
   tos-label: Умови використання
   attributions-label: Джерела інформації
   ua-min-def: Міністерства оборони України
@@ -352,6 +357,7 @@
   uavs-label: Беспилотные летательные аппараты
   missiles-label: Ракеты
   view-on-github-label: Смотреть на
+  share-label: Поделиться
   tos-label: Условия использования
   attributions-label: Источники
   ua-min-def: Министерства обороны Украины
