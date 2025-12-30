@@ -1,5 +1,23 @@
 [
   {
+    "date": "2025-12-30",
+    "sourceUri": "https://mod.gov.ua/news/post-39",
+    "personnel": 1206910,
+    "tanks": 11477,
+    "afvs": 23841,
+    "artillery": 35589,
+    "airDefense": 1264,
+    "rocketSystems": 1582,
+    "unarmoredVehicles": 72010,
+    "fixedWingAircraft": 434,
+    "rotaryWingAircraft": 347,
+    "uavs": 96932,
+    "ships": 28,
+    "submarines": 2,
+    "specialEquipment": 4031,
+    "missiles": 4136
+  },
+  {
     "date": "2025-12-29",
     "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-180-okupantiv-305-bpla-ta-13-artsistem",
     "personnel": 1205690,
