@@ -2,6 +2,8 @@
 
 Icons used with attribution via the [Flaticon License](https://www.flaticon.com/legal)
 
+Copyright (c) 2022-2026 Lod Softworks LLC
+
 
 ## Attribution
 
