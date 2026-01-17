@@ -1,5 +1,23 @@
 [
   {
+    "date": "2026-01-17",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-voroga-na-17-sichnya-2026-roku-1-130-okupantiv-721-bpla-ta-31-artsistema",
+    "personnel": 1225590,
+    "tanks": 11569,
+    "afvs": 23914,
+    "artillery": 36261,
+    "airDefense": 1278,
+    "rocketSystems": 1615,
+    "unarmoredVehicles": 74601,
+    "fixedWingAircraft": 434,
+    "rotaryWingAircraft": 347,
+    "uavs": 108605,
+    "ships": 28,
+    "submarines": 2,
+    "specialEquipment": 4044,
+    "missiles": 4163
+  },
+  {
     "date": "2026-01-16",
     "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-rosiyan-za-dobu-1-370-okupantiv-527-bpla-ta-48-artsistem",
     "personnel": 1224460,
