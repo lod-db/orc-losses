@@ -1,5 +1,23 @@
 [
   {
+    "date": "2026-01-18",
+    "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-voroga-na-18-sichnya-2026-roku-845-bpla-830-okupantiv-ta-33-artsistemi",
+    "personnel": 1226420,
+    "tanks": 1226420,
+    "afvs": 1226420,
+    "artillery": 1226420,
+    "airDefense": 1226420,
+    "rocketSystems": 1226420,
+    "unarmoredVehicles": 1226420,
+    "fixedWingAircraft": 1226420,
+    "rotaryWingAircraft": 1226420,
+    "uavs": 1226420,
+    "ships": 1226420,
+    "submarines": 1226420,
+    "specialEquipment": 1226420,
+    "missiles": 1226420
+  },
+  {
     "date": "2026-01-17",
     "sourceUri": "https://mod.gov.ua/news/zagalni-bojovi-vtrati-voroga-na-17-sichnya-2026-roku-1-130-okupantiv-721-bpla-ta-31-artsistema",
     "personnel": 1225590,
