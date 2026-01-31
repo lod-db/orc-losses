@@ -1,5 +1,23 @@
 [
   {
+    "date": "2026-01-31",
+    "sourceUri": "https://mod.gov.ua/news/bojovi-vtrati-voroga-na-31-sichnya-2026-roku",
+    "personnel": 1239590,
+    "tanks": 11619,
+    "afvs": 23977,
+    "artillery": 36768,
+    "airDefense": 1290,
+    "rocketSystems": 1632,
+    "unarmoredVehicles": 76377,
+    "fixedWingAircraft": 435,
+    "rotaryWingAircraft": 347,
+    "uavs": 119928,
+    "ships": 28,
+    "submarines": 2,
+    "specialEquipment": 4054,
+    "missiles": 4205
+  },
+  {
     "date": "2026-01-30",
     "sourceUri": "https://mod.gov.ua/news/bojovi-vtrati-voroga-na-30-sichnya-2026-roku",
     "personnel": 1238710,
