@@ -1,5 +1,23 @@
 [
   {
+    "date": "2026-02-25",
+    "sourceUri": "https://mod.gov.ua/news/bojovi-vtrati-voroga-na-25-lyutogo-2026-roku",
+    "personnel": 1262490,
+    "tanks": 11701,
+    "afvs": 24091,
+    "artillery": 37589,
+    "airDefense": 1305,
+    "rocketSystems": 1655,
+    "unarmoredVehicles": 79971,
+    "fixedWingAircraft": 435,
+    "rotaryWingAircraft": 348,
+    "uavs": 146457,
+    "ships": 29,
+    "submarines": 2,
+    "specialEquipment": 4075,
+    "missiles": 4347
+  },
+  {
     "date": "2026-02-24",
     "sourceUri": "https://mod.gov.ua/news/bojovi-vtrati-voroga-na-24-lyutogo-2026-roku",
     "personnel": 1261420,
