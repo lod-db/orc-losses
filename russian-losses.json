@@ -1,5 +1,23 @@
 [
   {
+    "date": "2026-04-13",
+    "sourceUri": "https://mod.gov.ua/news/bojovi-vtrati-voroga-na-13-kvitnya-2026-roku",
+    "personnel": 1312140,
+    "tanks": 11861,
+    "afvs": 24386,
+    "artillery": 39915,
+    "airDefense": 1346,
+    "rocketSystems": 1728,
+    "unarmoredVehicles": 89099,
+    "fixedWingAircraft": 435,
+    "rotaryWingAircraft": 350,
+    "uavs": 235394,
+    "ships": 33,
+    "submarines": 2,
+    "specialEquipment": 4123,
+    "missiles": 4517
+  },
+  {
     "date": "2026-04-12",
     "sourceUri": "https://mod.gov.ua/news/bojovi-vtrati-voroga-na-12-kvitnya-2026-roku",
     "personnel": 1311180,
