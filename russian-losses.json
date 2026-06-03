@@ -1,5 +1,23 @@
 [
   {
+    "date": "2026-06-03",
+    "sourceUri": "https://mod.gov.ua/news/bojovi-vtrati-voroga-na-3-chervnya-2026-roku",
+    "personnel": 1368040,
+    "tanks": 11974,
+    "afvs": 24673,
+    "artillery": 43172,
+    "airDefense": 1403,
+    "rocketSystems": 1826,
+    "unarmoredVehicles": 102575,
+    "fixedWingAircraft": 436,
+    "rotaryWingAircraft": 353,
+    "uavs": 325615,
+    "ships": 33,
+    "submarines": 2,
+    "specialEquipment": 4245,
+    "missiles": 4733
+  },
+  {
     "date": "2026-06-02",
     "sourceUri": "https://mod.gov.ua/news/boiovi-vtraty-voroha-na-2-chervnia-2026-roku",
     "personnel": 1366910,
