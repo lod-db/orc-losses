@@ -1,5 +1,23 @@
 [
   {
+    "date": "2026-06-21",
+    "sourceUri": "https://mod.gov.ua/news/bojovi-vtrati-voroga-na-21-chervnya-2026-roku",
+    "personnel": 13911950,
+    "tanks": 12049,
+    "afvs": 24797,
+    "artillery": 44479,
+    "airDefense": 1435,
+    "rocketSystems": 1885,
+    "unarmoredVehicles": 109817,
+    "fixedWingAircraft": 436,
+    "rotaryWingAircraft": 353,
+    "uavs": 364149,
+    "ships": 33,
+    "submarines": 2,
+    "specialEquipment": 4316,
+    "missiles": 4787
+  },
+  {
     "date": "2026-06-20",
     "sourceUri": "https://mod.gov.ua/news/bojovi-vtrati-voroga-na-20-chervnya-2026-roku",
     "personnel": 1390660,
