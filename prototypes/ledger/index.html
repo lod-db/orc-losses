@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prototype C · The Ledger — Russian Losses in Ukraine</title>
+<meta name="description" content="The running toll of Russia's war in Ukraine — a daily-updated ledger of personnel and equipment losses, from official Ukrainian Ministry of Defence reports.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Spline+Sans+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sans: "Archivo", system-ui, sans-serif;
+    --mono: "Spline Sans Mono", ui-monospace, monospace;
+  }
+  [data-theme="dark"] {
+    --bg: #0a0a0c;
+    --surface: #131316;
+    --border: #26262c;
+    --text: #f4f4f2;
+    --text-2: #8f8f9a;
+    --blue: #3d7fe0;
+    --gold: #ffd700;
+    --up: #ffd700;
+    --chart-accent: #3d7fe0;
+    --chart-accent2: #ffd700;
+    --chart-grid: #26262c;
+    --chart-text: #6d6d78;
+    color-scheme: dark;
+  }
+  [data-theme="light"] {
+    --bg: #f5f4f0;
+    --surface: #ffffff;
+    --border: #dcdad2;
+    --text: #121215;
+    --text-2: #6b6b74;
+    --blue: #0050b5;
+    --gold: #9a7b00;
+    --up: #9a7b00;
+    --chart-accent: #0050b5;
+    --chart-accent2: #b98a00;
+    --chart-grid: #dcdad2;
+    --chart-text: #90909a;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: var(--sans); font-size: 16px; line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  .flag-band { display: flex; height: 6px; }
+  .flag-band i { flex: 1; } .flag-band i:first-child { background: #0057b7; } .flag-band i:last-child { background: #ffd700; }
+
+  /* ---------- nav ---------- */
+  nav.site { border-bottom: 1px solid var(--border); }
+  .nav-inner { display: flex; align-items: center; gap: 16px; height: 58px; }
+  .brand { font-weight: 800; letter-spacing: .02em; text-transform: uppercase; font-size: 14px; text-decoration: none; }
+  .brand em { font-style: normal; color: var(--blue); }
+  .spacer { flex: 1; }
+  .day-tag { font-family: var(--mono); font-size: 12px; color: var(--text-2); letter-spacing: .06em; text-transform: uppercase; }
+  select.lang {
+    appearance: none; background: transparent; color: var(--text);
+    border: 1px solid var(--border); border-radius: 0; padding: 6px 26px 6px 10px;
+    font: 600 12.5px var(--sans); cursor: pointer; text-transform: uppercase; letter-spacing: .04em;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" fill="none" stroke="%23888" stroke-width="1.5" stroke-linecap="round"/></svg>');
+    background-repeat: no-repeat; background-position: right 8px center;
+  }
+  .icon-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px; cursor: pointer;
+    background: transparent; color: var(--text); border: 1px solid var(--border);
+  }
+  .icon-btn:hover { border-color: var(--text); }
+  [data-theme="dark"] .only-dark { display: none; }
+  [data-theme="light"] .only-light { display: none; }
+
+  /* ---------- hero counter ---------- */
+  .hero { padding: 72px 0 40px; text-align: center; }
+  .hero .kicker {
+    text-transform: uppercase; letter-spacing: .3em; font-size: 13px; font-weight: 700;
+    color: var(--text-2); margin: 0 0 10px;
+  }
+  .hero .giant {
+    font-family: var(--mono); font-weight: 700; font-variant-numeric: tabular-nums;
+    font-size: clamp(56px, 12.5vw, 168px); line-height: 1; letter-spacing: -.03em; margin: 0;
+  }
+  .hero .giant .accent { color: var(--gold); }
+  .hero .unit {
+    text-transform: uppercase; letter-spacing: .22em; font-weight: 700; font-size: clamp(13px, 2vw, 17px);
+    margin: 14px 0 0; color: var(--blue);
+  }
+  .hero .today {
+    font-family: var(--mono); margin: 20px 0 0; font-size: clamp(15px, 2.4vw, 20px); color: var(--up); font-weight: 600;
+  }
+  .hero .today span { color: var(--text-2); font-family: var(--sans); font-weight: 500; text-transform: lowercase; }
+  .hero .asof { margin: 26px 0 0; color: var(--text-2); font-size: 14px; }
+  .hero .asof a { color: var(--text-2); }
+
+  /* ---------- ledger grid ---------- */
+  .ledger { border-top: 1px solid var(--border); }
+  .ledger-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .cell {
+    padding: 26px 22px 22px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    display: flex; flex-direction: column; gap: 2px; min-height: 128px;
+    transition: background .15s ease; cursor: default;
+  }
+  .cell:nth-child(4n) { border-right: 0; }
+  .cell:hover { background: var(--surface); }
+  .cell .lbl {
+    text-transform: uppercase; letter-spacing: .12em; font-size: 11.5px; font-weight: 700;
+    color: var(--text-2); display: flex; gap: 8px; align-items: center;
+  }
+  .cell .lbl .ic { color: var(--blue); }
+  .cell .num { font-family: var(--mono); font-weight: 700; font-size: clamp(24px, 3.4vw, 40px); font-variant-numeric: tabular-nums; letter-spacing: -.02em; margin-top: 6px; }
+  .cell .chg { font-family: var(--mono); font-size: 13px; color: var(--up); font-weight: 600; }
+  .cell .chg i { font-style: normal; color: var(--text-2); font-family: var(--sans); font-weight: 500; }
+
+  /* ---------- chart strip ---------- */
+  .strip { padding: 54px 0; border-top: 1px solid var(--border); }
+  .strip-head { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; }
+  h2.sec { text-transform: uppercase; letter-spacing: .18em; font-size: 15px; font-weight: 800; margin: 0; }
+  h2.sec::before { content: "— "; color: var(--gold); }
+  .tabs { display: flex; flex-wrap: wrap; gap: 0; border: 1px solid var(--border); }
+  .tabs button {
+    border: 0; border-right: 1px solid var(--border); background: transparent; color: var(--text-2);
+    font: 700 12px var(--sans); text-transform: uppercase; letter-spacing: .08em;
+    padding: 8px 14px; cursor: pointer;
+  }
+  .tabs button:last-child { border-right: 0; }
+  .tabs button[aria-pressed="true"] { background: var(--text); color: var(--bg); }
+  .chart-tip {
+    position: absolute; pointer-events: none; background: var(--surface);
+    border: 1px solid var(--border); padding: 6px 10px; font-size: 12.5px; display: flex; flex-direction: column;
+  }
+  .chart-tip strong { font-family: var(--mono); font-size: 14px; }
+  .chart-tip span { color: var(--text-2); }
+
+  /* ---------- follow ---------- */
+  .follow { border-top: 1px solid var(--border); padding: 54px 0; }
+  .follow-note { color: var(--text-2); max-width: 60ch; margin: 6px 0 26px; }
+  .follow-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 0; border: 1px solid var(--border); }
+  .follow-item {
+    padding: 20px; border-right: 1px solid var(--border); text-decoration: none;
+    display: flex; flex-direction: column; gap: 6px; transition: background .15s ease;
+  }
+  .follow-item:hover { background: var(--surface); }
+  .follow-item:last-child { border-right: 0; }
+  .follow-item b { text-transform: uppercase; letter-spacing: .08em; font-size: 13.5px; display: flex; align-items: center; gap: 7px; }
+  .follow-item b .ic { color: var(--gold); }
+  .follow-item p { margin: 0; font-size: 13px; color: var(--text-2); line-height: 1.5; }
+
+  footer.site { border-top: 1px solid var(--border); padding: 34px 0 54px; color: var(--text-2); font-size: 13.5px; }
+  footer.site .grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 28px; }
+  footer.site h3 { color: var(--text); text-transform: uppercase; letter-spacing: .14em; font-size: 12.5px; margin: 0 0 10px; }
+  footer.site a { color: var(--text); }
+  footer.site ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+
+  @media (max-width: 900px) {
+    .ledger-grid { grid-template-columns: repeat(2, 1fr); }
+    .cell:nth-child(4n) { border-right: 1px solid var(--border); }
+    .cell:nth-child(2n) { border-right: 0; }
+    footer.site .grid { grid-template-columns: 1fr; }
+    .follow-item { border-bottom: 1px solid var(--border); }
+  }
+  @media (max-width: 520px) {
+    .day-tag { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="flag-band"><i></i><i></i></div>
+<nav class="site">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#"><em>UA</em>&nbsp;· <span data-i18n="title">Russian Losses in Ukraine</span></a>
+    <div class="spacer"></div>
+    <span class="day-tag" id="dayTag"></span>
+    <select class="lang" id="langSel" aria-label="Language"></select>
+    <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">
+      <span class="only-dark" id="sunIc"></span>
+      <span class="only-light" id="moonIc"></span>
+    </button>
+    <a class="icon-btn" href="https://github.com/lod-db/orc-losses" aria-label="GitHub" id="ghBtn"></a>
+  </div>
+</nav>
+
+<header class="hero wrap">
+  <p class="kicker" id="heroKicker"></p>
+  <p class="giant" id="heroNumber">0</p>
+  <p class="unit" id="heroUnit"></p>
+  <p class="today" id="heroToday"></p>
+  <p class="asof" id="heroAsOf"></p>
+</header>
+
+<section class="ledger">
+  <div class="wrap" style="padding:0">
+    <div class="ledger-grid" id="ledgerGrid"></div>
+  </div>
+</section>
+
+<section class="strip wrap">
+  <div class="strip-head">
+    <h2 class="sec" id="chartTitle"></h2>
+    <div class="spacer"></div>
+    <div class="tabs" id="catTabs"></div>
+  </div>
+  <div class="strip-head">
+    <div class="tabs" id="modeTabs"></div>
+    <div class="spacer"></div>
+    <div class="tabs" id="rangeTabs"></div>
+  </div>
+  <div id="mainChart"></div>
+</section>
+
+<section class="follow wrap">
+  <h2 class="sec" id="followTitle"></h2>
+  <p class="follow-note" id="followNote"></p>
+  <div class="follow-grid" id="followGrid"></div>
+</section>
+
+<footer class="site">
+  <div class="wrap grid">
+    <div>
+      <h3 id="footSrcTitle"></h3>
+      <p id="footDisclaimer"></p>
+    </div>
+    <div>
+      <h3 id="footLinksTitle"></h3>
+      <ul id="footLinks"></ul>
+    </div>
+  </div>
+</footer>
+<div class="flag-band"><i></i><i></i></div>
+
+<script src="../shared/i18n.js"></script>
+<script src="../shared/theme.js"></script>
+<script src="../shared/icons.js"></script>
+<script src="../shared/data.js"></script>
+<script src="../shared/charts.js"></script>
+<script>
+"use strict";
+initTheme("dark"); // poster style is dark-first
+document.documentElement.lang = CURRENT_LANG;
+
+document.getElementById("sunIc").innerHTML = icon("sun", 17);
+document.getElementById("moonIc").innerHTML = icon("moon", 17);
+document.getElementById("ghBtn").innerHTML = icon("github", 17);
+wireThemeToggle(document.getElementById("themeBtn"));
+buildLangSelect(document.getElementById("langSel"));
+
+const ORDER = [
+  "tanks","afvs","artillery","rocketSystems","airDefense","fixedWingAircraft",
+  "rotaryWingAircraft","uavs","missiles","ships","submarines","unarmoredVehicles",
+  "specialEquipment",
+];
+const TAB_CATS = ["personnel","tanks","artillery","uavs"];
+const RESOURCES = [
+  { name: "DeepStateMap", url: "https://deepstatemap.live", ic: "map", tKey: "resDeepstate" },
+  { name: "Oryx", url: "https://www.oryxspioenkop.com", ic: "eye", tKey: "resOryx" },
+  { name: "Ukraine Oversight", url: "https://www.ukraineoversight.gov", ic: "doc", tKey: "resOversight" },
+  { name: "war.ukraine.ua", url: "https://war.ukraine.ua", ic: "shield", tKey: "resUkraine" },
+  { name: "mod.gov.ua", url: "https://mod.gov.ua", ic: "check", tKey: "resMod" },
+];
+
+let STATS, selKey = "personnel", selMode = "cum", selRange = "all";
+
+/* Count-up that keeps digit grouping, gold-colors the last 3 digits. */
+function countUpGiant(el, target, ms = 1400) {
+  const start = performance.now();
+  function paint(v) {
+    const s = fmtNum(v);
+    // highlight the trailing group to give it a "live odometer" feel
+    const cut = s.length - 3 > 0 ? s.length - 3 : s.length;
+    el.innerHTML = s.slice(0, cut) + `<span class="accent">${s.slice(cut)}</span>`;
+  }
+  if (STATIC_MODE) { paint(target); return; }
+  function tick(now) {
+    const p = Math.min(1, (now - start) / ms);
+    paint(Math.round(target * (1 - Math.pow(1 - p, 3))));
+    if (p < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+function renderHero() {
+  applyI18nAttrs();
+  const c = STATS.cats.personnel;
+  document.getElementById("dayTag").textContent = t("dayOfWar", { n: fmtNum(STATS.dayOfWar) });
+  document.getElementById("heroKicker").textContent = t("totalLosses");
+  countUpGiant(document.getElementById("heroNumber"), c.total);
+  document.getElementById("heroUnit").textContent = t("personnel");
+  const avg30 = c.d30 != null ? Math.round(c.d30 / 30) : null;
+  document.getElementById("heroToday").innerHTML =
+    `+${fmtNum(c.d1)} <span>${t("today")}</span>` +
+    (avg30 ? ` &nbsp;·&nbsp; ${fmtNum(avg30)} <span>${t("perDayAvg")}</span>` : "");
+  document.getElementById("heroAsOf").innerHTML =
+    `${t("updated")} ${fmtDate(STATS.latest.date, "full")} — ` +
+    `<a href="${STATS.latest.sourceUri}" target="_blank" rel="noopener">${t("sourceMod")}</a>`;
+}
+
+function renderLedger() {
+  const grid = document.getElementById("ledgerGrid");
+  grid.innerHTML = "";
+  for (const key of ORDER) {
+    const c = STATS.cats[key];
+    const div = document.createElement("div");
+    div.className = "cell";
+    div.innerHTML = `
+      <span class="lbl">${icon(c.icon, 18)}${t(key)}</span>
+      <span class="num">${fmtNum(c.total)}</span>
+      <span class="chg">${c.d1 > 0 ? "+" + fmtNum(c.d1) : "±0"} <i>${t("today")}</i></span>`;
+    grid.appendChild(div);
+  }
+  // equipment total closes the grid
+  const eq = document.createElement("div");
+  eq.className = "cell";
+  eq.style.background = "var(--surface)";
+  eq.innerHTML = `
+    <span class="lbl">${icon("check", 18)}${t("total")} — ${t("equipmentPieces")}</span>
+    <span class="num" style="color:var(--gold)">${fmtNum(STATS.equipmentTotal)}</span>
+    <span class="chg">+${fmtNum(STATS.equipmentToday)} <i>${t("today")}</i></span>`;
+  grid.appendChild(eq);
+}
+
+function tabs(el, options, current, onPick) {
+  el.innerHTML = "";
+  for (const [val, label] of options) {
+    const b = document.createElement("button");
+    b.textContent = label;
+    b.setAttribute("aria-pressed", val === current ? "true" : "false");
+    b.addEventListener("click", () => onPick(val));
+    el.appendChild(b);
+  }
+}
+
+function renderChart() {
+  document.getElementById("chartTitle").textContent =
+    selMode === "cum" ? t("totalLosses") : t("dailyLosses");
+  tabs(document.getElementById("catTabs"), TAB_CATS.map((k) => [k, t(k)]), selKey,
+    (v) => { selKey = v; renderChart(); });
+  tabs(document.getElementById("modeTabs"),
+    [["cum", t("cumulative")], ["daily", t("daily")]], selMode,
+    (v) => { selMode = v; renderChart(); });
+  tabs(document.getElementById("rangeTabs"),
+    [["30", t("range30")], ["90", t("range90")], ["1y", t("range1y")], ["all", t("rangeAll")]], selRange,
+    (v) => { selRange = v; renderChart(); });
+  const box = document.getElementById("mainChart");
+  if (selMode === "cum") areaChart(box, sliceRange(STATS.series(selKey), selRange), { height: 320 });
+  else barChart(box, sliceRange(STATS.dailySeries(selKey), selRange), { height: 280, color: cssVar("--chart-accent2") });
+}
+
+function renderFollow() {
+  document.getElementById("followTitle").textContent = t("resources");
+  document.getElementById("followNote").textContent = t("resourcesIntro");
+  const grid = document.getElementById("followGrid");
+  grid.innerHTML = "";
+  for (const r of RESOURCES) {
+    const a = document.createElement("a");
+    a.className = "follow-item"; a.href = r.url; a.target = "_blank"; a.rel = "noopener";
+    a.innerHTML = `<b>${icon(r.ic, 16)}${r.name}</b><p>${t(r.tKey)}</p>`;
+    grid.appendChild(a);
+  }
+  document.getElementById("footSrcTitle").textContent = t("sources");
+  document.getElementById("footDisclaimer").textContent = t("disclaimer");
+  document.getElementById("footLinksTitle").textContent = t("openData");
+  document.getElementById("footLinks").innerHTML = `
+    <li><a href="https://github.com/lod-db/orc-losses" target="_blank" rel="noopener">github.com/lod-db/orc-losses</a></li>
+    <li><a href="https://mod.gov.ua" target="_blank" rel="noopener">${t("sourceMod")}</a></li>`;
+}
+
+document.addEventListener("themechange", () => renderChart());
+
+loadLossData("../../russian-losses.json").then((stats) => {
+  STATS = stats;
+  renderHero(); renderLedger(); renderChart(); renderFollow();
+});
+</script>
+</body>
+</html>

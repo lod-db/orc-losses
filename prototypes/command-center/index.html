@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prototype A · Command Center — Russian Losses in Ukraine</title>
+<meta name="description" content="Daily-updated dashboard of Russian personnel and equipment losses in Ukraine, from official reports of the Ministry of Defence of Ukraine.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ua-blue: #0057b7;
+    --ua-gold: #ffd700;
+    --font-sans: "Inter", system-ui, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  }
+  [data-theme="dark"] {
+    --bg: #0b0f17;
+    --bg-2: #0e141f;
+    --surface: #131a28;
+    --surface-2: #19233475;
+    --border: #223048;
+    --text: #e8edf5;
+    --text-2: #93a1b8;
+    --accent: #4d8dff;
+    --gold: #ffd75e;
+    --up: #ffb454;
+    --chart-accent: #4d8dff;
+    --chart-accent2: #ffb454;
+    --chart-grid: #22304877;
+    --chart-text: #7484a0;
+    --shadow: 0 10px 30px rgb(0 0 0 / .35);
+    color-scheme: dark;
+  }
+  [data-theme="light"] {
+    --bg: #f4f6fa;
+    --bg-2: #eef1f7;
+    --surface: #ffffff;
+    --surface-2: #f7f9fc;
+    --border: #dde4ef;
+    --text: #16202e;
+    --text-2: #5b6980;
+    --accent: #0057b7;
+    --gold: #b98a00;
+    --up: #c2410c;
+    --chart-accent: #0057b7;
+    --chart-accent2: #d97706;
+    --chart-grid: #dde4ef;
+    --chart-text: #7c8aa0;
+    --shadow: 0 8px 24px rgb(22 32 46 / .08);
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: var(--font-sans); font-size: 16px; line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+
+  /* ---------- header ---------- */
+  header.site {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 86%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .site-inner { display: flex; align-items: center; gap: 14px; height: 60px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 17px; color: var(--text); white-space: nowrap; }
+  .brand:hover { text-decoration: none; }
+  .flag { width: 22px; height: 15px; border-radius: 3px; overflow: hidden; flex: none; box-shadow: 0 0 0 1px var(--border); }
+  .flag div:first-child { height: 50%; background: #0057b7; }
+  .flag div:last-child { height: 50%; background: #ffd700; }
+  .day-chip {
+    font-family: var(--font-mono); font-size: 12.5px; color: var(--text-2);
+    border: 1px solid var(--border); border-radius: 999px; padding: 3px 11px;
+    white-space: nowrap;
+  }
+  .spacer { flex: 1; }
+  .controls { display: flex; align-items: center; gap: 8px; }
+  select.lang {
+    appearance: none; background: var(--surface); color: var(--text);
+    border: 1px solid var(--border); border-radius: 8px; padding: 6px 28px 6px 10px;
+    font: 500 13.5px var(--font-sans); cursor: pointer;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" fill="none" stroke="%23888" stroke-width="1.5" stroke-linecap="round"/></svg>');
+    background-repeat: no-repeat; background-position: right 9px center;
+  }
+  .icon-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px; border-radius: 8px; cursor: pointer;
+    background: var(--surface); color: var(--text); border: 1px solid var(--border);
+  }
+  .icon-btn:hover { border-color: var(--accent); color: var(--accent); }
+  [data-theme="dark"] .only-dark { display: none; }
+  [data-theme="light"] .only-light { display: none; }
+
+  /* ---------- hero ---------- */
+  .hero { padding: 44px 0 8px; }
+  .hero-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 20px; align-items: stretch; }
+  .hero-main {
+    background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 14%, var(--surface)) 0%, var(--surface) 55%);
+    border: 1px solid var(--border); border-radius: 16px; padding: 26px 28px;
+    box-shadow: var(--shadow); position: relative; overflow: hidden;
+  }
+  .hero-main::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(600px 220px at 85% -20%, color-mix(in srgb, var(--gold) 14%, transparent), transparent 70%);
+  }
+  .kicker { text-transform: uppercase; letter-spacing: .14em; font-size: 12px; font-weight: 600; color: var(--text-2); margin: 0 0 4px; }
+  .big-number {
+    font-family: var(--font-mono); font-weight: 600; letter-spacing: -.01em;
+    font-size: clamp(46px, 7.2vw, 78px); line-height: 1.02; margin: 2px 0 4px;
+    font-variant-numeric: tabular-nums;
+  }
+  .hero-sub { color: var(--text-2); margin: 0; font-size: 15.5px; max-width: 46ch; }
+  .delta-badges { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
+  .delta {
+    font-family: var(--font-mono); font-size: 13px; font-weight: 600;
+    background: var(--surface-2); border: 1px solid var(--border);
+    border-radius: 999px; padding: 5px 12px; color: var(--up); white-space: nowrap;
+  }
+  .delta span { color: var(--text-2); font-family: var(--font-sans); font-weight: 500; margin-left: 5px; }
+  .hero-side { display: grid; grid-template-rows: 1fr 1fr; gap: 20px; }
+  .side-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+    padding: 18px 22px; box-shadow: var(--shadow);
+    display: flex; flex-direction: column; justify-content: center; gap: 2px;
+  }
+  .side-card .label { font-size: 13px; color: var(--text-2); font-weight: 600; text-transform: uppercase; letter-spacing: .1em; }
+  .side-card .value { font-family: var(--font-mono); font-size: clamp(26px, 3vw, 34px); font-weight: 600; font-variant-numeric: tabular-nums; }
+  .side-card .foot { font-size: 13.5px; color: var(--text-2); }
+  .updated-line { display:flex; align-items:center; gap: 8px; margin: 18px 2px 0; font-size: 13.5px; color: var(--text-2); }
+  .pulse { width: 8px; height: 8px; border-radius: 50%; background: #34c07c; flex: none; animation: pulse 2.2s infinite; }
+  @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgb(52 192 124 / .5); } 55% { box-shadow: 0 0 0 7px rgb(52 192 124 / 0); } }
+
+  /* ---------- stat grid ---------- */
+  section { padding: 26px 0; }
+  h2.sec { font-size: 21px; margin: 0 0 16px; letter-spacing: -.01em; }
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; }
+  .stat {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    padding: 15px 17px 13px; cursor: pointer; text-align: left; color: inherit; font: inherit;
+    transition: transform .15s ease, border-color .15s ease; position: relative;
+  }
+  .stat:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--accent) 55%, var(--border)); }
+  .stat[aria-pressed="true"] { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+  .stat-top { display: flex; align-items: center; gap: 9px; color: var(--text-2); font-size: 13.5px; font-weight: 600; }
+  .stat-top .ic { color: var(--accent); flex: none; }
+  .stat-num { font-family: var(--font-mono); font-size: 26px; font-weight: 600; margin: 7px 0 1px; font-variant-numeric: tabular-nums; }
+  .stat-delta { font-size: 12.5px; color: var(--up); font-family: var(--font-mono); font-weight: 600; }
+  .stat-delta i { color: var(--text-2); font-style: normal; font-family: var(--font-sans); font-weight: 500; }
+  .stat .spark-box { position: absolute; right: 14px; bottom: 12px; width: 88px; opacity: .8; }
+
+  /* ---------- chart ---------- */
+  .panel {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; padding: 20px 22px; box-shadow: var(--shadow);
+  }
+  .panel-head { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+  .panel-title { font-size: 18px; font-weight: 700; margin: 0; }
+  .seg { display: inline-flex; background: var(--surface-2); border: 1px solid var(--border); border-radius: 9px; padding: 3px; }
+  .seg button {
+    border: 0; background: transparent; color: var(--text-2); font: 600 13px var(--font-sans);
+    padding: 6px 12px; border-radius: 7px; cursor: pointer;
+  }
+  .seg button[aria-pressed="true"] { background: var(--surface); color: var(--text); box-shadow: 0 1px 4px rgb(0 0 0 / .18); }
+  .chart-tip {
+    position: absolute; pointer-events: none; background: var(--surface);
+    border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px;
+    box-shadow: var(--shadow); font-size: 12.5px; display: flex; flex-direction: column;
+  }
+  .chart-tip strong { font-family: var(--font-mono); font-size: 14px; }
+  .chart-tip span { color: var(--text-2); }
+
+  /* ---------- resources ---------- */
+  .res-intro { color: var(--text-2); margin: -8px 0 16px; }
+  .res-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+  .res {
+    display: flex; gap: 14px; align-items: flex-start;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    padding: 16px 18px; color: inherit; transition: transform .15s ease, border-color .15s ease;
+  }
+  .res:hover { text-decoration: none; transform: translateY(-2px); border-color: color-mix(in srgb, var(--accent) 55%, var(--border)); }
+  .res .ic { color: var(--accent); flex: none; margin-top: 2px; }
+  .res b { display: flex; align-items: center; gap: 6px; font-size: 15.5px; }
+  .res b .ic { width: 13px; height: 13px; color: var(--text-2); }
+  .res p { margin: 3px 0 0; font-size: 13.5px; color: var(--text-2); }
+
+  /* ---------- footer ---------- */
+  footer.site {
+    border-top: 1px solid var(--border); margin-top: 28px; padding: 30px 0 44px;
+    background: var(--bg-2); color: var(--text-2); font-size: 14px;
+  }
+  footer .cols { display: grid; grid-template-columns: 1.6fr 1fr; gap: 30px; }
+  footer h3 { color: var(--text); font-size: 15px; margin: 0 0 8px; }
+  footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+
+  @media (max-width: 880px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-side { grid-template-rows: none; grid-template-columns: 1fr 1fr; }
+    footer .cols { grid-template-columns: 1fr; }
+    .day-chip { display: none; }
+  }
+  @media (max-width: 560px) {
+    .hero-side { grid-template-columns: 1fr; }
+    .stat .spark-box { width: 70px; }
+  }
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap site-inner">
+    <a class="brand" href="#">
+      <span class="flag"><div></div><div></div></span>
+      <span data-i18n="title">Russian Losses in Ukraine</span>
+    </a>
+    <span class="day-chip" id="dayChip"></span>
+    <div class="spacer"></div>
+    <div class="controls">
+      <select class="lang" id="langSel" aria-label="Language"></select>
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">
+        <span class="only-dark" id="sunIc"></span>
+        <span class="only-light" id="moonIc"></span>
+      </button>
+      <a class="icon-btn" href="https://github.com/lod-db/orc-losses" aria-label="GitHub" id="ghBtn"></a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-main">
+        <p class="kicker" id="heroKicker"></p>
+        <div class="big-number" id="heroNumber">—</div>
+        <p class="hero-sub" id="heroSub"></p>
+        <div class="delta-badges" id="heroDeltas"></div>
+      </div>
+      <div class="hero-side">
+        <div class="side-card">
+          <span class="label" id="eqLabel"></span>
+          <span class="value" id="eqValue">—</span>
+          <span class="foot" id="eqFoot"></span>
+        </div>
+        <div class="side-card">
+          <span class="label" id="lenLabel"></span>
+          <span class="value" id="lenValue">—</span>
+          <span class="foot" id="lenFoot"></span>
+        </div>
+      </div>
+    </div>
+    <div class="updated-line">
+      <span class="pulse"></span>
+      <span id="updatedLine"></span>
+      <a id="srcLink" target="_blank" rel="noopener"></a>
+    </div>
+  </section>
+
+  <section id="losses">
+    <h2 class="sec" id="lossesTitle"></h2>
+    <div class="stat-grid" id="statGrid"></div>
+  </section>
+
+  <section id="trends">
+    <div class="panel">
+      <div class="panel-head">
+        <h2 class="panel-title" id="chartTitle"></h2>
+        <div class="spacer"></div>
+        <div class="seg" id="modeSeg"></div>
+        <div class="seg" id="rangeSeg"></div>
+      </div>
+      <div id="mainChart"></div>
+    </div>
+  </section>
+
+  <section id="resources">
+    <h2 class="sec" id="resTitle"></h2>
+    <p class="res-intro" id="resIntro"></p>
+    <div class="res-grid" id="resGrid"></div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap cols">
+    <div>
+      <h3 id="footSrcTitle"></h3>
+      <p id="footDisclaimer"></p>
+    </div>
+    <div>
+      <h3 id="footLinksTitle"></h3>
+      <ul id="footLinks"></ul>
+    </div>
+  </div>
+</footer>
+
+<script src="../shared/i18n.js"></script>
+<script src="../shared/theme.js"></script>
+<script src="../shared/icons.js"></script>
+<script src="../shared/data.js"></script>
+<script src="../shared/charts.js"></script>
+<script>
+"use strict";
+initTheme("dark"); // dashboard is dark-first
+document.documentElement.lang = CURRENT_LANG;
+
+document.getElementById("sunIc").innerHTML = icon("sun", 18);
+document.getElementById("moonIc").innerHTML = icon("moon", 18);
+document.getElementById("ghBtn").innerHTML = icon("github", 18);
+wireThemeToggle(document.getElementById("themeBtn"));
+buildLangSelect(document.getElementById("langSel"));
+
+const CARD_ORDER = [
+  "personnel","tanks","afvs","artillery","rocketSystems","airDefense",
+  "fixedWingAircraft","rotaryWingAircraft","uavs","missiles","ships",
+  "submarines","unarmoredVehicles","specialEquipment",
+];
+
+const RESOURCES = [
+  { name: "DeepStateMap", url: "https://deepstatemap.live", ic: "map", tKey: "resDeepstate" },
+  { name: "Oryx", url: "https://www.oryxspioenkop.com", ic: "eye", tKey: "resOryx" },
+  { name: "Ukraine Oversight", url: "https://www.ukraineoversight.gov", ic: "doc", tKey: "resOversight" },
+  { name: "war.ukraine.ua", url: "https://war.ukraine.ua", ic: "shield", tKey: "resUkraine" },
+  { name: "mod.gov.ua", url: "https://mod.gov.ua", ic: "check", tKey: "resMod" },
+];
+
+function countUp(el, target, ms = 1100) {
+  if (STATIC_MODE) { el.textContent = fmtNum(target); return; }
+  const start = performance.now();
+  function tick(now) {
+    const p = Math.min(1, (now - start) / ms);
+    const eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = fmtNum(Math.round(target * eased));
+    if (p < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+let STATS, selKey = "personnel", selMode = "cum", selRange = "all";
+
+function renderHero() {
+  applyI18nAttrs();
+  const c = STATS.cats.personnel;
+  document.getElementById("heroKicker").textContent = t("personnel") + " · " + t("totalLosses").toLowerCase();
+  countUp(document.getElementById("heroNumber"), c.total);
+  document.getElementById("heroSub").textContent = t("tagline");
+  const deltas = document.getElementById("heroDeltas");
+  deltas.innerHTML = "";
+  for (const [v, label] of [[c.d1, t("today")], [c.d7, t("past7")], [c.d30, t("past30")]]) {
+    if (v == null) continue;
+    const b = document.createElement("span");
+    b.className = "delta";
+    b.innerHTML = `+${fmtNum(v)}<span>${label}</span>`;
+    deltas.appendChild(b);
+  }
+  document.getElementById("eqLabel").textContent = t("equipmentPieces");
+  countUp(document.getElementById("eqValue"), STATS.equipmentTotal);
+  document.getElementById("eqFoot").textContent = `+${fmtNum(STATS.equipmentToday)} ${t("today")}`;
+  document.getElementById("lenLabel").textContent = t("warLength");
+  document.getElementById("lenValue").textContent = fmtNum(STATS.dayOfWar) + " " + t("days");
+  document.getElementById("lenFoot").textContent = fmtDate("2022-02-24") + " →";
+  document.getElementById("dayChip").textContent = t("dayOfWar", { n: fmtNum(STATS.dayOfWar) });
+  document.getElementById("updatedLine").textContent = `${t("updated")} ${fmtDate(STATS.latest.date)} · ${t("sourceMod")} — `;
+  const src = document.getElementById("srcLink");
+  src.href = STATS.latest.sourceUri;
+  src.textContent = "mod.gov.ua";
+}
+
+function renderStats() {
+  document.getElementById("lossesTitle").textContent = t("totalLosses");
+  const grid = document.getElementById("statGrid");
+  grid.innerHTML = "";
+  for (const key of CARD_ORDER) {
+    const c = STATS.cats[key];
+    const btn = document.createElement("button");
+    btn.className = "stat";
+    btn.setAttribute("aria-pressed", key === selKey ? "true" : "false");
+    btn.innerHTML = `
+      <div class="stat-top">${icon(c.icon, 20)}<span>${t(key)}</span></div>
+      <div class="stat-num">${fmtNum(c.total)}</div>
+      <div class="stat-delta">${c.d1 > 0 ? "+" + fmtNum(c.d1) : "±0"} <i>${t("today")}</i></div>
+      <div class="spark-box"></div>`;
+    btn.addEventListener("click", () => {
+      selKey = key;
+      renderStats(); renderChart();
+      document.getElementById("trends").scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+    grid.appendChild(btn);
+    sparkline(btn.querySelector(".spark-box"), STATS.series(key).slice(-120));
+  }
+}
+
+function seg(el, options, current, onPick) {
+  el.innerHTML = "";
+  for (const [val, label] of options) {
+    const b = document.createElement("button");
+    b.textContent = label;
+    b.setAttribute("aria-pressed", val === current ? "true" : "false");
+    b.addEventListener("click", () => onPick(val));
+    el.appendChild(b);
+  }
+}
+
+function renderChart() {
+  document.getElementById("chartTitle").textContent =
+    t(selKey) + " — " + (selMode === "cum" ? t("cumulative") : t("dailyLosses"));
+  seg(document.getElementById("modeSeg"),
+    [["cum", t("cumulative")], ["daily", t("daily")]], selMode,
+    (v) => { selMode = v; renderChart(); });
+  seg(document.getElementById("rangeSeg"),
+    [["30", t("range30")], ["90", t("range90")], ["1y", t("range1y")], ["all", t("rangeAll")]], selRange,
+    (v) => { selRange = v; renderChart(); });
+  const box = document.getElementById("mainChart");
+  if (selMode === "cum") {
+    areaChart(box, sliceRange(STATS.series(selKey), selRange));
+  } else {
+    barChart(box, sliceRange(STATS.dailySeries(selKey), selRange), { height: 300 });
+  }
+}
+
+function renderResources() {
+  document.getElementById("resTitle").textContent = t("resources");
+  document.getElementById("resIntro").textContent = t("resourcesIntro");
+  const grid = document.getElementById("resGrid");
+  grid.innerHTML = "";
+  for (const r of RESOURCES) {
+    const a = document.createElement("a");
+    a.className = "res"; a.href = r.url; a.target = "_blank"; a.rel = "noopener";
+    a.innerHTML = `${icon(r.ic, 26)}<span><b>${r.name} ${icon("external", 13)}</b><p>${t(r.tKey)}</p></span>`;
+    grid.appendChild(a);
+  }
+  document.getElementById("footSrcTitle").textContent = t("sources");
+  document.getElementById("footDisclaimer").textContent = t("disclaimer");
+  document.getElementById("footLinksTitle").textContent = t("openData");
+  document.getElementById("footLinks").innerHTML = `
+    <li><a href="https://github.com/lod-db/orc-losses" target="_blank" rel="noopener">github.com/lod-db/orc-losses</a></li>
+    <li><a href="https://mod.gov.ua" target="_blank" rel="noopener">${t("sourceMod")}</a></li>`;
+}
+
+document.addEventListener("themechange", () => { renderChart(); renderStats(); });
+
+loadLossData("../../russian-losses.json").then((stats) => {
+  STATS = stats;
+  renderHero(); renderStats(); renderChart(); renderResources();
+});
+</script>
+</body>
+</html>
