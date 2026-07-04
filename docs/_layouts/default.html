@@ -64,15 +64,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
     <link href="/css/app.css" rel="stylesheet">
 
-    <meta name="twitter:card" content="summary_large_image">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="{{ lang.title }}">
+    <meta property="og:site_name" content="{{ lang.page-title }}">
+    <meta property="og:locale" content="{{ lang.slug | replace: '-', '_' }}">
+    {% for l in site.data.translations %}{% unless l.slug == lang.slug %}<meta property="og:locale:alternate" content="{{ l.slug | replace: '-', '_' }}">
+    {% endunless %}{% endfor %}<meta property="og:title" content="{{ lang.title }}">
     <meta property="og:description" content="{{ lang.description }}">
     <meta property="og:url" content="{{ canonical_url }}">
     <meta property="og:image" content="https://www.ukrainewarlosses.com/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="{{ lang.title }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ lang.title }}">
+    <meta name="twitter:description" content="{{ lang.description }}">
     <meta name="twitter:image" content="https://www.ukrainewarlosses.com/og-image.png">
+    <meta name="twitter:image:alt" content="{{ lang.title }}">
 
     <script>
         // Apply persisted theme before first paint to avoid a flash.
@@ -114,6 +121,32 @@
       "schemaVersion": "https://www.ukrainewarlosses.com/assets/schema/{{ lang.schema }}",
       "datePublished": "2022-02-24",
       "dateModified": "{{ current.date }}",
+      "temporalCoverage": "2022-02-24/{{ current.date }}",
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Ukraine"
+      },
+      "creator": {
+        "@type": "Organization",
+        "name": "Orc Losses",
+        "url": "https://github.com/lod-db/orc-losses"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Orc Losses",
+        "url": "https://www.ukrainewarlosses.com"
+      },
+      "isBasedOn": "https://mod.gov.ua",
+      "citation": "{{ lang.ua-min-def }} — mod.gov.ua",
+      "variableMeasured": [
+        {% for cat in site.data.categories %}{
+          "@type": "PropertyValue",
+          "name": "{{ lang[cat.label] }}",
+          "value": {{ current[cat.key] | default: 0 }},
+          "unitText": "cumulative since 2022-02-24"
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ],
       "isAccessibleForFree": true
     }
     </script>
@@ -174,6 +207,7 @@
         <section class="hero" aria-label="{{ lang.line-title }}">
             <div class="hero-grid">
                 <div class="hero-main">
+                    <h1 class="hero-title">{{ lang.page-title }}</h1>
                     <p class="kicker">{{ lang.personnel-label }} · {{ lang.line-title }}</p>
                     <div class="big-number" id="hero-number" data-value="{{ p_total }}">{% include fmt-number.html number=p_total sep=sep %}</div>
                     <p class="hero-sub">{{ lang.tagline }}</p>

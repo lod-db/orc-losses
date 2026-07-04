@@ -114,6 +114,7 @@ select.lang-select {
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background: radial-gradient(600px 220px at 85% -20%, color-mix(in srgb, var(--gold) 14%, transparent), transparent 70%);
 }
+.hero-title { font-size: 23px; font-weight: 700; letter-spacing: -.01em; margin: 0 0 14px; }
 .kicker {
   text-transform: uppercase; letter-spacing: .14em; font-size: 12px;
   font-weight: 600; color: var(--text-2); margin: 0 0 4px;
