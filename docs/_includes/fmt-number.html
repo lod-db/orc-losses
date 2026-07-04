@@ -1,0 +1,24 @@
+{%- comment -%}
+Formats an integer with locale thousands separators, server-side.
+Usage: {% include fmt-number.html number=1405900 sep=lang.number-separator %}
+{%- endcomment -%}
+{%- assign n = include.number | plus: 0 -%}
+{%- assign sep = include.sep | default: "," -%}
+{%- assign out = "" -%}
+{%- for i in (1..8) -%}
+  {%- assign rem = n | modulo: 1000 -%}
+  {%- assign n = n | divided_by: 1000 -%}
+  {%- if n > 0 -%}
+    {%- if rem < 10 -%}{%- assign grp = rem | prepend: "00" -%}
+    {%- elsif rem < 100 -%}{%- assign grp = rem | prepend: "0" -%}
+    {%- else -%}{%- assign grp = rem | append: "" -%}{%- endif -%}
+  {%- else -%}
+    {%- assign grp = rem | append: "" -%}
+  {%- endif -%}
+  {%- if out == "" -%}
+    {%- assign out = grp -%}
+  {%- else -%}
+    {%- assign out = grp | append: sep | append: out -%}
+  {%- endif -%}
+  {%- if n == 0 -%}{%- break -%}{%- endif -%}
+{%- endfor -%}{{ out }}

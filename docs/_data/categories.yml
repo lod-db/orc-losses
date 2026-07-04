@@ -1,69 +1,88 @@
+# Loss categories in display order.
+#   key:       property name in russian-losses.json
+#   label:     translation key in translations.yml
+#   icon:      icon name in _includes/icon.html
+#   equipment: counts toward the equipment total
 - id: personnel
   key: personnel
   label: personnel-label
   icon: helmet
-
-- id: artillery
-  key: artillery
-  label: artillery-label
-  icon: artillery
-
-- id: jets
-  key: fixedWingAircraft
-  label: jets-label
-  icon: jet
-
-- id: helicopters
-  key: rotaryWingAircraft
-  label: helicopters-label
-  icon: helicopter
+  equipment: false
 
 - id: tanks
   key: tanks
   label: tanks-label
   icon: tank
+  equipment: true
 
 - id: afvs
   key: afvs
   label: afvs-label
   icon: afv
+  equipment: true
+
+- id: artillery
+  key: artillery
+  label: artillery-label
+  icon: artillery
+  equipment: true
 
 - id: mlrs
   key: rocketSystems
   label: mlrs-label
   icon: mlrs
+  equipment: true
 
 - id: aa
   key: airDefense
   label: aa-label
   icon: radar
+  equipment: true
 
-- id: ships
-  key: ships
-  label: ships-label
-  icon: ship
+- id: jets
+  key: fixedWingAircraft
+  label: jets-label
+  icon: jet
+  equipment: true
 
-- id: submarines
-  key: submarines
-  label: submarines-label
-  icon: submarine
-
-- id: vehicles
-  key: unarmoredVehicles
-  label: vehicles-label
-  icon: vehicle
-
-- id: special
-  key: specialEquipment
-  label: special-label
-  icon: bulldozer
+- id: helicopters
+  key: rotaryWingAircraft
+  label: helicopters-label
+  icon: helicopter
+  equipment: true
 
 - id: uavs
   key: uavs
   label: uavs-label
   icon: uav
+  equipment: true
 
 - id: missiles
   key: missiles
   label: missiles-label
   icon: missile
+  equipment: true
+
+- id: ships
+  key: ships
+  label: ships-label
+  icon: ship
+  equipment: true
+
+- id: submarines
+  key: submarines
+  label: submarines-label
+  icon: submarine
+  equipment: true
+
+- id: vehicles
+  key: unarmoredVehicles
+  label: vehicles-label
+  icon: truck
+  equipment: true
+
+- id: special
+  key: specialEquipment
+  label: special-label
+  icon: dozer
+  equipment: true
