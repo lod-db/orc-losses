@@ -16,7 +16,7 @@
   range-1y-label: 1 yr
   range-all-label: All
   follow-title: Follow the war
-  follow-intro: Independent, credible places to go deeper.
+  follow-intro: Trusted places to follow the war more closely.
   sources-methodology-label: Sources & Methodology
   close-label: Close
   schema: russian-losses.en.schema.json
@@ -99,7 +99,7 @@
   range-1y-label: 1 yr
   range-all-label: All
   follow-title: Follow the war
-  follow-intro: Independent, credible places to go deeper.
+  follow-intro: Trusted places to follow the war more closely.
   sources-methodology-label: Sources & Methodology
   close-label: Close
   schema: russian-losses.en.schema.json
@@ -182,7 +182,7 @@
   range-1y-label: 1 an
   range-all-label: Tout
   follow-title: Suivre la guerre
-  follow-intro: Des ressources indépendantes et crédibles pour approfondir.
+  follow-intro: Des ressources fiables pour suivre la guerre de plus près.
   sources-methodology-label: Sources et méthodologie
   close-label: Fermer
   schema: pertes-russes.fr.schema.json
@@ -265,7 +265,7 @@
   range-1y-label: 1 Jahr
   range-all-label: Alles
   follow-title: Den Krieg verfolgen
-  follow-intro: Unabhängige, glaubwürdige Quellen zum Vertiefen.
+  follow-intro: Verlässliche Quellen, um den Krieg näher zu verfolgen.
   sources-methodology-label: Quellen & Methodik
   close-label: Schließen
   schema: russische-verluste.de.schema.json
@@ -348,7 +348,7 @@
   range-1y-label: 1 рік
   range-all-label: Все
   follow-title: Слідкуйте за війною
-  follow-intro: Незалежні, надійні джерела для глибшого розуміння.
+  follow-intro: Перевірені ресурси, щоб стежити за війною ближче.
   sources-methodology-label: Джерела та методологія
   close-label: Закрити
   schema: втрати-росії.uk.schema.json
@@ -431,7 +431,7 @@
   range-1y-label: 1 год
   range-all-label: Всё
   follow-title: Следить за войной
-  follow-intro: Независимые, надёжные источники для более глубокого изучения.
+  follow-intro: Проверенные ресурсы, чтобы следить за войной ближе.
   sources-methodology-label: Источники и методология
   close-label: Закрыть
   schema: потери-россии.ru.schema.json

@@ -203,7 +203,7 @@ h2.sec { font-size: 21px; margin: 0 0 16px; letter-spacing: -.01em; }
 .res > .ic { color: var(--accent); flex: none; margin-top: 2px; }
 .res b { display: flex; align-items: center; gap: 6px; font-size: 15.5px; }
 .res b .ic { width: 13px; height: 13px; color: var(--text-2); flex: none; }
-.res p { margin: 3px 0 0; font-size: 13.5px; color: var(--text-2); }
+.res p { margin: 8px 0 0; font-size: 13.5px; color: var(--text-2); }
 
 /* ---------- footer ---------- */
 footer.site {
