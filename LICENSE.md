@@ -1,13 +1,6 @@
-# License
-
-This software is covered by multiple licenses.
-
-Unless otherwise specified, the project is licensed under the MIT license.
-See the LICENSE file in each directory for applicable licenses.
-
-
-
 MIT License
+
+Copyright (c) 2022-2026 Lod Softworks LLC and the Orc Losses contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

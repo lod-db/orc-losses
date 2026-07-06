@@ -1,5 +1,24 @@
 - name: English (US)
   slug: en-US
+  page: /
+  number-separator: ","
+  tagline: Daily-updated tracker of Russian personnel and equipment losses, from official reports of the Ministry of Defense of Ukraine.
+  day-of-war: Day %n of the full-scale invasion
+  updated-label: Updated
+  today-label: today
+  past7-label: past 7 days
+  past30-label: past 30 days
+  equipment-total-label: Pieces of equipment
+  cumulative-label: Cumulative
+  daily-label: Daily
+  range-30-label: 30 days
+  range-90-label: 90 days
+  range-1y-label: 1 yr
+  range-all-label: All
+  follow-title: Follow the war
+  follow-intro: Trusted places to follow the war more closely.
+  sources-methodology-label: Sources & Methodology
+  close-label: Close
   schema: russian-losses.en.schema.json
   title: Russian Losses in Ukraine – Casualties and Equipment Losses
   description: Track the latest Russian casualties and equipment losses in Russia’s war on Ukraine since the start of the 2022 full-scale invasion.
@@ -34,7 +53,6 @@
   view-on-github-label: View on
   share-label: Share
   tos-label: Terms of Use
-  attributions-label: Attribution
   ua-min-def: Ministry of Defense of Ukraine
   os-open-data: Open Data
   os-disclaimer-p1-1: The dataset is sourced from the
@@ -65,6 +83,25 @@
 
 - name: English (UK)
   slug: en-GB
+  page: /uk
+  number-separator: ","
+  tagline: Daily-updated tracker of Russian personnel and equipment losses, from official reports of the Ministry of Defence of Ukraine.
+  day-of-war: Day %n of the full-scale invasion
+  updated-label: Updated
+  today-label: today
+  past7-label: past 7 days
+  past30-label: past 30 days
+  equipment-total-label: Pieces of equipment
+  cumulative-label: Cumulative
+  daily-label: Daily
+  range-30-label: 30 days
+  range-90-label: 90 days
+  range-1y-label: 1 yr
+  range-all-label: All
+  follow-title: Follow the war
+  follow-intro: Trusted places to follow the war more closely.
+  sources-methodology-label: Sources & Methodology
+  close-label: Close
   schema: russian-losses.en.schema.json
   title: Russian Losses in Ukraine – Casualties and Equipment Losses
   description: Track the latest Russian casualties and equipment losses in Russia’s war on Ukraine since the start of the 2022 full-scale invasion.
@@ -99,7 +136,6 @@
   view-on-github-label: View on
   share-label: Share
   tos-label: Terms of Use
-  attributions-label: Attribution
   ua-min-def: Ministry of Defence of Ukraine
   os-open-data: Open Data
   os-disclaimer-p1-1: The dataset is sourced from the
@@ -130,6 +166,25 @@
 
 - name: Français
   slug: fr-FR
+  page: /fr
+  number-separator: " "
+  tagline: Suivi quotidien des pertes russes en personnel et en équipement, d'après les rapports officiels du ministère de la Défense de l'Ukraine.
+  day-of-war: Jour %n de l'invasion à grande échelle
+  updated-label: Mis à jour
+  today-label: aujourd'hui
+  past7-label: 7 derniers jours
+  past30-label: 30 derniers jours
+  equipment-total-label: Pièces d'équipement
+  cumulative-label: Cumulé
+  daily-label: Quotidien
+  range-30-label: 30 jours
+  range-90-label: 90 jours
+  range-1y-label: 1 an
+  range-all-label: Tout
+  follow-title: Suivre la guerre
+  follow-intro: Des ressources fiables pour suivre la guerre de plus près.
+  sources-methodology-label: Sources et méthodologie
+  close-label: Fermer
   schema: pertes-russes.fr.schema.json
   title: Pertes russes en Ukraine – Pertes humaines et matérielles
   description: Suivez les dernières pertes russes en personnel et en équipement dans la guerre de la Russie contre l'Ukraine depuis le début de l'invasion à grande échelle en 2022.
@@ -164,7 +219,6 @@
   view-on-github-label: Voir sur
   share-label: Partager
   tos-label: Conditions d'utilisation
-  attributions-label: Attribution
   ua-min-def: Ministère de la Défense de l'Ukraine
   os-open-data: Données ouvertes
   os-disclaimer-p1-1: L'ensemble de données provient du
@@ -195,6 +249,25 @@
 
 - name: Deutsch
   slug: de-DE
+  page: /de
+  number-separator: "."
+  tagline: Täglich aktualisierte Übersicht der russischen Verluste an Personal und Ausrüstung, nach offiziellen Berichten des Verteidigungsministeriums der Ukraine.
+  day-of-war: Tag %n der groß angelegten Invasion
+  updated-label: Aktualisiert
+  today-label: heute
+  past7-label: letzte 7 Tage
+  past30-label: letzte 30 Tage
+  equipment-total-label: Ausrüstungsgegenstände
+  cumulative-label: Kumuliert
+  daily-label: Täglich
+  range-30-label: 30 Tage
+  range-90-label: 90 Tage
+  range-1y-label: 1 Jahr
+  range-all-label: Alles
+  follow-title: Den Krieg verfolgen
+  follow-intro: Verlässliche Quellen, um den Krieg näher zu verfolgen.
+  sources-methodology-label: Quellen & Methodik
+  close-label: Schließen
   schema: russische-verluste.de.schema.json
   title: Russische Verluste in der Ukraine – Verluste an Personal und Ausrüstung
   description: Verfolgen Sie die neuesten russischen Verluste an Personal und Ausrüstung im Krieg Russlands gegen die Ukraine seit Beginn der groß angelegten Invasion im Jahr 2022.
@@ -229,7 +302,6 @@
   view-on-github-label: Ansehen auf
   share-label: Teilen
   tos-label: Nutzungsbedingungen
-  attributions-label: Quellenangaben
   ua-min-def: Verteidigungsministerium der Ukraine
   os-open-data: Offene Daten
   os-disclaimer-p1-1: Der Datensatz stammt vom
@@ -260,6 +332,25 @@
 
 - name: Українська
   slug: uk-UA
+  page: /ua
+  number-separator: " "
+  tagline: Щоденний трекер втрат Росії в живій силі та техніці за офіційними звітами Міністерства оборони України.
+  day-of-war: День %n повномасштабного вторгнення
+  updated-label: Оновлено
+  today-label: сьогодні
+  past7-label: за 7 днів
+  past30-label: за 30 днів
+  equipment-total-label: Одиниць техніки
+  cumulative-label: Накопичено
+  daily-label: Щоденно
+  range-30-label: 30 днів
+  range-90-label: 90 днів
+  range-1y-label: 1 рік
+  range-all-label: Все
+  follow-title: Слідкуйте за війною
+  follow-intro: Перевірені ресурси, щоб стежити за війною ближче.
+  sources-methodology-label: Джерела та методологія
+  close-label: Закрити
   schema: втрати-росії.uk.schema.json
   title: Втрати Росії в Україні – Втрати особового складу та техніки
   description: Відстежуйте останні втрати Росії в живій силі та техніці у війні проти України з початку повномасштабного вторгнення у 2022 році.
@@ -294,7 +385,6 @@
   view-on-github-label: Переглянути на
   share-label: Поширити
   tos-label: Умови використання
-  attributions-label: Джерела інформації
   ua-min-def: Міністерства оборони України
   os-open-data: Відкриті дані
   os-disclaimer-p1-1: Набір даних отримано з
@@ -325,6 +415,25 @@
 
 - name: Русский
   slug: ru-RU
+  page: /ru
+  number-separator: " "
+  tagline: Ежедневно обновляемый трекер потерь России в живой силе и технике по официальным отчётам Министерства обороны Украины.
+  day-of-war: День %n полномасштабного вторжения
+  updated-label: Обновлено
+  today-label: сегодня
+  past7-label: за 7 дней
+  past30-label: за 30 дней
+  equipment-total-label: Единиц техники
+  cumulative-label: Накоплено
+  daily-label: Ежедневно
+  range-30-label: 30 дней
+  range-90-label: 90 дней
+  range-1y-label: 1 год
+  range-all-label: Всё
+  follow-title: Следить за войной
+  follow-intro: Проверенные ресурсы, чтобы следить за войной ближе.
+  sources-methodology-label: Источники и методология
+  close-label: Закрыть
   schema: потери-россии.ru.schema.json
   title: Потери России в Украине – Потери личного состава и техники
   description: Отслеживайте последние потери России в живой силе и технике в войне против Украины с начала полномасштабного вторжения в 2022 году.
@@ -359,7 +468,6 @@
   view-on-github-label: Смотреть на
   share-label: Поделиться
   tos-label: Условия использования
-  attributions-label: Источники
   ua-min-def: Министерства обороны Украины
   os-open-data: Открытые данные
   os-disclaimer-p1-1: Набор данных получен из

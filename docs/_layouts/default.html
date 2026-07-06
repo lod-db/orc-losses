@@ -1,9 +1,30 @@
 <!DOCTYPE html>
 {% assign lang = site.data.translations | where_exp:"item", "item.slug == page.lang" | first %}
-<html lang="{{ lang.slug }}">
 {% assign losses = site.data.russian-losses %}
-{% assign current = losses | slice: 0 | first %}
-{% assign previous = losses | slice: 1 | first %}
+{% assign current = losses[0] %}
+{% assign prev = losses[1] %}
+{% assign week = losses[7] %}
+{% assign month = losses[30] %}
+{% assign sep = lang.number-separator %}
+{% assign start_s = "2022-02-24" | date: "%s" | plus: 0 %}
+{% assign current_s = current.date | date: "%s" | plus: 0 %}
+{% assign day_of_war = current_s | minus: start_s | divided_by: 86400 | plus: 1 %}
+{% assign equipment_total = 0 %}{% assign equipment_prev = 0 %}
+{% for cat in site.data.categories %}
+  {%- if cat.equipment -%}
+    {%- assign v = current[cat.key] | default: 0 -%}
+    {%- assign pv = prev[cat.key] | default: 0 -%}
+    {%- assign equipment_total = equipment_total | plus: v -%}
+    {%- assign equipment_prev = equipment_prev | plus: pv -%}
+  {%- endif -%}
+{% endfor %}
+{% assign equipment_today = equipment_total | minus: equipment_prev %}
+{% assign p_total = current.personnel %}
+{% assign p_d1 = current.personnel | minus: prev.personnel %}
+{% assign p_d7 = current.personnel | minus: week.personnel %}
+{% assign p_d30 = current.personnel | minus: month.personnel %}
+<html lang="{{ lang.slug }}" data-theme="dark">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,7 +33,8 @@
     <meta name="description" content="{{ lang.description }}">
     <meta name="keywords" content="{{ lang.keywords }}">
     <meta name="revised" content="{{ current.date }}">
-    <meta name="theme-color" content="#0056B9">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b0f17">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f4f6fa">
     <meta http-equiv="Cache-Control" content="max-age=28800">
     {% assign canonical_path = page.url | replace: 'index.html', '' | replace: '.html', '' %}
     {% if canonical_path == '/' %}
@@ -36,15 +58,38 @@
     <link rel="apple-touch-icon" type="image/png" sizes="167x167" href="/favicon-167x167.png">
     <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/favicon-180x180.png">
 
-    <link rel="preload" href="/assets/russian-losses.json" as="fetch" type="application/json" crossorigin />
+    <link rel="preload" href="/assets/russian-losses.json" as="fetch" type="application/json" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
 
-    <meta name="twitter:card" content="summary">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="{{ lang.title }}">
+    <meta property="og:site_name" content="{{ lang.page-title }}">
+    <meta property="og:locale" content="{{ lang.slug | replace: '-', '_' }}">
+    {% for l in site.data.translations %}{% unless l.slug == lang.slug %}<meta property="og:locale:alternate" content="{{ l.slug | replace: '-', '_' }}">
+    {% endunless %}{% endfor %}<meta property="og:title" content="{{ lang.title }}">
     <meta property="og:description" content="{{ lang.description }}">
     <meta property="og:url" content="{{ canonical_url }}">
-    <meta property="og:image" content="https://www.ukrainewarlosses.com/favicon-512x512.png">
-    <meta name="twitter:image" content="https://www.ukrainewarlosses.com/favicon-512x512.png">
+    <meta property="og:image" content="https://www.ukrainewarlosses.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="{{ lang.title }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ lang.title }}">
+    <meta name="twitter:description" content="{{ lang.description }}">
+    <meta name="twitter:image" content="https://www.ukrainewarlosses.com/og-image.png">
+    <meta name="twitter:image:alt" content="{{ lang.title }}">
+
+    <script>
+        // Apply persisted theme before first paint to avoid a flash.
+        (function () {
+            try {
+                var t = localStorage.getItem('uwl-theme');
+                if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+            } catch (e) { /* storage unavailable */ }
+        })();
+    </script>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F1BE3PCJV2"></script>
@@ -55,11 +100,6 @@
 
         gtag('config', 'G-F1BE3PCJV2');
     </script>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" rel="stylesheet"
-        crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link href="/css/site.css" rel="stylesheet">
 
     {% assign keywords = lang.keywords | split: ", " %}
     <script type="application/ld+json">
@@ -80,7 +120,33 @@
       },
       "schemaVersion": "https://www.ukrainewarlosses.com/assets/schema/{{ lang.schema }}",
       "datePublished": "2022-02-24",
-      "dateModified": "{{ site.time | date: "%Y-%m-%d" }}",
+      "dateModified": "{{ current.date }}",
+      "temporalCoverage": "2022-02-24/{{ current.date }}",
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Ukraine"
+      },
+      "creator": {
+        "@type": "Organization",
+        "name": "Orc Losses",
+        "url": "https://github.com/lod-db/orc-losses"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Orc Losses",
+        "url": "https://www.ukrainewarlosses.com"
+      },
+      "isBasedOn": "https://mod.gov.ua",
+      "citation": "{{ lang.ua-min-def }} — mod.gov.ua",
+      "variableMeasured": [
+        {% for cat in site.data.categories %}{
+          "@type": "PropertyValue",
+          "name": "{{ lang[cat.label] }}",
+          "value": {{ current[cat.key] | default: 0 }},
+          "unitText": "cumulative since 2022-02-24"
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ],
       "isAccessibleForFree": true
     }
     </script>
@@ -108,1253 +174,193 @@
       }
     }
     </script>
-
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg bg-ua-blue sticky-top text-white">
-            <div class="container" aria-label="Main navigation">
-                <span class="navbar-brand p-0 me-0 me-lg-2 text-white" aria-label="Orc Losses">
-                    <iconify-icon icon="game-icons:orc-head"
-                        class="m-1 fs-3 d-inline-block align-bottom"></iconify-icon>
-                    {{ lang.page-title }}
-                </span>
-
-                <button class="navbar-toggler p-2 text-white border-white" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#primary-navigation-menu" aria-controls="primary-navigation-menu"
-                    aria-label="Toggle docs navigation">
-                    <iconify-icon icon="radix-icons:hamburger-menu"></iconify-icon>
+    <header class="site">
+        <div class="wrap site-inner">
+            <a class="brand" href="{{ lang.page }}" aria-label="{{ lang.page-title }}">
+                <span class="flag" role="presentation"><i></i><i></i></span>
+                <span class="brand-text">{{ lang.page-title }}</span>
+            </a>
+            <span class="day-chip">{% capture day_fmt %}{% include fmt-number.html number=day_of_war sep=sep %}{% endcapture %}{{ lang.day-of-war | replace: "%n", day_fmt }}</span>
+            <div class="spacer"></div>
+            <div class="controls">
+                <label class="visually-hidden" for="lang-select">{{ lang.language-label }}</label>
+                <select class="lang-select" id="lang-select" aria-label="{{ lang.language-label }}">
+                    {% for l in site.data.translations %}
+                    <option value="{{ l.page }}" {% if l.slug == lang.slug %}selected{% endif %}>{{ l.name }}</option>
+                    {% endfor %}
+                </select>
+                <button class="icon-btn" id="theme-toggle" type="button" aria-label="{{ lang.theme-label }}: {{ lang.theme-light-label }}/{{ lang.theme-dark-label }}">
+                    <span class="only-dark">{% include icon.html name="sun" size=18 %}</span>
+                    <span class="only-light">{% include icon.html name="moon" size=18 %}</span>
                 </button>
-
-                <div id="primary-navigation-menu" class="collapse navbar-collapse">
-                    <ul class="navbar-nav d-flex ms-auto">
-                        <li class="nav-item dropdown">
-                            <a id="theme-menu-toggle" class="nav-link dropdown-toggle text-white" href="#" role="button"
-                                aria-haspopup="true" aria-controls="theme-menu" aria-label="{{ lang.theme-label }}"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <iconify-icon class="me-1 align-middle"
-                                    icon="material-symbols:light-mode"></iconify-icon>
-                                {{ lang.theme-label }}
-                            </a>
-                            <ul id="theme-menu" class="dropdown-menu" role="menu" aria-labelledby="theme-menu-toggle">
-                                <li role="menuitem" onclick="togglePageTheme('light')">
-                                    <span class="dropdown-item">
-                                        <iconify-icon icon="material-symbols:light-mode"
-                                            role="presentation"></iconify-icon>
-                                        {{ lang.theme-light-label }}
-                                    </span>
-                                </li>
-                                <li role="menuitem" onclick="togglePageTheme('dark')">
-                                    <span class="dropdown-item">
-                                        <iconify-icon icon="material-symbols:dark-mode"
-                                            role="presentation"></iconify-icon>
-                                        {{ lang.theme-dark-label }}
-                                    </span>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item col-12 col-lg-auto d-none d-lg-flex text-white py-2 py-lg-1">
-                            <div class="vr h-100 mx-lg-2 text-white-50"></div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a id="language-menu-toggle" class="nav-link dropdown-toggle text-white" href="#"
-                                role="button" aria-haspopup="true" aria-controls="language-menu"
-                                aria-label="{{ lang.language-label }}" data-bs-toggle="dropdown" aria-expanded="false">
-                                {% if lang.slug == "en-GB" %}
-                                    <iconify-icon class="me-1 align-middle" icon="circle-flags:uk"
-                                        role="presentation"></iconify-icon>
-                                {% elsif lang.slug == "fr-FR" %}
-                                    <iconify-icon class="me-1 align-middle" icon="circle-flags:fr"
-                                        role="presentation"></iconify-icon>
-                                {% elsif lang.slug == "de-DE" %}
-                                    <iconify-icon class="me-1 align-middle" icon="circle-flags:de"
-                                        role="presentation"></iconify-icon>
-                                {% elsif lang.slug == "uk-UA" %}
-                                    <iconify-icon class="me-1 align-middle" icon="circle-flags:ua"
-                                        role="presentation"></iconify-icon>
-                                {% elsif lang.slug == "ru-RU" %}
-                                    <iconify-icon class="me-1 align-middle" icon="circle-flags:ru"
-                                        role="presentation"></iconify-icon>
-                                {% else %}
-                                    <iconify-icon class="me-1 align-middle" icon="circle-flags:us"></iconify-icon>
-                                {% endif %}
-                                {{ lang.language-label }}
-                            </a>
-                            <ul id="language-menu" class="dropdown-menu" role="menu"
-                                aria-labelledby="language-menu-toggle">
-                                <li role="presentation">
-                                    <a lang="en-US" role="menuitem" href="https://www.ukrainewarlosses.com" class="dropdown-item" onclick="gtag('event','language',{language:'en-US'})">
-                                        <iconify-icon icon="circle-flags:us" role="presentation"></iconify-icon>
-                                        English (US)
-                                    </a>
-                                </li>
-                                <li role="presentation">
-                                    <a lang="en-GB" role="menuitem" href="/uk" class="dropdown-item" onclick="gtag('event','language',{language:'en-GB'})">
-                                        <iconify-icon icon="circle-flags:uk" role="presentation"></iconify-icon>
-                                        English (UK)
-                                    </a>
-                                </li>
-                                <li role="presentation">
-                                    <a lang="fr-FR" role="menuitem" href="/fr" class="dropdown-item" onclick="gtag('event','language',{language:'fr-FR'})">
-                                        <iconify-icon icon="circle-flags:fr" role="presentation"></iconify-icon>
-                                        Français
-                                    </a>
-                                </li>
-                                <li role="presentation">
-                                    <a lang="de-DE" role="menuitem" href="/de" class="dropdown-item" onclick="gtag('event','language',{language:'de-DE'})">
-                                        <iconify-icon icon="circle-flags:de" role="presentation"></iconify-icon>
-                                        Deutsch
-                                    </a>
-                                </li>
-                                <li role="presentation">
-                                    <a lang="uk-UA" role="menuitem" href="/ua" class="dropdown-item" onclick="gtag('event','language',{language:'uk-UA'})">
-                                        <iconify-icon icon="circle-flags:ua" role="presentation"></iconify-icon>
-                                        Українська
-                                    </a>
-                                </li>
-                                <li role="presentation">
-                                    <a lang="ru-RU" role="menuitem" href="/ru" class="dropdown-item" onclick="gtag('event','language',{language:'ru-RU'})">
-                                        <iconify-icon icon="circle-flags:ru" role="presentation"></iconify-icon>
-                                        Русский
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+                <a class="icon-btn" href="https://github.com/lod-db/orc-losses" target="_blank" rel="noopener" aria-label="GitHub">
+                    {% include icon.html name="github" size=18 %}
+                </a>
             </div>
-        </nav>
+        </div>
     </header>
 
-    <main class="container pt-3" aria-live="polite">
-        <div class="mb-2">
-            <h1 class="mb-1">{{ lang.page-title }}</h1>
-            <div class="d-flex flex-wrap align-items-center gap-2">
-                <p class="text-body-secondary small mb-0">
-                    <iconify-icon icon="mdi:calendar" class="align-middle me-1" aria-hidden="true"></iconify-icon>
-                    <time datetime="2022-02-24"><span class="localizable-date">2022-02-24</span></time>
-                    –
-                    <time datetime="{{ site.time | date: '%Y-%m-%d' }}"><span class="localizable-date">{{ site.time | date: '%Y-%m-%d' }}</span></time>
-                </p>
-                {% include social-buttons.html %}
+    <main class="wrap">
+        <section class="hero" aria-label="{{ lang.line-title }}">
+            <div class="hero-grid">
+                <div class="hero-main">
+                    <h1 class="hero-title">{{ lang.page-title }}</h1>
+                    <p class="kicker">{{ lang.personnel-label }} · {{ lang.line-title }}</p>
+                    <div class="big-number" id="hero-number" data-value="{{ p_total }}">{% include fmt-number.html number=p_total sep=sep %}</div>
+                    <p class="hero-sub">{{ lang.tagline }}</p>
+                    <div class="delta-badges">
+                        <span class="delta">+{% include fmt-number.html number=p_d1 sep=sep %}<span>{{ lang.today-label }}</span></span>
+                        <span class="delta">+{% include fmt-number.html number=p_d7 sep=sep %}<span>{{ lang.past7-label }}</span></span>
+                        <span class="delta">+{% include fmt-number.html number=p_d30 sep=sep %}<span>{{ lang.past30-label }}</span></span>
+                    </div>
+                </div>
+                <div class="hero-side">
+                    <div class="side-card">
+                        <span class="label">{{ lang.equipment-total-label }}</span>
+                        <span class="value" id="equipment-number" data-value="{{ equipment_total }}">{% include fmt-number.html number=equipment_total sep=sep %}</span>
+                        <span class="foot">+{% include fmt-number.html number=equipment_today sep=sep %} {{ lang.today-label }}</span>
+                    </div>
+                    <div class="side-card">
+                        <span class="label">{{ lang.length-of-war-text }}</span>
+                        <span class="value">{% include fmt-number.html number=day_of_war sep=sep %} {{ lang.days-title-text | downcase }}</span>
+                        <span class="foot"><time datetime="2022-02-24" data-datefmt="long">2022-02-24</time> →</span>
+                    </div>
+                </div>
             </div>
-        </div>
-        <section class="mb-4">
-            <article>
-                <p>
-                    {% assign equipment = current.artillery | plus: current.fixedWingAircraft | plus: current.rotaryWingAircraft
-                        | plus: current.tanks | plus: current.afvs | plus: current.rocketSystems | plus: current.airDefense
-                        | plus: current.ships | plus: current.submarines | plus: current.unarmoredVehicles
-                        | plus: current.specialEquipment | plus: current.uavs | plus: current.missiles %}
-                    {{ lang.preamble-paragraph-1 }}
-                    <span class="localizable-number">{{ current.personnel }}</span>
-                    {{ lang.preamble-paragraph-2 }}
-                    <span class="localizable-number">{{ equipment }}</span>
-                    {{ lang.preamble-paragraph-3 }}
-                    <time datetime="{{ current.date }}"><span class="localizable-date">{{ current.date }}</span></time>.
-                </p>
-            </article>
-
-            {{ content }}
+            <div class="updated-line">
+                <span class="pulse" role="presentation"></span>
+                <span>{{ lang.updated-label }} <time datetime="{{ current.date }}" data-datefmt="long">{{ current.date }}</time> · {{ lang.ua-min-def }} —&nbsp;<a href="{{ current.sourceUri }}" target="_blank" rel="noopener">mod.gov.ua</a></span>
+            </div>
         </section>
 
-        <div class="row">
-            <div class="col-12 col-xl-9 order-0">
-                <section id="losses-container" class="mb-4">
-                    <div class="row">
-                        {% assign startDate = "2022-02-24" | date: "%s" %}
-                        {% assign endDate = "now" | date: "%s" %}
-                        {% assign lengthDate = endDate | minus: startDate | minus: 62169876674 %}
-                        {% assign lengthYears = lengthDate | date: "%-Y" %}
-                        {% assign lengthMonths = lengthDate | date: "%-m" %}
-                        {% assign lengthDays = lengthDate | date: "%-d" %}
-                        {% assign lengthTotalDays = endDate | minus: startDate | divided_by: 86400 | floor %}
-                        <div class="col-12 col-xxl-4 mb-3">
-                            <div class="d-flex flex-column justify-content-between p-3 h-100 border border-1">
-                                <div class="d-flex justify-content-between">
-                                    <h3>
-                                        <span class="localizable-number">{{ lengthTotalDays }}</span>
-                                        {{ lang.days-title-text }}
-                                    </h3>
-                                    <img class="icon light mx-1" title="{{ lang.length-of-war-text }}"
-                                        alt="{{ lang.length-of-war-text }} icon" src="icon/calendar.png"
-                                        aria-hidden="true">
-                                    <img class="icon dark mx-1" title="{{ lang.length-of-war-text }}"
-                                        alt="{{ lang.length-of-war-text }} icon" src="icon/calendar-white.png"
-                                        aria-hidden="true">
-                                </div>
-                                <p class="text-center my-0" aria-describedby="losses-length-of-war-description">
-                                    {{ lengthYears }} {{ lang.years-subtitle-text }},
-                                    {{ lengthMonths }} {{ lang.months-subtitle-text }},
-                                    {{ lengthDays }} {{ lang.days-subtitle-text }}
-                                </p>
-                                <p id="losses-length-of-war-description" class="visually-hidden">
-                                    {{ lang.length-of-war-text }}
-                                </p>
-                            </div>
-                        </div>
-                        {% for category in site.data.categories %}
-                        <div class="col-12 col-md-6 col-xxl-4 mb-3">
-                            <div class="d-flex flex-column justify-content-between pt-3 px-3 pb-1 h-100 border border-1 interactive-card"
-                                data-bs-toggle="modal" data-bs-target="#modal-{{ category.id }}">
-                                <div class="d-flex justify-content-between">
-                                    <h3>{{ lang[category.label] }}</h3>
-                                    <img class="icon light mx-1" title="{{ lang[category.label] }}"
-                                        alt="{{ lang[category.label] }} icon" src="icon/{{ category.icon }}.png"
-                                        aria-hidden="true">
-                                    <img class="icon dark mx-1" title="{{ lang[category.label] }}"
-                                        alt="{{ lang[category.label] }} icon" src="icon/{{ category.icon }}-white.png"
-                                        aria-hidden="true">
-                                </div>
-                                <div class="d-flex justify-content-between mt-2">
-                                    <button type="button"
-                                        class="btn btn-outline-secondary ms-n2 px-2 pt-1 pb-0 border-0">
-                                        <iconify-icon icon="humbleicons:expand"></iconify-icon>
-                                    </button>
-                                    <div>
-                                        {% assign diff = current[category.key] | minus: previous[category.key] %}
-                                        <p class="text-center my-0"
-                                            aria-describedby="losses-{{ category.id }}-description">
-                                            {% if category.id == "personnel" %}~{% endif %}<span
-                                                class="localizable-number">{{ current[category.key] }}</span>
-                                            {% if diff > 0 %}
-                                            <strong>+(<span class="localizable-number">{{ diff }}</span>)</strong>
-                                            {% endif %}
-                                        </p>
-                                        <p id="losses-{{ category.id }}-description" class="visually-hidden">
-                                            {% if category.id == "personnel" %}~{% endif %}<span
-                                                class="localizable-number">{{ current[category.key] }}</span>
-                                            {{ lang[category.label]}} {{ lang.lost-since-label }} 2022.
-                                        </p>
-                                    </div>
-                                    <div class="empty-32"></div>
-                                </div>
+        <section id="losses" aria-label="{{ lang.line-title }}">
+            <h2 class="sec">{{ lang.line-title }}</h2>
+            <div class="stat-grid">
+                {% for cat in site.data.categories %}
+                {% assign v = current[cat.key] | default: 0 %}
+                {% assign pv = prev[cat.key] | default: 0 %}
+                {% assign d1 = v | minus: pv %}
+                <button class="stat" type="button" data-key="{{ cat.key }}" data-label="{{ lang[cat.label] }}"
+                    aria-pressed="{% if cat.key == 'personnel' %}true{% else %}false{% endif %}">
+                    <span class="stat-top">{% include icon.html name=cat.icon size=20 %}<span>{{ lang[cat.label] }}</span></span>
+                    <span class="stat-num">{% include fmt-number.html number=v sep=sep %}</span>
+                    <span class="stat-delta">{% if d1 > 0 %}+{% include fmt-number.html number=d1 sep=sep %}{% else %}±0{% endif %} <i>{{ lang.today-label }}</i></span>
+                    <span class="spark-box" role="presentation"></span>
+                </button>
+                {% endfor %}
+            </div>
+        </section>
 
-                            </div>
-                            <div id="modal-{{ category.id }}" class="modal fade" tabindex="-1"
-                                data-key="{{ category.key }}" data-tab="line"
-                                aria-labelledby="modal-{{ category.id }}-title" aria-hidden="true">
-                                <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 id="modal-{{ category.id }}-title" class="modal-title fs-5">
-                                                {{ lang[category.label] }}
-                                            </h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            {% if category.id == "personnel" %}~{% endif %}<span
-                                                class="localizable-number">{{ current[category.key] }}</span>
-                                            {{ lang[category.label]}} {{ lang.lost-since-label }} 2022.
-                                            <ul class="nav nav-tabs mt-2">
-                                                <li class="nav-item" data-tab="line">
-                                                    <a class="nav-link active" aria-current="page" href="#">{{
-                                                        lang.line-chart }}</a>
-                                                </li>
-                                                <li class="nav-item" data-tab="heatmap">
-                                                    <a class="nav-link" href="#">{{ lang.heatmap-chart }}</a>
-                                                </li>
-                                                <li class="nav-item" data-tab="bar">
-                                                    <a class="nav-link" href="#">{{ lang.bar-chart }}</a>
-                                                </li>
-                                            </ul>
-                                            <div id="line-chart-{{ category.id }}" class="line-chart">
-                                                Loading line chart...
-                                            </div>
-                                            <div id="heatmap-chart-{{ category.id }}" class="heatmap-chart d-none">
-                                                Loading heatmap...
-                                            </div>
-                                            <div id="bar-chart-{{ category.id }}" class="bar-chart d-none">
-                                                Loading bar graph...
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary"
-                                                data-bs-dismiss="modal">Close</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
+        <section id="trends">
+            <div class="panel">
+                <div class="panel-head">
+                    <h2 class="panel-title" id="chart-title">{{ lang.personnel-label }} — {{ lang.cumulative-label }}</h2>
+                    <div class="spacer"></div>
+                    <div class="seg" id="mode-seg" role="group">
+                        <button type="button" data-mode="cum" aria-pressed="true">{{ lang.cumulative-label }}</button>
+                        <button type="button" data-mode="daily" aria-pressed="false">{{ lang.daily-label }}</button>
                     </div>
-                </section>
-            </div>
-            <div class="col-12 order-1 order-lg-2">
-                <section id="charts-container" class="mb-4">
-                    <div class="chart-container">
-                        <div id="line-chart" class="line-chart border border-1 rounded">
-                            Loading line chart...
-                        </div>
-                        <div id="heatmap-chart" class="heatmap-chart mt-3 border border-1 rounded">
-                            Loading heatmap...
-                        </div>
-                        <div id="bar-chart" class="bar-chart mt-3 border border-1 rounded">
-                            Loading bar graph...
-                        </div>
+                    <div class="seg" id="range-seg" role="group">
+                        <button type="button" data-range="30" aria-pressed="false">{{ lang.range-30-label }}</button>
+                        <button type="button" data-range="90" aria-pressed="false">{{ lang.range-90-label }}</button>
+                        <button type="button" data-range="1y" aria-pressed="false">{{ lang.range-1y-label }}</button>
+                        <button type="button" data-range="all" aria-pressed="true">{{ lang.range-all-label }}</button>
                     </div>
-                </section>
-            </div>
-            <div class="col-12 col-xl-3 order-2 order-lg-1">
-                <div class="border border-1 rounded mb-4 p-3">
-                    <section id="open-source-disclaimer-container">
-                        <h4>
-                            <iconify-icon class="fs-3 align-middle" icon="arcticons:ukraine-tryzub"></iconify-icon>
-                            {{ lang.os-open-data }}
-                        </h4>
-                        <p>
-                            {{ lang.os-disclaimer-p1-1 }}
-                            <a href="https://mod.gov.ua" title="{{ lang.ua-min-def }}" target="_blank"
-                                rel="noopener noreferrer">{{ lang.ua-min-def }}</a>
-                            {{ lang.os-disclaimer-p1-2 }}
-                        </p>
-                        <p>
-                            {{ lang.os-disclaimer-p2-1 }}
-                            <a href="https://www.github.com/lod-db/orc-losses" title="Orc Losses on GitHub"
-                                target="_blank" rel="noopener">GitHub</a>
-                            {{ lang.os-disclaimer-p2-2 }}
-                        </p>
-                        <h6 class="small mb-1 text-body-secondary">{{ lang.share-label }}</h6>
-                        <hr class="mt-0 mb-2">
-                        {% include social-buttons.html %}
-                    </section>
                 </div>
-                <div class="border border-1 rounded mb-4 p-3">
-                    <section id="additional-resources-container" class="text-break">
-                        <h4>
-                            {{ lang.add-resource-header }}
-                        </h4>
-                        <details>
-                            <summary>
-                                <iconify-icon icon="emojione-v1:flag-for-ukraine"
-                                    class="me-1 align-middle fs-4"></iconify-icon>
-                                {{ lang.add-resources-ua }}
-                            </summary>
-                            {{ lang.add-resources-ua-text }}
-
-                            <a href="https://war.ukraine.ua" title="{{ lang.add-resources-ua }}" target="_blank"
-                                class="d-block my-1" rel="noopener noreferrer">
-                                https://war.ukraine.ua
-                            </a>
-                        </details>
-                        <details>
-                            <summary>
-                                <iconify-icon icon="arcticons:ukraine-tryzub"
-                                    class="me-1 align-middle fs-4"></iconify-icon>
-                                {{ lang.add-resources-uamod }}
-                            </summary>
-                            {{ lang.add-resources-uamod-text }}
-
-                            <a href="https://mod.gov.ua" title="{{ lang.add-resources-uamod }}" target="_blank"
-                                class="d-block my-1" rel="noopener noreferrer">
-                                https://mod.gov.ua
-                            </a>
-                        </details>
-                        <details>
-                            <summary>
-                                <iconify-icon icon="mingcute:chess-fill" class="me-1 align-middle fs-4"></iconify-icon>
-                                {{ lang.add-resources-deepstate }}
-                            </summary>
-                            {{ lang.add-resources-deepstate-text }}
-
-                            <a href="https://deepstatemap.live" title="{{ lang.add-resources-deepstate }}"
-                                target="_blank" class="d-block my-1" rel="noopener noreferrer">
-                                https://deepstatemap.live
-                            </a>
-                        </details>
-                        <details>
-                            <summary>
-                                <iconify-icon icon="proicons:open-source" class="me-1 align-middle fs-4"></iconify-icon>
-                                {{ lang.add-resources-oryx }}
-                            </summary>
-                            {{ lang.add-resources-oryx-text }}
-
-                            <a href="https://www.oryxspioenkop.com/2022/02/attack-on-europe-documenting-equipment.html"
-                                title="{{ lang.add-resources-oryx }}" target="_blank" class="d-block my-1"
-                                rel="noopener noreferrer">
-                                https://www.oryxspioenkop.com
-                            </a>
-                        </details>
-                        <details>
-                            <summary>
-                                <iconify-icon icon="emojione-v1:flag-for-united-states"
-                                    class="me-1 align-middle fs-4"></iconify-icon>
-                                {{ lang.add-resources-oversight }}
-                            </summary>
-                            {{ lang.add-resources-oversight-text }}
-
-                            <a href="https://www.ukraineoversight.gov" title="{{ lang.add-resources-oversight }}"
-                                target="_blank" class="d-block my-1" rel="noopener noreferrer">
-                                https://www.ukraineoversight.gov
-                            </a>
-                        </details>
-                        <details>
-                            <summary>
-                                <iconify-icon icon="mdi:youtube" class="me-1 align-middle fs-4"></iconify-icon>
-                                {{ lang.add-resources-preston }}
-                            </summary>
-                            {{ lang.add-resources-preston-text }}
-
-                            <a href="https://www.youtube.com/@PrestonStewart" title="{{ lang.add-resources-preston }}"
-                                target="_blank" class="d-block my-1" rel="noopener noreferrer">
-                                https://www.youtube.com/@PrestonStewart
-                            </a>
-                        </details>
-                    </section>
-                </div>
+                <div id="main-chart" aria-label="{{ lang.line-chart }}"></div>
             </div>
-        </div>
+        </section>
+
+        <section id="resources" aria-label="{{ lang.follow-title }}">
+            <h2 class="sec">{{ lang.follow-title }}</h2>
+            <p class="res-intro">{{ lang.follow-intro }}</p>
+            <div class="res-grid">
+                <a class="res" href="https://deepstatemap.live" target="_blank" rel="noopener" onclick="gtag('event','resource',{resource:'deepstate'})">
+                    {% include icon.html name="map" size=26 %}
+                    <span><b>{{ lang.add-resources-deepstate }} {% include icon.html name="external" size=13 %}</b><p>{{ lang.add-resources-deepstate-text }}</p></span>
+                </a>
+                <a class="res" href="https://www.oryxspioenkop.com" target="_blank" rel="noopener" onclick="gtag('event','resource',{resource:'oryx'})">
+                    {% include icon.html name="eye" size=26 %}
+                    <span><b>{{ lang.add-resources-oryx }} {% include icon.html name="external" size=13 %}</b><p>{{ lang.add-resources-oryx-text }}</p></span>
+                </a>
+                <a class="res" href="https://www.ukraineoversight.gov" target="_blank" rel="noopener" onclick="gtag('event','resource',{resource:'oversight'})">
+                    {% include icon.html name="doc" size=26 %}
+                    <span><b>{{ lang.add-resources-oversight }} {% include icon.html name="external" size=13 %}</b><p>{{ lang.add-resources-oversight-text }}</p></span>
+                </a>
+                <a class="res" href="https://war.ukraine.ua" target="_blank" rel="noopener" onclick="gtag('event','resource',{resource:'ua'})">
+                    {% include icon.html name="shield" size=26 %}
+                    <span><b>{{ lang.add-resources-ua }} {% include icon.html name="external" size=13 %}</b><p>{{ lang.add-resources-ua-text }}</p></span>
+                </a>
+                <a class="res" href="https://mod.gov.ua" target="_blank" rel="noopener" onclick="gtag('event','resource',{resource:'uamod'})">
+                    {% include icon.html name="check" size=26 %}
+                    <span><b>{{ lang.add-resources-uamod }} {% include icon.html name="external" size=13 %}</b><p>{{ lang.add-resources-uamod-text }}</p></span>
+                </a>
+                <a class="res" href="https://www.youtube.com/@PrestonStewart" target="_blank" rel="noopener" onclick="gtag('event','resource',{resource:'preston'})">
+                    {% include icon.html name="play" size=26 %}
+                    <span><b>{{ lang.add-resources-preston }} {% include icon.html name="external" size=13 %}</b><p>{{ lang.add-resources-preston-text }}</p></span>
+                </a>
+            </div>
+        </section>
     </main>
 
-    <footer class="border-top border-1">
-        <div class="container d-flex justify-content-between">
-            <div>
-                <p class="m-0">
-                    <iconify-icon icon="mdi:github" class="me-1 align-middle fs-4"></iconify-icon>
-                    <span class="d-inline-block pt-1">{{ lang.view-on-github-label }}</span>
-                    <a class="btn btn-link px-0" href="https://www.github.com/lod-db/orc-losses"
-                        title="Orc Losses on GitHub" target="_blank" rel="noopener">GitHub</a>
-                </p>
+    <footer class="site">
+        <div class="wrap">
+            <div class="cols">
+                <div>
+                    <h3>{{ lang.sources-methodology-label }}</h3>
+                    <p>
+                        {{ lang.os-disclaimer-p1-1 }}
+                        <a href="https://mod.gov.ua" target="_blank" rel="noopener">{{ lang.ua-min-def }}</a>
+                        {{ lang.os-disclaimer-p1-2 }}
+                    </p>
+                    <p>
+                        {{ lang.os-disclaimer-p2-1 }}
+                        <a href="https://github.com/lod-db/orc-losses" target="_blank" rel="noopener">GitHub</a>
+                        {{ lang.os-disclaimer-p2-2 }}
+                    </p>
+                </div>
+                <div>
+                    <h3>{{ lang.os-open-data }}</h3>
+                    <ul>
+                        <li><a href="https://github.com/lod-db/orc-losses" target="_blank" rel="noopener">github.com/lod-db/orc-losses</a></li>
+                        <li><a href="/assets/russian-losses.json" target="_blank">russian-losses.json</a></li>
+                        <li><a href="/assets/schema/{{ lang.schema }}" target="_blank">{{ lang.schema }}</a></li>
+                    </ul>
+                    <h3 class="mt">{{ lang.share-label }}</h3>
+                    <div class="share-row">
+                        <a class="chip" href="https://twitter.com/intent/tweet?url={{ canonical_url | url_encode }}" target="_blank" rel="noopener" onclick="gtag('event','share',{method:'X'})">{% include icon.html name="x" size=13 %} X</a>
+                        <a class="chip" href="https://t.me/share/url?url={{ canonical_url | url_encode }}" target="_blank" rel="noopener" onclick="gtag('event','share',{method:'Telegram'})">{% include icon.html name="telegram" size=13 %} Telegram</a>
+                        <a class="chip" href="https://www.facebook.com/sharer/sharer.php?u={{ canonical_url | url_encode }}" target="_blank" rel="noopener" onclick="gtag('event','share',{method:'Facebook'})">{% include icon.html name="facebook" size=13 %} Facebook</a>
+                        <a class="chip" href="https://bsky.app/intent/compose?text={{ canonical_url | url_encode }}" target="_blank" rel="noopener" onclick="gtag('event','share',{method:'BlueSky'})">{% include icon.html name="bluesky" size=13 %} Bluesky</a>
+                        <a class="chip" href="https://www.reddit.com/submit?url={{ canonical_url | url_encode }}" target="_blank" rel="noopener" onclick="gtag('event','share',{method:'Reddit'})">{% include icon.html name="reddit" size=13 %} Reddit</a>
+                        <button class="chip" type="button" id="share-btn">{% include icon.html name="share" size=13 %} {{ lang.share-label }}</button>
+                    </div>
+                </div>
             </div>
-            <div>
-                <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#modal-tos">{{
-                    lang.tos-label }}</button>
-                <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#modal-attribution">{{
-                    lang.attributions-label }}</button>
+            <div class="legal">
+                <details>
+                    <summary>{{ lang.tos-label }}</summary>
+                    <div class="legal-body">{% include tos.html %}</div>
+                </details>
             </div>
         </div>
     </footer>
 
-    <div id="modal-tos" class="modal fade" tabindex="-1" aria-labelledby="modal-tos-title" aria-hidden="true">
-        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 id="modal-tos-title" class="modal-title fs-5">{{ lang.tos-label }}</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    {% include tos.html %}
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Understood</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal-attribution" class="modal fade" tabindex="-1" aria-labelledby="modal-attribution-title"
-        aria-hidden="true">
-        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 id="modal-attribution-title" class="modal-title fs-5">{{ lang.attributions-label }}</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    {% include attribution.html %}
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script>
-        // Theme Toggle
-        let theme = 'light';
-        function togglePageTheme(t, save = true) {
-            theme = t;
-            const htmlEle = document.getElementsByTagName('html')[0];
-            const toggleEle = document.getElementById('theme-menu-toggle');
-            const iconEle = toggleEle.querySelector('iconify-icon');
-
-            if (save) {
-                gtag('event', 'theme', { theme: t });
+        window.UWL = {
+            locale: "{{ lang.slug }}",
+            i18n: {
+                cumulative: {{ lang.cumulative-label | jsonify }},
+                daily: {{ lang.daily-label | jsonify }},
+                title: {{ lang.title | jsonify }},
+                description: {{ lang.description | jsonify }}
             }
-
-            htmlEle.setAttribute('data-bs-theme', theme);
-            iconEle.setAttribute('icon', `material-symbols:${theme}-mode`);
-
-            if (save) {
-                localStorage.setItem('theme', theme);
-            }
-
-            try { initCharts(); } catch { }
-        }
-
-        (function () {
-            theme = localStorage.getItem('theme');
-            const isDarkTheme = theme
-                ? theme === 'dark'
-                : window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-            if (isDarkTheme) {
-                togglePageTheme('dark', false);
-            }
-        })();
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"
-        referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"
-        referrerpolicy="no-referrer"></script>
-    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.6.0/echarts.min.js"
-        integrity="sha512-XSmbX3mhrD2ix5fXPTRQb2FwK22sRMVQTpBP2ac8hX7Dh/605hA2QDegVWiAvZPiXIxOV0CbkmUjGionDpbCmw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-        // Set Globals
-        const locale = '{{ lang.slug }}';
-        const charts = {};
-        const lossesDict = {};
-        let lossesSorted = [];
-        let dateRange = [];
-        const isNull = (val) => typeof val === 'undefined' || val === null;
-        function initCharts() {
-            try { initLineCharts(); } catch { }
-            try { initHeatMaps(); } catch { }
-            try { initBarGraphs(); } catch { }
-        }
-    </script>
-    <script>
-        function sharePage() {
-            gtag('event', 'share', { method: 'Generic' });
-            const shareData = {
-                title: document.title,
-                url: '{{ canonical_url }}'
-            };
-            if (navigator.share) {
-                navigator.share(shareData).catch(() => { });
-            } else {
-                const url = encodeURIComponent('{{ canonical_url }}');
-                window.open(`https://www.addtoany.com/share#url=${url}`, '_blank');
-            }
-        }
-    </script>
-    <script>
-        // Localize numbers, this is the recommend approach with Liquid
-        (function () {
-            const numberEles = document.getElementsByClassName("localizable-number");
-            Array.from(numberEles).forEach(e => {
-                const text = e.innerText;
-                const num = parseInt(text);
-                const localized = !isNaN(num) ? num.toLocaleString(locale) : '';
-
-                e.innerText = localized;
-            });
-
-            const dateEles = document.getElementsByClassName("localizable-date");
-            Array.from(dateEles).forEach(e => {
-                const text = e.innerText;
-                // Date constructor w/o time sets underlying date in UTC. Adding time keeps it local
-                const date = new Date(`${text}T00:00:00`);
-                const localized = !isNaN(date) ? date.toLocaleDateString(locale) : '';
-
-                e.innerText = localized;
-            });
-        })();
-    </script>
-    <script>
-        // Create Line Chart
-        function initLineCharts() {
-            initLineChart('line', document.getElementById('line-chart'));
-            // initLineChart('line-personnel', document.getElementById('line-chart-personnel'));
-            // initLineChart('line-artillery', document.getElementById('line-chart-artillery'));
-            // initLineChart('line-fixedWingAircraft', document.getElementById('line-chart-jets'));
-            // initLineChart('line-rotaryWingAircraft', document.getElementById('line-chart-helicopters'));
-            // initLineChart('line-tanks', document.getElementById('line-chart-tanks'));
-            // initLineChart('line-afvs', document.getElementById('line-chart-afvs'));
-            // initLineChart('line-rocketSystems', document.getElementById('line-chart-mlrs'));
-            // initLineChart('line-airDefense', document.getElementById('line-chart-aa'));
-            // initLineChart('line-ships', document.getElementById('line-chart-ships'));
-            // initLineChart('line-submarines', document.getElementById('line-chart-submarines'));
-            // initLineChart('line-unarmoredVehicles', document.getElementById('line-chart-vehicles'));
-            // initLineChart('line-specialEquipment', document.getElementById('line-chart-special'));
-            // initLineChart('line-uavs', document.getElementById('line-chart-uavs'));
-            // initLineChart('line-missiles', document.getElementById('line-chart-missiles'));
-        }
-        function initLineChart(chartId, ele, dataPoint) {
-            if (charts[chartId]) {
-                charts[chartId].dispose();
-            }
-
-            const markArea = {
-                itemStyle: {
-                    color: 'rgba(225, 225, 225, 0.4)'
-                },
-                data: [],
-            };
-
-            function createSeries(data) {
-                const dataPoints = [
-                    {
-                        key: 'personnel',
-                        name: '{{ lang.personnel-label }}',
-                        data: data.map(d => d?.personnel),
-                    },
-                    {
-                        key: 'tanks',
-                        name: '{{ lang.tanks-label }}',
-                        data: data.map(d => d?.tanks),
-                    },
-                    {
-                        key: 'afvs',
-                        name: '{{ lang.afvs-label }}',
-                        data: data.map(d => d?.afvs),
-                    },
-                    {
-                        key: 'artillery',
-                        name: '{{ lang.artillery-label }}',
-                        data: data.map(d => d?.artillery),
-                    },
-                    {
-                        key: 'airDefense',
-                        name: '{{ lang.aa-label }}',
-                        data: data.map(d => d?.airDefense),
-                    },
-                    {
-                        key: 'rocketSystems',
-                        name: '{{ lang.mlrs-label }}',
-                        data: data.map(d => d?.rocketSystems),
-                    },
-                    {
-                        key: 'unarmoredVehicles',
-                        name: '{{ lang.vehicles-label }}',
-                        data: data.map(d => d?.unarmoredVehicles),
-                    },
-                    {
-                        key: 'fixedWingAircraft',
-                        name: '{{ lang.jets-label }}',
-                        data: data.map(d => d?.fixedWingAircraft),
-                    },
-                    {
-                        key: 'rotaryWingAircraft',
-                        name: '{{ lang.helicopters-label }}',
-                        data: data.map(d => d?.rotaryWingAircraft),
-                    },
-                    {
-                        key: 'uavs',
-                        name: '{{ lang.uavs-label }}',
-                        data: data.map(d => d?.uavs),
-                    },
-                    {
-                        key: 'ships',
-                        name: '{{ lang.ships-label }}',
-                        data: data.map(d => d?.ships),
-                    },
-                    {
-                        key: 'submarines',
-                        name: '{{ lang.submarines-label }}',
-                        data: data.map(d => d?.submarines),
-                    },
-                    {
-                        key: 'specialEquipment',
-                        name: '{{ lang.special-label }}',
-                        data: data.map(d => d?.specialEquipment),
-                    },
-                    {
-                        key: 'missiles',
-                        name: '{{ lang.missiles-label }}',
-                        data: data.map(d => d?.missiles),
-                    },
-                ].filter(d => !dataPoint || d.key === dataPoint);
-                const items = dataPoints.map((d, i) => ({
-                    type: 'line',
-                    name: d.name,
-                    data: d.data,
-                    connectNulls: true,
-                    markArea: i === 0 ? markArea : {},
-                    stack: 'Total',
-                    areaStyle: {},
-                    emphasis: {
-                        focus: 'series',
-                    },
-                    label: {
-                        show: true,
-                        position: 'top',
-                    },
-                }));
-
-                return items;
-            }
-
-            const series = createSeries(dateRange.map((d) => lossesDict[d]));
-
-            const chart = echarts.init(ele, theme);
-            markArea.data = [
-                // [
-                //     {
-                //         name: 'Battle of Kyiv',
-                //         // This started 2022-02-25 but data starts 2022-02-27
-                //         xAxis: '2022-02-27',
-                //     },
-                //     {
-                //         xAxis: '2022-04-02',
-                //     },
-                // ],
-                // [
-                //     {
-                //         name: 'Battle of Bakhmut',
-                //         xAxis: '2022-06-03',
-                //     },
-                //     {
-                //         xAxis: '2023-05-20',
-                //     },
-                // ],
-                // [
-                //     {
-                //         name: 'Kharkiv Counteroffensive',
-                //         xAxis: '2022-09-06',
-                //     },
-                //     {
-                //         xAxis: '2022-10-01',
-                //     },
-                // ],
-                // [
-                //     {
-                //         name: 'Kharkiv Counteroffensive',
-                //         xAxis: '2022-09-06',
-                //     },
-                //     {
-                //         xAxis: '2022-10-01',
-                //     },
-                // ],
-            ];
-            const options = {
-                title: {
-                    text: '{{ lang.line-title }}',
-                    subtext: `2022 - ${lossesSorted[lossesSorted.length - 1].dt.getFullYear()}`,
-                    left: 'center',
-                },
-                darkMode: 'auto',
-                series,
-                tooltip: {
-                    trigger: 'axis',
-                    axisPointer: {
-                        type: 'cross',
-                        label: {
-                            backgroundColor: '#6a7985',
-                        },
-                    },
-                },
-                legend: {
-                    type: 'scroll',
-                    orient: 'vertical',
-                    left: 15,
-                    top: 75,
-                    bottom: 20,
-                    show: false,
-                },
-                toolbox: {
-                    show: true,
-                    feature: {
-                        dataZoom: {
-                            yAxisIndex: 'none',
-                        },
-                        dataView: {
-                            readOnly: true,
-                        },
-                        restore: {},
-                        saveAsImage: {},
-                    },
-                },
-                dataZoom: [
-                    {
-                        type: 'inside',
-                        xAxisIndex: [0],
-                        start: 0,
-                        end: 100,
-                    },
-                    {
-                        type: 'slider',
-                        yAxisIndex: [0],
-                        start: 0,
-                        end: 100,
-                    },
-                ],
-                grid: {
-                    left: '3%',
-                    right: '3%',
-                    bottom: '3%',
-                    containLabel: true,
-                },
-                xAxis: [
-                    {
-                        type: 'category',
-                        boundaryGap: false,
-                        data: dateRange,
-                    },
-                ],
-                yAxis: [
-                    {
-                        type: 'value',
-                    },
-                ],
-            };
-
-            options && chart.setOption(options);
-
-            charts[chartId] = chart;
         };
     </script>
-    <script>
-        // Create Heat Map
-        function initHeatMaps() {
-            initHeatMap('heatmap', document.getElementById('heatmap-chart'));
-            // initHeatMap('heatmap-personnel', document.getElementById('heatmap-chart-personnel'));
-            // initHeatMap('heatmap-artillery', document.getElementById('heatmap-chart-artillery'));
-            // initHeatMap('heatmap-fixedWingAircraft', document.getElementById('heatmap-chart-jets'));
-            // initHeatMap('heatmap-rotaryWingAircraft', document.getElementById('heatmap-chart-helicopters'));
-            // initHeatMap('heatmap-tanks', document.getElementById('heatmap-chart-tanks'));
-            // initHeatMap('heatmap-afvs', document.getElementById('heatmap-chart-afvs'));
-            // initHeatMap('heatmap-rocketSystems', document.getElementById('heatmap-chart-mlrs'));
-            // initHeatMap('heatmap-airDefense', document.getElementById('heatmap-chart-aa'));
-            // initHeatMap('heatmap-ships', document.getElementById('heatmap-chart-ships'));
-            // initHeatMap('heatmap-submarines', document.getElementById('heatmap-chart-submarines'));
-            // initHeatMap('heatmap-unarmoredVehicles', document.getElementById('heatmap-chart-vehicles'));
-            // initHeatMap('heatmap-specialEquipment', document.getElementById('heatmap-chart-special'));
-            // initHeatMap('heatmap-uavs', document.getElementById('heatmap-chart-uavs'));
-            // initHeatMap('heatmap-missiles', document.getElementById('heatmap-chart-missiles'));
-        }
-        function initHeatMap(chartId, ele, dataPoint) {
-            if (charts[chartId]) {
-                charts[chartId].dispose();
-            }
-
-            const years = function () {
-                const years = [];
-                const date = new Date();
-                let year = date.getFullYear();
-                while (year >= 2022) {
-                    years.push(year);
-                    year--;
-                }
-
-                return years;
-            }();
-
-            function createSeries(data) {
-                const dataPoints = data.sort((a, b) => a[0].localeCompare(b[0])).map(([date, d]) => {
-                    const getValue = (key, modifier) => {
-                        const val = d ? d[key + '-diff'] : null;
-                        const result = val && (!dataPoint || dataPoint === key) ? val * modifier : null;
-
-                        return result;
-                    };
-                    const results = [
-                        date,
-                        getValue('personnel', 1)
-                        + getValue('tanks', 10)
-                        + getValue('afvs', 5)
-                        + getValue('artillery', 3)
-                        + getValue('airDefense', 25)
-                        + getValue('rocketSystems', 8)
-                        + getValue('unarmoredVehicles', 1)
-                        + getValue('fixedWingAircraft', 50)
-                        + getValue('rotaryWingAircraft', 25)
-                        + getValue('uavs', 2)
-                        + getValue('ships', 100)
-                        + getValue('submarines', 200)
-                        + getValue('specialEquipment', 3)
-                        + getValue('missiles', 3)
-                    ];
-
-                    // null + null = 0, but no day will ever have a 0, so null it out if it is 0
-                    return results[1] ? results : [date, null];
-                });
-
-                const series = years.map((y, i) => ({
-                    type: 'heatmap',
-                    coordinateSystem: 'calendar',
-                    calendarIndex: i,
-                    year: y,
-                    data: dataPoints.filter(([date]) => date.startsWith(y.toString())),
-                    label: {
-                        show: window.innerWidth >= 992,
-                        formatter: params => params.value[0].substring(8),
-                        fontSize: 7,
-                    },
-                }));
-
-                return series;
-            }
-
-            const series = createSeries(dateRange.map((d) => ([d, lossesDict[d]])));
-
-            const chart = echarts.init(ele, theme);
-            const options = {
-                title: {
-                    text: '{{ lang.heatmap-title }}',
-                    left: 'center',
-                },
-                darkMode: 'auto',
-                series,
-                tooltip: {
-                    show: false,
-                },
-                visualMap: {
-                    min: series.flatMap(s => s.data)
-                        .filter(d => d[1] != null)
-                        .sort((a, b) => a[1] - b[1])[0][1],
-                    max: series.flatMap(s => s.data)
-                        .filter(d => d[1] != null)
-                        .sort((a, b) => b[1] - a[1])[0][1],
-                    type: 'piecewise',
-                    orient: 'horizontal',
-                    left: 'center',
-                    top: 65,
-                    show: false,
-                },
-                calendar: series.map((s, i) => ({
-                    top: 70 + i * 150,
-                    right: 30,
-                    left: 70,
-                    cellSize: ['auto', 16],
-                    range: s.year.toString(),
-                    itemStyle: {
-                        borderWidth: 0.5,
-                    },
-                    yearLabel: {
-                        show: true,
-                        position: 'left',
-                    },
-                })),
-                toolbox: {
-                    show: true,
-                    feature: {
-                        saveAsImage: {},
-                    },
-                },
-            };
-
-            options && chart.setOption(options);
-
-            charts[chartId] = chart;
-        }
-    </script>
-    <script>
-        // Create Bar Graph
-        function initBarGraphs() {
-            initBarGraph('bar', document.getElementById('bar-chart'));
-            // initBarGraph('bar-personnel', document.getElementById('bar-chart-personnel'));
-            // initBarGraph('bar-artillery', document.getElementById('bar-chart-artillery'));
-            // initBarGraph('bar-fixedWingAircraft', document.getElementById('bar-chart-jets'));
-            // initBarGraph('bar-rotaryWingAircraft', document.getElementById('bar-chart-helicopters'));
-            // initBarGraph('bar-tanks', document.getElementById('bar-chart-tanks'));
-            // initBarGraph('bar-afvs', document.getElementById('bar-chart-afvs'));
-            // initBarGraph('bar-rocketSystems', document.getElementById('bar-chart-mlrs'));
-            // initBarGraph('bar-airDefense', document.getElementById('bar-chart-aa'));
-            // initBarGraph('bar-ships', document.getElementById('bar-chart-ships'));
-            // initBarGraph('bar-submarines', document.getElementById('bar-chart-submarines'));
-            // initBarGraph('bar-unarmoredVehicles', document.getElementById('bar-chart-vehicles'));
-            // initBarGraph('bar-specialEquipment', document.getElementById('bar-chart-special'));
-            // initBarGraph('bar-uavs', document.getElementById('bar-chart-uavs'));
-            // initBarGraph('bar-missiles', document.getElementById('heatmap-chart-missiles'));
-        }
-        function initBarGraph(chartId, ele, dataPoint) {
-            if (charts[chartId]) {
-                charts[chartId].dispose();
-            }
-
-            function createSeries(data) {
-                let prev;
-                let current;
-                const dates = data.sort((a, b) => a[0].localeCompare(b[0], 'en')).map(([date, d]) => {
-                    const getValue = (key, modifier) =>
-                        d && (!dataPoint || dataPoint === key)
-                            ? d[key + '-diff'] ?? 0
-                            : null;
-                    const results = {
-                        date,
-                        personnel: getValue('personnel'),
-                        tanks: getValue('tanks'),
-                        afvs: getValue('afvs'),
-                        artillery: getValue('artillery'),
-                        airDefense: getValue('airDefense'),
-                        rocketSystems: getValue('rocketSystems'),
-                        unarmoredVehicles: getValue('unarmoredVehicles'),
-                        fixedWingAircraft: getValue('fixedWingAircraft'),
-                        rotaryWingAircraft: getValue('rotaryWingAircraft'),
-                        uavs: getValue('uavs'),
-                        ships: getValue('ships'),
-                        submarines: getValue('submarines'),
-                        specialEquipment: getValue('specialEquipment'),
-                        missiles: getValue('missiles'),
-                    };
-
-                    return results;
-                });
-
-                const base = {
-                    type: 'bar',
-                    stack: 'Losses',
-                    emphasis: {
-                        focus: 'series'
-                    },
-                };
-                const series = [
-                    {
-                        ...base,
-                        key: 'personnel',
-                        name: '{{ lang.personnel-label }}',
-                        data: dates.map(d => d?.personnel),
-                    },
-                    {
-                        ...base,
-                        key: 'tanks',
-                        name: '{{ lang.tanks-label }}',
-                        data: dates.map(d => d?.tanks),
-                    },
-                    {
-                        ...base,
-                        key: 'afvs',
-                        name: '{{ lang.afvs-label }}',
-                        data: dates.map(d => d?.afvs),
-                    },
-                    {
-                        ...base,
-                        key: 'artillery',
-                        name: '{{ lang.artillery-label }}',
-                        data: dates.map(d => d?.artillery),
-                    },
-                    {
-                        ...base,
-                        key: 'airDefense',
-                        name: '{{ lang.aa-label }}',
-                        data: dates.map(d => d?.airDefense),
-                    },
-                    {
-                        ...base,
-                        key: 'rocketSystems',
-                        name: '{{ lang.mlrs-label }}',
-                        data: dates.map(d => d?.rocketSystems),
-                    },
-                    {
-                        ...base,
-                        key: 'unarmoredVehicles',
-                        name: '{{ lang.vehicles-label }}',
-                        data: dates.map(d => d?.unarmoredVehicles),
-                    },
-                    {
-                        ...base,
-                        key: 'fixedWingAircraft',
-                        name: '{{ lang.jets-label }}',
-                        data: dates.map(d => d?.fixedWingAircraft),
-                    },
-                    {
-                        ...base,
-                        key: 'rotaryWingAircraft',
-                        name: '{{ lang.helicopters-label }}',
-                        data: dates.map(d => d?.rotaryWingAircraft),
-                    },
-                    {
-                        ...base,
-                        key: 'uavs',
-                        name: '{{ lang.uavs-label }}',
-                        data: dates.map(d => d?.uavs),
-                    },
-                    {
-                        ...base,
-                        key: 'ships',
-                        name: '{{ lang.ships-label }}',
-                        data: dates.map(d => d?.ships),
-                    },
-                    {
-                        ...base,
-                        key: 'submarines',
-                        name: '{{ lang.submarines-label }}',
-                        data: dates.map(d => d?.submarines),
-                    },
-                    {
-                        ...base,
-                        key: 'specialEquipment',
-                        name: '{{ lang.special-label }}',
-                        data: dates.map(d => d?.specialEquipment),
-                    },
-                    {
-                        ...base,
-                        key: 'missiles',
-                        name: '{{ lang.missiles-label }}',
-                        data: dates.map(d => d?.missiles),
-                    },
-                ].filter(d => !dataPoint || d.key === dataPoint);
-
-                return series;
-            }
-
-            const series = createSeries(dateRange.map((d) => ([d, lossesDict[d]])));
-
-            const chart = echarts.init(ele, theme);
-            const options = {
-                title: {
-                    text: '{{ lang.bar-title }}',
-                    subtext: `2022 - ${lossesSorted[lossesSorted.length - 1].dt.getFullYear()}`,
-                    left: 'center',
-                },
-                tooltip: {
-                    trigger: 'axis',
-                    axisPointer: {
-                        type: 'shadow'
-                    },
-                },
-                legend: {
-                    show: false,
-                },
-                grid: {
-                    left: '3%',
-                    right: '4%',
-                    bottom: '3%',
-                    containLabel: true
-                },
-                xAxis: [
-                    {
-                        type: 'category',
-                        data: dateRange,
-                    }
-                ],
-                yAxis: [
-                    {
-                        type: 'value'
-                    }
-                ],
-                darkMode: 'auto',
-                series,
-                toolbox: {
-                    show: true,
-                    feature: {
-                        dataZoom: {
-                            yAxisIndex: 'none',
-                        },
-                        dataView: {
-                            readOnly: true,
-                        },
-                        restore: {},
-                        saveAsImage: {},
-                    },
-                },
-                dataZoom: [
-                    {
-                        type: 'inside',
-                        xAxisIndex: [0],
-                        start: 0,
-                        end: 100,
-                    },
-                    {
-                        type: 'slider',
-                        yAxisIndex: [0],
-                        start: 0,
-                        end: 100,
-                    },
-                ],
-            };
-
-            options && chart.setOption(options);
-
-            charts[chartId] = chart;
-        }
-    </script>
-    <script>
-        // Load loss data
-        (async function () {
-            const response = await fetch('/assets/russian-losses.json');
-            const json = await response.json();
-            lossesSorted = json.toSorted((a, b) => a.date.localeCompare(b.date, 'en'));
-
-            // Append dates and differences to each loss
-            let prev;
-            for (const loss of lossesSorted) {
-                // Date constructor w/o time sets underlying date in UTC. Adding time keeps it local
-                loss.dt = new Date(loss.date + 'T00:00:00');
-                for (const key of Object.keys(loss)) {
-                    if (key !== 'date' && key !== 'sourceUrl') {
-                        // If we don't have a previous loss, do not calculate the difference
-                        loss[key + '-diff'] = prev && prev.dt.getTime() === loss.dt.getTime() - 86400000
-                            ? Math.max((loss[key] ?? 0) - (prev[key] ?? 0), 0)
-                            : null;
-                    }
-                }
-                lossesDict[loss.date] = loss;
-                prev = loss;
-            }
-
-            // Date constructor w/o time sets underlying date in UTC. Adding time keeps it local
-            let date = new Date(lossesSorted[0].date + 'T00:00:00');
-            const dateToday = new Date(lossesSorted[lossesSorted.length - 1].date + 'T00:00:00');
-
-            while (date <= dateToday) {
-                const dateKey = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
-                dateRange.push(dateKey);
-
-                date = new Date(date.getTime() + 86400000);
-            };
-
-            initCharts();
-        })();
-    </script>
-    <script>
-        // Modal events
-        (function () {
-            const modals = document.getElementsByClassName('modal');
-            for (const modal of modals) {
-                const dataKey = modal.getAttribute('data-key');
-                const tab = modal.getAttribute('data-tab');
-                const chartEle = modal.querySelector('.line-chart');
-                modal.addEventListener('shown.bs.modal', (e) => {
-                    if (dataKey && chartEle) {
-                        initLineChart(`${tab}-${dataKey}`, chartEle, dataKey);
-                        gtag('event', 'modal', { modal: dataKey });
-                    }
-                });
-
-                const navLinks = modal.querySelectorAll('.nav-link');
-                const charts = modal.querySelectorAll('[class*="chart"]');
-                for (const navLink of navLinks) {
-                    navLink.addEventListener('click', (e) => {
-                        e.preventDefault();
-
-                        const tab = e.target.parentElement.getAttribute('data-tab');
-                        const chartEle = modal.querySelector(`.${tab}-chart`);
-
-                        modal.setAttribute('data-tab', tab);
-                        for (const link of navLinks) {
-                            link.classList.remove('active');
-                            link.removeAttribute('aria-current');
-                        }
-                        for (const chart of charts) {
-                            chart.classList.add('d-none');
-                        }
-
-                        navLink.classList.add('active');
-                        navLink.setAttribute('aria-current', 'page');
-                        chartEle.classList.remove('d-none');
-
-                        const chartId = `${tab}-${dataKey}`;
-                        switch (tab) {
-                            case 'line':
-                                initLineChart(chartId, chartEle, dataKey);
-                                break;
-                            case 'heatmap':
-                                initHeatMap(chartId, chartEle, dataKey);
-                                break;
-                            case 'bar':
-                                initBarGraph(chartId, chartEle, dataKey);
-                                break;
-                            default:
-                                break;
-                        }
-
-                        if (dataKey) {
-                            gtag('event', 'tab', { modal: dataKey, tab });
-                        }
-                    });
-                }
-            }
-        })()
-    </script>
+    <script src="/js/app.js" defer></script>
 </body>
 
 </html>
