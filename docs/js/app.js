@@ -161,7 +161,7 @@
       hoverDot.setAttribute("cx", cx); hoverDot.setAttribute("cy", cy);
       hoverDot.setAttribute("visibility", "visible");
       tip.style.display = "block";
-      tip.innerHTML = "<strong>" + fmtNum(series[i].v) + "</strong><span>" + fmtDate(series[i].date, "medium") + "</span>";
+      tip.innerHTML = "<strong>" + (series[i].est ? "≈" : "") + fmtNum(series[i].v) + "</strong><span>" + fmtDate(series[i].date, "medium") + "</span>";
       var tipX = (cx / W) * rect.width;
       tip.style.left = Math.min(rect.width - 130, Math.max(0, tipX + 10)) + "px";
       tip.style.top = ((cy / H) * rect.height - 14) + "px";
@@ -185,7 +185,8 @@
         var chunk = series.slice(i, i + 7);
         data.push({
           date: chunk[chunk.length - 1].date,
-          v: chunk.reduce(function (a, b) { return a + b.v; }, 0)
+          v: chunk.reduce(function (a, b) { return a + b.v; }, 0),
+          est: chunk.some(function (p) { return p.est; })
         });
       }
     }
@@ -213,10 +214,10 @@
       var bh = (pt.v / (maxV || 1)) * ih;
       var r = svgEl("rect", {
         x: bx, y: padT + ih - bh, width: bw, height: Math.max(0, bh),
-        rx: Math.min(2, bw / 2), fill: accent, opacity: 0.85
+        rx: Math.min(2, bw / 2), fill: accent, opacity: pt.est ? 0.35 : 0.85
       });
       var title = svgEl("title");
-      title.textContent = fmtDate(pt.date, "medium") + ": " + fmtNum(pt.v);
+      title.textContent = fmtDate(pt.date, "medium") + ": " + (pt.est ? "≈" : "") + fmtNum(pt.v);
       r.appendChild(title);
       svg.appendChild(r);
     });
@@ -258,14 +259,48 @@
   var ROWS = null;
   var selKey = "personnel", selLabel = null, selMode = "cum", selRange = "all";
 
+  var DAY_MS = 86400000;
+  function dayDiff(a, b) {
+    return Math.round((Date.parse(b + "T00:00:00Z") - Date.parse(a + "T00:00:00Z")) / DAY_MS);
+  }
+  function addDays(iso, n) {
+    return new Date(Date.parse(iso + "T00:00:00Z") + n * DAY_MS).toISOString().slice(0, 10);
+  }
+
+  /* Reporting pauses (notably 2023-07-22 → 2023-12-20) would otherwise dump the
+     whole backlog into a single "daily" bar and a vertical step in the
+     cumulative line. Fill missing dates with linearly interpolated cumulative
+     values, flagged `est` so they can be rendered as estimates. */
+  function fillGaps(s) {
+    var out = [];
+    for (var i = 0; i < s.length; i++) {
+      if (i > 0) {
+        var gap = dayDiff(s[i - 1].date, s[i].date);
+        for (var d = 1; d < gap; d++) {
+          out.push({
+            date: addDays(s[i - 1].date, d),
+            v: Math.round(s[i - 1].v + ((s[i].v - s[i - 1].v) * d) / gap),
+            est: true
+          });
+        }
+      }
+      out.push(s[i]);
+    }
+    return out;
+  }
+
   function series(key) {
-    return ROWS.filter(function (r) { return r[key] != null; })
-      .map(function (r) { return { date: r.date, v: r[key] }; });
+    return fillGaps(ROWS.filter(function (r) { return r[key] != null; })
+      .map(function (r) { return { date: r.date, v: r[key] }; }));
   }
   function dailySeries(key) {
     var s = series(key), out = [];
     for (var i = 1; i < s.length; i++) {
-      out.push({ date: s[i].date, v: Math.max(0, s[i].v - s[i - 1].v) });
+      out.push({
+        date: s[i].date,
+        v: Math.max(0, s[i].v - s[i - 1].v),
+        est: !!(s[i].est || s[i - 1].est)
+      });
     }
     return out;
   }
