@@ -80,6 +80,21 @@
   line-chart: Line Chart
   heatmap-chart: Heat Map
   bar-chart: Bar Graph
+  history-title: Compared with past wars
+  history-intro: Estimated Soviet and Russian military deaths in earlier wars, alongside Russia's reported casualties in Ukraine.
+  history-compare: Russia's reported casualties in Ukraine already amount to roughly %n times the Soviet death toll of the entire Soviet–Afghan War (1979–1989).
+  history-note: Historical figures are estimated military deaths (low–high ranges from historical research; sources linked). The Ukraine figure counts casualties (killed and wounded) as reported by the Ministry of Defense of Ukraine, so the numbers are not directly equivalent.
+  history-deaths-label: military deaths (est.)
+  history-casualties-label: casualties (killed and wounded)
+  history-perday-label: per day
+  history-ongoing-label: ongoing
+  war-russo-japanese-label: Russo-Japanese War
+  war-winter-label: Winter War
+  war-afghan-label: Soviet–Afghan War
+  war-chechnya1-label: First Chechen War
+  war-chechnya2-label: Second Chechen War
+  war-georgia-label: Russo-Georgian War
+  war-ukraine-label: Russia's war in Ukraine
 
 - name: English (UK)
   slug: en-GB
@@ -163,6 +178,21 @@
   line-chart: Line Chart
   heatmap-chart: Heat Map
   bar-chart: Bar Graph
+  history-title: Compared with past wars
+  history-intro: Estimated Soviet and Russian military deaths in earlier wars, alongside Russia's reported casualties in Ukraine.
+  history-compare: Russia's reported casualties in Ukraine already amount to roughly %n times the Soviet death toll of the entire Soviet–Afghan War (1979–1989).
+  history-note: Historical figures are estimated military deaths (low–high ranges from historical research; sources linked). The Ukraine figure counts casualties (killed and wounded) as reported by the Ministry of Defence of Ukraine, so the numbers are not directly equivalent.
+  history-deaths-label: military deaths (est.)
+  history-casualties-label: casualties (killed and wounded)
+  history-perday-label: per day
+  history-ongoing-label: ongoing
+  war-russo-japanese-label: Russo-Japanese War
+  war-winter-label: Winter War
+  war-afghan-label: Soviet–Afghan War
+  war-chechnya1-label: First Chechen War
+  war-chechnya2-label: Second Chechen War
+  war-georgia-label: Russo-Georgian War
+  war-ukraine-label: Russia's war in Ukraine
 
 - name: Français
   slug: fr-FR
@@ -246,6 +276,21 @@
   line-chart: Graphique en ligne
   heatmap-chart: Carte thermique
   bar-chart: Diagramme en barres
+  history-title: Comparaison avec les guerres passées
+  history-intro: Estimations des morts militaires soviétiques et russes des guerres précédentes, aux côtés des pertes russes rapportées en Ukraine.
+  history-compare: Les pertes russes rapportées en Ukraine représentent déjà environ %n fois le nombre de morts militaires soviétiques de toute la guerre soviéto-afghane (1979–1989).
+  history-note: Les chiffres historiques sont des estimations de morts militaires (fourchettes basse–haute issues de la recherche historique ; sources en lien). Le chiffre pour l'Ukraine compte les pertes (tués et blessés) rapportées par le ministère de la Défense de l'Ukraine ; les nombres ne sont donc pas directement équivalents.
+  history-deaths-label: morts militaires (est.)
+  history-casualties-label: pertes (tués et blessés)
+  history-perday-label: par jour
+  history-ongoing-label: en cours
+  war-russo-japanese-label: Guerre russo-japonaise
+  war-winter-label: Guerre d'Hiver
+  war-afghan-label: Guerre soviéto-afghane
+  war-chechnya1-label: Première guerre de Tchétchénie
+  war-chechnya2-label: Seconde guerre de Tchétchénie
+  war-georgia-label: Guerre russo-géorgienne
+  war-ukraine-label: Guerre de la Russie en Ukraine
 
 - name: Deutsch
   slug: de-DE
@@ -329,6 +374,21 @@
   line-chart: Liniendiagramm
   heatmap-chart: Wärmekarte
   bar-chart: Balkendiagramm
+  history-title: Vergleich mit früheren Kriegen
+  history-intro: Geschätzte sowjetische und russische militärische Todesopfer früherer Kriege neben Russlands gemeldeten Verlusten in der Ukraine.
+  history-compare: Russlands gemeldete Verluste in der Ukraine entsprechen bereits etwa dem %n-Fachen der sowjetischen Todesopfer des gesamten Sowjetisch-Afghanischen Krieges (1979–1989).
+  history-note: Die historischen Zahlen sind geschätzte militärische Todesopfer (Spannen aus der historischen Forschung; Quellen verlinkt). Die Ukraine-Zahl umfasst Verluste (Gefallene und Verwundete) laut Verteidigungsministerium der Ukraine; die Zahlen sind daher nicht direkt vergleichbar.
+  history-deaths-label: militärische Todesopfer (geschätzt)
+  history-casualties-label: Verluste (Gefallene und Verwundete)
+  history-perday-label: pro Tag
+  history-ongoing-label: andauernd
+  war-russo-japanese-label: Russisch-Japanischer Krieg
+  war-winter-label: Winterkrieg
+  war-afghan-label: Sowjetisch-Afghanischer Krieg
+  war-chechnya1-label: Erster Tschetschenienkrieg
+  war-chechnya2-label: Zweiter Tschetschenienkrieg
+  war-georgia-label: Russisch-Georgischer Krieg
+  war-ukraine-label: Russlands Krieg in der Ukraine
 
 - name: Українська
   slug: uk-UA
@@ -412,6 +472,21 @@
   line-chart: Лінійна діаграма
   heatmap-chart: Теплова карта
   bar-chart: Стовпчаста діаграма
+  history-title: Порівняння з минулими війнами
+  history-intro: Оцінки кількості загиблих радянських і російських військових у минулих війнах поруч із заявленими втратами Росії в Україні.
+  history-compare: Заявлені втрати Росії в Україні вже приблизно в %n разів перевищують кількість загиблих радянських військових за всю радянсько-афганську війну (1979–1989).
+  history-note: Історичні цифри — оцінки кількості загиблих військових (діапазони від–до за даними історичних досліджень; джерела за посиланнями). Цифра щодо України охоплює втрати (вбитих і поранених) за даними Міністерства оборони України, тому ці числа не є прямо еквівалентними.
+  history-deaths-label: загиблі військові (оцінка)
+  history-casualties-label: втрати (вбиті та поранені)
+  history-perday-label: на день
+  history-ongoing-label: триває
+  war-russo-japanese-label: Російсько-японська війна
+  war-winter-label: Зимова війна
+  war-afghan-label: Радянсько-афганська війна
+  war-chechnya1-label: Перша чеченська війна
+  war-chechnya2-label: Друга чеченська війна
+  war-georgia-label: Російсько-грузинська війна
+  war-ukraine-label: Війна Росії проти України
 
 - name: Русский
   slug: ru-RU
@@ -495,3 +570,18 @@
   line-chart: Линейный график
   heatmap-chart: Тепловая карта
   bar-chart: Столбчатая диаграмма
+  history-title: Сравнение с прошлыми войнами
+  history-intro: Оценки числа погибших советских и российских военных в прошлых войнах рядом с заявленными потерями России в Украине.
+  history-compare: Заявленные потери России в Украине уже примерно в %n раз превышают число погибших советских военных за всю Афганскую войну (1979–1989).
+  history-note: Исторические цифры — оценки числа погибших военных (диапазоны от–до по данным исторических исследований; источники по ссылкам). Цифра по Украине охватывает потери (убитых и раненых) по данным Министерства обороны Украины, поэтому эти числа не являются напрямую эквивалентными.
+  history-deaths-label: погибшие военные (оценка)
+  history-casualties-label: потери (убитые и раненые)
+  history-perday-label: в день
+  history-ongoing-label: продолжается
+  war-russo-japanese-label: Русско-японская война
+  war-winter-label: Зимняя война
+  war-afghan-label: Афганская война
+  war-chechnya1-label: Первая чеченская война
+  war-chechnya2-label: Вторая чеченская война
+  war-georgia-label: Российско-грузинская война
+  war-ukraine-label: Война России против Украины

@@ -191,6 +191,38 @@ h2.sec { font-size: 21px; margin: 0 0 16px; letter-spacing: -.01em; }
 .chart-tip span { color: var(--text-2); }
 #main-chart { min-height: 180px; }
 
+/* ---------- historical comparison ---------- */
+.hist-list {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 16px; padding: 8px 22px; box-shadow: var(--shadow);
+}
+.hist-row {
+  display: grid; grid-template-columns: 250px 1fr 260px;
+  gap: 16px; align-items: center; padding: 13px 0;
+}
+.hist-row + .hist-row { border-top: 1px solid var(--border); }
+.hist-head { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.hist-head a, .hist-head b { font-size: 14.5px; font-weight: 600; color: var(--text); }
+.hist-head a .ic { color: var(--text-2); vertical-align: baseline; }
+.hist-head a:hover { color: var(--accent); }
+.hist-meta { font-size: 12.5px; color: var(--text-2); white-space: nowrap; }
+.hist-bar {
+  position: relative; height: 12px; border-radius: 999px;
+  background: var(--surface-2); border: 1px solid var(--border); overflow: hidden;
+}
+.hist-bar i {
+  position: absolute; inset: 0 auto 0 0; border-radius: 999px; min-width: 3px;
+}
+.hist-bar .hi { background: color-mix(in srgb, var(--chart-accent2) 38%, transparent); }
+.hist-bar .lo { background: var(--chart-accent2); }
+.hist-bar .ua { background: var(--chart-accent); }
+.hist-nums { display: flex; flex-direction: column; gap: 1px; text-align: right; }
+.hist-nums b { font-family: var(--font-mono); font-size: 14.5px; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.hist-nums span { font-size: 12px; color: var(--text-2); }
+.hist-ukraine .hist-nums b { color: var(--accent); }
+.hist-compare { margin: 16px 2px 0; font-size: 14.5px; }
+.hist-note { margin: 8px 2px 0; font-size: 12.5px; color: var(--text-2); }
+
 /* ---------- resources ---------- */
 .res-intro { color: var(--text-2); margin: -8px 0 16px; }
 .res-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
@@ -237,6 +269,11 @@ footer.site ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6p
   .hero-side { grid-template-rows: none; grid-template-columns: 1fr 1fr; }
   footer.site .cols { grid-template-columns: 1fr; }
   .day-chip { display: none; }
+}
+@media (max-width: 880px) {
+  .hist-row { grid-template-columns: 1fr; gap: 6px; padding: 14px 0; }
+  .hist-head { flex-direction: row; align-items: baseline; justify-content: space-between; gap: 10px; }
+  .hist-nums { flex-direction: row; align-items: baseline; justify-content: space-between; gap: 10px; text-align: left; }
 }
 @media (max-width: 560px) {
   .hero-side { grid-template-columns: 1fr; }
