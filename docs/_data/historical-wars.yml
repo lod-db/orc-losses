@@ -1,0 +1,55 @@
+# Past Imperial-Russian/Soviet/Russian wars used by the historical
+# comparison section, in chronological order.
+#   id:          stable identifier
+#   label:       translation key in translations.yml (war name)
+#   start/end:   war start and end dates (ISO 8601)
+#   deaths-low:  low estimate of Russian/Soviet military deaths
+#   deaths-high: high estimate of Russian/Soviet military deaths
+#   source-url:  reference for the figures
+- id: russo-japanese
+  label: war-russo-japanese-label
+  start: "1904-02-08"
+  end: "1905-09-05"
+  deaths-low: 43300
+  deaths-high: 71453
+  source-url: https://en.wikipedia.org/wiki/Russo-Japanese_War
+
+- id: winter-war
+  label: war-winter-label
+  start: "1939-11-30"
+  end: "1940-03-13"
+  deaths-low: 126875
+  deaths-high: 167976
+  source-url: https://en.wikipedia.org/wiki/Winter_War
+
+- id: afghan
+  label: war-afghan-label
+  start: "1979-12-24"
+  end: "1989-02-15"
+  deaths-low: 14453
+  deaths-high: 26000
+  source-url: https://en.wikipedia.org/wiki/Soviet%E2%80%93Afghan_War
+
+- id: chechnya1
+  label: war-chechnya1-label
+  start: "1994-12-11"
+  end: "1996-08-31"
+  deaths-low: 5552
+  deaths-high: 14000
+  source-url: https://en.wikipedia.org/wiki/First_Chechen_War
+
+- id: chechnya2
+  label: war-chechnya2-label
+  start: "1999-08-07"
+  end: "2009-04-16"
+  deaths-low: 6029
+  deaths-high: 11000
+  source-url: https://en.wikipedia.org/wiki/Second_Chechen_War
+
+- id: georgia
+  label: war-georgia-label
+  start: "2008-08-07"
+  end: "2008-08-12"
+  deaths-low: 67
+  deaths-high: 170
+  source-url: https://en.wikipedia.org/wiki/Russo-Georgian_War

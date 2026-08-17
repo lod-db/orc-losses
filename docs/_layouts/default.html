@@ -274,6 +274,60 @@
             </div>
         </section>
 
+        <section id="history" aria-label="{{ lang.history-title }}">
+            <h2 class="sec">{{ lang.history-title }}</h2>
+            <p class="res-intro">{{ lang.history-intro }}</p>
+            <div class="hist-list">
+                {% for war in site.data.historical-wars %}
+                {% assign w_start = war.start | date: "%s" | plus: 0 %}
+                {% assign w_end = war.end | date: "%s" | plus: 0 %}
+                {% assign w_days = w_end | minus: w_start | divided_by: 86400 | plus: 1 %}
+                {% assign w_mid = war.deaths-low | plus: war.deaths-high | divided_by: 2 %}
+                {% assign w_perday = w_mid | divided_by: w_days %}
+                {% assign lo_pct = war.deaths-low | times: 100.0 | divided_by: p_total | round: 2 %}
+                {% assign hi_pct = war.deaths-high | times: 100.0 | divided_by: p_total | round: 2 %}
+                {% assign y1 = war.start | date: "%Y" %}
+                {% assign y2 = war.end | date: "%Y" %}
+                <div class="hist-row">
+                    <div class="hist-head">
+                        <a href="{{ war.source-url }}" target="_blank" rel="noopener">{{ lang[war.label] }}&nbsp;{% include icon.html name="external" size=11 %}</a>
+                        <span class="hist-meta">{{ y1 }}{% if y1 != y2 %}–{{ y2 }}{% endif %} · {% include fmt-number.html number=w_days sep=sep %} {{ lang.days-title-text | downcase }}</span>
+                    </div>
+                    <div class="hist-bar" role="presentation">
+                        <i class="hi" style="width:{{ hi_pct }}%"></i>
+                        <i class="lo" style="width:{{ lo_pct }}%"></i>
+                    </div>
+                    <div class="hist-nums">
+                        {% capture d_lo %}{% include fmt-number.html number=war.deaths-low sep=sep %}{% endcapture %}
+                        {% capture d_hi %}{% include fmt-number.html number=war.deaths-high sep=sep %}{% endcapture %}
+                        <b>{{ d_lo | strip }}–{{ d_hi | strip }}</b>
+                        <span>{{ lang.history-deaths-label }} · ≈{% include fmt-number.html number=w_perday sep=sep %} {{ lang.history-perday-label }}</span>
+                    </div>
+                </div>
+                {% endfor %}
+                {% assign ua_perday = p_total | divided_by: day_of_war %}
+                <div class="hist-row hist-ukraine">
+                    <div class="hist-head">
+                        <b>{{ lang.war-ukraine-label }}</b>
+                        <span class="hist-meta">2022– · {% include fmt-number.html number=day_of_war sep=sep %} {{ lang.days-title-text | downcase }} · {{ lang.history-ongoing-label }}</span>
+                    </div>
+                    <div class="hist-bar" role="presentation">
+                        <i class="ua" style="width:100%"></i>
+                    </div>
+                    <div class="hist-nums">
+                        <b>{% include fmt-number.html number=p_total sep=sep %}</b>
+                        <span>{{ lang.history-casualties-label }} · ≈{% include fmt-number.html number=ua_perday sep=sep %} {{ lang.history-perday-label }}</span>
+                    </div>
+                </div>
+            </div>
+            {% assign afghan = site.data.historical-wars | where: "id", "afghan" | first %}
+            {% assign afghan_mid = afghan.deaths-low | plus: afghan.deaths-high | divided_by: 2 %}
+            {% assign afghan_mult = p_total | divided_by: afghan_mid %}
+            {% capture afghan_mult_fmt %}{% include fmt-number.html number=afghan_mult sep=sep %}{% endcapture %}
+            <p class="hist-compare">{{ lang.history-compare | replace: "%n", afghan_mult_fmt }}</p>
+            <p class="hist-note">{{ lang.history-note }}</p>
+        </section>
+
         <section id="resources" aria-label="{{ lang.follow-title }}">
             <h2 class="sec">{{ lang.follow-title }}</h2>
             <p class="res-intro">{{ lang.follow-intro }}</p>
