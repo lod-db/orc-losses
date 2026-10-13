@@ -13,8 +13,6 @@ Use English for all contribution communication: issue titles and descriptions, P
 | Report records | `russian-losses.json` |
 | Field definitions | `schema/` (English, French, German, Ukrainian, Russian) |
 | Website and translations | `docs/_layouts/default.html`, `docs/_data/translations.yml`, `docs/css/app.css`, `docs/js/app.js` |
-| Historical comparisons | `docs/_data/historical-wars.yml` |
-| Collection code or parsing fixes | [orc-losses-scraper](https://github.com/lod-db/orc-losses-scraper), with its own [contributor guide](https://github.com/lod-db/orc-losses-scraper/blob/main/CONTRIBUTORS.md) |
 
 ## Reporting a data issue
 
