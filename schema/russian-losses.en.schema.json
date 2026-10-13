@@ -13,7 +13,7 @@
       },
       "sourceUri": {
         "type": "string",
-        "description": "The URI of the Ministry of Defence of Ukraine webpage where the losses were originally reported."
+        "description": "The URI of the official report used for this record: a Ministry of Defence of Ukraine article (including archived copies), then a General Staff Telegram report, then a General Staff Facebook post, in order of preference. Corrections may be documented separately in the repository's pull request history."
       },
       "personnel": {
         "type": "integer",

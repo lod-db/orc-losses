@@ -13,7 +13,7 @@
       },
       "sourceUri": {
         "type": "string",
-        "description": "Die URI der Webseite des ukrainischen Verteidigungsministeriums, auf der die Verluste ursprünglich gemeldet wurden."
+        "description": "Die URI des offiziellen Berichts für diesen Eintrag, in bevorzugter Reihenfolge: ein Artikel des Verteidigungsministeriums der Ukraine (einschließlich archivierter Kopien), dann ein Telegram-Bericht des Generalstabs, dann ein Facebook-Beitrag des Generalstabs. Korrekturen können separat im Pull-Request-Verlauf des Repositorys dokumentiert sein."
       },
       "personnel": {
         "type": "integer",

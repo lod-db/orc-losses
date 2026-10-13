@@ -2,7 +2,7 @@
   slug: en-US
   page: /
   number-separator: ","
-  tagline: Daily-updated tracker of Russian personnel and equipment losses, from official reports of the Ministry of Defense of Ukraine.
+  tagline: Daily-updated tracker of Russian personnel and equipment losses, from official reports of Ukraine's Ministry of Defense and General Staff.
   day-of-war: Day %n of the full-scale invasion
   updated-label: Updated
   today-label: today
@@ -54,9 +54,13 @@
   share-label: Share
   tos-label: Terms of Use
   ua-min-def: Ministry of Defense of Ukraine
+  ua-general-staff: General Staff of the Armed Forces of Ukraine
+  source-report-label: Source report
+  collection-note: Reports are collected from MoD articles, archived copies, and General Staff posts. Historical gaps are filled from verified reports; corrections and official revisions are documented in pull requests.
+  methodology-link-label: Collection methodology (English)
+  contributors-label: Contribution guide (English)
   os-open-data: Open Data
-  os-disclaimer-p1-1: The dataset is sourced from the
-  os-disclaimer-p1-2: and carries a likely bias. This dataset represents the most consistently reported figures on the war but should not be considered definitive.
+  os-disclaimer-p1: The dataset contains official loss estimates published by the Ministry of Defense of Ukraine and the General Staff of the Armed Forces of Ukraine. These reports may carry a wartime bias and are not independently verified battlefield counts.
   os-disclaimer-p2-1: The dataset is publicly maintained on
   os-disclaimer-p2-2: under open-source licenses. Users are encouraged to verify information independently and use it responsibly.
   add-resource-header: Additional Resources
@@ -83,7 +87,7 @@
   history-title: Compared with past wars
   history-intro: Estimated Soviet and Russian military deaths in earlier wars, alongside Russia's reported casualties in Ukraine.
   history-compare: Russia's reported casualties in Ukraine already amount to roughly %n times the Soviet death toll of the entire Soviet–Afghan War (1979–1989).
-  history-note: Historical figures are estimated military deaths (low–high ranges from historical research; sources linked). The Ukraine figure counts casualties (killed and wounded) as reported by the Ministry of Defense of Ukraine, so the numbers are not directly equivalent.
+  history-note: Historical figures are estimated military deaths (low–high ranges from historical research; sources linked). The Ukraine figure counts casualties (killed and wounded) as reported by Ukraine's Ministry of Defense and General Staff, so the numbers are not directly equivalent.
   history-deaths-label: military deaths (est.)
   history-casualties-label: casualties (killed and wounded)
   history-perday-label: per day
@@ -100,7 +104,7 @@
   slug: en-GB
   page: /uk
   number-separator: ","
-  tagline: Daily-updated tracker of Russian personnel and equipment losses, from official reports of the Ministry of Defence of Ukraine.
+  tagline: Daily-updated tracker of Russian personnel and equipment losses, from official reports of Ukraine's Ministry of Defence and General Staff.
   day-of-war: Day %n of the full-scale invasion
   updated-label: Updated
   today-label: today
@@ -152,9 +156,13 @@
   share-label: Share
   tos-label: Terms of Use
   ua-min-def: Ministry of Defence of Ukraine
+  ua-general-staff: General Staff of the Armed Forces of Ukraine
+  source-report-label: Source report
+  collection-note: Reports are collected from MoD articles, archived copies, and General Staff posts. Historical gaps are filled from verified reports; corrections and official revisions are documented in pull requests.
+  methodology-link-label: Collection methodology (English)
+  contributors-label: Contribution guide (English)
   os-open-data: Open Data
-  os-disclaimer-p1-1: The dataset is sourced from the
-  os-disclaimer-p1-2: and carries a likely bias. This dataset represents the most consistently reported figures on the war but should not be considered definitive.
+  os-disclaimer-p1: The dataset contains official loss estimates published by the Ministry of Defence of Ukraine and the General Staff of the Armed Forces of Ukraine. These reports may carry a wartime bias and are not independently verified battlefield counts.
   os-disclaimer-p2-1: The dataset is publicly maintained on
   os-disclaimer-p2-2: under open-source licences. Users are encouraged to verify information independently and use it responsibly.
   add-resource-header: Additional Resources
@@ -181,7 +189,7 @@
   history-title: Compared with past wars
   history-intro: Estimated Soviet and Russian military deaths in earlier wars, alongside Russia's reported casualties in Ukraine.
   history-compare: Russia's reported casualties in Ukraine already amount to roughly %n times the Soviet death toll of the entire Soviet–Afghan War (1979–1989).
-  history-note: Historical figures are estimated military deaths (low–high ranges from historical research; sources linked). The Ukraine figure counts casualties (killed and wounded) as reported by the Ministry of Defence of Ukraine, so the numbers are not directly equivalent.
+  history-note: Historical figures are estimated military deaths (low–high ranges from historical research; sources linked). The Ukraine figure counts casualties (killed and wounded) as reported by Ukraine's Ministry of Defence and General Staff, so the numbers are not directly equivalent.
   history-deaths-label: military deaths (est.)
   history-casualties-label: casualties (killed and wounded)
   history-perday-label: per day
@@ -198,7 +206,7 @@
   slug: fr-FR
   page: /fr
   number-separator: " "
-  tagline: Suivi quotidien des pertes russes en personnel et en équipement, d'après les rapports officiels du ministère de la Défense de l'Ukraine.
+  tagline: Suivi quotidien des pertes russes en personnel et en équipement, d'après les rapports officiels du ministère de la Défense et de l'état-major des forces armées de l'Ukraine.
   day-of-war: Jour %n de l'invasion à grande échelle
   updated-label: Mis à jour
   today-label: aujourd'hui
@@ -250,9 +258,13 @@
   share-label: Partager
   tos-label: Conditions d'utilisation
   ua-min-def: Ministère de la Défense de l'Ukraine
+  ua-general-staff: État-major des forces armées de l'Ukraine
+  source-report-label: Rapport source
+  collection-note: Les rapports proviennent d'articles du ministère de la Défense, de copies archivées et de publications de l'état-major. Les lacunes historiques sont comblées à partir de rapports vérifiés ; les corrections et révisions officielles sont documentées dans les pull requests.
+  methodology-link-label: Méthodologie de collecte (en anglais)
+  contributors-label: Guide de contribution (en anglais)
   os-open-data: Données ouvertes
-  os-disclaimer-p1-1: L'ensemble de données provient du
-  os-disclaimer-p1-2: et peut contenir un biais. Cet ensemble de données représente les chiffres les plus régulièrement rapportés sur la guerre, mais ne doit pas être considéré comme définitif.
+  os-disclaimer-p1: Le jeu de données contient les estimations officielles des pertes publiées par le ministère de la Défense de l'Ukraine et l'état-major des forces armées de l'Ukraine. Ces rapports peuvent comporter un biais lié à la guerre et ne constituent pas des décomptes du champ de bataille vérifiés de manière indépendante.
   os-disclaimer-p2-1: L'ensemble de données est maintenu publiquement sur
   os-disclaimer-p2-2: sous des licences open-source. Les utilisateurs sont encouragés à vérifier les informations de manière indépendante et à les utiliser de manière responsable.
   add-resource-header: Ressources supplémentaires
@@ -279,7 +291,7 @@
   history-title: Comparaison avec les guerres passées
   history-intro: Estimations des morts militaires soviétiques et russes des guerres précédentes, aux côtés des pertes russes rapportées en Ukraine.
   history-compare: Les pertes russes rapportées en Ukraine représentent déjà environ %n fois le nombre de morts militaires soviétiques de toute la guerre soviéto-afghane (1979–1989).
-  history-note: Les chiffres historiques sont des estimations de morts militaires (fourchettes basse–haute issues de la recherche historique ; sources en lien). Le chiffre pour l'Ukraine compte les pertes (tués et blessés) rapportées par le ministère de la Défense de l'Ukraine ; les nombres ne sont donc pas directement équivalents.
+  history-note: Les chiffres historiques sont des estimations de morts militaires (fourchettes basse–haute issues de la recherche historique ; sources en lien). Le chiffre pour l'Ukraine compte les pertes (tués et blessés) rapportées par le ministère de la Défense et l'état-major des forces armées de l'Ukraine ; les nombres ne sont donc pas directement équivalents.
   history-deaths-label: morts militaires (est.)
   history-casualties-label: pertes (tués et blessés)
   history-perday-label: par jour
@@ -296,7 +308,7 @@
   slug: de-DE
   page: /de
   number-separator: "."
-  tagline: Täglich aktualisierte Übersicht der russischen Verluste an Personal und Ausrüstung, nach offiziellen Berichten des Verteidigungsministeriums der Ukraine.
+  tagline: Täglich aktualisierte Übersicht der russischen Verluste an Personal und Ausrüstung, nach offiziellen Berichten des Verteidigungsministeriums der Ukraine und des Generalstabs der ukrainischen Streitkräfte.
   day-of-war: Tag %n der groß angelegten Invasion
   updated-label: Aktualisiert
   today-label: heute
@@ -348,9 +360,13 @@
   share-label: Teilen
   tos-label: Nutzungsbedingungen
   ua-min-def: Verteidigungsministerium der Ukraine
+  ua-general-staff: Generalstab der Streitkräfte der Ukraine
+  source-report-label: Quellbericht
+  collection-note: Die Berichte stammen aus Artikeln des Verteidigungsministeriums, archivierten Kopien und Veröffentlichungen des Generalstabs. Historische Lücken werden mit überprüften Berichten gefüllt; Korrekturen und offizielle Revisionen werden in Pull Requests dokumentiert.
+  methodology-link-label: Erhebungsmethodik (Englisch)
+  contributors-label: Beitragsleitfaden (Englisch)
   os-open-data: Offene Daten
-  os-disclaimer-p1-1: Der Datensatz stammt vom
-  os-disclaimer-p1-2: und könnte eine gewisse Voreingenommenheit enthalten. Dieser Datensatz stellt die am beständigsten berichteten Zahlen zum Krieg dar, sollte jedoch nicht als endgültig betrachtet werden.
+  os-disclaimer-p1: Der Datensatz enthält offizielle Verlustschätzungen des Verteidigungsministeriums der Ukraine und des Generalstabs der ukrainischen Streitkräfte. Diese Berichte können durch den Krieg beeinflusst sein und sind keine unabhängig überprüften Zählungen auf dem Schlachtfeld.
   os-disclaimer-p2-1: Der Datensatz wird öffentlich auf
   os-disclaimer-p2-2: unter Open-Source-Lizenzen verwaltet. Nutzer werden ermutigt, die Informationen unabhängig zu überprüfen und verantwortungsvoll zu nutzen.
   add-resource-header: Zusätzliche Ressourcen
@@ -377,7 +393,7 @@
   history-title: Vergleich mit früheren Kriegen
   history-intro: Geschätzte sowjetische und russische militärische Todesopfer früherer Kriege neben Russlands gemeldeten Verlusten in der Ukraine.
   history-compare: Russlands gemeldete Verluste in der Ukraine entsprechen bereits etwa dem %n-Fachen der sowjetischen Todesopfer des gesamten Sowjetisch-Afghanischen Krieges (1979–1989).
-  history-note: Die historischen Zahlen sind geschätzte militärische Todesopfer (Spannen aus der historischen Forschung; Quellen verlinkt). Die Ukraine-Zahl umfasst Verluste (Gefallene und Verwundete) laut Verteidigungsministerium der Ukraine; die Zahlen sind daher nicht direkt vergleichbar.
+  history-note: Die historischen Zahlen sind geschätzte militärische Todesopfer (Spannen aus der historischen Forschung; Quellen verlinkt). Die Ukraine-Zahl umfasst Verluste (Gefallene und Verwundete) laut Verteidigungsministerium der Ukraine und Generalstab der ukrainischen Streitkräfte; die Zahlen sind daher nicht direkt vergleichbar.
   history-deaths-label: militärische Todesopfer (geschätzt)
   history-casualties-label: Verluste (Gefallene und Verwundete)
   history-perday-label: pro Tag
@@ -394,7 +410,7 @@
   slug: uk-UA
   page: /ua
   number-separator: " "
-  tagline: Щоденний трекер втрат Росії в живій силі та техніці за офіційними звітами Міністерства оборони України.
+  tagline: Щоденний трекер втрат Росії в живій силі та техніці за офіційними звітами Міністерства оборони України та Генерального штабу Збройних сил України.
   day-of-war: День %n повномасштабного вторгнення
   updated-label: Оновлено
   today-label: сьогодні
@@ -445,10 +461,14 @@
   view-on-github-label: Переглянути на
   share-label: Поширити
   tos-label: Умови використання
-  ua-min-def: Міністерства оборони України
+  ua-min-def: Міністерство оборони України
+  ua-general-staff: Генеральний штаб Збройних сил України
+  source-report-label: Джерело звіту
+  collection-note: Звіти збираються зі статей Міноборони, архівних копій і дописів Генерального штабу. Історичні прогалини заповнюються перевіреними звітами; виправлення та офіційні уточнення документуються в запитах на злиття.
+  methodology-link-label: Методологія збору даних (англійською)
+  contributors-label: Посібник для внесків (англійською)
   os-open-data: Відкриті дані
-  os-disclaimer-p1-1: Набір даних отримано з
-  os-disclaimer-p1-2: і може містити певну упередженість. Цей набір даних представляє найбільш послідовно звітувані цифри щодо війни, але не повинен вважатися остаточним.
+  os-disclaimer-p1: Набір даних містить офіційні оцінки втрат, опубліковані Міністерством оборони України та Генеральним штабом Збройних сил України. Ці звіти можуть бути упередженими в умовах війни й не є незалежно перевіреними підрахунками втрат на полі бою.
   os-disclaimer-p2-1: Набір даних підтримується публічно на
   os-disclaimer-p2-2: за відкритими ліцензіями. Користувачам рекомендується перевіряти інформацію самостійно та використовувати її відповідально.
   add-resource-header: Додаткові ресурси
@@ -475,7 +495,7 @@
   history-title: Порівняння з минулими війнами
   history-intro: Оцінки кількості загиблих радянських і російських військових у минулих війнах поруч із заявленими втратами Росії в Україні.
   history-compare: Заявлені втрати Росії в Україні вже приблизно в %n разів перевищують кількість загиблих радянських військових за всю радянсько-афганську війну (1979–1989).
-  history-note: Історичні цифри — оцінки кількості загиблих військових (діапазони від–до за даними історичних досліджень; джерела за посиланнями). Цифра щодо України охоплює втрати (вбитих і поранених) за даними Міністерства оборони України, тому ці числа не є прямо еквівалентними.
+  history-note: Історичні цифри — оцінки кількості загиблих військових (діапазони від–до за даними історичних досліджень; джерела за посиланнями). Цифра щодо України охоплює втрати (вбитих і поранених) за даними Міністерства оборони України та Генерального штабу Збройних сил України, тому ці числа не є прямо еквівалентними.
   history-deaths-label: загиблі військові (оцінка)
   history-casualties-label: втрати (вбиті та поранені)
   history-perday-label: на день
@@ -492,7 +512,7 @@
   slug: ru-RU
   page: /ru
   number-separator: " "
-  tagline: Ежедневно обновляемый трекер потерь России в живой силе и технике по официальным отчётам Министерства обороны Украины.
+  tagline: Ежедневно обновляемый трекер потерь России в живой силе и технике по официальным отчётам Министерства обороны Украины и Генерального штаба Вооружённых сил Украины.
   day-of-war: День %n полномасштабного вторжения
   updated-label: Обновлено
   today-label: сегодня
@@ -543,10 +563,14 @@
   view-on-github-label: Смотреть на
   share-label: Поделиться
   tos-label: Условия использования
-  ua-min-def: Министерства обороны Украины
+  ua-min-def: Министерство обороны Украины
+  ua-general-staff: Генеральный штаб Вооружённых сил Украины
+  source-report-label: Источник отчёта
+  collection-note: Отчёты собираются из статей Минобороны, архивных копий и публикаций Генерального штаба. Исторические пробелы заполняются проверенными отчётами; исправления и официальные уточнения документируются в запросах на слияние.
+  methodology-link-label: Методология сбора данных (на английском)
+  contributors-label: Руководство по внесению изменений (на английском)
   os-open-data: Открытые данные
-  os-disclaimer-p1-1: Набор данных получен из
-  os-disclaimer-p1-2: и может содержать определённую предвзятость. Этот набор данных представляет собой наиболее последовательно публикуемые цифры о войне, но не должен считаться окончательным.
+  os-disclaimer-p1: Набор данных содержит официальные оценки потерь, опубликованные Министерством обороны Украины и Генеральным штабом Вооружённых сил Украины. Эти отчёты могут быть предвзятыми в условиях войны и не являются независимо проверенными подсчётами потерь на поле боя.
   os-disclaimer-p2-1: Набор данных поддерживается публично на
   os-disclaimer-p2-2: под лицензиями с открытым исходным кодом. Пользователям рекомендуется самостоятельно проверять информацию и использовать её ответственно.
   add-resource-header: Дополнительные ресурсы
@@ -573,7 +597,7 @@
   history-title: Сравнение с прошлыми войнами
   history-intro: Оценки числа погибших советских и российских военных в прошлых войнах рядом с заявленными потерями России в Украине.
   history-compare: Заявленные потери России в Украине уже примерно в %n раз превышают число погибших советских военных за всю Афганскую войну (1979–1989).
-  history-note: Исторические цифры — оценки числа погибших военных (диапазоны от–до по данным исторических исследований; источники по ссылкам). Цифра по Украине охватывает потери (убитых и раненых) по данным Министерства обороны Украины, поэтому эти числа не являются напрямую эквивалентными.
+  history-note: Исторические цифры — оценки числа погибших военных (диапазоны от–до по данным исторических исследований; источники по ссылкам). Цифра по Украине охватывает потери (убитых и раненых) по данным Министерства обороны Украины и Генерального штаба Вооружённых сил Украины, поэтому эти числа не являются напрямую эквивалентными.
   history-deaths-label: погибшие военные (оценка)
   history-casualties-label: потери (убитые и раненые)
   history-perday-label: в день
