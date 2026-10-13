@@ -1,6 +1,6 @@
 # Contribution guide
 
-Contributions to source research, historical coverage, data corrections, translations, documentation, and the website are welcome. Start with the [README](README.md) and its [data collection methodology](README.md#methodology).
+Contributions to source research, historical coverage, data corrections, translations, documentation, and the website are welcome. Start with the [README](README.md) and the [data collection methodology](METHODOLOGY.md).
 
 ## Contribution language
 

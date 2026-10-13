@@ -57,8 +57,7 @@
   ua-general-staff: General Staff of the Armed Forces of Ukraine
   source-report-label: Source report
   collection-note: Reports are collected from MoD articles, archived copies, and General Staff posts. Historical gaps are filled from verified reports; corrections and official revisions are documented in pull requests.
-  methodology-link-label: Collection methodology
-  methodology-anchor: methodology
+  methodology-link-label: Collection methodology (English)
   contributors-label: Contribution guide (English)
   os-open-data: Open Data
   os-disclaimer-p1: The dataset contains official loss estimates published by the Ministry of Defense of Ukraine and the General Staff of the Armed Forces of Ukraine. These reports may carry a wartime bias and are not independently verified battlefield counts.
@@ -160,8 +159,7 @@
   ua-general-staff: General Staff of the Armed Forces of Ukraine
   source-report-label: Source report
   collection-note: Reports are collected from MoD articles, archived copies, and General Staff posts. Historical gaps are filled from verified reports; corrections and official revisions are documented in pull requests.
-  methodology-link-label: Collection methodology
-  methodology-anchor: methodology
+  methodology-link-label: Collection methodology (English)
   contributors-label: Contribution guide (English)
   os-open-data: Open Data
   os-disclaimer-p1: The dataset contains official loss estimates published by the Ministry of Defence of Ukraine and the General Staff of the Armed Forces of Ukraine. These reports may carry a wartime bias and are not independently verified battlefield counts.
@@ -263,8 +261,7 @@
   ua-general-staff: État-major des forces armées de l'Ukraine
   source-report-label: Rapport source
   collection-note: Les rapports proviennent d'articles du ministère de la Défense, de copies archivées et de publications de l'état-major. Les lacunes historiques sont comblées à partir de rapports vérifiés ; les corrections et révisions officielles sont documentées dans les pull requests.
-  methodology-link-label: Méthodologie de collecte
-  methodology-anchor: méthodologie
+  methodology-link-label: Méthodologie de collecte (en anglais)
   contributors-label: Guide de contribution (en anglais)
   os-open-data: Données ouvertes
   os-disclaimer-p1: Le jeu de données contient les estimations officielles des pertes publiées par le ministère de la Défense de l'Ukraine et l'état-major des forces armées de l'Ukraine. Ces rapports peuvent comporter un biais lié à la guerre et ne constituent pas des décomptes du champ de bataille vérifiés de manière indépendante.
@@ -366,8 +363,7 @@
   ua-general-staff: Generalstab der Streitkräfte der Ukraine
   source-report-label: Quellbericht
   collection-note: Die Berichte stammen aus Artikeln des Verteidigungsministeriums, archivierten Kopien und Veröffentlichungen des Generalstabs. Historische Lücken werden mit überprüften Berichten gefüllt; Korrekturen und offizielle Revisionen werden in Pull Requests dokumentiert.
-  methodology-link-label: Erhebungsmethodik
-  methodology-anchor: methodik
+  methodology-link-label: Erhebungsmethodik (Englisch)
   contributors-label: Beitragsleitfaden (Englisch)
   os-open-data: Offene Daten
   os-disclaimer-p1: Der Datensatz enthält offizielle Verlustschätzungen des Verteidigungsministeriums der Ukraine und des Generalstabs der ukrainischen Streitkräfte. Diese Berichte können durch den Krieg beeinflusst sein und sind keine unabhängig überprüften Zählungen auf dem Schlachtfeld.
@@ -469,8 +465,7 @@
   ua-general-staff: Генеральний штаб Збройних сил України
   source-report-label: Джерело звіту
   collection-note: Звіти збираються зі статей Міноборони, архівних копій і дописів Генерального штабу. Історичні прогалини заповнюються перевіреними звітами; виправлення та офіційні уточнення документуються в запитах на злиття.
-  methodology-link-label: Методологія збору даних
-  methodology-anchor: методологія
+  methodology-link-label: Методологія збору даних (англійською)
   contributors-label: Посібник для внесків (англійською)
   os-open-data: Відкриті дані
   os-disclaimer-p1: Набір даних містить офіційні оцінки втрат, опубліковані Міністерством оборони України та Генеральним штабом Збройних сил України. Ці звіти можуть бути упередженими в умовах війни й не є незалежно перевіреними підрахунками втрат на полі бою.
@@ -572,8 +567,7 @@
   ua-general-staff: Генеральный штаб Вооружённых сил Украины
   source-report-label: Источник отчёта
   collection-note: Отчёты собираются из статей Минобороны, архивных копий и публикаций Генерального штаба. Исторические пробелы заполняются проверенными отчётами; исправления и официальные уточнения документируются в запросах на слияние.
-  methodology-link-label: Методология сбора данных
-  methodology-anchor: методология
+  methodology-link-label: Методология сбора данных (на английском)
   contributors-label: Руководство по внесению изменений (на английском)
   os-open-data: Открытые данные
   os-disclaimer-p1: Набор данных содержит официальные оценки потерь, опубликованные Министерством обороны Украины и Генеральным штабом Вооружённых сил Украины. Эти отчёты могут быть предвзятыми в условиях войны и не являются независимо проверенными подсчётами потерь на поле боя.
