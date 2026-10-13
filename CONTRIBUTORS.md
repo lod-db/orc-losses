@@ -33,7 +33,7 @@ Write the title and description in English. Describe the resulting change, evide
 
 1. Work on a branch in your fork. Keep backfills, corrections, and unrelated website changes in separate PRs when possible.
 2. Follow the methodology's source selection and historical field conventions. Preserve `null` values where appropriate and keep records unique and ordered newest first. Add actual reports, not estimates.
-3. For corrections, change only the fields supported by the evidence. For backfills, leave existing records unchanged. Include primary-source links, before/after values, surrounding totals, and published daily changes in the PR description.
+3. Keep exactly one record per report date. For corrections, edit the existing record for that date and change only the fields supported by the evidence; do not add a second record. For backfills, add records only for dates missing from the dataset and leave existing records unchanged. Include primary-source links, before/after values, surrounding totals, and published daily changes in the PR description.
 4. Check the affected dates and both surrounding records. For longer gaps, check the entire chain and its endpoints. Explain legitimate decreases or revision-related differences.
 5. Run the value check and validate against all five schemas. The standard value check compares only the two newest records, so historical edits need additional checks as described in the methodology.
 
