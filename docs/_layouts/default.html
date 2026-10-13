@@ -136,8 +136,12 @@
         "name": "Orc Losses",
         "url": "https://www.ukrainewarlosses.com"
       },
-      "isBasedOn": "https://mod.gov.ua",
-      "citation": "{{ lang.ua-min-def }} — mod.gov.ua",
+      "isBasedOn": ["https://mod.gov.ua", "https://t.me/GeneralStaffZSU", "https://www.facebook.com/GeneralStaff.ua"],
+      "citation": [
+        {"@type": "CreativeWork", "name": {{ lang.ua-min-def | jsonify }}, "url": "https://mod.gov.ua"},
+        {"@type": "CreativeWork", "name": {{ lang.ua-general-staff | append: ' (Telegram)' | jsonify }}, "url": "https://t.me/GeneralStaffZSU"},
+        {"@type": "CreativeWork", "name": {{ lang.ua-general-staff | append: ' (Facebook)' | jsonify }}, "url": "https://www.facebook.com/GeneralStaff.ua"}
+      ],
       "variableMeasured": [
         {% for cat in site.data.categories %}{
           "@type": "PropertyValue",
@@ -232,7 +236,7 @@
             </div>
             <div class="updated-line">
                 <span class="pulse" role="presentation"></span>
-                <span>{{ lang.updated-label }} <time datetime="{{ current.date }}" data-datefmt="long">{{ current.date }}</time> · {{ lang.ua-min-def }} —&nbsp;<a href="{{ current.sourceUri }}" target="_blank" rel="noopener">mod.gov.ua</a></span>
+                <span>{{ lang.updated-label }} <time datetime="{{ current.date }}" data-datefmt="long">{{ current.date }}</time> · <a href="{{ current.sourceUri }}" target="_blank" rel="noopener">{{ lang.source-report-label }}</a></span>
             </div>
         </section>
 
@@ -367,9 +371,13 @@
                     <h3>{{ lang.sources-methodology-label }}</h3>
                     <p>
                         {{ lang.os-disclaimer-p1-1 }}
-                        <a href="https://mod.gov.ua" target="_blank" rel="noopener">{{ lang.ua-min-def }}</a>
-                        {{ lang.os-disclaimer-p1-2 }}
+                        <a href="https://mod.gov.ua" target="_blank" rel="noopener">{{ lang.ua-min-def }}</a>,
+                        <a href="https://t.me/GeneralStaffZSU" target="_blank" rel="noopener">{{ lang.ua-general-staff }} (Telegram)</a>
+                        {{ lang.source-and-label }}
+                        <a href="https://www.facebook.com/GeneralStaff.ua" target="_blank" rel="noopener">{{ lang.ua-general-staff }} (Facebook)</a>{{ lang.os-disclaimer-p1-2 }}
                     </p>
+                    <p>{{ lang.collection-note }}</p>
+                    <p><a href="https://github.com/lod-db/orc-losses/blob/main/README.md#{{ lang.methodology-anchor | url_encode }}" target="_blank" rel="noopener">{{ lang.methodology-link-label }}</a></p>
                     <p>
                         {{ lang.os-disclaimer-p2-1 }}
                         <a href="https://github.com/lod-db/orc-losses" target="_blank" rel="noopener">GitHub</a>
@@ -382,6 +390,7 @@
                         <li><a href="https://github.com/lod-db/orc-losses" target="_blank" rel="noopener">github.com/lod-db/orc-losses</a></li>
                         <li><a href="/assets/russian-losses.json" target="_blank">russian-losses.json</a></li>
                         <li><a href="/assets/schema/{{ lang.schema }}" target="_blank">{{ lang.schema }}</a></li>
+                        <li><a href="https://github.com/lod-db/orc-losses/blob/main/CONTRIBUTORS.md" target="_blank" rel="noopener">{{ lang.contributors-label }}</a></li>
                     </ul>
                     <h3 class="mt">{{ lang.share-label }}</h3>
                     <div class="share-row">

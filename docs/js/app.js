@@ -267,8 +267,8 @@
     return new Date(Date.parse(iso + "T00:00:00Z") + n * DAY_MS).toISOString().slice(0, 10);
   }
 
-  /* Reporting pauses (notably 2023-07-22 → 2023-12-20) would otherwise dump the
-     whole backlog into a single "daily" bar and a vertical step in the
+  /* Missing dataset dates would otherwise dump the whole interval's increase
+     into a single "daily" bar and a vertical step in the
      cumulative line. Fill missing dates with linearly interpolated cumulative
      values, flagged `est` so they can be rendered as estimates. */
   function fillGaps(s) {

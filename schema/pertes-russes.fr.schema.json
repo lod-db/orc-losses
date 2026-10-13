@@ -13,7 +13,7 @@
       },
       "sourceUri": {
         "type": "string",
-        "description": "L'URL de la page Web du Ministère de la Défense de l'Ukraine où les pertes ont été initialement signalées."
+        "description": "L'URI du rapport officiel utilisé pour cet enregistrement : un article du ministère de la Défense de l'Ukraine (y compris les copies archivées), puis un rapport Telegram de l'état-major, puis une publication Facebook de l'état-major, par ordre de préférence. Les corrections peuvent être documentées séparément dans l'historique des pull requests du dépôt."
       },
       "personnel": {
         "type": "integer",
