@@ -55,15 +55,13 @@
   tos-label: Terms of Use
   ua-min-def: Ministry of Defense of Ukraine
   ua-general-staff: General Staff of the Armed Forces of Ukraine
-  source-and-label: and
   source-report-label: Source report
   collection-note: Reports are collected from MoD articles, archived copies, and General Staff posts. Historical gaps are filled from verified reports; corrections and official revisions are documented in pull requests.
   methodology-link-label: Collection methodology
   methodology-anchor: methodology
   contributors-label: Contribution guide (English)
   os-open-data: Open Data
-  os-disclaimer-p1-1: "The dataset uses official loss estimates from these sources:"
-  os-disclaimer-p1-2: . These reports may carry a wartime bias and are not independently verified battlefield counts.
+  os-disclaimer-p1: The dataset contains official loss estimates published by the Ministry of Defense of Ukraine and the General Staff of the Armed Forces of Ukraine. These reports may carry a wartime bias and are not independently verified battlefield counts.
   os-disclaimer-p2-1: The dataset is publicly maintained on
   os-disclaimer-p2-2: under open-source licenses. Users are encouraged to verify information independently and use it responsibly.
   add-resource-header: Additional Resources
@@ -160,15 +158,13 @@
   tos-label: Terms of Use
   ua-min-def: Ministry of Defence of Ukraine
   ua-general-staff: General Staff of the Armed Forces of Ukraine
-  source-and-label: and
   source-report-label: Source report
   collection-note: Reports are collected from MoD articles, archived copies, and General Staff posts. Historical gaps are filled from verified reports; corrections and official revisions are documented in pull requests.
   methodology-link-label: Collection methodology
   methodology-anchor: methodology
   contributors-label: Contribution guide (English)
   os-open-data: Open Data
-  os-disclaimer-p1-1: "The dataset uses official loss estimates from these sources:"
-  os-disclaimer-p1-2: . These reports may carry a wartime bias and are not independently verified battlefield counts.
+  os-disclaimer-p1: The dataset contains official loss estimates published by the Ministry of Defence of Ukraine and the General Staff of the Armed Forces of Ukraine. These reports may carry a wartime bias and are not independently verified battlefield counts.
   os-disclaimer-p2-1: The dataset is publicly maintained on
   os-disclaimer-p2-2: under open-source licences. Users are encouraged to verify information independently and use it responsibly.
   add-resource-header: Additional Resources
@@ -265,15 +261,13 @@
   tos-label: Conditions d'utilisation
   ua-min-def: Ministère de la Défense de l'Ukraine
   ua-general-staff: État-major des forces armées de l'Ukraine
-  source-and-label: et
   source-report-label: Rapport source
   collection-note: Les rapports proviennent d'articles du ministère de la Défense, de copies archivées et de publications de l'état-major. Les lacunes historiques sont comblées à partir de rapports vérifiés ; les corrections et révisions officielles sont documentées dans les pull requests.
   methodology-link-label: Méthodologie de collecte
   methodology-anchor: méthodologie
   contributors-label: Guide de contribution (en anglais)
   os-open-data: Données ouvertes
-  os-disclaimer-p1-1: "Le jeu de données utilise les estimations officielles des pertes des sources suivantes :"
-  os-disclaimer-p1-2: . Ces rapports peuvent comporter un biais lié à la guerre et ne constituent pas des décomptes du champ de bataille vérifiés de manière indépendante.
+  os-disclaimer-p1: Le jeu de données contient les estimations officielles des pertes publiées par le ministère de la Défense de l'Ukraine et l'état-major des forces armées de l'Ukraine. Ces rapports peuvent comporter un biais lié à la guerre et ne constituent pas des décomptes du champ de bataille vérifiés de manière indépendante.
   os-disclaimer-p2-1: L'ensemble de données est maintenu publiquement sur
   os-disclaimer-p2-2: sous des licences open-source. Les utilisateurs sont encouragés à vérifier les informations de manière indépendante et à les utiliser de manière responsable.
   add-resource-header: Ressources supplémentaires
@@ -370,15 +364,13 @@
   tos-label: Nutzungsbedingungen
   ua-min-def: Verteidigungsministerium der Ukraine
   ua-general-staff: Generalstab der Streitkräfte der Ukraine
-  source-and-label: und
   source-report-label: Quellbericht
   collection-note: Die Berichte stammen aus Artikeln des Verteidigungsministeriums, archivierten Kopien und Veröffentlichungen des Generalstabs. Historische Lücken werden mit überprüften Berichten gefüllt; Korrekturen und offizielle Revisionen werden in Pull Requests dokumentiert.
   methodology-link-label: Erhebungsmethodik
   methodology-anchor: methodik
   contributors-label: Beitragsleitfaden (Englisch)
   os-open-data: Offene Daten
-  os-disclaimer-p1-1: "Der Datensatz verwendet offizielle Verlustschätzungen aus folgenden Quellen:"
-  os-disclaimer-p1-2: . Diese Berichte können durch den Krieg beeinflusst sein und sind keine unabhängig überprüften Zählungen auf dem Schlachtfeld.
+  os-disclaimer-p1: Der Datensatz enthält offizielle Verlustschätzungen des Verteidigungsministeriums der Ukraine und des Generalstabs der ukrainischen Streitkräfte. Diese Berichte können durch den Krieg beeinflusst sein und sind keine unabhängig überprüften Zählungen auf dem Schlachtfeld.
   os-disclaimer-p2-1: Der Datensatz wird öffentlich auf
   os-disclaimer-p2-2: unter Open-Source-Lizenzen verwaltet. Nutzer werden ermutigt, die Informationen unabhängig zu überprüfen und verantwortungsvoll zu nutzen.
   add-resource-header: Zusätzliche Ressourcen
@@ -475,15 +467,13 @@
   tos-label: Умови використання
   ua-min-def: Міністерство оборони України
   ua-general-staff: Генеральний штаб Збройних сил України
-  source-and-label: та
   source-report-label: Джерело звіту
   collection-note: Звіти збираються зі статей Міноборони, архівних копій і дописів Генерального штабу. Історичні прогалини заповнюються перевіреними звітами; виправлення та офіційні уточнення документуються в запитах на злиття.
   methodology-link-label: Методологія збору даних
   methodology-anchor: методологія
   contributors-label: Посібник для внесків (англійською)
   os-open-data: Відкриті дані
-  os-disclaimer-p1-1: "Набір даних використовує офіційні оцінки втрат із таких джерел:"
-  os-disclaimer-p1-2: . Ці звіти можуть бути упередженими в умовах війни й не є незалежно перевіреними підрахунками втрат на полі бою.
+  os-disclaimer-p1: Набір даних містить офіційні оцінки втрат, опубліковані Міністерством оборони України та Генеральним штабом Збройних сил України. Ці звіти можуть бути упередженими в умовах війни й не є незалежно перевіреними підрахунками втрат на полі бою.
   os-disclaimer-p2-1: Набір даних підтримується публічно на
   os-disclaimer-p2-2: за відкритими ліцензіями. Користувачам рекомендується перевіряти інформацію самостійно та використовувати її відповідально.
   add-resource-header: Додаткові ресурси
@@ -580,15 +570,13 @@
   tos-label: Условия использования
   ua-min-def: Министерство обороны Украины
   ua-general-staff: Генеральный штаб Вооружённых сил Украины
-  source-and-label: и
   source-report-label: Источник отчёта
   collection-note: Отчёты собираются из статей Минобороны, архивных копий и публикаций Генерального штаба. Исторические пробелы заполняются проверенными отчётами; исправления и официальные уточнения документируются в запросах на слияние.
   methodology-link-label: Методология сбора данных
   methodology-anchor: методология
   contributors-label: Руководство по внесению изменений (на английском)
   os-open-data: Открытые данные
-  os-disclaimer-p1-1: "Набор данных использует официальные оценки потерь из следующих источников:"
-  os-disclaimer-p1-2: . Эти отчёты могут быть предвзятыми в условиях войны и не являются независимо проверенными подсчётами потерь на поле боя.
+  os-disclaimer-p1: Набор данных содержит официальные оценки потерь, опубликованные Министерством обороны Украины и Генеральным штабом Вооружённых сил Украины. Эти отчёты могут быть предвзятыми в условиях войны и не являются независимо проверенными подсчётами потерь на поле боя.
   os-disclaimer-p2-1: Набор данных поддерживается публично на
   os-disclaimer-p2-2: под лицензиями с открытым исходным кодом. Пользователям рекомендуется самостоятельно проверять информацию и использовать её ответственно.
   add-resource-header: Дополнительные ресурсы
