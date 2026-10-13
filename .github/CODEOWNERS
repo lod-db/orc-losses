@@ -1,1 +1,9 @@
-* @lod-db/orc-losses
+# General project ownership
+* @lod-db/orc-losses-maintainers
+
+# Website ownership overrides the default
+/docs/ @lod-db/orc-losses-website
+/.github/workflows/build-and-deploy.yml @lod-db/orc-losses-website
+
+# Protect the ownership policy itself
+/.github/CODEOWNERS @lod-db/orc-losses-website
