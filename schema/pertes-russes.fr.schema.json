@@ -82,6 +82,13 @@
         ],
         "description": "Véhicules aériens sans pilote (UAV/UAS), généralement des drones à longue portée et à voilure fixe. https://fr.wikipedia.org/wiki/Drone"
       },
+      "ugvs": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Véhicules terrestres sans pilote (UGV), désignés dans les rapports comme systèmes robotiques terrestres. https://fr.wikipedia.org/wiki/V%C3%A9hicule_terrestre_sans_pilote"
+      },
       "ships": {
         "type": [
           "integer",

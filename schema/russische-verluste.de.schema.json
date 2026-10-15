@@ -82,6 +82,13 @@
         ],
         "description": "Unbemannte Luftfahrzeuge (UAVs/UAS), typischerweise Langstreckendrohnen mit starren Flügeln. https://de.wikipedia.org/wiki/Unbemanntes_Luftfahrzeug"
       },
+      "ugvs": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Unbemannte Landfahrzeuge (UGVs), in den Berichten als bodengebundene Robotersysteme aufgeführt. https://de.wikipedia.org/wiki/Unbemanntes_Landfahrzeug"
+      },
       "ships": {
         "type": [
           "integer",

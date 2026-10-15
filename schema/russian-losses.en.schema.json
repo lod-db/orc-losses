@@ -82,6 +82,13 @@
         ],
         "description": "Unmanned aerial vehicles (UAVs/UAS), typically long-range, fixed-wing drones. https://en.wikipedia.org/wiki/Unmanned_aerial_vehicle"
       },
+      "ugvs": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "description": "Unmanned ground vehicles (UGVs), listed in the reports as ground robotic systems. https://en.wikipedia.org/wiki/Unmanned_ground_vehicle"
+      },
       "ships": {
         "type": [
           "integer",
