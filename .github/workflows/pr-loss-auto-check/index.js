@@ -26,6 +26,7 @@ assert("submarines", 50);
 assert("unarmoredVehicles", 750);
 assert("specialEquipment", 250);
 assert("uavs", 2500);
+assert("ugvs", 250);
 assert("missiles", 1000);
 
 console.log("All validations have completed successfully.");
