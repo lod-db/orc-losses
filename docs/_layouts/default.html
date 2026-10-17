@@ -9,16 +9,18 @@
 {% assign start_s = "2022-02-24" | date: "%s" | plus: 0 %}
 {% assign current_s = current.date | date: "%s" | plus: 0 %}
 {% assign day_of_war = current_s | minus: start_s | divided_by: 86400 | plus: 1 %}
-{% assign equipment_total = 0 %}{% assign equipment_prev = 0 %}
+{% assign equipment_total = 0 %}{% assign equipment_today = 0 %}
 {% for cat in site.data.categories %}
   {%- if cat.equipment -%}
     {%- assign v = current[cat.key] | default: 0 -%}
-    {%- assign pv = prev[cat.key] | default: 0 -%}
     {%- assign equipment_total = equipment_total | plus: v -%}
-    {%- assign equipment_prev = equipment_prev | plus: pv -%}
+    {%- comment -%}Only compare reported values; a new category's first total is not a daily loss.{%- endcomment -%}
+    {%- if current[cat.key] != nil and prev[cat.key] != nil -%}
+      {%- assign delta = current[cat.key] | minus: prev[cat.key] -%}
+      {%- assign equipment_today = equipment_today | plus: delta -%}
+    {%- endif -%}
   {%- endif -%}
 {% endfor %}
-{% assign equipment_today = equipment_total | minus: equipment_prev %}
 {% assign p_total = current.personnel %}
 {% assign p_d1 = current.personnel | minus: prev.personnel %}
 {% assign p_d7 = current.personnel | minus: week.personnel %}
@@ -146,7 +148,7 @@
         {% for cat in site.data.categories %}{
           "@type": "PropertyValue",
           "name": "{{ lang[cat.label] }}",
-          "value": {{ current[cat.key] | default: 0 }},
+          "value": {% if current[cat.key] != nil %}{{ current[cat.key] | jsonify }}{% else %}null{% endif %},
           "unitText": "cumulative since 2022-02-24"
         }{% unless forloop.last %},{% endunless %}
         {% endfor %}
@@ -244,14 +246,14 @@
             <h2 class="sec">{{ lang.line-title }}</h2>
             <div class="stat-grid">
                 {% for cat in site.data.categories %}
-                {% assign v = current[cat.key] | default: 0 %}
-                {% assign pv = prev[cat.key] | default: 0 %}
+                {% assign v = current[cat.key] %}
+                {% assign pv = prev[cat.key] %}
                 {% assign d1 = v | minus: pv %}
                 <button class="stat" type="button" data-key="{{ cat.key }}" data-label="{{ lang[cat.label] }}"
                     aria-pressed="{% if cat.key == 'personnel' %}true{% else %}false{% endif %}">
                     <span class="stat-top">{% include icon.html name=cat.icon size=20 %}<span>{{ lang[cat.label] }}</span></span>
-                    <span class="stat-num">{% include fmt-number.html number=v sep=sep %}</span>
-                    <span class="stat-delta">{% if d1 > 0 %}+{% include fmt-number.html number=d1 sep=sep %}{% else %}±0{% endif %} <i>{{ lang.today-label }}</i></span>
+                    <span class="stat-num">{% if v != nil %}{% include fmt-number.html number=v sep=sep %}{% else %}<span aria-label="{{ lang.not-reported-label }}">—</span>{% endif %}</span>
+                    <span class="stat-delta">{% if v == nil or pv == nil %}{{ lang.not-reported-label }}{% else %}{% if d1 > 0 %}+{% include fmt-number.html number=d1 sep=sep %}{% else %}±0{% endif %} <i>{{ lang.today-label }}</i>{% endif %}</span>
                     <span class="spark-box" role="presentation"></span>
                 </button>
                 {% endfor %}
@@ -412,6 +414,7 @@
             i18n: {
                 cumulative: {{ lang.cumulative-label | jsonify }},
                 daily: {{ lang.daily-label | jsonify }},
+                noData: {{ lang.chart-no-data-label | jsonify }},
                 title: {{ lang.title | jsonify }},
                 description: {{ lang.description | jsonify }}
             }
