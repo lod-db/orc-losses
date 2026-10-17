@@ -21,6 +21,13 @@
   icon: afv
   equipment: true
 
+# Keep ground robotic vehicles with tanks and AFVs, before ground fire support.
+- id: ugvs
+  key: ugvs
+  label: ugvs-label
+  icon: ugv
+  equipment: true
+
 - id: artillery
   key: artillery
   label: artillery-label

@@ -315,8 +315,13 @@
     document.getElementById("chart-title").textContent =
       selLabel + " — " + (selMode === "cum" ? I18N.cumulative : I18N.daily);
     var box = document.getElementById("main-chart");
-    if (selMode === "cum") areaChart(box, sliceRange(series(selKey), selRange));
-    else barChart(box, sliceRange(dailySeries(selKey), selRange));
+    var data = sliceRange(selMode === "cum" ? series(selKey) : dailySeries(selKey), selRange);
+    if (!data.length) {
+      box.textContent = I18N.noData;
+      return;
+    }
+    if (selMode === "cum") areaChart(box, data);
+    else barChart(box, data);
   }
 
   function renderSparklines() {
