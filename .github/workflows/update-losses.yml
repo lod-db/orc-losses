@@ -1,0 +1,88 @@
+name: Update Losses
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry-run:
+        description: Validate the feed and preview the PR without publishing
+        type: boolean
+        default: true
+  schedule:
+    - cron: "37 1,4,12,20 * * *"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: update-losses
+  cancel-in-progress: false
+
+jobs:
+  update:
+    if: github.event_name == 'workflow_dispatch' || vars.LOSSES_UPDATES_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+
+      - name: Prepare update
+        id: update
+        env:
+          LOSSES_FEED_URL: ${{ secrets.LOSSES_FEED_URL }}
+        run: node .github/workflows/update-losses/index.js
+
+      - name: Validate values
+        if: steps.update.outputs.changed == 'true'
+        run: node .github/workflows/pr-loss-auto-check/index.js
+
+      - name: Validate all schemas
+        if: steps.update.outputs.changed == 'true'
+        run: |
+          npm install --global ajv-cli@5.0.0
+          for schema in schema/*.schema.json; do
+            ajv validate -s "$schema" -d russian-losses.json --strict=false --spec=draft2020
+          done
+
+      - name: Generate publishing token
+        if: steps.update.outputs.changed == 'true' && github.ref == 'refs/heads/main' && inputs.dry-run != true
+        id: app
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_KEY }}
+          permission-contents: write
+          permission-pull-requests: write
+
+      - name: Create or update pull request
+        if: steps.app.outputs.token != ''
+        id: pr
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ steps.app.outputs.token }}
+          add-paths: russian-losses.json
+          branch: agent/daily-loss-update
+          base: main
+          delete-branch: true
+          author: 'orc-losses-counter <orc-losses-counter@lod-db>'
+          committer: 'orc-losses-counter <orc-losses-counter@lod-db>'
+          commit-message: 'chore(data): update losses through ${{ steps.update.outputs.date }}'
+          title: 'chore(data): update losses through ${{ steps.update.outputs.date }}'
+          body-path: ${{ runner.temp }}/losses-pr.md
+          labels: data update
+
+      - name: Enable auto-merge
+        if: steps.pr.outputs.pull-request-number != '' && vars.LOSSES_AUTO_MERGE == 'true'
+        env:
+          GH_TOKEN: ${{ steps.app.outputs.token }}
+          GH_REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ steps.pr.outputs.pull-request-number }}
+          HEAD_SHA: ${{ steps.pr.outputs.pull-request-head-sha }}
+        run: gh pr merge "$PR_NUMBER" --squash --auto --match-head-commit "$HEAD_SHA"

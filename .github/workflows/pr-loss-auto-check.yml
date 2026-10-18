@@ -3,6 +3,9 @@ name: Losses Pull Request Review
 on:
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   verify-json:
     runs-on: ubuntu-latest
@@ -36,3 +39,34 @@ jobs:
 
     - name: Run Schema Validation (ru)
       run: ajv validate -s schema/потери-россии.ru.schema.json -d russian-losses.json --strict=false --spec=draft2020
+
+  approve-bot-update:
+    needs: verify-json
+    if: >-
+      github.actor == 'orc-losses-counter[bot]' &&
+      github.event.pull_request.user.login == 'orc-losses-counter[bot]' &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      github.event.pull_request.head.ref == 'agent/daily-loss-update' &&
+      github.event.pull_request.base.ref == 'main' &&
+      github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Checkout trusted approval code
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+
+      - name: Approve validated dataset update
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node .github/workflows/pr-loss-auto-check/approve-bot-update.js
