@@ -1,4 +1,7 @@
 # Loss categories in display order.
+# Keep this editorial order stable: human cost, aerial threats, ground firepower
+# and armor, air defense and aviation, naval assets, then vehicles and support.
+# Do not automatically sort by daily losses, cumulative totals, or estimated cost.
 #   key:       property name in russian-losses.json
 #   label:     translation key in translations.yml
 #   icon:      icon name in _includes/icon.html
@@ -9,23 +12,16 @@
   icon: helmet
   equipment: false
 
-- id: tanks
-  key: tanks
-  label: tanks-label
-  icon: tank
+- id: uavs
+  key: uavs
+  label: uavs-label
+  icon: uav
   equipment: true
 
-- id: afvs
-  key: afvs
-  label: afvs-label
-  icon: afv
-  equipment: true
-
-# Keep ground robotic vehicles with tanks and AFVs, before ground fire support.
-- id: ugvs
-  key: ugvs
-  label: ugvs-label
-  icon: ugv
+- id: missiles
+  key: missiles
+  label: missiles-label
+  icon: missile
   equipment: true
 
 - id: artillery
@@ -38,6 +34,18 @@
   key: rocketSystems
   label: mlrs-label
   icon: mlrs
+  equipment: true
+
+- id: tanks
+  key: tanks
+  label: tanks-label
+  icon: tank
+  equipment: true
+
+- id: afvs
+  key: afvs
+  label: afvs-label
+  icon: afv
   equipment: true
 
 - id: aa
@@ -58,18 +66,6 @@
   icon: helicopter
   equipment: true
 
-- id: uavs
-  key: uavs
-  label: uavs-label
-  icon: uav
-  equipment: true
-
-- id: missiles
-  key: missiles
-  label: missiles-label
-  icon: missile
-  equipment: true
-
 - id: ships
   key: ships
   label: ships-label
@@ -86,6 +82,12 @@
   key: unarmoredVehicles
   label: vehicles-label
   icon: truck
+  equipment: true
+
+- id: ugvs
+  key: ugvs
+  label: ugvs-label
+  icon: ugv
   equipment: true
 
 - id: special
