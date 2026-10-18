@@ -14,6 +14,23 @@ Use English for all contribution communication: issue titles and descriptions, P
 | Field definitions | `schema/` (English, French, German, Ukrainian, Russian) |
 | Website and translations | `docs/_layouts/default.html`, `docs/_data/translations.yml`, `docs/css/app.css`, `docs/js/app.js` |
 
+## Issue and pull request labels
+
+Apply the appropriate existing labels to every issue and pull request, including draft PRs and automated data update PRs. Keep labels aligned with the item's scope as work changes.
+
+| Label | Use |
+| --- | --- |
+| `data update` | Dataset data changes or issues requesting those changes, including automatic and manual updates, corrections, and historical backfills. |
+| `website` | Issues or changes affecting the public webpage, including its layout, behavior, and translations. |
+| `enhancement` | New features or feature requests outside dataset data updates. |
+| `bug` | Significant software bugs or fixes outside dataset data corrections. |
+| `documentation` | Repository level documentation, such as `README.md`, `METHODOLOGY.md`, `CONTRIBUTORS.md`, and `AGENTS.md`. |
+| `duplicate` | Any issue or pull request that duplicates an existing issue or pull request. Link to the original item. |
+
+Never apply `enhancement` and `bug` to the same issue or pull request. Dataset data fixes use `data update`; do not add `bug` or `enhancement` for those fixes. Reserve `website` for public webpage work and `documentation` for repository documentation; the `docs/` directory contains the public website, so its name alone does not justify `documentation`.
+
+Combine labels when their scopes apply. For example, a new public webpage feature uses `website` and `enhancement`, a significant public webpage bug fix uses `website` and `bug`, a dataset correction uses `data update`, and a contribution guide change uses `documentation`. Apply `duplicate` whenever an issue or PR is a duplicate, regardless of its other labels.
+
 ## Reporting a data issue
 
 Open an [issue](https://github.com/lod-db/orc-losses/issues) or a focused pull request. Include the report date, category, current value, proposed value, and a direct official report link. Prefer the [MoD article](https://mod.gov.ua), including an archive capture if needed, then the General Staff's [Telegram report](https://t.me/GeneralStaffZSU), then its [Facebook post](https://www.facebook.com/GeneralStaff.ua) for that date. Explain disagreements between sources and any official correction or revision. Secondary datasets help locate discrepancies, but the final change needs official evidence.
