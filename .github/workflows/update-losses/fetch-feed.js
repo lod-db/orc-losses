@@ -1,11 +1,17 @@
-async function request(url, options, label) {
+async function fetchFeed() {
+  const feedUrl = process.env.LOSSES_FEED_URL;
+  if (!feedUrl) {
+    throw new Error('The LOSSES_FEED_URL secret is required.');
+  }
+
   try {
-    if (new URL(url).protocol !== 'https:') {
+    if (new URL(feedUrl).protocol !== 'https:') {
       throw new Error();
     }
 
-    const response = await fetch(url, {
-      ...options,
+    const response = await fetch(feedUrl, {
+      method: 'POST',
+      headers: { Accept: 'application/json' },
       redirect: 'error',
       signal: AbortSignal.timeout(180_000),
     });
@@ -14,28 +20,11 @@ async function request(url, options, label) {
       throw new Error();
     }
 
-    return options.method === 'POST' ? await response.text() : await response.json();
+    return await response.json();
   } catch {
     // Network exceptions and response bodies can contain the private endpoint.
-    throw new Error(`${label} failed. Check the secret, service availability, and response format.`);
+    throw new Error('Scrape and feed request failed. Check the secret, service availability, and response format.');
   }
-}
-
-async function fetchFeed() {
-  const feedUrl = process.env.LOSSES_FEED_URL;
-  if (!feedUrl) {
-    throw new Error('The LOSSES_FEED_URL secret is required.');
-  }
-
-  if (process.env.LOSSES_SCRAPE_URL) {
-    await request(process.env.LOSSES_SCRAPE_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ scraper: 'mod' }),
-    }, 'Scraper refresh');
-  }
-
-  return request(feedUrl, { method: 'GET' }, 'Feed download');
 }
 
 module.exports = { fetchFeed };

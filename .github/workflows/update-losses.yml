@@ -37,7 +37,6 @@ jobs:
         id: update
         env:
           LOSSES_FEED_URL: ${{ secrets.LOSSES_FEED_URL }}
-          LOSSES_SCRAPE_URL: ${{ secrets.LOSSES_SCRAPE_URL }}
         run: node .github/workflows/update-losses/index.js
 
       - name: Validate values

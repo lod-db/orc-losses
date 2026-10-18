@@ -50,20 +50,19 @@ Get-ChildItem schema/*.schema.json | ForEach-Object {
 
 ## Automated dataset updates
 
-The `Update Losses` workflow keeps its implementation in `.github/workflows/update-losses/`. It reads the hosted scraper feed, appends new dates, and creates or updates one PR on `agent/daily-loss-update` using the `orc-losses-counter` GitHub App. Existing report records are preserved; corrections and historical backfills remain separate contributions.
+The `Update Losses` workflow keeps its implementation in `.github/workflows/update-losses/`. It refreshes the hosted MoD scraper and receives its JSON feed in a single POST request, appends new dates, and creates or updates one PR on `agent/daily-loss-update` using the `orc-losses-counter` GitHub App. Existing report records are preserved; corrections and historical backfills remain separate contributions.
 
 Configure these Actions secrets in this repository:
 
 | Secret | Purpose |
 | --- | --- |
-| `LOSSES_FEED_URL` | Full HTTPS URL of the JSON feed, including any required query parameters. Required. |
-| `LOSSES_SCRAPE_URL` | Optional full HTTPS refresh URL. When set, the workflow first sends `POST` with `{"scraper":"mod"}`, matching the hosted scraper's refresh contract. Omit when the feed refreshes independently. |
+| `LOSSES_FEED_URL` | Full HTTPS URL of the combined `POST /api/scrape/mod` endpoint. Required. The request has no body or scraper selector and returns the refreshed JSON feed. |
 | `APP_ID` | ID of the existing publishing GitHub App installed on this repository. |
 | `APP_KEY` | Publishing App private key. The installation needs Contents and Pull requests write permissions. |
 
 Endpoint URLs are read from secrets and are not included in logs, generated PR descriptions, or artifacts. Feed request errors omit the URL and response body. The PR links only to official report sources. URLs containing credentials should never be committed to this repository.
 
-For rollout, merge the workflow and run it manually with **dry-run enabled** (the default). Review the Actions job summary and schema/value validation. A dry run can refresh the hosted scraper when `LOSSES_SCRAPE_URL` is set, but it does not create a branch or PR. Publishing is allowed only from `main`; manual runs on other branches are preview-only.
+For rollout, deploy [scraper PR #39](https://github.com/lod-db/orc-losses-scraper/pull/39) first and set `LOSSES_FEED_URL` to its combined endpoint. Merge the workflow and run it manually with **dry-run enabled** (the default). Review the Actions job summary and schema/value validation. A dry run refreshes the hosted scraper and reads its feed, but it does not create a branch or PR. Publishing is allowed only from `main`; manual runs on other branches are preview-only.
 
 Disable the old repository's publishing schedule before enabling this repository's schedule. Set the Actions variable `LOSSES_UPDATES_ENABLED` to `true` to enable the four daily runs at 01:37, 04:37, 12:37, and 20:37 UTC. Manual runs remain available while the schedule is disabled. Uncheck dry-run to publish a manual update from `main`.
 
