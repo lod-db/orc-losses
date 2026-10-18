@@ -48,32 +48,6 @@ Get-ChildItem schema/*.schema.json | ForEach-Object {
 }
 ```
 
-## Automated dataset updates
-
-The `Update Losses` workflow keeps its implementation in `.github/workflows/update-losses/`. It refreshes the hosted MoD scraper and receives its JSON feed in a single POST request, appends new dates, and creates or updates one PR on `agent/daily-loss-update` using the `orc-losses-counter` GitHub App. Existing report records are preserved; corrections and historical backfills remain separate contributions.
-
-Configure these Actions secrets in this repository:
-
-| Secret | Purpose |
-| --- | --- |
-| `LOSSES_FEED_URL` | Full HTTPS URL of the combined `POST /api/scrape/mod` endpoint. Required. The request has no body or scraper selector and returns the refreshed JSON feed. |
-| `APP_ID` | ID of the existing publishing GitHub App installed on this repository. |
-| `APP_KEY` | Publishing App private key. The installation needs Contents and Pull requests write permissions. |
-
-Endpoint URLs are read from secrets and are not included in logs, generated PR descriptions, or artifacts. Feed request errors omit the URL and response body. The PR links only to official report sources. URLs containing credentials should never be committed to this repository.
-
-For rollout, deploy [scraper PR #39](https://github.com/lod-db/orc-losses-scraper/pull/39) first and set `LOSSES_FEED_URL` to its combined endpoint. Merge the workflow and run it manually with **dry-run enabled** (the default). Review the Actions job summary and schema/value validation. A dry run refreshes the hosted scraper and reads its feed, but it does not create a branch or PR. Publishing is allowed only from `main`; manual runs on other branches are preview-only.
-
-Disable the old repository's publishing schedule before enabling this repository's schedule. Set the Actions variable `LOSSES_UPDATES_ENABLED` to `true` to enable the four daily runs at 01:37, 04:37, 12:37, and 20:37 UTC. Manual runs remain available while the schedule is disabled. Uncheck dry-run to publish a manual update from `main`.
-
-The updater rejects empty or malformed feeds, duplicate dates, future new reports, and gaps between new daily reports. It checks each added report's category changes and validates the resulting dataset against all five schemas before publishing. Null category values remain null. If validation fails, investigate the source report rather than relaxing bounds automatically.
-
-After schema and value validation pass, the `Losses Pull Request Review` workflow uses `github-actions[bot]` to approve eligible updates authored and triggered by `orc-losses-counter[bot]`. Approval is restricted to the same repository's `agent/daily-loss-update` branch targeting `main`, with only `russian-losses.json` modified. The approval job runs code from the trusted base commit, checks that existing records are unchanged, and approves the exact validated head commit. Other PRs continue to require normal review.
-
-Enable **Settings → Actions → General → Workflow permissions → Allow GitHub Actions to create and approve pull requests**. No reviewer secret or personal token is needed. Organization policy must permit this setting. Keep the validation job required by branch protection, and enable dismissal of stale approvals when new commits are pushed. If branch protection requires review from a code-owner team, the Actions approval does not replace that team's approval.
-
-Auto-merge is disabled by default. Set the Actions variable `LOSSES_AUTO_MERGE` to `true` to request squash auto-merge on the bot PR. GitHub auto-merge must also be enabled in the repository settings. Required checks, approvals, and code-owner rules still apply. Do not manually edit the bot's update branch: subsequent runs regenerate it from `main` and the feed.
-
 ## Website, translations, and documentation
 
 Update shared templates and all six website locales when changing public source wording. The two English locales share a schema; the website also supports French, German, Ukrainian, and Russian. Keep links and source labels accurate for MoD articles, archive captures, and General Staff posts.
