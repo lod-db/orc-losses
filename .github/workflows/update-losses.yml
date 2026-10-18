@@ -76,6 +76,7 @@ jobs:
           commit-message: 'chore(data): update losses through ${{ steps.update.outputs.date }}'
           title: 'chore(data): update losses through ${{ steps.update.outputs.date }}'
           body-path: ${{ runner.temp }}/losses-pr.md
+          labels: data update
 
       - name: Enable auto-merge
         if: steps.pr.outputs.pull-request-number != '' && vars.LOSSES_AUTO_MERGE == 'true'
