@@ -56,7 +56,7 @@ jobs:
         id: app
         uses: actions/create-github-app-token@v3
         with:
-          client-id: ${{ vars.LOSS_COUNTER_APP_CLIENT_ID }}
+          client-id: ${{ secrets.LOSS_COUNTER_APP_CLIENT_ID }}
           private-key: ${{ secrets.LOSS_COUNTER_APP_PRIVATE_KEY }}
           permission-contents: write
           permission-pull-requests: write
