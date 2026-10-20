@@ -43,8 +43,8 @@ jobs:
   approve-bot-update:
     needs: verify-json
     if: >-
-      github.actor == 'orc-losses-counter[bot]' &&
-      github.event.pull_request.user.login == 'orc-losses-counter[bot]' &&
+      github.actor == 'orc-loss-counter[bot]' &&
+      github.event.pull_request.user.login == 'orc-loss-counter[bot]' &&
       github.event.pull_request.head.repo.full_name == github.repository &&
       github.event.pull_request.head.ref == 'agent/daily-loss-update' &&
       github.event.pull_request.base.ref == 'main' &&

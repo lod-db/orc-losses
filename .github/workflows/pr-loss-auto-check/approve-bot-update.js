@@ -5,7 +5,7 @@ const { mergeRecords } = require('../update-losses/merge-records');
 const repository = process.env.GITHUB_REPOSITORY;
 const event = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8'));
 const expected = event.pull_request;
-const publishingBot = 'orc-losses-counter[bot]';
+const publishingBot = 'orc-loss-counter[bot]';
 
 async function api(resource, options = {}) {
   const response = await fetch(`${process.env.GITHUB_API_URL}/repos/${repository}/${resource}`, {
