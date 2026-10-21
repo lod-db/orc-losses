@@ -40,7 +40,7 @@ jobs:
     - name: Run Schema Validation (ru)
       run: ajv validate -s schema/потери-россии.ru.schema.json -d russian-losses.json --strict=false --spec=draft2020
 
-  approve-bot-update:
+  request-update-approval:
     needs: verify-json
     if: >-
       github.actor == 'orc-loss-counter[bot]' &&
@@ -53,20 +53,26 @@ jobs:
     timeout-minutes: 5
     permissions:
       contents: read
-      pull-requests: write
     steps:
-      - name: Checkout trusted approval code
-        uses: actions/checkout@v6
+      - name: Generate approval dispatch token
+        id: dispatch
+        uses: actions/create-github-app-token@v3
         with:
-          ref: ${{ github.event.pull_request.base.sha }}
-          persist-credentials: false
+          client-id: ${{ secrets.LOSS_COUNTER_APP_CLIENT_ID }}
+          private-key: ${{ secrets.LOSS_COUNTER_APP_PRIVATE_KEY }}
+          owner: lod-db
+          repositories: orc-losses-scraper
+          permission-actions: write
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: '24'
-
-      - name: Approve validated dataset update
+      - name: Request private account approval
         env:
-          GH_TOKEN: ${{ github.token }}
-        run: node .github/workflows/pr-loss-auto-check/approve-bot-update.js
+          GH_TOKEN: ${{ steps.dispatch.outputs.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          VALIDATION_RUN_ID: ${{ github.run_id }}
+        run: |
+          gh api --method POST repos/lod-db/orc-losses-scraper/actions/workflows/approve-loss-update.yml/dispatches \
+            -f ref=main \
+            -f "inputs[pr-number]=$PR_NUMBER" \
+            -f "inputs[head-sha]=$HEAD_SHA" \
+            -f "inputs[validation-run-id]=$VALIDATION_RUN_ID"
