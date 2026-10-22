@@ -65,12 +65,6 @@ Get-ChildItem schema/*.schema.json | ForEach-Object {
 }
 ```
 
-## Automated update approval
-
-The public update workflow creates PRs as `orc-loss-counter[bot]` and enables auto-merge. After `verify-json` passes, `request-update-approval` dispatches the private `lod-db/orc-losses-scraper` workflow `approve-loss-update.yml` on `main`, passing the PR number, exact head SHA, and validation run ID. That workflow verifies the update independently and supplies account approval; CODEOWNERS and required checks still control merging.
-
-The public repository uses its existing `LOSS_COUNTER_APP_CLIENT_ID` and `LOSS_COUNTER_APP_PRIVATE_KEY` secrets to mint a dispatch token with Actions: write restricted to the scraper repository. The App must be installed there with that permission approved. The approving account's `ACCESS_TOKEN` stays only in the private repository. Merge and configure the private approval workflow before deploying this dispatch change. For an existing update PR, manually dispatch the private workflow with its current commit and successful validation run; rerunning an old public run does not load a new workflow definition. See the private repository's [approval setup](https://github.com/lod-db/orc-losses-scraper/blob/main/.github/workflows/approve-loss-update/README.md) for account-token permissions and rollout checks.
-
 ## Website, translations, and documentation
 
 Update shared templates and all six website locales when changing public source wording. The two English locales share a schema; the website also supports French, German, Ukrainian, and Russian. Keep links and source labels accurate for MoD articles, archive captures, and General Staff posts.
