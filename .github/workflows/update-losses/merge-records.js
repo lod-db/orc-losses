@@ -5,7 +5,7 @@ const categories = [
   { key: 'artillery', label: 'Artillery systems', limit: 1000 },
   { key: 'airDefense', label: 'Air defense systems', limit: 250 },
   { key: 'rocketSystems', label: 'Multiple launch rocket systems', limit: 250 },
-  { key: 'unarmoredVehicles', label: 'Vehicles and fuel tanks', limit: 750 },
+  { key: 'unarmoredVehicles', label: 'Vehicles and fuel tanks', limit: 1000 },
   { key: 'fixedWingAircraft', label: 'Aircraft', limit: 250 },
   { key: 'rotaryWingAircraft', label: 'Helicopters', limit: 250 },
   { key: 'uavs', label: 'Unmanned aerial vehicles', limit: 2500 },
