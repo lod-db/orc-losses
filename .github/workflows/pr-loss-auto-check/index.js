@@ -23,7 +23,7 @@ assert("rocketSystems", 250);
 assert("airDefense", 250);
 assert("ships", 50);
 assert("submarines", 50);
-assert("unarmoredVehicles", 750);
+assert("unarmoredVehicles", 1000);
 assert("specialEquipment", 250);
 assert("uavs", 2500);
 assert("ugvs", 250);
